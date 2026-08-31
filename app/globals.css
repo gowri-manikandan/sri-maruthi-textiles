@@ -1,0 +1,294 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   DESIGN SYSTEM — single source of truth (DESIGN_BRIEF.md §3, Revision 2)
+
+   Every color, font, type size and spacing value used anywhere in this app is
+   declared here. Components reference these tokens through Tailwind utilities
+   (bg-surface, text-accent, p-3 ...) — never inline hex, never arbitrary px.
+
+   Revision 2 changed the accent from terracotta to indigo and the display face
+   from DM Serif Display to Fraunces. The reasoning is in DESIGN_BRIEF.md §0.3;
+   the short version is that the product photography is entirely warm, so a warm
+   accent dissolves into it, and DM Serif has one optical size so it only looks
+   enlarged at display scale.
+   ========================================================================== */
+
+@theme {
+  /* --- §3.1 Color -------------------------------------------------------
+     Ground 60% · Structure 30% · Accent 10%.
+
+     Accent budget — indigo is permitted ONLY on: primary buttons, the action
+     band ground (accent-soft), eyebrow labels, link underlines, active nav
+     state, the foil CTA panel, and icon chips. Nothing else.
+
+     No gradients, no shadows, no colors outside this list. Hover states are
+     derived with color-mix() from these tokens so no new value ever enters
+     the palette.                                                          */
+
+  /* Ground */
+  --color-bg: #fbf9f6; /* warm off-white; default page ground   */
+  --color-surface: #f1ebe2; /* soft beige; alternating bands, cards  */
+
+  /* Structure */
+  --color-ink: #1c1a1e; /* near-black; body text, headlines      */
+  --color-ink-deep: #131218; /* footer, hero overlay, foil panels     */
+  --color-muted: #6b615a; /* warm grey; secondary text             */
+  --color-border: #e4dcd0; /* hairlines; the ONLY divider treatment */
+
+  /* Accent */
+  --color-accent: #2a3b8f; /* deep indigo                           */
+  --color-accent-soft: #e7eaf7; /* pale indigo; action band ground only  */
+
+  /* Status */
+  --color-success: #3e7a4a;
+  --color-error: #b3392c;
+
+  /* --- §3.2 Typography --------------------------------------------------
+     Display: Fraunces (variable, opsz axis) · Body/UI: Inter.
+     Both injected as CSS variables by next/font in app/layout.tsx.
+
+     Fraunces' WONK and SOFT axes are deliberately NOT requested from
+     next/font, which pins them at their defaults of 0 — the brief's
+     "WONK: 0, SOFT: 0". The character comes from the optical-size axis
+     alone. This is a mill, not a bakery.                                  */
+  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  /* Fluid scale: every clamp interpolates mobile→desktop across 375→1280px,
+     matching the §3.2 table exactly.                                      */
+
+  /* Hero display — 44 → 96px. One of only two oversized moments (§3.6 #2). */
+  --text-display: clamp(2.75rem, 1.403rem + 5.746vw, 6rem);
+  --text-display--line-height: 0.98;
+  --text-display--letter-spacing: -0.02em;
+  --text-display--font-weight: 400;
+
+  /* Section head — 30 → 44px */
+  --text-h2: clamp(1.875rem, 1.512rem + 1.547vw, 2.75rem);
+  --text-h2--line-height: 1.1;
+  --text-h2--letter-spacing: -0.015em;
+  --text-h2--font-weight: 400;
+
+  /* Sub-head — 22 → 28px */
+  --text-h3: clamp(1.375rem, 1.22rem + 0.663vw, 1.75rem);
+  --text-h3--line-height: 1.2;
+  --text-h3--letter-spacing: -0.01em;
+  --text-h3--font-weight: 500;
+
+  /* Ghost numeral — 64 → 140px. The second oversized moment (§4.9). */
+  --text-numeral: clamp(4rem, 2.032rem + 8.398vw, 8.75rem);
+  --text-numeral--line-height: 1;
+  --text-numeral--letter-spacing: -0.03em;
+  --text-numeral--font-weight: 400;
+
+  /* Eyebrow — 12 → 13px. See the .eyebrow utility below. */
+  --text-eyebrow: clamp(0.75rem, 0.724rem + 0.11vw, 0.8125rem);
+  --text-eyebrow--line-height: 1.2;
+  --text-eyebrow--letter-spacing: 0.12em;
+  --text-eyebrow--font-weight: 600;
+
+  /* Body — 16 → 18px */
+  --text-body: clamp(1rem, 0.948rem + 0.221vw, 1.125rem);
+  --text-body--line-height: 1.6;
+
+  --text-small: 0.875rem; /* 14px */
+  --text-small--line-height: 1.5;
+
+  --text-button: 1rem; /* 16px */
+  --text-button--line-height: 1;
+  --text-button--letter-spacing: 0.01em;
+  --text-button--font-weight: 600;
+
+  /* --- §3.3 Spacing -----------------------------------------------------
+     8px base. Tailwind's numeric scale IS the brief's scale:
+       p-1=8  p-2=16  p-3=24  p-4=32  p-6=48  p-8=64  p-12=96  p-16=128
+     Do not use other steps (p-5, p-7, p-9 ...) or arbitrary values.       */
+  --spacing: 8px;
+
+  /* --- §3.4 Layout ------------------------------------------------------ */
+  --container-content: 1200px;
+}
+
+/* --- Base -------------------------------------------------------------- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+
+    /* Fraunces carries an optical-size axis, so the browser scales opsz from
+       the computed font-size automatically: sharp and high-contrast at 96px,
+       sturdy and open at 22px, with no per-element wiring. Inter has no opsz
+       axis, so this is a no-op there. This is what §3.2's "opsz max" asks
+       for — do not hand-set font-variation-settings anywhere. */
+    font-optical-sizing: auto;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+  }
+
+  /* §7 — never strip focus without replacing it. */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* Focus over photography (hero, foil panel) needs a light ring instead. */
+  .on-dark :focus-visible {
+    outline-color: var(--color-bg);
+  }
+}
+
+/* --- Layout utilities (§3.4) ------------------------------------------- */
+
+/* 1200px max width, centered; 24px side padding mobile / 64px desktop.
+   Full-bleed sections (hero, action band, foil panel, footer) stay
+   full-width themselves and wrap their contents in this instead. */
+@utility container-page {
+  width: 100%;
+  max-width: var(--container-content);
+  margin-inline: auto;
+  padding-inline: --spacing(3);
+
+  @media (width >= 64rem) {
+    padding-inline: --spacing(8);
+  }
+}
+
+/* Major section rhythm: 48px mobile / 96px desktop. */
+@utility section-y {
+  padding-block: --spacing(6);
+
+  @media (width >= 64rem) {
+    padding-block: --spacing(12);
+  }
+}
+
+/* Anchor targets must clear the sticky navbar (64px) plus breathing room. */
+@layer base {
+  section[id],
+  [id="top"] {
+    scroll-margin-top: --spacing(10);
+  }
+}
+
+/* --- Type utilities ----------------------------------------------------- */
+
+/* §3.2 — the eyebrow is a system component, not decoration. Every major
+   section opens with one. Tracked-out uppercase Inter in indigo; this is
+   what keeps an editorial page scanning like a business page. */
+@utility eyebrow {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: var(--text-eyebrow);
+  font-weight: var(--text-eyebrow--font-weight);
+  line-height: var(--text-eyebrow--line-height);
+  letter-spacing: var(--text-eyebrow--letter-spacing);
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+/* Over photography or the foil panel the eyebrow can't be indigo. */
+@utility eyebrow-light {
+  color: color-mix(in oklab, var(--color-bg) 88%, transparent);
+}
+
+/* §4.9 — the numerals band. Scale does the work, not contrast, so the
+   color is a computed tint of ink rather than a token of its own. */
+@utility numeral-ghost {
+  font-family: var(--font-display);
+  font-size: var(--text-numeral);
+  font-weight: var(--text-numeral--font-weight);
+  line-height: var(--text-numeral--line-height);
+  letter-spacing: var(--text-numeral--letter-spacing);
+  color: color-mix(in oklab, var(--color-ink) 14%, var(--color-bg));
+}
+
+/* --- Buttons (§4 CTAs) --------------------------------------------------
+   48px min height = comfortably tappable for the 30–50 B2B audience on
+   phones (§7). Height comes from min-height alone so the 1px border cannot
+   push the control off the 8px scale. Hover states are color-mix derived,
+   so no new color enters the palette.                                     */
+@utility btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: --spacing(1);
+  min-height: --spacing(6);
+  padding-inline: --spacing(3);
+  padding-block: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-size: var(--text-button);
+  font-weight: var(--text-button--font-weight);
+  line-height: var(--text-button--line-height);
+  letter-spacing: var(--text-button--letter-spacing);
+  text-align: center;
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+  }
+}
+
+/* The 10% accent. 9.42:1 against --color-bg — AAA. */
+@utility btn-primary {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+
+  &:hover {
+    background-color: color-mix(in oklab, var(--color-accent) 88%, var(--color-ink));
+  }
+}
+
+/* Border uses --color-muted (5.74:1 on bg) so the control boundary clears
+   the WCAG 3:1 non-text minimum. --color-border would NOT (1.29:1) — it is
+   for decorative hairlines only, never for control or input boundaries. */
+@utility btn-secondary {
+  background-color: transparent;
+  border-color: var(--color-muted);
+  color: var(--color-ink);
+
+  &:hover {
+    background-color: var(--color-surface);
+  }
+}
+
+/* §4.2 / §4.10 — the secondary CTA over the hero photograph and inside the
+   indigo foil panel. Fills on hover so it stays legible whatever photo sits
+   behind it. */
+@utility btn-outline-light {
+  background-color: transparent;
+  border-color: color-mix(in oklab, var(--color-bg) 70%, transparent);
+  color: var(--color-bg);
+
+  &:hover {
+    background-color: var(--color-bg);
+    border-color: var(--color-bg);
+    color: var(--color-ink);
+  }
+}
