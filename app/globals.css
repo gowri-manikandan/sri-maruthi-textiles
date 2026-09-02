@@ -223,6 +223,57 @@
   color: color-mix(in oklab, var(--color-ink) 14%, var(--color-bg));
 }
 
+/* --- Icon chip (§4.4) ---------------------------------------------------
+   The 48px circle behind a differentiator card's lucide icon.
+
+   §3.1 reserves --color-accent-soft for the action band ground, so the tint
+   here is computed from --color-accent instead of reusing that token. Same
+   family, different job, and no new value enters the palette.             */
+@utility icon-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  inline-size: --spacing(6);
+  block-size: --spacing(6);
+  border-radius: 9999px;
+  background-color: color-mix(in oklab, var(--color-accent) 10%, var(--color-bg));
+  color: var(--color-accent);
+}
+
+/* --- Hero scrim (§4.2) --------------------------------------------------
+   Three stacked gradients, all struck from --color-ink-deep, producing an
+   overlay weighted to the bottom-left where the headline sits.
+
+   Sized so the type clears AA against ANY photograph, including a blown-out
+   white one. Combined alpha in the headline corner is 1-(1-0.78)(1-0.38) =
+   0.86, which composites pure white down to about rgb(51,50,53) — 12.4:1
+   against --color-bg text. Verify again once the real photo lands (§7), but
+   there is a lot of headroom here.
+
+   The third gradient is a light top scrim: the navbar is transparent over
+   this section and needs its own separate guarantee.                      */
+@utility hero-scrim {
+  background-image:
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--color-ink-deep) 50%, transparent) 0%,
+      color-mix(in srgb, var(--color-ink-deep) 0%, transparent) 20%
+    ),
+    linear-gradient(
+      to right,
+      color-mix(in srgb, var(--color-ink-deep) 38%, transparent) 0%,
+      color-mix(in srgb, var(--color-ink-deep) 14%, transparent) 45%,
+      color-mix(in srgb, var(--color-ink-deep) 0%, transparent) 70%
+    ),
+    linear-gradient(
+      to top,
+      color-mix(in srgb, var(--color-ink-deep) 78%, transparent) 0%,
+      color-mix(in srgb, var(--color-ink-deep) 58%, transparent) 32%,
+      color-mix(in srgb, var(--color-ink-deep) 0%, transparent) 72%
+    );
+}
+
 /* --- Buttons (§4 CTAs) --------------------------------------------------
    48px min height = comfortably tappable for the 30–50 B2B audience on
    phones (§7). Height comes from min-height alone so the 1px border cannot
@@ -275,6 +326,18 @@
 
   &:hover {
     background-color: var(--color-surface);
+  }
+}
+
+/* §4.2 — the PRIMARY CTA over the hero photograph. Indigo-on-dark is only
+   1.68:1, so the brand button inverts over imagery: light fill, indigo label
+   (9.42:1). Still unmistakably the accent, just carried by the text. */
+@utility btn-on-dark {
+  background-color: var(--color-bg);
+  color: var(--color-accent);
+
+  &:hover {
+    background-color: color-mix(in oklab, var(--color-bg) 88%, var(--color-accent));
   }
 }
 

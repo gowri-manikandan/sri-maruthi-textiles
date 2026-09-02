@@ -19,8 +19,35 @@
 | Phase | State |
 |---|---|
 | 0R — Re-token | **Shipped.** Rev 2 palette, Fraunces, full type scale, eyebrow / numeral-ghost / btn-outline-light utilities. Verified in the browser. |
-| 1R — Navbar + hero | Next. The Rev 1 markup still stands and renders on the new tokens, but it is not the Rev 2 composition. |
-| 2 onward | Not started |
+| 1R — Navbar + hero | **Shipped.** Full-bleed hero with `hero-scrim`, fixed transparent→solid navbar, `btn-on-dark`. Verified at 1440×900 and 375×812. |
+| 2 — Action band | **Shipped.** Full-bleed `accent-soft` strip flush under the hero, text-only contact links, sample-kit CTA. Verified at 1440×900 and 375×812. |
+| 3 — What Makes Us Different | **Shipped.** Three flat hairline cards, `icon-chip` utility, single column on mobile. Verified at 1440×900 and 375×812. |
+| 4 onward | Not started |
+
+### 0.1.1 Outstanding — needs a human with a real browser
+
+**The navbar's scroll-triggered transparent→solid flip has never been observed
+working.** This is a tooling limit, not a known defect, and it cannot be cleared
+from inside this project's agent session:
+
+- The agent's browser pane runs the page with `document.visibilityState ===
+  "hidden"`, which means zero animation frames. In that state Chrome delivers no
+  `requestAnimationFrame`, no `scroll` events, and **no IntersectionObserver
+  callbacks at all** — confirmed by observing that even a freshly-constructed
+  observer never receives its initial entry.
+- So no implementation of this feature is testable there. Switching from
+  IntersectionObserver to a scroll listener would gain nothing; scroll events are
+  equally undelivered.
+- The `claude-in-chrome` extension, which would drive a real visible browser, is
+  not connected in this environment.
+
+Everything downstream of the state change *is* verified: forcing `solid` via the
+mobile-menu-open path and via the no-hero fallback both render the correct
+classes and colors. The single unverified link is the observer callback firing.
+
+**To clear this:** open the site, scroll past the hero, confirm the navbar turns
+cream with a hairline and the Enquire button turns indigo. Then delete this
+section.
 
 ### 0.2 Visual references and what was taken from each
 
