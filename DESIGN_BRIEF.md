@@ -22,7 +22,29 @@
 | 1R — Navbar + hero | **Shipped.** Full-bleed hero with `hero-scrim`, fixed transparent→solid navbar, `btn-on-dark`. Verified at 1440×900 and 375×812. |
 | 2 — Action band | **Shipped.** Full-bleed `accent-soft` strip flush under the hero, text-only contact links, sample-kit CTA. Verified at 1440×900 and 375×812. |
 | 3 — What Makes Us Different | **Shipped.** Three flat hairline cards, `icon-chip` utility, single column on mobile. Verified at 1440×900 and 375×812. |
-| 4 onward | Not started |
+| 4 — The Mill Story | **Shipped.** Copy on cols 1–5, overlapping 3:4 + 4:3 collage on cols 7–12, on the `surface` ground. Overlap measured at 122×146px; fully disabled below `lg`. Verified at 1440×900 and 375×812. |
+| 5 — How It Works | **Shipped.** Four steps, hairline connector through the chip centres on desktop, stacked and connector-free on mobile. Verified at 1440×900 and 375×812. |
+| 6 — Product Range | **Shipped.** Borderless 4:5 product grid (3/2/1-up) plus a scrollable 1:1 category strip, head and catalogue link baseline-aligned. Verified at 1440×900 and 375×812. **All product names and spec lines are placeholders — see §0.1.2.** |
+| 7 onward | Not started |
+
+### 0.1.2 The site does not yet say anything true about this company
+
+Six sections are built and the page now *structurally* covers the company and
+the products. But almost every factual statement in it is placeholder text
+carried over from this brief's own suggestions, not from Sri Maruthi:
+
+| Where | What is still invented or blank |
+|---|---|
+| Hero eyebrow | `[[X]]+ years` — no real figure |
+| Action band | "Ready stock, low minimums, samples dispatched from Coimbatore" — three unverified claims |
+| Action band / contact | Phone and WhatsApp numbers are `[[+91 00000 00000]]`; both links currently fall back to the enquiry form |
+| Differentiators | Three claims taken from §4.4, not from the company |
+| Mill story | Narrative with no founding year, no capacity, no scale |
+| Product range | All six names and every spec line are placeholders; the sixth category has no name at all |
+
+**None of this is shippable copy.** The layout is ready to receive real content
+at any time — it all lives in `lib/site.ts`, so swapping it is a data edit, not
+a rebuild. The needed items are listed in §9.
 
 ### 0.1.1 Outstanding — needs a human with a real browser
 

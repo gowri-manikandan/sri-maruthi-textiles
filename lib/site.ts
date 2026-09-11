@@ -48,6 +48,71 @@ export const site = {
       },
     ],
   },
+
+  /** The Mill Story (DESIGN_BRIEF.md §4.5).
+   *  This is the problem → solution argument, told as narrative rather than as
+   *  a labelled "Problem / Solution" block. Both paragraphs restate the brief's
+   *  §4.5 position and invent no specifics — no founding year, no capacity, no
+   *  headcount. Add those in Phase 14 once the real numbers exist. */
+  story: {
+    eyebrow: "Our story",
+    heading: "The mill behind the towels",
+    paragraphs: [
+      "Most wholesalers tell the same story about suppliers: excellent for two orders, then the cotton changes, a date slips, and the calls stop being answered. Quality that drifts and deliveries that move cost far more over a year than a slightly better unit price ever saves.",
+      "We sell what we make. Every lot is woven, checked and dispatched from our own floor — which is why we can quote without a middleman's margin on top, and commit to a date that is ours to control rather than someone else's to miss.",
+    ],
+    linkLabel: "Talk to us about your requirement",
+  },
+
+  /** How It Works (DESIGN_BRIEF.md §4.6) — the brief's four steps verbatim.
+   *  This is the one section whose content is genuinely ours to write: it
+   *  describes a buying process, not a claim about the company. */
+  process: {
+    eyebrow: "How it works",
+    heading: "From first call to delivered stock",
+    steps: [
+      {
+        id: "enquire",
+        title: "Enquire",
+        body: "Call, WhatsApp or send the form with what you need.",
+      },
+      {
+        id: "sample",
+        title: "Sample & pricing",
+        body: "We send the catalogue, a sample and a quote for your quantity.",
+      },
+      {
+        id: "confirm",
+        title: "Confirm order",
+        body: "Agree the specification, quantity and delivery date.",
+      },
+      {
+        id: "deliver",
+        title: "Delivered to you",
+        body: "Dispatched to your location across Kerala and Coimbatore.",
+      },
+    ],
+  },
+
+  /** Product range (DESIGN_BRIEF.md §4.7).
+   *
+   *  EVERY entry below is a placeholder taken from the brief's suggested
+   *  category list — none of it describes Sri Maruthi's actual catalogue.
+   *  Phase 14 replaces the names, the spec lines and the sixth category with
+   *  the real range. Do not ship this as-is. */
+  products: {
+    eyebrow: "Our products",
+    heading: "What we make",
+    linkLabel: "Ask for the full catalogue",
+    items: [
+      { id: "bath", name: "Bath towels", spec: "[[GSM]] gsm · [[size]] cm · [[cotton grade]]" },
+      { id: "hand", name: "Hand towels", spec: "[[GSM]] gsm · [[size]] cm · [[cotton grade]]" },
+      { id: "bulk", name: "Bulk packs", spec: "[[pack size]] · [[GSM]] gsm · [[cotton grade]]" },
+      { id: "custom", name: "Custom sizes", spec: "[[size range]] · made to your specification" },
+      { id: "gsm", name: "GSM variants", spec: "[[range]] gsm across the range" },
+      { id: "sixth", name: "[[Sixth category]]", spec: "[[spec line]]" },
+    ],
+  },
 } as const;
 
 /**

@@ -212,15 +212,28 @@
   color: color-mix(in oklab, var(--color-bg) 88%, transparent);
 }
 
-/* §4.9 — the numerals band. Scale does the work, not contrast, so the
-   color is a computed tint of ink rather than a token of its own. */
+/* §4.9 — ghosted numerals. Scale does the work, not contrast, so the color is
+   a computed tint of ink rather than a token of its own.
+
+   Deliberately sets no font-size: pair it with a text-* step. The §4.9 band
+   uses `numeral-ghost text-numeral` (140px); the §4.6 process steps reuse it
+   at `text-h2`. One treatment, two scales.                                 */
 @utility numeral-ghost {
   font-family: var(--font-display);
-  font-size: var(--text-numeral);
   font-weight: var(--text-numeral--font-weight);
   line-height: var(--text-numeral--line-height);
   letter-spacing: var(--text-numeral--letter-spacing);
   color: color-mix(in oklab, var(--color-ink) 14%, var(--color-bg));
+}
+
+/* The same numeral one notch darker, for use at smaller sizes where the 14%
+   ghost would fall below legibility. */
+@utility numeral-step {
+  font-family: var(--font-display);
+  font-weight: var(--text-numeral--font-weight);
+  line-height: var(--text-numeral--line-height);
+  letter-spacing: var(--text-numeral--letter-spacing);
+  color: color-mix(in oklab, var(--color-ink) 32%, var(--color-bg));
 }
 
 /* --- Icon chip (§4.4) ---------------------------------------------------
