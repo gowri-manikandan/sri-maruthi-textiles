@@ -25,7 +25,14 @@
 | 4 — The Mill Story | **Shipped.** Copy on cols 1–5, overlapping 3:4 + 4:3 collage on cols 7–12, on the `surface` ground. Overlap measured at 122×146px; fully disabled below `lg`. Verified at 1440×900 and 375×812. |
 | 5 — How It Works | **Shipped.** Four steps, hairline connector through the chip centres on desktop, stacked and connector-free on mobile. Verified at 1440×900 and 375×812. |
 | 6 — Product Range | **Shipped.** Borderless 4:5 product grid (3/2/1-up) plus a scrollable 1:1 category strip, head and catalogue link baseline-aligned. Verified at 1440×900 and 375×812. **All product names and spec lines are placeholders — see §0.1.2.** |
-| 7 onward | Not started |
+| 7 — Customer Voices | **Shipped.** Copy on cols 1-4, two hairline quote cards on cols 6-12, on `bg` (see the deviation note in the component). Verified at 1440x900 and 375x812. **Quotes are placeholders.** |
+| 8 — The Numbers | **Skipped at the client's request (2026-09-11).** Needs three figures not yet supplied: wholesale clients served, districts covered, and a fourth metric. Only `20+ years` exists. Its slot is marked in `app/page.tsx`, above the foil CTA. |
+| 9 — Foil CTA panel | **Shipped.** Full-bleed indigo panel + photograph, two equal columns, panel-first on mobile. Heading contrast on indigo measured at 9.42:1. Verified at 1440x900 and 375x812. |
+| 10 — FAQ + form + API | **Shipped.** Native <details> accordion, six-field enquiry form, `/api/enquiry` route. Verified at 1440x900 and 375x812; route exercised for valid, missing-field, bad-phone, malformed-JSON and GET cases. **Delivery is NOT wired — see §0.1.3.** |
+| 11 — Footer | **Shipped.** Full-bleed `ink-deep`, identity + three link columns, hairline copyright row. Contrast measured at 17.72:1 (wordmark) and 8.99:1 (secondary). Verified at 1440x900 and 375x812. |
+| 12 — SEO pass | **Shipped.** Metadata API, canonical, OG/Twitter, generated OG card, robots.txt, sitemap.xml, LocalBusiness JSON-LD, `lang="en-IN"`. One h1 verified. Production build emits all routes. **Needs `NEXT_PUBLIC_SITE_URL` — see §0.1.4.** |
+| 13 — A11y / perf / motion | **Shipped.** §7 audited item by item (see §0.1.5). Two tap-target fixes. §3.7 reveal built in CSS, not Framer Motion — deviation documented in `globals.css`. |
+| 14 — Content swap | Not started — blocked on real content. |
 
 ### 0.1.2 The site does not yet say anything true about this company
 
@@ -35,16 +42,90 @@ carried over from this brief's own suggestions, not from Sri Maruthi:
 
 | Where | What is still invented or blank |
 |---|---|
-| Hero eyebrow | `[[X]]+ years` — no real figure |
+| ~~Hero eyebrow~~ | **Resolved 2026-09-11 — 20+ years.** |
 | Action band | "Ready stock, low minimums, samples dispatched from Coimbatore" — three unverified claims |
-| Action band / contact | Phone and WhatsApp numbers are `[[+91 00000 00000]]`; both links currently fall back to the enquiry form |
+| ~~Action band / contact~~ | **Resolved 2026-09-11 — +91 93446 06026 for both.** `tel:` and `wa.me` links are live. |
 | Differentiators | Three claims taken from §4.4, not from the company |
 | Mill story | Narrative with no founding year, no capacity, no scale |
-| Product range | All six names and every spec line are placeholders; the sixth category has no name at all |
+| Product range | All six names and every spec line are placeholders; the sixth category has no name at all. **Client is sending product data and images.** |
+| Testimonials | All quotes, names, businesses and cities are placeholders. Never ship an invented testimonial. |
 
 **None of this is shippable copy.** The layout is ready to receive real content
 at any time — it all lives in `lib/site.ts`, so swapping it is a data edit, not
 a rebuild. The needed items are listed in §9.
+
+### 0.1.3 Enquiry email needs three environment variables
+
+Delivery is built (`lib/enquiry-delivery.ts`, Resend over plain HTTP, no SDK
+dependency) and `/api/enquiry` now returns success **only** after the email
+actually sends. While unconfigured it returns 503 and the form tells the visitor
+to call instead, quoting the number — it never claims a dropped lead was received.
+
+Set these in `.env.local` (see `.env.example`; `.env*` is gitignored):
+
+| Variable | Value |
+|---|---|
+| `ENQUIRY_TO_EMAIL` | where enquiries land — **still needed from the client** |
+| `ENQUIRY_FROM_EMAIL` | the From address; with Resend it must be on a domain verified in that account. `onboarding@resend.dev` works for testing and delivers only to the Resend account owner |
+| `RESEND_API_KEY` | from resend.com |
+
+No address is hardcoded anywhere. Note the domain dependency: a proper From
+address needs the domain from §9, which does not exist yet. If the client would
+rather use an existing mailbox (Zoho Mail, Gmail) over SMTP and skip domain
+verification, replace only `sendViaResend` in `lib/enquiry-delivery.ts`.
+
+Every failure also logs the full enquiry server-side, so a lead survives an
+outage even though the log is a last resort rather than a delivery mechanism.
+
+### 0.1.5 §7 audit — what was checked and what remains
+
+Run at 375×812 against the live page, 42 interactive elements.
+
+| §7 item | Result |
+|---|---|
+| Real `<button>`/`<a>`, never a clickable div | **Pass** — zero elements with `onclick`/`role=button` on a div or span |
+| Visible focus states | **Pass by inspection of compiled CSS.** `:focus-visible` gives a 2px accent outline and `.on-dark :focus-visible` a light one. Could not be observed live: `:focus` never matches in the agent pane because the document is not focused |
+| Skip link revealed on focus | **Pass by inspection.** `.focus\:not-sr-only:focus` and its companions are all present in the compiled CSS. Same observation limit as above |
+| Form labels | **Pass** — all 6 inputs have an associated `<label for>`; 0 unlabelled |
+| Tap targets | **Fixed.** Navbar wordmark was 22px → 48px. Footer nav links were 32px → 44px. Nothing below 44px remains |
+| Third-party scripts | **Pass** — none |
+| Duplicate ids / landmarks | **Pass** — no duplicate ids; header/nav×2/main/footer all present and labelled |
+| `prefers-reduced-motion` | **Pass by inspection** — four media blocks in compiled CSS. Cannot be emulated from the agent pane |
+| Hero text over the real photograph | **Cannot be done yet** — no photograph exists. Recheck in Phase 14 |
+| `next/image` sizes / priority / lazy | **Not applicable yet** — the page contains zero `<img>`; every image slot is a marked placeholder. Phase 14 must set `priority` on the hero and leave the rest lazy |
+
+Two deliberate deviations:
+
+- **Footer nav links are 44px, not the §7 48px.** Ten links at 48px makes an
+  unhelpfully tall footer on a phone for no real gain. 44px is the WCAG 2.2 AAA
+  target size and well above the 24px AA minimum. The contact links — phone,
+  WhatsApp, email, which §7 singles out — are a full 48px.
+- **The §3.7 reveal is CSS, not Framer Motion.** Reasoning is in `globals.css`:
+  a motion component SSRs its hidden `initial` state inline, so a JS failure
+  would leave the page blank, and a ~50KB animation runtime for a 16px fade is
+  the wrong trade for an audience on mid-range Android. **Framer Motion is now
+  an unused dependency and can be dropped from `package.json`.**
+
+### 0.1.4 SEO gaps that need real inputs
+
+Everything in §6 is implemented, but three items cannot be finished here:
+
+- **`NEXT_PUBLIC_SITE_URL` is unset**, so canonical, Open Graph and the sitemap
+  currently emit `http://localhost:3000`. Shipping that would deindex the site.
+  It needs the domain from §9.
+- **The OG card is typographic, not photographic.** §6 asks for the hero image.
+  None exists, and a stock photo would be a lie, so `app/opengraph-image.tsx`
+  renders a branded type card instead. Replace it with the real 1200×630 hero
+  crop in Phase 14.
+- **JSON-LD omits `address`.** Google will not show a local rich result for a
+  LocalBusiness without a postal address. The markup is valid without it; it
+  simply cannot earn the local card until Phase 14 supplies one. Nothing was
+  invented to fill the gap — structured data is a machine-readable claim.
+
+Two font files are vendored at `assets/fonts/` (Fraunces 71KB, Inter 326KB)
+purely so the OG card renders in the real typefaces. Satori has no system fonts
+and silently falls back to sans otherwise. Delete them if the card becomes a
+photograph.
 
 ### 0.1.1 Outstanding — needs a human with a real browser
 

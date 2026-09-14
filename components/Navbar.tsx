@@ -62,7 +62,9 @@ export default function Navbar() {
           {/* Wordmark placeholder — swap for a real logo file in Phase 14. */}
           <a
             href="#top"
-            className={`font-display text-h3 leading-none ${
+            /* inline-flex + min-h-6 makes the wordmark a 48px tap target;
+               as bare text it measured 22px tall (§7). */
+            className={`inline-flex min-h-6 items-center font-display text-h3 leading-none ${
               solid ? "text-ink" : "text-bg"
             }`}
             onClick={() => setOpen(false)}
