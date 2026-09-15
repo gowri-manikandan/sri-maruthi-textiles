@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
-import { ENQUIRY_HREF, site } from "@/lib/site";
+import MediaFrame from "@/components/MediaFrame";
+import { ENQUIRY_HREF, images, site } from "@/lib/site";
 
 /**
  * The Mill Story — DESIGN_BRIEF.md §4.5.
@@ -15,16 +16,6 @@ import { ENQUIRY_HREF, site } from "@/lib/site";
  * muddled edge — §3.6 rule 4 rules out the drop shadow that would normally do
  * this job.
  */
-function PhotoFrame({ label, className }: { label: string; className: string }) {
-  return (
-    <div
-      className={`flex items-center justify-center border border-dashed border-border bg-bg p-3 text-center ${className}`}
-    >
-      <p className="max-w-[26ch] text-small text-muted">{label}</p>
-    </div>
-  );
-}
-
 export default function MillStory() {
   const { eyebrow, heading, paragraphs, linkLabel } = site.story;
 
@@ -54,16 +45,22 @@ export default function MillStory() {
 
           {/* Collage */}
           <div className="grid gap-2 lg:relative lg:col-start-7 lg:col-span-6 lg:block lg:pb-8">
-            <PhotoFrame
-              label="Mill story A — 3:4 portrait. Loom, weaving, or a hands-on process shot."
+            <MediaFrame
+              src={images.storyPortrait}
+              alt="Weaving in progress on the mill floor"
+              sizes="(min-width: 1024px) 34vw, 100vw"
               className="aspect-3/4 lg:w-[70%]"
+              label="Mill story A — 3:4 portrait. Loom, weaving, or a hands-on process shot."
             />
             {/* The gutter border lives on this wrapper, not on the frame, so it
                 does not fight the placeholder's dashed border. */}
             <div className="lg:absolute lg:right-0 lg:bottom-0 lg:w-[55%] lg:border-8 lg:border-surface">
-              <PhotoFrame
-                label="Mill story B — 4:3 landscape. Yarn cones or dyed stock; colour-rich."
+              <MediaFrame
+                src={images.storyLandscape}
+                alt="Dyed cotton yarn cones in the mill store"
+                sizes="(min-width: 1024px) 27vw, 100vw"
                 className="aspect-4/3"
+                label="Mill story B — 4:3 landscape. Yarn cones or dyed stock; colour-rich."
               />
             </div>
           </div>

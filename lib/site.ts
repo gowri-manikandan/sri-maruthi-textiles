@@ -3,6 +3,31 @@
  * Phase 14 swaps the [[PLACEHOLDER]] values here — not in components.
  */
 /**
+ * Image slots — DESIGN_BRIEF.md §10, Phase 14.
+ *
+ * Drop files into /public/images and set the paths here; every slot then
+ * switches from its marked placeholder to a real `next/image` with no
+ * component change. Shot list, ratios and framing notes are in §10 — the hero
+ * in particular needs a visually calm bottom-left third, because the headline
+ * sits there.
+ *
+ * Product images are keyed by the product `id` further down this file.
+ */
+export const images: {
+  hero?: string;
+  storyPortrait?: string;
+  storyLandscape?: string;
+  foilCta?: string;
+  products: Record<string, string | undefined>;
+} = {
+  hero: undefined,
+  storyPortrait: undefined,
+  storyLandscape: undefined,
+  foilCta: undefined,
+  products: {},
+};
+
+/**
  * Absolute origin, needed for canonical URLs, Open Graph and the sitemap.
  * Set NEXT_PUBLIC_SITE_URL once the domain exists (§9). The localhost fallback
  * keeps development working but must not reach production — canonical tags
@@ -22,7 +47,7 @@ export const site = {
   seo: {
     title: "Sri Maruthi Textiles — Wholesale Cotton Towel Manufacturer",
     description:
-      "Bath, hand and bulk cotton towels for wholesalers across Kerala and Coimbatore. 20+ years of manufacturing, direct-from-mill pricing, delivered on a committed date.",
+      "Checked, plain, printed and white cotton towels for wholesalers across Kerala and Coimbatore. 20+ years of manufacturing, direct-from-mill pricing, delivered on a committed date.",
     ogAlt:
       "Sri Maruthi Textiles — wholesale cotton towel manufacturer serving Kerala and Coimbatore",
   },
@@ -33,7 +58,7 @@ export const site = {
     eyebrow: "20+ years of cotton towel manufacture",
     headline: "Cotton Towels, Made for Business That Lasts",
     subtext:
-      "We manufacture bath, hand and bulk cotton towels for wholesalers across Kerala and Coimbatore — consistent quality, direct-from-mill pricing, delivered on the date we commit.",
+      "We manufacture checked, plain, printed and white cotton towels for wholesalers across Kerala and Coimbatore — consistent quality, direct-from-mill pricing, delivered on the date we commit.",
   },
 
   /** Action band copy (DESIGN_BRIEF.md §4.3).
@@ -117,21 +142,35 @@ export const site = {
 
   /** Product range (DESIGN_BRIEF.md §4.7).
    *
-   *  EVERY entry below is a placeholder taken from the brief's suggested
-   *  category list — none of it describes Sri Maruthi's actual catalogue.
-   *  Phase 14 replaces the names, the spec lines and the sixth category with
-   *  the real range. Do not ship this as-is. */
+   *  The four types are real, supplied by the client 2026-09-15. The SPEC
+   *  LINES are still placeholders — GSM, sizes and cotton grade have not been
+   *  given yet, so each one keeps an obvious `[[ ]]` slot rather than a
+   *  plausible-looking invention. */
   products: {
     eyebrow: "Our products",
     heading: "What we make",
     linkLabel: "Ask for the full catalogue",
     items: [
-      { id: "bath", name: "Bath towels", spec: "[[GSM]] gsm · [[size]] cm · [[cotton grade]]" },
-      { id: "hand", name: "Hand towels", spec: "[[GSM]] gsm · [[size]] cm · [[cotton grade]]" },
-      { id: "bulk", name: "Bulk packs", spec: "[[pack size]] · [[GSM]] gsm · [[cotton grade]]" },
-      { id: "custom", name: "Custom sizes", spec: "[[size range]] · made to your specification" },
-      { id: "gsm", name: "GSM variants", spec: "[[range]] gsm across the range" },
-      { id: "sixth", name: "[[Sixth category]]", spec: "[[spec line]]" },
+      {
+        id: "checked",
+        name: "Checked towels",
+        spec: "[[GSM]] gsm · [[size]] cm · [[cotton grade]]",
+      },
+      {
+        id: "plain",
+        name: "Plain towels",
+        spec: "[[GSM]] gsm · [[size]] cm · [[cotton grade]]",
+      },
+      {
+        id: "printed",
+        name: "Printed towels",
+        spec: "[[GSM]] gsm · [[size]] cm · [[cotton grade]]",
+      },
+      {
+        id: "white",
+        name: "White towels",
+        spec: "[[GSM]] gsm · [[size]] cm · [[cotton grade]]",
+      },
     ],
   },
 

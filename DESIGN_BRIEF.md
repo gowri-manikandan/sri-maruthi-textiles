@@ -32,7 +32,7 @@
 | 11 — Footer | **Shipped.** Full-bleed `ink-deep`, identity + three link columns, hairline copyright row. Contrast measured at 17.72:1 (wordmark) and 8.99:1 (secondary). Verified at 1440x900 and 375x812. |
 | 12 — SEO pass | **Shipped.** Metadata API, canonical, OG/Twitter, generated OG card, robots.txt, sitemap.xml, LocalBusiness JSON-LD, `lang="en-IN"`. One h1 verified. Production build emits all routes. **Needs `NEXT_PUBLIC_SITE_URL` — see §0.1.4.** |
 | 13 — A11y / perf / motion | **Shipped.** §7 audited item by item (see §0.1.5). Two tap-target fixes. §3.7 reveal built in CSS, not Framer Motion — deviation documented in `globals.css`. |
-| 14 — Content swap | Not started — blocked on real content. |
+| 14 — Content swap | **Mechanism shipped; content still blocked.** All four image slots now route through `components/MediaFrame.tsx` and read paths from `images` in `lib/site.ts`, so dropping files into `/public/images` is all that is needed. Copy likewise all lives in `lib/site.ts`. **No new facts have been supplied since 20+ years and the phone number**, so every other placeholder stands — see §0.1.2. |
 
 ### 0.1.2 The site does not yet say anything true about this company
 
@@ -92,7 +92,7 @@ Run at 375×812 against the live page, 42 interactive elements.
 | Duplicate ids / landmarks | **Pass** — no duplicate ids; header/nav×2/main/footer all present and labelled |
 | `prefers-reduced-motion` | **Pass by inspection** — four media blocks in compiled CSS. Cannot be emulated from the agent pane |
 | Hero text over the real photograph | **Cannot be done yet** — no photograph exists. Recheck in Phase 14 |
-| `next/image` sizes / priority / lazy | **Not applicable yet** — the page contains zero `<img>`; every image slot is a marked placeholder. Phase 14 must set `priority` on the hero and leave the rest lazy |
+| `next/image` sizes / priority / lazy | **Structurally done.** Every slot goes through `MediaFrame`, which sets `fill` + `object-cover`, a per-slot `sizes` string, `priority` on the hero only and lazy elsewhere. Proved end to end with a throwaway image, which emitted a correct `srcSet`. Nothing to re-decide when the real photographs land |
 
 Two deliberate deviations:
 

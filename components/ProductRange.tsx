@@ -1,4 +1,5 @@
-import { ENQUIRY_HREF, site } from "@/lib/site";
+import MediaFrame from "@/components/MediaFrame";
+import { ENQUIRY_HREF, images, site } from "@/lib/site";
 
 /**
  * Product Range — DESIGN_BRIEF.md §4.7.
@@ -41,11 +42,13 @@ export default function ProductRange() {
         <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 lg:gap-4">
           {items.map((item) => (
             <li key={item.id}>
-              <div className="flex aspect-4/5 items-center justify-center border border-dashed border-border bg-bg p-3 text-center">
-                <p className="max-w-[22ch] text-small text-muted">
-                  {item.name} — 4:5 product photograph
-                </p>
-              </div>
+              <MediaFrame
+                src={images.products[item.id]}
+                alt={`${item.name} — cotton towels manufactured by ${site.name}`}
+                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                className="aspect-4/5"
+                label={`${item.name} — 4:5 product photograph`}
+              />
 
               <h3 className="mt-2 text-h3 text-ink">{item.name}</h3>
               <p className="mt-1 text-small text-muted">{item.spec}</p>
@@ -65,9 +68,13 @@ export default function ProductRange() {
         <ul className="mt-6 flex gap-2 overflow-x-auto lg:grid lg:grid-cols-6 lg:gap-3 lg:overflow-x-visible">
           {items.map((item) => (
             <li key={item.id} className="w-16 shrink-0 lg:w-auto">
-              <div className="flex aspect-square items-center justify-center border border-dashed border-border bg-bg p-1 text-center">
-                <p className="text-small text-muted">1:1</p>
-              </div>
+              <MediaFrame
+                src={images.products[item.id]}
+                alt=""
+                sizes="(min-width: 1024px) 16vw, 128px"
+                className="aspect-square"
+                label="1:1"
+              />
               <p className="mt-1 text-small text-ink">{item.name}</p>
             </li>
           ))}

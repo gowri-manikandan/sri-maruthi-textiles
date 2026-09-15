@@ -1,4 +1,5 @@
-import { ENQUIRY_HREF, site } from "@/lib/site";
+import MediaFrame from "@/components/MediaFrame";
+import { ENQUIRY_HREF, images, site } from "@/lib/site";
 
 /**
  * Hero — DESIGN_BRIEF.md §4.2.
@@ -22,25 +23,18 @@ export default function Hero() {
       data-hero
       className="on-dark relative isolate flex min-h-[88svh] items-end overflow-hidden"
     >
-      {/* Media layer.
-
-          Phase 14 replaces this whole block with:
-            <Image src={...} alt="" fill priority sizes="100vw"
-                   className="object-cover" />
-          No stock photo stands in for real work, so until then this is an
-          honest, labelled empty frame. */}
-      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-ink-deep">
-        <div className="container-page flex h-full items-start justify-end pt-12">
-          <p className="max-w-[38ch] rounded border border-dashed border-bg/25 p-2 text-small text-bg/55">
-            <span className="font-semibold text-bg/75">
-              Hero photograph placeholder.
-            </span>{" "}
-            Supply 21:9 for desktop with a 4:5 mobile crop, towel stock or the
-            production floor. The bottom-left third must stay visually calm —
-            the headline sits there.
-          </p>
-        </div>
-      </div>
+      {/* Media layer. `priority` because this is the LCP element (§7); it is
+          the only image on the page that is not lazy. alt="" because the
+          headline already carries the meaning — see MediaFrame. */}
+      <MediaFrame
+        src={images.hero}
+        alt=""
+        priority
+        sizes="100vw"
+        tone="dark"
+        className="absolute inset-0 -z-10 border-0"
+        label="Hero photograph — 21:9 desktop with a 4:5 mobile crop. Towel stock or the production floor. The bottom-left third must stay visually calm; the headline sits there."
+      />
 
       {/* Scrim (§4.2). Separate layer so the real photograph can drop into the
           media layer above without touching any of this. */}

@@ -1,4 +1,5 @@
-import { ENQUIRY_HREF, site } from "@/lib/site";
+import MediaFrame from "@/components/MediaFrame";
+import { ENQUIRY_HREF, images, site } from "@/lib/site";
 
 /**
  * Foil CTA panel — DESIGN_BRIEF.md §4.10.
@@ -38,15 +39,14 @@ export default function FoilCta() {
         </a>
       </div>
 
-      {/* Phase 14 replaces this with:
-            <Image src={...} alt="" fill sizes="(min-width: 1024px) 50vw, 100vw"
-                   className="object-cover" /> */}
-      <div className="flex aspect-4/3 items-center justify-center border border-dashed border-border bg-surface p-3 text-center lg:aspect-auto lg:h-full">
-        <p className="max-w-[30ch] text-small text-muted">
-          Foil CTA photograph — 3:4 portrait, full-bleed height. Factory,
-          packing, or dispatch.
-        </p>
-      </div>
+      <MediaFrame
+        src={images.foilCta}
+        alt="Finished towel stock being packed for dispatch"
+        sizes="(min-width: 1024px) 50vw, 100vw"
+        className="aspect-4/3 lg:aspect-auto lg:h-full"
+        label="Foil CTA photograph — 3:4 portrait, full-bleed height. Factory, packing, or dispatch."
+      />
+
     </section>
   );
 }
