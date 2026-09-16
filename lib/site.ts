@@ -33,8 +33,16 @@ export const images: {
  * keeps development working but must not reach production — canonical tags
  * pointing at localhost would deindex the site.
  */
+const RAW_SITE_URL = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+
+/* `??` is not enough here. An env var declared but left blank — exactly what
+   copying .env.example gives you — is an empty STRING, not undefined, so `??`
+   passes it straight through and `new URL("")` throws, taking down every page
+   that reads metadataBase. Treat blank as absent. */
 export const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
+  RAW_SITE_URL && RAW_SITE_URL.length > 0
+    ? RAW_SITE_URL
+    : "http://localhost:3000"
 ).replace(/\/$/, "");
 
 export const site = {
@@ -43,13 +51,13 @@ export const site = {
 
   /** SEO copy (DESIGN_BRIEF.md §6). Local keywords are worked into real
    *  sentences rather than stuffed: "wholesale cotton towel manufacturer",
-   *  "Kerala", "Coimbatore" all appear naturally. */
+   *  "Kerala", "Tamil Nadu" all appear naturally. */
   seo: {
     title: "Sri Maruthi Textiles — Wholesale Cotton Towel Manufacturer",
     description:
-      "Checked, plain, printed and white cotton towels for wholesalers across Kerala and Coimbatore. 20+ years of manufacturing, direct-from-mill pricing, delivered on a committed date.",
+      "Checked, plain, printed and white cotton towels for wholesalers across Kerala and Tamil Nadu. 20+ years of manufacturing, direct-from-mill pricing, delivered on a committed date.",
     ogAlt:
-      "Sri Maruthi Textiles — wholesale cotton towel manufacturer serving Kerala and Coimbatore",
+      "Sri Maruthi Textiles — wholesale cotton towel manufacturer serving Kerala and Tamil Nadu",
   },
 
   /** Hero copy (DESIGN_BRIEF.md §4.2) — confirm wording in Phase 14. */
@@ -58,15 +66,17 @@ export const site = {
     eyebrow: "20+ years of cotton towel manufacture",
     headline: "Cotton Towels, Made for Business That Lasts",
     subtext:
-      "We manufacture checked, plain, printed and white cotton towels for wholesalers across Kerala and Coimbatore — consistent quality, direct-from-mill pricing, delivered on the date we commit.",
+      "We manufacture checked, plain, printed and white cotton towels for wholesalers across Kerala and Tamil Nadu — consistent quality, direct-from-mill pricing, delivered on the date we commit.",
   },
 
   /** Action band copy (DESIGN_BRIEF.md §4.3).
-   *  The brief suggests this line, but it makes three claims about the business
-   *  — ready stock, low minimums, dispatch from Coimbatore. Confirm all three
-   *  are true before launch; none of them are ours to assert. */
+   *  Was three vague, unverified claims. Now two specific facts the client
+   *  confirmed 2026-09-15 — and specifics convert far better than adjectives:
+   *  a 10-piece minimum and 1-2 day dispatch are genuinely strong for this
+   *  market. The "dispatched from Coimbatore" claim was dropped because the
+   *  mill's location has never actually been confirmed. */
   actionBand: {
-    line: "Ready stock, low minimums, samples dispatched from Coimbatore.",
+    line: "Minimum order from 10 pieces. Most orders dispatched in 1 to 2 days.",
     cta: "Request Sample Kit",
   },
 
@@ -90,7 +100,7 @@ export const site = {
       {
         id: "delivery",
         title: "Delivery you can plan around",
-        body: "A committed date at the time of order, across Kerala and Coimbatore.",
+        body: "A committed date at the time of order, across Kerala and Tamil Nadu.",
       },
     ],
   },
@@ -135,7 +145,7 @@ export const site = {
       {
         id: "deliver",
         title: "Delivered to you",
-        body: "Dispatched to your location across Kerala and Coimbatore.",
+        body: "Dispatched to your location across Kerala and Tamil Nadu.",
       },
     ],
   },
@@ -176,47 +186,46 @@ export const site = {
 
   /** Footer (DESIGN_BRIEF.md §4.13). */
   footer: {
-    line: "Wholesale cotton towel manufacturer supplying Kerala and Coimbatore for over 20 years.",
-    /** [[PLACEHOLDER]] — Phase 14. */
-    email: "[[email@example.com]]",
+    line: "Wholesale cotton towel manufacturer supplying Kerala and Tamil Nadu for over 20 years.",
+    email: "srimaruthitexthoorathu@gmail.com",
     /** [[PLACEHOLDER]] — Phase 14. */
     address: "[[Street address, town, district, PIN]]",
   },
 
   /** FAQ (DESIGN_BRIEF.md §4.11).
    *
-   *  The six questions are the brief's and are correct as asked. The ANSWERS
-   *  are mostly not ours to write: MOQ, lead time, payment terms and sample
-   *  policy are commercial facts nobody has supplied. Each answer is written
-   *  so the real figure drops into an obvious `[[ ]]` slot without rewriting
-   *  the sentence around it. Only "areas served" is fully true today. */
+   *  All six answers are real, supplied by the client 2026-09-15. The only
+   *  remaining gap is the advance percentage in the payment terms — the answer
+   *  given was the structure ("advance, balance on dispatch") without a figure,
+   *  so the sentence states the structure and promises the split at quote time
+   *  rather than inventing a number. */
   faq: {
     eyebrow: "Questions",
     heading: "Before you enquire",
     items: [
       {
         q: "What is your minimum order quantity?",
-        a: "Minimum order is [[MOQ]] pieces per design. Tell us the quantity you have in mind and we will confirm what is workable.",
+        a: "Between 10 and 20 pieces, depending on the type. Tell us what you need and we will confirm what is workable.",
       },
       {
         q: "How long does delivery take?",
-        a: "Standard orders are dispatched within [[X]] days of confirmation. We commit to a date when you place the order rather than after it.",
+        a: "Most orders are dispatched within 1 to 2 days of confirmation. We commit to a date when you place the order rather than after it.",
       },
       {
         q: "Can towels be made to our own specification?",
-        a: "[[Confirm which of these are actually offered]] — sizes, GSM, colours and border styles can be made to order.",
+        a: "Yes, on orders above 1,000 pieces. Below that we supply from our standard range of checked, plain, printed and white towels.",
       },
       {
         q: "What are your payment terms?",
-        a: "[[Payment terms — advance percentage, balance on dispatch, credit terms if any.]]",
+        a: "A percentage in advance, with the balance due on dispatch. We confirm the exact split when we quote for your order.",
       },
       {
         q: "Can we see a sample first?",
-        a: "Yes. Samples are sent on request. [[Confirm whether samples are free or chargeable, and who pays freight.]]",
+        a: "Yes. Samples are sent on request and are chargeable.",
       },
       {
         q: "Which areas do you supply?",
-        a: "Kerala, and Tamil Nadu around Coimbatore. If you are outside that area, ask anyway and we will tell you what is possible.",
+        a: "Kerala and Tamil Nadu. If you are outside those states, ask anyway and we will tell you what is possible.",
       },
     ],
   },
@@ -241,31 +250,42 @@ export const site = {
     cta: "Request Sample Kit",
   },
 
-  /** Customer Voices (DESIGN_BRIEF.md §4.8).
+  /** Commitments — replaces the §4.8 "Customer Voices" testimonials.
    *
-   *  PLACEHOLDERS ONLY. The brief is explicit that no quote, name, business or
-   *  city may be invented here — a fabricated testimonial is the one piece of
-   *  placeholder copy that would be actively dishonest if it shipped. These
-   *  entries are written so they cannot be mistaken for real ones. Replace in
-   *  Phase 14, and only with quotes the customer has approved. */
-  testimonials: {
-    eyebrow: "Customer voices",
-    heading: "What our buyers say",
-    line: "Quotes are published only with the customer's permission.",
-    quotes: [
+   *  The client asked for this section to be filled in with invented content
+   *  and the name placeholders removed. Fabricated testimonials attributed to
+   *  named businesses are not placeholder copy — they are false endorsements
+   *  shown to prospective buyers, and misleading advertisement under India's
+   *  consumer protection rules. So the section keeps its slot and its layout
+   *  but changes what it claims: first-person commitments the company can
+   *  stand behind, every one a fact supplied on 2026-09-11 or 2026-09-15.
+   *
+   *  Restore the testimonial version once real, permissioned quotes exist —
+   *  a wholesaler vouching for you outperforms anything written here. */
+  commitments: {
+    eyebrow: "Our commitments",
+    heading: "What you can count on",
+    line: "We would rather be specific than enthusiastic. These are the terms we work to on every order.",
+    items: [
       {
-        id: "one",
-        quote: "[[Quote about quality consistency across repeat orders.]]",
-        name: "[[Name]]",
-        business: "[[Business]]",
-        city: "[[City]]",
+        id: "minimum",
+        title: "From 10 pieces",
+        body: "You do not have to place a large order to try us. Start at 10 to 20 pieces and scale up once it works for you.",
       },
       {
-        id: "two",
-        quote: "[[Quote about delivery being on the committed date.]]",
-        name: "[[Name]]",
-        business: "[[Business]]",
-        city: "[[City]]",
+        id: "dispatch",
+        title: "Out in 1 to 2 days",
+        body: "Most confirmed orders are dispatched within two days, against a date agreed when you place the order — not after it.",
+      },
+      {
+        id: "custom",
+        title: "Your specification above 1,000",
+        body: "Orders over 1,000 pieces can be made to your own specification. Below that, our standard range ships as it is.",
+      },
+      {
+        id: "reach",
+        title: "20+ years, two states",
+        body: "Two decades of manufacturing cotton towels, supplying wholesalers across both Kerala and Tamil Nadu.",
       },
     ],
   },

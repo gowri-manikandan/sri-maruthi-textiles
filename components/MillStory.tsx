@@ -44,7 +44,7 @@ export default function MillStory() {
           </div>
 
           {/* Collage */}
-          <div className="grid gap-2 lg:relative lg:col-start-7 lg:col-span-6 lg:block lg:pb-8">
+          <div data-stagger className="grid gap-2 lg:relative lg:col-start-7 lg:col-span-6 lg:block lg:pb-8">
             <MediaFrame
               src={images.storyPortrait}
               alt="Weaving in progress on the mill floor"

@@ -17,7 +17,7 @@ export default function Faq() {
         <p className="eyebrow">{eyebrow}</p>
         <h2 className="mt-2 text-h2 text-ink">{heading}</h2>
 
-        <div className="mt-6 max-w-[720px] border-t border-border">
+        <div data-stagger className="mt-6 max-w-[720px] border-t border-border">
           {items.map((item) => (
             <details key={item.q} className="border-b border-border">
               <summary className="faq-summary text-h3 text-ink">

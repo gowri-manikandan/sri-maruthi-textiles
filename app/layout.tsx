@@ -67,8 +67,17 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  /* suppressHydrationWarning on <html> is required, not cosmetic: the inline
+     script at the top of <body> stamps data-reveal-armed onto <html> before
+     React hydrates, so the server HTML and the client tree legitimately differ
+     by that one attribute. Without it React logs a hydration mismatch. It
+     suppresses the warning for that element's own attributes only. */
   return (
-    <html lang="en-IN" className={`${fraunces.variable} ${inter.variable}`}>
+    <html
+      lang="en-IN"
+      className={`${fraunces.variable} ${inter.variable}`}
+      suppressHydrationWarning
+    >
       <body>
         {/* Arms the §3.7 reveal before anything below is painted, so there is
             no flash of hidden-then-shown content. Deliberately a blocking

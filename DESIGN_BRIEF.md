@@ -43,14 +43,14 @@ carried over from this brief's own suggestions, not from Sri Maruthi:
 | Where | What is still invented or blank |
 |---|---|
 | ~~Hero eyebrow~~ | **Resolved 2026-09-11 — 20+ years.** |
-| Action band | "Ready stock, low minimums, samples dispatched from Coimbatore" — three unverified claims |
+| ~~Action band~~ | **Resolved 2026-09-15.** Three vague claims replaced with two confirmed facts: 10-piece minimum, 1-2 day dispatch. The Coimbatore dispatch claim was dropped — the mill's location has never been confirmed. |
 | ~~Action band / contact~~ | **Resolved 2026-09-11 — +91 93446 06026 for both.** `tel:` and `wa.me` links are live. |
 | Differentiators | Three claims taken from §4.4, not from the company |
 | Mill story | Narrative with no founding year, no capacity, no scale |
-| Product range | All six names and every spec line are placeholders; the sixth category has no name at all. **Client is sending product data and images.** |
+| Product range | **Names resolved 2026-09-15** — checked, plain, printed, white. **Spec lines still placeholders**: no GSM, size or cotton grade supplied. Photographs still needed. |
 | Testimonials | All quotes, names, businesses and cities are placeholders. Never ship an invented testimonial. |
 
-**None of this is shippable copy.** The layout is ready to receive real content
+**FAQ answers, the action band, the product names and the service area are now real (2026-09-15).** What remains below is still placeholder. The layout is ready to receive real content
 at any time — it all lives in `lib/site.ts`, so swapping it is a data edit, not
 a rebuild. The needed items are listed in §9.
 
@@ -217,7 +217,7 @@ built and how to verify it in the browser, and wait for go-ahead.
 ## 2. Business & audience brief
 
 - **Business:** Manufacturer of cotton towels. B2B, not direct-to-consumer.
-- **Service area:** Kerala and parts of Tamil Nadu (mainly Coimbatore).
+- **Service area:** Kerala and Tamil Nadu. (Revision 1 said "mainly Coimbatore"; the client corrected this on 2026-09-15 — the whole of both states is supplied.)
 - **Goal:** Generate wholesale enquiries and build credibility. Lead-gen, not e-commerce.
 - **Primary action:** View products → enquire via form, phone, or WhatsApp.
 - **Audience:** Wholesale business owners, 30–50, average technical comfort, Kerala/Tamil Nadu. They evaluate on **price, quality, on-time delivery**, and decide trust on **existing customers, years in business, and volume track record**.
@@ -448,8 +448,10 @@ Below it, a **category thumbnail strip** — six `1:1` thumbnails in one row wit
 labels underneath, horizontally scrollable on mobile. Rangoli's move; it
 communicates range at a glance without a second grid.
 
-Categories: bath towels · hand towels · bulk packs · custom sizes ·
-GSM variants · `[[sixth]]`
+Real range, supplied 2026-09-15: **checked towels · plain towels · printed
+towels · white towels**. Four types, so the grid is four across on desktop and
+the six-thumbnail category strip has been dropped — it would repeat the same
+four items immediately below the grid. Restore it if the range grows.
 
 ### 4.8 Customer Voices
 On `surface`. Copy block left (eyebrow, H2, one line), testimonial cards right.

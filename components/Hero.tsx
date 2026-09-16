@@ -40,7 +40,7 @@ export default function Hero() {
           media layer above without touching any of this. */}
       <div aria-hidden="true" className="hero-scrim absolute inset-0 -z-10" />
 
-      <div className="container-page pt-12 pb-6 lg:pb-12">
+      <div data-hero-enter className="container-page pt-12 pb-6 lg:pb-12">
         <p className="eyebrow eyebrow-light">{site.hero.eyebrow}</p>
 
         <h1 className="mt-2 max-w-[22ch] text-display text-bg">

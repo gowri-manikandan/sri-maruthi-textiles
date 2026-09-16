@@ -272,12 +272,18 @@
    The reduced-motion guard lives here rather than in JS so it holds even if
    the observer never runs.                                                 */
 @layer base {
+  /* Shared easing. A strong ease-out: most of the distance is covered early,
+     so movement reads as settling into place rather than drifting. */
+  :root {
+    --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
   [data-reveal-armed] main > section:not(:first-of-type) {
     opacity: 0;
-    transform: translateY(--spacing(2));
+    transform: translateY(--spacing(3));
     transition:
-      opacity 500ms ease-out,
-      transform 500ms ease-out;
+      opacity 600ms var(--ease-out-soft),
+      transform 600ms var(--ease-out-soft);
   }
 
   [data-reveal-armed] main > section[data-revealed] {
@@ -285,12 +291,123 @@
     transform: none;
   }
 
+  /* Staggered children. The section fades in as one block; the cards inside it
+     then arrive in sequence. This is what makes a grid feel composed rather
+     than switched on \2014 the section reveal alone is barely perceptible.
+
+     Scoped under [data-reveal-armed] like everything else, so the no-JS
+     guarantee still holds: if the arming script never runs, nothing hides. */
+  /* Longhands, not the `transition` shorthand. The shorthand resets
+     transition-delay to 0, which silently flattened the stagger below — every
+     card arrived at once and the delays computed to 0s. */
+  [data-reveal-armed] main > section:not(:first-of-type) [data-stagger] > * {
+    opacity: 0;
+    transform: translateY(--spacing(3));
+    transition-property: opacity, transform;
+    transition-duration: 600ms;
+    transition-timing-function: var(--ease-out-soft);
+  }
+
+  [data-reveal-armed] main > section[data-revealed] [data-stagger] > * {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Carry the full prefix so these out-specify the rule above rather than
+     relying on source order. */
+  [data-reveal-armed] main > section [data-stagger] > *:nth-child(1) { transition-delay: 60ms; }
+  [data-reveal-armed] main > section [data-stagger] > *:nth-child(2) { transition-delay: 140ms; }
+  [data-reveal-armed] main > section [data-stagger] > *:nth-child(3) { transition-delay: 220ms; }
+  [data-reveal-armed] main > section [data-stagger] > *:nth-child(4) { transition-delay: 300ms; }
+  [data-reveal-armed] main > section [data-stagger] > *:nth-child(5) { transition-delay: 380ms; }
+  [data-reveal-armed] main > section [data-stagger] > *:nth-child(6) { transition-delay: 460ms; }
+
+  /* Hero entrance. Runs on load, not on scroll, so it is the first thing a
+     visitor sees. `backwards` fill holds the from-state during the delay.
+
+     Note this animates the TEXT, never the photograph — a moving hero image
+     is the cheap effect that makes a supplier site feel like a template. */
+  @media (prefers-reduced-motion: no-preference) {
+    [data-hero-enter] > * {
+      animation: hero-rise 800ms var(--ease-out-soft) backwards;
+    }
+    [data-hero-enter] > *:nth-child(1) { animation-delay: 120ms; }
+    [data-hero-enter] > *:nth-child(2) { animation-delay: 220ms; }
+    [data-hero-enter] > *:nth-child(3) { animation-delay: 320ms; }
+    [data-hero-enter] > *:nth-child(4) { animation-delay: 420ms; }
+  }
+
+  @keyframes hero-rise {
+    from {
+      opacity: 0;
+      transform: translateY(--spacing(3));
+    }
+  }
+
+  /* One guard covers the lot. Kept in CSS rather than JS so it holds even if
+     the observer never runs. */
   @media (prefers-reduced-motion: reduce) {
-    [data-reveal-armed] main > section:not(:first-of-type) {
+    [data-reveal-armed] main > section:not(:first-of-type),
+    [data-reveal-armed] main > section:not(:first-of-type) [data-stagger] > * {
       opacity: 1;
       transform: none;
       transition: none;
     }
+    [data-reveal-armed] main > section [data-stagger] > * {
+      transition-delay: 0ms;
+    }
+  }
+}
+
+/* --- Interaction motion ---------------------------------------------------
+   Small, cheap, and tied to something the visitor did. */
+
+/* Product photographs ease in on hover. The card itself does not lift —
+   §3.6 rule 4 still stands, and a moving card under the cursor is noise.
+   Only the image inside the fixed frame moves. */
+@utility media-zoom {
+  overflow: hidden;
+
+  & img {
+    transition: transform 700ms var(--ease-out-soft);
+  }
+
+  &:hover img {
+    transform: scale(1.05);
+  }
+}
+
+/* Underlines grow from the left instead of blinking on. */
+@utility link-underline {
+  position: relative;
+  text-decoration: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    bottom: 2px;
+    block-size: 1px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 320ms var(--ease-out-soft);
+  }
+
+  &:hover::after,
+  &:focus-visible::after {
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .media-zoom img,
+  .media-zoom:hover img,
+  .link-underline::after {
+    transition: none;
+  }
+  .link-underline::after {
+    transform: scaleX(1);
   }
 }
 

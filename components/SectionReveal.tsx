@@ -12,13 +12,24 @@ import { useEffect } from "react";
  *                       never hides anything and the page renders in full.
  *   2. Reduced motion → everything is revealed immediately. The CSS also
  *                       neutralises the transition independently.
- *   3. Broken or slow observer → a failsafe reveals everything. It only fires
- *                       if NOT ONE entry has been delivered, so a working
- *                       observer is never overridden mid-scroll. This is not
- *                       hypothetical: IntersectionObserver delivers nothing in
- *                       a document that produces no animation frames.
+ *   3. Broken or slow observer → two independent failsafes, below.
+ *
+ * On the failsafes. The first version only fired when NOT ONE entry had been
+ * delivered. That turned out to be too weak: an observer can deliver its
+ * initial batch and then go silent — observed in a tab that produces no
+ * animation frames, where the two in-view sections revealed, the "delivered"
+ * flag went true, and the remaining eight stayed at opacity 0 permanently.
+ * A page that renders blank below the fold is a far worse outcome than one
+ * that skips an animation, so the late sweep is now unconditional.
  */
+
+/** Catches an observer that never delivers anything at all. */
 const FAILSAFE_MS = 1500;
+
+/** Catches an observer that delivers once and then stops. Unconditional: by
+ *  this point a working observer has already revealed everything on screen,
+ *  so the sweep is a no-op for it. */
+const HARD_FAILSAFE_MS = 8000;
 
 export default function SectionReveal() {
   useEffect(() => {
@@ -63,8 +74,14 @@ export default function SectionReveal() {
       if (!delivered) revealAll();
     }, FAILSAFE_MS);
 
+    const hardFailsafe = window.setTimeout(() => {
+      revealAll();
+      observer.disconnect();
+    }, HARD_FAILSAFE_MS);
+
     return () => {
       window.clearTimeout(failsafe);
+      window.clearTimeout(hardFailsafe);
       observer.disconnect();
     };
   }, []);

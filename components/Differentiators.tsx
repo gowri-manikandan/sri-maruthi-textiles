@@ -26,7 +26,7 @@ export default function Differentiators() {
         <p className="eyebrow">{eyebrow}</p>
         <h2 className="mt-2 max-w-[18ch] text-h2 text-ink">{heading}</h2>
 
-        <ul className="mt-6 grid gap-3 lg:grid-cols-3 lg:gap-4">
+        <ul data-stagger className="mt-6 grid gap-3 lg:grid-cols-3 lg:gap-4">
           {cards.map((card) => {
             const Icon = ICONS[card.id];
             return (

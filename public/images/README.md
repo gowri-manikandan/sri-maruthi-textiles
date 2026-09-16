@@ -10,7 +10,7 @@ Nothing else changes: each slot switches from its marked placeholder to a real
 | `storyPortrait` | `/images/story-a.jpg` | 3:4 | Loom, weaving, or a hands-on process shot. |
 | `storyLandscape` | `/images/story-b.jpg` | 4:3 | Yarn cones or dyed stock. Colour-rich — this is where warmth enters the page. |
 | `foilCta` | `/images/dispatch.jpg` | 3:4 | Factory, packing, or dispatch. Cropped to 4:3 on mobile. |
-| `products.<id>` | `/images/bath.jpg` … | 4:5 | One per product id (`bath`, `hand`, `bulk`, `custom`, `gsm`, `sixth`). Consistent lighting and background across the set; texture must be legible. Reused as the 1:1 category thumbnail. |
+| `products.<id>` | `/images/bath.jpg` … | 4:5 | One per product id: `checked`, `plain`, `printed`, `white`. Consistent lighting and background across the set; texture must be legible. |
 
 Do not colour-correct towards neutral. The interface is deliberately
 near-achromatic so the photographs supply all the colour (DESIGN_BRIEF.md §10).

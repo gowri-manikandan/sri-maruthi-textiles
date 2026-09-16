@@ -25,7 +25,7 @@ export default function StructuredData() {
     telephone: contact.phone.e164,
     areaServed: [
       { "@type": "State", name: "Kerala" },
-      { "@type": "City", name: "Coimbatore" },
+      { "@type": "State", name: "Tamil Nadu" },
     ],
     knowsLanguage: ["en", "ta", "ml"],
   };

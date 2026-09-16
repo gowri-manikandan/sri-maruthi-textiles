@@ -78,7 +78,11 @@ export default function Navbar() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className={`text-small transition-colors motion-reduce:transition-none ${
+                  /* link-underline is used here and NOT on body links: in a
+                     nav the context already marks these as links, whereas an
+                     inline link that only underlines on hover is left
+                     distinguishable by colour alone (WCAG 1.4.1). */
+                  className={`link-underline text-small transition-colors motion-reduce:transition-none ${
                     solid
                       ? "text-muted hover:text-ink"
                       : "text-bg/80 hover:text-bg"

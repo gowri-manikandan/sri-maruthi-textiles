@@ -20,7 +20,7 @@ const PAGE_LINKS = [
 
 const PRODUCT_LINKS = [
   { label: "Our range", href: "#products" },
-  { label: "Customer voices", href: "#customers" },
+  { label: "Our commitments", href: "#commitments" },
   { label: "Questions", href: "#faq" },
 ];
 

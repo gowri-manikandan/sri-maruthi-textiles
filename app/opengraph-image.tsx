@@ -98,7 +98,7 @@ export default async function OpengraphImage() {
               fontWeight: 600,
             }}
           >
-            20+ years · Kerala &amp; Coimbatore
+            20+ years · Kerala &amp; Tamil Nadu
           </div>
 
           <div
@@ -143,7 +143,7 @@ export default async function OpengraphImage() {
               color: "#6B615A",
             }}
           >
-            Bath · Hand · Bulk
+            Checked · Plain · Printed · White
           </div>
         </div>
       </div>

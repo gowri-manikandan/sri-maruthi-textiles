@@ -33,7 +33,7 @@ export default function HowItWorks() {
         <p className="eyebrow">{eyebrow}</p>
         <h2 className="mt-2 max-w-[20ch] text-h2 text-ink">{heading}</h2>
 
-        <ol className="relative mt-6 grid gap-4 lg:grid-cols-4 lg:gap-3">
+        <ol data-stagger className="relative mt-6 grid gap-4 lg:grid-cols-4 lg:gap-3">
           {/* Connector — sits at 24px, the centre of a 48px chip. */}
           <li
             aria-hidden="true"

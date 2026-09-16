@@ -1,6 +1,6 @@
 import ActionBand from "@/components/ActionBand";
 import ContactSection from "@/components/ContactSection";
-import CustomerVoices from "@/components/CustomerVoices";
+import Commitments from "@/components/Commitments";
 import Differentiators from "@/components/Differentiators";
 import Faq from "@/components/Faq";
 import FoilCta from "@/components/FoilCta";
@@ -20,7 +20,7 @@ export default function HomePage() {
       <MillStory />
       <HowItWorks />
       <ProductRange />
-      <CustomerVoices />
+      <Commitments />
       {/* Phase 8 (The Numbers) is skipped for now — it needs three figures the
           client has not supplied yet. It belongs here, above the foil CTA. */}
       <FoilCta />
