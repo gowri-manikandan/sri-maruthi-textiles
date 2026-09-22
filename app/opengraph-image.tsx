@@ -94,7 +94,7 @@ export default async function OpengraphImage() {
               fontSize: 22,
               letterSpacing: 4,
               textTransform: "uppercase",
-              color: "#2A3B8F", // --color-accent
+              color: "#4A5D34", // --color-accent (olive, from the logo)
               fontWeight: 600,
             }}
           >
@@ -112,7 +112,7 @@ export default async function OpengraphImage() {
               maxWidth: 900,
             }}
           >
-            Wholesale cotton towels, made to a committed date.
+            Handloom cotton towels, made to a committed date.
           </div>
         </div>
 

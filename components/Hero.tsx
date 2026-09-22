@@ -26,15 +26,24 @@ export default function Hero() {
       {/* Media layer. `priority` because this is the LCP element (§7); it is
           the only image on the page that is not lazy. alt="" because the
           headline already carries the meaning — see MediaFrame. */}
-      <MediaFrame
-        src={images.hero}
-        alt=""
-        priority
-        sizes="100vw"
-        tone="dark"
-        className="absolute inset-0 -z-10 border-0"
-        label="Hero photograph — 21:9 desktop with a 4:5 mobile crop. Towel stock or the production floor. The bottom-left third must stay visually calm; the headline sits there."
-      />
+      {/* The positioning lives on this wrapper, NOT on MediaFrame's className.
+          MediaFrame's own wrapper is `relative` so that `fill` has something to
+          fill; passing `absolute inset-0` in alongside it put two position
+          utilities on one element, Tailwind resolved to `relative`, `inset-0`
+          then stretched nothing, and the image rendered at 0x0 height — an
+          invisible hero that looked like a plain grey gradient, because all
+          you could see was the scrim over the page background. */}
+      <div className="absolute inset-0 -z-10">
+        <MediaFrame
+          src={images.hero}
+          alt=""
+          priority
+          sizes="100vw"
+          tone="dark"
+          className="h-full w-full border-0"
+          label="Hero photograph — 21:9 desktop with a 4:5 mobile crop. Towel stock or the production floor. The bottom-left third must stay visually calm; the headline sits there."
+        />
+      </div>
 
       {/* Scrim (§4.2). Separate layer so the real photograph can drop into the
           media layer above without touching any of this. */}

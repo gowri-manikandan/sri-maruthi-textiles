@@ -47,17 +47,17 @@ export default function MillStory() {
           <div data-stagger className="grid gap-2 lg:relative lg:col-start-7 lg:col-span-6 lg:block lg:pb-8">
             <MediaFrame
               src={images.storyPortrait}
-              alt="Weaving in progress on the mill floor"
+              alt="Weaving in progress on a handloom"
               sizes="(min-width: 1024px) 34vw, 100vw"
               className="aspect-3/4 lg:w-[70%]"
-              label="Mill story A — 3:4 portrait. Loom, weaving, or a hands-on process shot."
+              label="Story A — 3:4 portrait. A handloom in use, or a hands-on process shot."
             />
             {/* The gutter border lives on this wrapper, not on the frame, so it
                 does not fight the placeholder's dashed border. */}
             <div className="lg:absolute lg:right-0 lg:bottom-0 lg:w-[55%] lg:border-8 lg:border-surface">
               <MediaFrame
                 src={images.storyLandscape}
-                alt="Dyed cotton yarn cones in the mill store"
+                alt="Dyed cotton yarn cones ready for the loom"
                 sizes="(min-width: 1024px) 27vw, 100vw"
                 className="aspect-4/3"
                 label="Mill story B — 4:3 landscape. Yarn cones or dyed stock; colour-rich."

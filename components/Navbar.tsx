@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { ENQUIRY_HREF, navLinks, site } from "@/lib/site";
+import Image from "next/image";
+import { ENQUIRY_HREF, logo, navLinks, site } from "@/lib/site";
 
 /**
  * Navbar — DESIGN_BRIEF.md §4.1.
@@ -59,17 +60,37 @@ export default function Navbar() {
     >
       <nav aria-label="Main" className="container-page">
         <div className="flex h-8 items-center justify-between gap-3">
-          {/* Wordmark placeholder — swap for a real logo file in Phase 14. */}
+          {/* Emblem only — the full lockup's wordmark is illegible at 48px.
+              Falls back to the type wordmark until the asset is supplied. */}
           <a
             href="#top"
-            /* inline-flex + min-h-6 makes the wordmark a 48px tap target;
-               as bare text it measured 22px tall (§7). */
-            className={`inline-flex min-h-6 items-center font-display text-h3 leading-none ${
+            /* inline-flex + min-h-6 makes this a 48px tap target; as bare text
+               the wordmark measured 22px tall (§7). */
+            className={`inline-flex min-h-6 items-center gap-2 leading-none ${
               solid ? "text-ink" : "text-bg"
             }`}
             onClick={() => setOpen(false)}
           >
-            {site.name}
+            {logo.emblem ? (
+              <>
+                <Image
+                  src={logo.emblem}
+                  alt=""
+                  width={logo.emblemSize?.width ?? 512}
+                  height={logo.emblemSize?.height ?? 512}
+                  priority
+                  className="size-5 w-auto object-contain"
+                />
+                {/* The emblem carries no words, so the name must still reach
+                    screen readers and be the link's accessible name. */}
+                <span className="sr-only">{site.name}</span>
+                <span aria-hidden="true" className="hidden font-display text-h3 sm:inline">
+                  {site.name}
+                </span>
+              </>
+            ) : (
+              <span className="font-display text-h3">{site.name}</span>
+            )}
           </a>
 
           {/* Desktop navigation */}

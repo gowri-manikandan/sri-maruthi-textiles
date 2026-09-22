@@ -34,6 +34,22 @@
 | 13 — A11y / perf / motion | **Shipped.** §7 audited item by item (see §0.1.5). Two tap-target fixes. §3.7 reveal built in CSS, not Framer Motion — deviation documented in `globals.css`. |
 | 14 — Content swap | **Mechanism shipped; content still blocked.** All four image slots now route through `components/MediaFrame.tsx` and read paths from `images` in `lib/site.ts`, so dropping files into `/public/images` is all that is needed. Copy likewise all lives in `lib/site.ts`. **No new facts have been supplied since 20+ years and the phone number**, so every other placeholder stands — see §0.1.2. |
 
+### 0.1.6 Revision 3 (2026-09-21) — brand alignment
+
+The client supplied a logo, which forced three changes:
+
+- **Accent is now the logo's olive `#4A5D34`**, replacing indigo. The brand
+  outranks a colour picked before the logo existed. 6.88:1 on cream (AAA for
+  body text), 6.20:1 for accent text on the new pale-olive action band. Note
+  the accent-on-dark problem survives the change — 2.58:1 on `ink-deep`, versus
+  indigo's 1.68:1 — so `btn-on-dark` is still required over photography.
+- **Copy now says handloom.** Title, description, hero eyebrow and subtext,
+  the first differentiator ("Woven on our own looms"), the story heading
+  ("The looms behind the towels"), the footer line, the OG card and the image
+  alt text. "Handloom towels" is also a better search term than "cotton towels".
+- **Logo slots exist but are empty.** See `logo` in `lib/site.ts`. Until the
+  files land, navbar and footer fall back to the type wordmark.
+
 ### 0.1.2 The site does not yet say anything true about this company
 
 Six sections are built and the page now *structurally* covers the company and
@@ -216,7 +232,7 @@ built and how to verify it in the browser, and wait for go-ahead.
 
 ## 2. Business & audience brief
 
-- **Business:** Manufacturer of cotton towels. B2B, not direct-to-consumer.
+- **Business:** Manufacturer of **handloom** cotton towels. B2B, not direct-to-consumer. (Confirmed 2026-09-21; Rev 1-2 said only "cotton towels", and handloom is a genuine differentiator that the copy now leads with.)
 - **Service area:** Kerala and Tamil Nadu. (Revision 1 said "mainly Coimbatore"; the client corrected this on 2026-09-15 — the whole of both states is supplied.)
 - **Goal:** Generate wholesale enquiries and build credibility. Lead-gen, not e-commerce.
 - **Primary action:** View products → enquire via form, phone, or WhatsApp.
@@ -249,8 +265,8 @@ Components reference them through Tailwind utilities only — never inline hex.
 --color-border:      #E4DCD0;  /* hairlines; the ONLY card/divider treatment  */
 
 /* Accent — 10% */
---color-accent:      #2A3B8F;  /* deep indigo; 9.4:1 on bg, 9.9:1 vs white    */
---color-accent-soft: #E7EAF7;  /* pale indigo; the action band ground only    */
+--color-accent:      #4A5D34;  /* olive, from the logo; 6.88:1 on bg          */
+--color-accent-soft: #ECEFE4;  /* pale olive; the action band ground only     */
 
 /* Status */
 --color-success:     #3E7A4A;
@@ -369,11 +385,32 @@ the three references.
 
 ### 3.7 Motion
 
-Framer Motion, sparingly. Permitted: 16px slide-up plus fade on section entry
-(once, not on every scroll), and color transitions on interactive elements at
-180ms. Not permitted: parallax, counters that tick up, scroll-jacking, staggered
-letter reveals, anything on the hero photograph. Everything wrapped in a
-`prefers-reduced-motion` guard that disables it entirely.
+**Revised 2026-09-16 at the client's request.** The original rule permitted only
+a 16px fade-up per section, which the client found too plain — "not even any
+animation at all". The constraint was mine, not theirs, so it is lifted. What
+is permitted now:
+
+- **Hero entrance on load.** Eyebrow, headline, subtext and CTAs rise 24px and
+  fade in sequence (120/220/320/420ms). The photograph itself never moves.
+- **Section reveal on scroll**, once: 24px rise plus fade, 600ms.
+- **Staggered children** inside a revealed section: 60ms apart, up to six. This
+  is what makes a grid feel composed rather than switched on, and it is the
+  single biggest perceived-quality change.
+- **Product photographs scale to 1.05 on hover** inside their fixed frame. The
+  card itself still does not lift — §3.6 rule 4 stands.
+- **Nav link underlines** grow from the left on hover.
+- Colour transitions on interactive elements, 180ms.
+
+Still not permitted: parallax, scroll-jacking, counters that tick up, staggered
+letter reveals, and any motion on the hero photograph. A moving hero image is
+the cheap effect that makes a supplier site look like a template.
+
+Everything is CSS. No animation runtime ships to the client. Every rule is
+guarded by `prefers-reduced-motion` in CSS rather than JS, so the guard holds
+even if scripting fails, and every hidden state is scoped under
+`[data-reveal-armed]` so a page without JavaScript hides nothing.
+
+Shared easing token: `--ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1)`.
 
 ---
 

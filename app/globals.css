@@ -12,13 +12,18 @@
    the short version is that the product photography is entirely warm, so a warm
    accent dissolves into it, and DM Serif has one optical size so it only looks
    enlarged at display scale.
+
+   Revision 3 (2026-09-21) replaced indigo with the logo's olive. The brand
+   outranks a colour chosen before the logo existed. Olive still satisfies the
+   Rev 2 argument — it is a cool, earthy green, so it stays legible against
+   rust-and-cream towel photography rather than dissolving into it.
    ========================================================================== */
 
 @theme {
   /* --- §3.1 Color -------------------------------------------------------
      Ground 60% · Structure 30% · Accent 10%.
 
-     Accent budget — indigo is permitted ONLY on: primary buttons, the action
+     Accent budget — the accent is permitted ONLY on: primary buttons, the action
      band ground (accent-soft), eyebrow labels, link underlines, active nav
      state, the foil CTA panel, and icon chips. Nothing else.
 
@@ -37,8 +42,8 @@
   --color-border: #e4dcd0; /* hairlines; the ONLY divider treatment */
 
   /* Accent */
-  --color-accent: #2a3b8f; /* deep indigo                           */
-  --color-accent-soft: #e7eaf7; /* pale indigo; action band ground only  */
+  --color-accent: #4a5d34; /* olive, from the logo. 6.88:1 on bg    */
+  --color-accent-soft: #ecefe4; /* pale olive; action band ground only   */
 
   /* Status */
   --color-success: #3e7a4a;
@@ -194,7 +199,7 @@
 /* --- Type utilities ----------------------------------------------------- */
 
 /* §3.2 — the eyebrow is a system component, not decoration. Every major
-   section opens with one. Tracked-out uppercase Inter in indigo; this is
+   section opens with one. Tracked-out uppercase Inter in the accent; this is
    what keeps an editorial page scanning like a business page. */
 @utility eyebrow {
   display: block;
@@ -474,10 +479,14 @@
    overlay weighted to the bottom-left where the headline sits.
 
    Sized so the type clears AA against ANY photograph, including a blown-out
-   white one. Combined alpha in the headline corner is 1-(1-0.78)(1-0.38) =
-   0.86, which composites pure white down to about rgb(51,50,53) — 12.4:1
-   against --color-bg text. Verify again once the real photo lands (§7), but
-   there is a lot of headroom here.
+   white one — but no heavier than that. The first version used 0.78/0.38,
+   giving 12.4:1 where AA needs 4.5:1, and it flattened the photograph into
+   grey: three different hero images in a row rendered as a plain gradient.
+
+   Now 0.62/0.28, combined 1-(1-0.62)(1-0.28) = 0.73 in the headline corner.
+   Pure white composites to about rgb(84,83,86) — still 6.9:1 against
+   --color-bg text, comfortably AA with room to spare, while leaving the
+   image visible. Re-measure against the real photograph (§7).
 
    The third gradient is a light top scrim: the navbar is transparent over
    this section and needs its own separate guarantee.                      */
@@ -485,19 +494,19 @@
   background-image:
     linear-gradient(
       to bottom,
-      color-mix(in srgb, var(--color-ink-deep) 50%, transparent) 0%,
+      color-mix(in srgb, var(--color-ink-deep) 38%, transparent) 0%,
       color-mix(in srgb, var(--color-ink-deep) 0%, transparent) 20%
     ),
     linear-gradient(
       to right,
-      color-mix(in srgb, var(--color-ink-deep) 38%, transparent) 0%,
-      color-mix(in srgb, var(--color-ink-deep) 14%, transparent) 45%,
+      color-mix(in srgb, var(--color-ink-deep) 28%, transparent) 0%,
+      color-mix(in srgb, var(--color-ink-deep) 10%, transparent) 45%,
       color-mix(in srgb, var(--color-ink-deep) 0%, transparent) 70%
     ),
     linear-gradient(
       to top,
-      color-mix(in srgb, var(--color-ink-deep) 78%, transparent) 0%,
-      color-mix(in srgb, var(--color-ink-deep) 58%, transparent) 32%,
+      color-mix(in srgb, var(--color-ink-deep) 62%, transparent) 0%,
+      color-mix(in srgb, var(--color-ink-deep) 42%, transparent) 32%,
       color-mix(in srgb, var(--color-ink-deep) 0%, transparent) 72%
     );
 }
@@ -534,7 +543,7 @@
   }
 }
 
-/* The 10% accent. 9.42:1 against --color-bg — AAA. */
+/* The 10% accent. 6.88:1 against --color-bg — AAA for body text. */
 @utility btn-primary {
   background-color: var(--color-accent);
   color: var(--color-bg);
@@ -557,9 +566,10 @@
   }
 }
 
-/* §4.2 — the PRIMARY CTA over the hero photograph. Indigo-on-dark is only
-   1.68:1, so the brand button inverts over imagery: light fill, indigo label
-   (9.42:1). Still unmistakably the accent, just carried by the text. */
+/* §4.2 — the PRIMARY CTA over the hero photograph. The accent on a dark
+   ground is only 2.58:1 (it was 1.68:1 as indigo — the problem survives the
+   colour change), so the brand button inverts over imagery: light fill, olive
+   label (6.88:1). Still unmistakably the accent, just carried by the text. */
 @utility btn-on-dark {
   background-color: var(--color-bg);
   color: var(--color-accent);

@@ -3,6 +3,7 @@ import { Fraunces, Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import SectionReveal from "@/components/SectionReveal";
 import SiteFooter from "@/components/SiteFooter";
+import WhatsappFab from "@/components/WhatsappFab";
 import { site, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
@@ -109,6 +110,10 @@ export default function RootLayout({
         <footer>
           <SiteFooter />
         </footer>
+
+        {/* Outside <main> and <footer>: it is a persistent utility, not part
+            of the document's content structure. */}
+        <WhatsappFab />
       </body>
     </html>
   );

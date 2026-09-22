@@ -1,4 +1,5 @@
-import { contact, site, telHref, whatsappHref } from "@/lib/site";
+import Image from "next/image";
+import { contact, logo, site, telHref, whatsappHref } from "@/lib/site";
 
 /**
  * Footer — DESIGN_BRIEF.md §4.13.
@@ -33,7 +34,17 @@ export default function SiteFooter() {
         <div className="grid gap-6 lg:grid-cols-12 lg:gap-4">
           {/* Identity */}
           <div className="lg:col-span-4">
-            <p className="font-display text-h3 text-bg">{site.name}</p>
+            {logo.full ? (
+              <Image
+                src={logo.full}
+                alt={site.name}
+                width={logo.fullSize?.width ?? 900}
+                height={logo.fullSize?.height ?? 1000}
+                className="h-auto w-[200px]"
+              />
+            ) : (
+              <p className="font-display text-h3 text-bg">{site.name}</p>
+            )}
             <p className="mt-2 max-w-[36ch] text-small text-bg/70">
               {site.footer.line}
             </p>
