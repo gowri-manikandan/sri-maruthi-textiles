@@ -1,22 +1,23 @@
-import ActionBand from "@/components/ActionBand";
 import ContactSection from "@/components/ContactSection";
 import Commitments from "@/components/Commitments";
-import Differentiators from "@/components/Differentiators";
 import Faq from "@/components/Faq";
 import FoilCta from "@/components/FoilCta";
 import Hero from "@/components/Hero";
 import HowItWorks from "@/components/HowItWorks";
 import MillStory from "@/components/MillStory";
 import ProductRange from "@/components/ProductRange";
+import QualitySection from "@/components/QualitySection";
 import StructuredData from "@/components/StructuredData";
 
 export default function HomePage() {
   return (
     <>
       <StructuredData />
+      {/* Section 1: Hero */}
       <Hero />
-      <ActionBand />
-      <Differentiators />
+      {/* Section 2: Quality You Can Count On */}
+      <QualitySection />
+      {/* Subsequent sections remain untouched */}
       <MillStory />
       <HowItWorks />
       <ProductRange />

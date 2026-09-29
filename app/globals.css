@@ -45,6 +45,14 @@
   --color-accent: #4a5d34; /* olive, from the logo. 6.88:1 on bg    */
   --color-accent-soft: #ecefe4; /* pale olive; action band ground only   */
 
+  /* Brand Palette (Sri Maruthi Handloom) */
+  --color-deep-olive: #26351c;
+  --color-brand-olive: #40572d;
+  --color-warm-ivory: #f5f1e8;
+  --color-natural-beige: #e8dfcf;
+  --color-terracotta: #a95738;
+  --color-dark-brown: #29251f;
+
   /* Status */
   --color-success: #3e7a4a;
   --color-error: #b3392c;
@@ -327,12 +335,98 @@
   [data-reveal-armed] main > section [data-stagger] > *:nth-child(5) { transition-delay: 380ms; }
   [data-reveal-armed] main > section [data-stagger] > *:nth-child(6) { transition-delay: 460ms; }
 
-  /* Hero entrance. Runs on load, not on scroll, so it is the first thing a
-     visitor sees. `backwards` fill holds the from-state during the delay.
+  /* Hero entrance animations. Runs on load, cinematic and subtle. */
+  @keyframes hero-ken-burns {
+    0% {
+      transform: scale(1.08);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
 
-     Note this animates the TEXT, never the photograph — a moving hero image
-     is the cheap effect that makes a supplier site feel like a template. */
+  @keyframes hero-fade-slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes hero-heading-line {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes hero-fade-in-slow {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes scroll-arrow-float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(5px);
+    }
+  }
+
   @media (prefers-reduced-motion: no-preference) {
+    .animate-hero-image {
+      animation: hero-ken-burns 9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      will-change: transform;
+    }
+
+    .hero-anim-eyebrow {
+      animation: hero-fade-slide-up 650ms cubic-bezier(0.16, 1, 0.3, 1) 100ms backwards;
+    }
+
+    .hero-anim-line-1 {
+      animation: hero-heading-line 750ms cubic-bezier(0.16, 1, 0.3, 1) 200ms backwards;
+    }
+
+    .hero-anim-line-2 {
+      animation: hero-heading-line 750ms cubic-bezier(0.16, 1, 0.3, 1) 350ms backwards;
+    }
+
+    .hero-anim-line-3 {
+      animation: hero-heading-line 750ms cubic-bezier(0.16, 1, 0.3, 1) 500ms backwards;
+    }
+
+    .hero-anim-desc {
+      animation: hero-fade-slide-up 700ms cubic-bezier(0.16, 1, 0.3, 1) 600ms backwards;
+    }
+
+    .hero-anim-buttons {
+      animation: hero-fade-slide-up 700ms cubic-bezier(0.16, 1, 0.3, 1) 700ms backwards;
+    }
+
+    .hero-anim-bottom-label {
+      animation: hero-fade-in-slow 800ms cubic-bezier(0.16, 1, 0.3, 1) 900ms backwards;
+    }
+
+    .hero-anim-scroll-indicator {
+      animation: hero-fade-in-slow 800ms cubic-bezier(0.16, 1, 0.3, 1) 1000ms backwards;
+    }
+
+    .hero-scroll-arrow {
+      animation: scroll-arrow-float 3s ease-in-out infinite;
+    }
+
     [data-hero-enter] > * {
       animation: hero-rise 800ms var(--ease-out-soft) backwards;
     }
@@ -352,6 +446,21 @@
   /* One guard covers the lot. Kept in CSS rather than JS so it holds even if
      the observer never runs. */
   @media (prefers-reduced-motion: reduce) {
+    .animate-hero-image,
+    .hero-anim-eyebrow,
+    .hero-anim-line-1,
+    .hero-anim-line-2,
+    .hero-anim-line-3,
+    .hero-anim-desc,
+    .hero-anim-buttons,
+    .hero-anim-bottom-label,
+    .hero-anim-scroll-indicator,
+    .hero-scroll-arrow {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+
     [data-reveal-armed] main > section:not(:first-of-type),
     [data-reveal-armed] main > section:not(:first-of-type) [data-stagger] > * {
       opacity: 1;
@@ -508,6 +617,33 @@
       color-mix(in srgb, var(--color-ink-deep) 62%, transparent) 0%,
       color-mix(in srgb, var(--color-ink-deep) 42%, transparent) 32%,
       color-mix(in srgb, var(--color-ink-deep) 0%, transparent) 72%
+    );
+}
+
+/* Editorial left-to-right gradient overlay: deep warm olive/brown on the left
+   for typography, gently feathering out to the right so the handloom towels,
+   loom context, and natural daylight stay luminous and visible. */
+@utility hero-editorial-scrim {
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(24, 28, 20, 0.45) 0%,
+      rgba(24, 28, 20, 0.1) 18%,
+      transparent 35%
+    ),
+    linear-gradient(
+      to top,
+      rgba(28, 26, 22, 0.6) 0%,
+      rgba(38, 53, 28, 0.25) 15%,
+      transparent 30%
+    ),
+    linear-gradient(
+      to right,
+      rgba(28, 26, 22, 0.92) 0%,
+      rgba(38, 53, 28, 0.82) 26%,
+      rgba(41, 37, 31, 0.58) 46%,
+      rgba(41, 37, 31, 0.22) 70%,
+      rgba(38, 53, 28, 0.08) 100%
     );
 }
 

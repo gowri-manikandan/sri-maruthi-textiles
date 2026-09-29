@@ -52,22 +52,19 @@ export default function Navbar() {
 
   return (
     <div
-      className={`fixed inset-x-0 top-0 z-40 border-b transition-colors duration-200 motion-reduce:transition-none ${
+      className={`fixed inset-x-0 top-0 z-40 border-b transition-all duration-500 ease-out motion-reduce:transition-none ${
         solid
-          ? "border-border bg-bg/95 backdrop-blur-sm"
-          : "on-dark border-transparent bg-transparent"
+          ? "border-[#E8DFCF] bg-[#F5F1E8]/95 backdrop-blur-md"
+          : "border-transparent bg-transparent"
       }`}
     >
       <nav aria-label="Main" className="container-page">
-        <div className="flex h-8 items-center justify-between gap-3">
-          {/* Emblem only — the full lockup's wordmark is illegible at 48px.
-              Falls back to the type wordmark until the asset is supplied. */}
+        <div className="flex h-16 sm:h-20 items-center justify-between gap-4">
+          {/* Logo emblem + wordmark */}
           <a
             href="#top"
-            /* inline-flex + min-h-6 makes this a 48px tap target; as bare text
-               the wordmark measured 22px tall (§7). */
-            className={`inline-flex min-h-6 items-center gap-2 leading-none ${
-              solid ? "text-ink" : "text-bg"
+            className={`inline-flex items-center gap-2.5 sm:gap-3 leading-none transition-colors duration-400 ${
+              solid ? "text-[#29251F]" : "text-[#F5F1E8]"
             }`}
             onClick={() => setOpen(false)}
           >
@@ -79,34 +76,33 @@ export default function Navbar() {
                   width={logo.emblemSize?.width ?? 512}
                   height={logo.emblemSize?.height ?? 512}
                   priority
-                  className="size-5 w-auto object-contain"
+                  className="size-8 sm:size-9 w-auto object-contain drop-shadow-sm"
                 />
-                {/* The emblem carries no words, so the name must still reach
-                    screen readers and be the link's accessible name. */}
                 <span className="sr-only">{site.name}</span>
-                <span aria-hidden="true" className="hidden font-display text-h3 sm:inline">
+                <span
+                  aria-hidden="true"
+                  className="font-display text-[1.15rem] sm:text-[1.28rem] font-normal tracking-tight"
+                >
                   {site.name}
                 </span>
               </>
             ) : (
-              <span className="font-display text-h3">{site.name}</span>
+              <span className="font-display text-[1.15rem] sm:text-[1.28rem] font-normal">
+                {site.name}
+              </span>
             )}
           </a>
 
           {/* Desktop navigation */}
-          <ul className="hidden items-center gap-4 lg:flex">
+          <ul className="hidden items-center gap-3.5 md:gap-4 lg:gap-6 xl:gap-7 lg:flex">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
-                  /* link-underline is used here and NOT on body links: in a
-                     nav the context already marks these as links, whereas an
-                     inline link that only underlines on hover is left
-                     distinguishable by colour alone (WCAG 1.4.1). */
-                  className={`link-underline text-small transition-colors motion-reduce:transition-none ${
+                  className={`link-underline text-[13px] xl:text-[14px] font-medium tracking-wide transition-colors duration-300 motion-reduce:transition-none ${
                     solid
-                      ? "text-muted hover:text-ink"
-                      : "text-bg/80 hover:text-bg"
+                      ? "text-[#5a534c] hover:text-[#29251F]"
+                      : "text-[#F5F1E8]/85 hover:text-[#F5F1E8]"
                   }`}
                 >
                   {link.label}
@@ -115,16 +111,19 @@ export default function Navbar() {
             ))}
           </ul>
 
-          <div className="flex items-center gap-2">
-            {/* Indigo-on-dark is only 1.68:1, so over the hero the brand button
-                inverts to a light fill with an indigo label (§4.2). */}
+          <div className="flex items-center gap-3">
+            {/* Desktop Request Enquiry button */}
             <a
               href={ENQUIRY_HREF}
-              className={`btn hidden lg:inline-flex ${
-                solid ? "btn-primary" : "btn-on-dark"
-              }`}
+              className="group hidden lg:inline-flex items-center gap-2 px-4 py-2.5 rounded-md bg-[#40572D] text-[#F5F1E8] hover:bg-[#4d6936] text-[13.5px] font-medium tracking-wide transition-all duration-250 shadow-sm border border-[#40572D]"
             >
-              Enquire Now
+              <span>Request Enquiry</span>
+              <span
+                aria-hidden="true"
+                className="inline-block transition-transform duration-250 group-hover:translate-x-1.5"
+              >
+                →
+              </span>
             </a>
 
             {/* Mobile menu toggle */}
@@ -134,14 +133,16 @@ export default function Navbar() {
               aria-controls="mobile-menu"
               aria-label={open ? "Close menu" : "Open menu"}
               onClick={() => setOpen((v) => !v)}
-              className={`inline-flex size-6 items-center justify-center rounded lg:hidden ${
-                solid ? "text-ink" : "text-bg"
+              className={`inline-flex size-10 items-center justify-center rounded-md transition-colors lg:hidden ${
+                solid
+                  ? "text-[#29251F] hover:bg-[#E8DFCF]/50"
+                  : "text-[#F5F1E8] hover:bg-white/10"
               }`}
             >
               {open ? (
-                <X aria-hidden="true" className="size-3" />
+                <X aria-hidden="true" className="size-5" />
               ) : (
-                <Menu aria-hidden="true" className="size-3" />
+                <Menu aria-hidden="true" className="size-5" />
               )}
             </button>
           </div>
@@ -151,15 +152,15 @@ export default function Navbar() {
         <div
           id="mobile-menu"
           hidden={!open}
-          className="border-t border-border py-2 lg:hidden"
+          className="border-t border-[#E8DFCF] bg-[#F5F1E8] px-4 py-5 shadow-lg lg:hidden"
         >
-          <ul className="flex flex-col gap-1">
+          <ul className="flex flex-col gap-2">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="flex min-h-6 items-center text-body text-ink"
+                  className="flex min-h-[44px] items-center text-[15px] font-medium text-[#29251F] hover:text-[#40572D] transition-colors"
                 >
                   {link.label}
                 </a>
@@ -169,9 +170,15 @@ export default function Navbar() {
           <a
             href={ENQUIRY_HREF}
             onClick={() => setOpen(false)}
-            className="btn btn-primary mt-2 w-full"
+            className="group mt-4 flex min-h-[48px] w-full items-center justify-center gap-2 rounded-md bg-[#40572D] px-4 py-3 text-center text-[15px] font-medium text-[#F5F1E8] transition-colors hover:bg-[#4d6936]"
           >
-            Enquire Now
+            <span>Request Enquiry</span>
+            <span
+              aria-hidden="true"
+              className="inline-block transition-transform duration-250 group-hover:translate-x-1"
+            >
+              →
+            </span>
           </a>
         </div>
       </nav>

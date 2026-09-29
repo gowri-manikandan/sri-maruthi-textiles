@@ -51,33 +51,50 @@ export async function POST(request: Request) {
   const enquiry: EnquiryPayload = {
     name: sanitise(source.name),
     business: sanitise(source.business),
+    email: sanitise(source.email),
     phone: sanitise(source.phone),
     city: sanitise(source.city),
     requirement: sanitise(source.requirement),
+    quantity: sanitise(source.quantity),
     message: sanitise(source.message),
   };
 
-  const missing = REQUIRED.filter((field) => enquiry[field] === "");
-  if (missing.length > 0) {
+  if (!enquiry.name || !enquiry.requirement) {
     return NextResponse.json(
       {
         ok: false,
-        error: "Please fill in your name, phone number and requirement.",
-        missing,
+        error: "Please fill in your name and what product you are looking for.",
       },
       { status: 400 },
     );
   }
 
-  /* Phone check is deliberately permissive: this audience types numbers with
-     spaces, dashes and country codes, and rejecting a real lead over
-     formatting costs far more than accepting a slightly messy value. */
-  const digits = enquiry.phone.replace(/\D/g, "");
-  if (digits.length < 8 || digits.length > 15) {
+  // Require at least one valid contact method (email or phone)
+  if (!enquiry.phone && !enquiry.email) {
     return NextResponse.json(
-      { ok: false, error: "That phone number does not look right. Please check it." },
+      {
+        ok: false,
+        error: "Please provide an email address or phone/WhatsApp number so we can respond.",
+      },
       { status: 400 },
     );
+  }
+
+  if (enquiry.email && !enquiry.email.includes("@")) {
+    return NextResponse.json(
+      { ok: false, error: "Please provide a valid email address." },
+      { status: 400 },
+    );
+  }
+
+  if (enquiry.phone) {
+    const digits = enquiry.phone.replace(/\D/g, "");
+    if (digits.length < 8 || digits.length > 15) {
+      return NextResponse.json(
+        { ok: false, error: "That phone number does not look right. Please check it." },
+        { status: 400 },
+      );
+    }
   }
 
   try {

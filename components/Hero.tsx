@@ -1,73 +1,118 @@
-import MediaFrame from "@/components/MediaFrame";
-import { ENQUIRY_HREF, images, site } from "@/lib/site";
+import Image from "next/image";
+import { ENQUIRY_HREF, images } from "@/lib/site";
 
 /**
- * Hero — DESIGN_BRIEF.md §4.2.
+ * Premium Hero Section — Sri Maruthi Textiles
  *
- * Full-bleed photograph, dark scrim weighted to the bottom-left, copy stacked
- * in that corner. `data-hero` is the hook Navbar observes to decide when to
- * stop being transparent — see components/Navbar.tsx.
- *
- * On height: §3.4 gives the photograph as 21:9 desktop / 4:5 mobile, and the
- * image manifest (§10) still asks for those crops. But a literal 21:9 section
- * is only ~440px tall at 1024px wide, which the headline, subtext and two CTAs
- * overflow. So the ASSET keeps those ratios while the SECTION is sized in
- * viewport units and the photo is object-cover'd into it. The composition then
- * holds at any window size, and 88svh deliberately leaves a sliver of the next
- * section visible — a scroll cue, and where the Phase 2 action band will sit.
+ * Designed as an editorial showcase of handloom textile craftsmanship:
+ * - High-resolution editorial photography of folded handloom cotton towels with authentic loom context
+ * - Cinematic Ken Burns subtle zoom-out (scale 1.08 -> 1) over 9 seconds
+ * - Left-to-right editorial scrim ensuring AAA typographic contrast on the left while preserving
+ *   the beauty, sunlight, and handloom towels on the right
+ * - Line-by-line staggered typography entrance for the Fraunces display serif heading
+ * - Refined CTA pairing with directional micro-interaction
+ * - Subtle craft badge at bottom right & slow floating scroll indicator
+ * - Full prefers-reduced-motion support
  */
 export default function Hero() {
   return (
     <section
       id="top"
       data-hero
-      className="on-dark relative isolate flex min-h-[88svh] items-end overflow-hidden"
+      className="relative isolate flex min-h-[660px] md:min-h-[650px] lg:min-h-[720px] lg:h-[750px] w-full overflow-hidden items-center justify-between"
     >
-      {/* Media layer. `priority` because this is the LCP element (§7); it is
-          the only image on the page that is not lazy. alt="" because the
-          headline already carries the meaning — see MediaFrame. */}
-      {/* The positioning lives on this wrapper, NOT on MediaFrame's className.
-          MediaFrame's own wrapper is `relative` so that `fill` has something to
-          fill; passing `absolute inset-0` in alongside it put two position
-          utilities on one element, Tailwind resolved to `relative`, `inset-0`
-          then stretched nothing, and the image rendered at 0x0 height — an
-          invisible hero that looked like a plain grey gradient, because all
-          you could see was the scrim over the page background. */}
-      <div className="absolute inset-0 -z-10">
-        <MediaFrame
-          src={images.hero}
-          alt=""
+      {/* Background Image Layer with Cinematic Ken Burns Ease */}
+      <div className="absolute inset-0 -z-20 overflow-hidden">
+        <Image
+          src={images.hero ?? "/images/hero-handloom.jpg"}
+          alt="Authentic handloom cotton towels stacked in weaving mill workshop"
+          fill
           priority
           sizes="100vw"
-          tone="dark"
-          className="h-full w-full border-0"
-          label="Hero photograph — 21:9 desktop with a 4:5 mobile crop. Towel stock or the production floor. The bottom-left third must stay visually calm; the headline sits there."
+          quality={90}
+          className="animate-hero-image object-cover object-[75%_center] sm:object-[70%_center] lg:object-[right_center] pointer-events-none select-none"
         />
       </div>
 
-      {/* Scrim (§4.2). Separate layer so the real photograph can drop into the
-          media layer above without touching any of this. */}
-      <div aria-hidden="true" className="hero-scrim absolute inset-0 -z-10" />
+      {/* Editorial Left-to-Right Scrim Overlay */}
+      <div
+        aria-hidden="true"
+        className="hero-editorial-scrim absolute inset-0 -z-10"
+      />
 
-      <div data-hero-enter className="container-page pt-12 pb-6 lg:pb-12">
-        <p className="eyebrow eyebrow-light">{site.hero.eyebrow}</p>
+      {/* Main Content Layout */}
+      <div className="container-page relative z-10 w-full pt-24 pb-16 sm:pt-28 sm:pb-20 lg:pt-32 lg:pb-24 flex items-center justify-between">
+        <div className="max-w-[650px] flex flex-col items-start">
+          {/* Eyebrow with Decorative Line */}
+          <div className="hero-anim-eyebrow flex items-center gap-3">
+            <span className="text-[11px] sm:text-[12px] font-semibold tracking-[0.22em] uppercase text-[#E8DFCF]">
+              HANDLOOM COTTON TEXTILES
+            </span>
+            <span
+              className="h-px w-10 sm:w-16 bg-[#E8DFCF]/40"
+              aria-hidden="true"
+            />
+          </div>
 
-        <h1 className="mt-2 max-w-[22ch] text-display text-bg">
-          {site.hero.headline}
-        </h1>
+          {/* Main Heading — Line-by-Line Reveal */}
+          <h1 className="mt-4 sm:mt-5 text-[#F5F1E8] font-display font-normal text-[2.75rem] sm:text-[3.5rem] lg:text-[4.25rem] xl:text-[4.65rem] leading-[0.98] sm:leading-[1.0] tracking-[-0.015em]">
+            <span className="block hero-anim-line-1">Cotton Towels,</span>
+            <span className="block hero-anim-line-2">Made for Business</span>
+            <span className="block hero-anim-line-3">That Lasts</span>
+          </h1>
 
-        <p className="mt-3 max-w-[60ch] text-body text-bg/85">
-          {site.hero.subtext}
-        </p>
+          {/* Description */}
+          <p className="hero-anim-desc mt-5 sm:mt-6 max-w-[500px] text-[16px] sm:text-[17px] lg:text-[18px] leading-[1.6] text-[#F5F1E8]/90 font-normal">
+            High-quality handloom cotton towels, crafted with care and consistency for hotels, resorts, retailers and businesses worldwide.
+          </p>
 
-        <div className="mt-4 flex flex-col gap-2 sm:flex-row">
-          <a href={ENQUIRY_HREF} className="btn btn-on-dark">
-            Enquire Now
-          </a>
-          <a href="#products" className="btn btn-outline-light">
-            View Products
-          </a>
+          {/* Action Buttons */}
+          <div className="hero-anim-buttons mt-7 sm:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4 w-full sm:w-auto">
+            <a
+              href={ENQUIRY_HREF}
+              className="group inline-flex items-center justify-center gap-2 h-[48px] sm:h-[50px] px-6 min-w-[165px] rounded-md bg-[#40572D] hover:bg-[#4d6936] text-[#F5F1E8] text-[15px] font-medium tracking-wide transition-all duration-250 shadow-sm border border-[#40572D]"
+            >
+              <span>Request Enquiry</span>
+              <span
+                aria-hidden="true"
+                className="inline-block transition-transform duration-250 group-hover:translate-x-1.5"
+              >
+                →
+              </span>
+            </a>
+            <a
+              href="#products"
+              className="inline-flex items-center justify-center h-[48px] sm:h-[50px] px-6 min-w-[145px] rounded-md border border-[#F5F1E8]/50 hover:border-[#F5F1E8] hover:bg-[#F5F1E8]/15 text-[#F5F1E8] text-[15px] font-medium tracking-wide transition-all duration-300"
+            >
+              View Products
+            </a>
+          </div>
         </div>
+
+        {/* Subtle Bottom-Right Detail Label */}
+        <div
+          aria-hidden="true"
+          className="hero-anim-bottom-label hidden xl:flex flex-col items-end gap-1.5 self-end pb-2 text-right text-[10.5px] tracking-[0.22em] font-medium uppercase text-[#E8DFCF]/60 pointer-events-none select-none"
+        >
+          <span>Pure Cotton</span>
+          <span className="w-8 h-px bg-[#E8DFCF]/25" />
+          <span>Handloom Craft</span>
+          <span className="w-8 h-px bg-[#E8DFCF]/25" />
+          <span>Made for Business</span>
+        </div>
+      </div>
+
+      {/* Elegant Bottom Scroll Indicator */}
+      <div
+        aria-hidden="true"
+        className="hero-anim-scroll-indicator absolute bottom-4 sm:bottom-6 inset-x-0 flex flex-col items-center justify-center gap-1.5 text-center pointer-events-none z-10"
+      >
+        <span className="text-[10px] sm:text-[11px] font-medium tracking-[0.24em] uppercase text-[#E8DFCF]/75 font-sans">
+          Scroll to Explore
+        </span>
+        <span className="hero-scroll-arrow text-[14px] text-[#E8DFCF]/80 leading-none">
+          ↓
+        </span>
       </div>
     </section>
   );

@@ -63,6 +63,15 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true, "max-image-preview": "large" },
   },
   formatDetection: { telephone: true },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png", sizes: "32x32" },
+    ],
+    apple: [
+      { url: "/apple-icon.png", type: "image/png", sizes: "180x180" },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -107,9 +116,7 @@ export default function RootLayout({
 
         <SectionReveal />
 
-        <footer>
-          <SiteFooter />
-        </footer>
+        <SiteFooter />
 
         {/* Outside <main> and <footer>: it is a persistent utility, not part
             of the document's content structure. */}
