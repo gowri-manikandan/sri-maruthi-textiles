@@ -3,16 +3,11 @@ import { contact, site, SITE_URL } from "@/lib/site";
 /**
  * LocalBusiness JSON-LD — DESIGN_BRIEF.md §6.
  *
- * Only verified facts go in. Deliberately ABSENT:
- *   - `address`      no street address has been supplied yet
- *   - `foundingDate` "20+ years" is not a year
- *   - `geo`, `openingHours`, `aggregateRating`, `priceRange`
- * Structured data is a machine-readable claim to a search engine; inventing
- * any of the above would be a fabricated claim, not a placeholder.
- *
- * Phase 14 must add `address` — Google will not show a local rich result for a
- * LocalBusiness without a postal address, so this is currently valid markup
- * that simply will not earn the local card yet.
+ * Verified facts:
+ *   - `name`, `url`, `description`, `telephone`, `email`
+ *   - `address`: 1/37, Pallagoundanpalayam, Uttukuli (Tk), Tiruppur (Dt) - 638056
+ *   - `taxID` / `vatID`: GSTIN 33BNZPM4235L2ZC
+ *   - `areaServed`: Kerala and Tamil Nadu
  */
 export default function StructuredData() {
   const data = {
@@ -23,6 +18,17 @@ export default function StructuredData() {
     url: SITE_URL,
     description: site.seo.description,
     telephone: contact.phone.e164,
+    email: contact.email,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: site.address.street,
+      addressLocality: "Uttukuli",
+      addressRegion: "Tamil Nadu",
+      postalCode: site.address.pincode,
+      addressCountry: "IN",
+    },
+    taxID: site.gstin,
+    vatID: site.gstin,
     areaServed: [
       { "@type": "State", name: "Kerala" },
       { "@type": "State", name: "Tamil Nadu" },

@@ -85,7 +85,7 @@ export default function FoilCta() {
               >
                 <Image
                   src="/images/sample-kit/sample-kit-towels.jpg"
-                  alt="Stack of premium cotton towels in taupe, beige, white, sage and navy with visible handloom weave texture"
+                  alt="Stack of premium cotton blend towels in taupe, beige, white, sage and navy with visible handloom weave texture"
                   fill
                   sizes="(min-width: 1024px) 53vw, 100vw"
                   quality={75}
@@ -151,7 +151,7 @@ export default function FoilCta() {
               >
                 See the fabric, feel the weave and experience the finish before
                 placing your requirement. Request a sample kit and explore the
-                quality of our cotton textiles firsthand.
+                quality of our cotton blend textiles firsthand.
               </p>
 
               {/* Understated Inline Labels */}

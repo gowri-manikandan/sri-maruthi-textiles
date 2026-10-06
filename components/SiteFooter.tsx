@@ -94,14 +94,14 @@ export default function SiteFooter() {
         }}
       />
 
-      <div className="relative mx-auto max-w-[1240px] px-5 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-[1360px] px-5 sm:px-6 lg:px-8 xl:px-12">
         {/* =========================================================================
             TOP AREA: Brand Statement & Main Footer Grid
             ========================================================================= */}
-        <div className="flex flex-col lg:flex-row items-start justify-between gap-12 lg:gap-14 xl:gap-16">
-          {/* Top Brand Identity Column (~45% Desktop) */}
+        <div className="flex flex-col lg:flex-row items-start justify-between gap-10 lg:gap-12 xl:gap-14">
+          {/* Top Brand Identity Column (~30% Desktop) */}
           <div
-            className={`w-full lg:w-[44%] xl:w-[42%] shrink-0 transition-all duration-[750ms] ease-out motion-reduce:transition-none motion-reduce:opacity-100 motion-reduce:transform-none ${
+            className={`w-full lg:w-[32%] xl:w-[30%] shrink-0 transition-all duration-[750ms] ease-out motion-reduce:transition-none motion-reduce:opacity-100 motion-reduce:transform-none ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-5"
@@ -130,22 +130,21 @@ export default function SiteFooter() {
 
             {/* Brand Descriptor */}
             <p className="mt-6 font-display font-normal text-[1.25rem] sm:text-[1.4rem] lg:text-[1.5rem] leading-[1.3] text-[#F5F1E8] max-w-[430px]">
-              Handloom cotton textiles, crafted for businesses that value quality.
+              20+ years of handloom weaving, crafted for businesses that value quality.
             </p>
 
             {/* Supporting Statement */}
             <p className="mt-3.5 text-[14px] sm:text-[14.5px] leading-[1.65] text-[#E8DFCF]/80 max-w-[440px] font-normal">
-              From traditional craftsmanship to custom textile requirements, we
-              create cotton products with care, consistency and purpose.
+              Two decades at the loom. From traditional craftsmanship to custom textile requirements, we create cotton blend products with care, consistency and purpose.
             </p>
           </div>
 
-          {/* Main Navigation Grid (3 Columns) */}
-          <div className="w-full lg:flex-1 grid grid-cols-1 sm:grid-cols-3 gap-10 sm:gap-8 lg:gap-8 xl:gap-10 pt-2 lg:pt-3">
+          {/* Main Navigation Grid (EXPLORE, CONNECT & Expanded CONTACT) */}
+          <div className="w-full lg:flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-8 xl:gap-10 pt-2 lg:pt-3">
             {/* Column 1: EXPLORE */}
             <nav
               aria-label="Explore navigation"
-              className={`transition-all duration-[750ms] ease-out motion-reduce:transition-none motion-reduce:opacity-100 motion-reduce:transform-none ${
+              className={`lg:col-span-3 transition-all duration-[750ms] ease-out motion-reduce:transition-none motion-reduce:opacity-100 motion-reduce:transform-none ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-5"
@@ -174,7 +173,7 @@ export default function SiteFooter() {
             {/* Column 2: CONNECT */}
             <nav
               aria-label="Connect navigation"
-              className={`transition-all duration-[750ms] ease-out motion-reduce:transition-none motion-reduce:opacity-100 motion-reduce:transform-none ${
+              className={`lg:col-span-3 transition-all duration-[750ms] ease-out motion-reduce:transition-none motion-reduce:opacity-100 motion-reduce:transform-none ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-5"
@@ -200,9 +199,9 @@ export default function SiteFooter() {
               </ul>
             </nav>
 
-            {/* Column 3: CONTACT */}
+            {/* Column 3: CONTACT & LOCATION (Expanded to 6 columns with 2 subcolumns) */}
             <div
-              className={`transition-all duration-[750ms] ease-out motion-reduce:transition-none motion-reduce:opacity-100 motion-reduce:transform-none ${
+              className={`sm:col-span-2 lg:col-span-6 transition-all duration-[750ms] ease-out motion-reduce:transition-none motion-reduce:opacity-100 motion-reduce:transform-none ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-5"
@@ -212,51 +211,86 @@ export default function SiteFooter() {
               <h3 className="font-sans text-[11px] sm:text-[11.5px] font-semibold tracking-[0.24em] uppercase text-[#E8DFCF]/70">
                 CONTACT
               </h3>
-              <ul className="mt-4 sm:mt-5 space-y-3.5 text-[14px] sm:text-[14.5px] text-[#E8DFCF]/85">
-                <li>
-                  <a
-                    href={telHref(contact.phone.e164)}
-                    className="group block hover:text-[#FAF8F3] transition-colors focus:outline-none focus-visible:underline focus-visible:underline-offset-4"
-                  >
+              <div className="mt-4 sm:mt-5 grid grid-cols-1 sm:grid-cols-2 gap-x-6 lg:gap-x-8 gap-y-4 sm:gap-y-5 text-[14px] sm:text-[14.5px] text-[#E8DFCF]/85">
+                {/* Subcolumn A: Direct Communication */}
+                <div className="space-y-3.5">
+                  <div>
+                    <a
+                      href={telHref(contact.phone.e164)}
+                      className="group block hover:text-[#FAF8F3] transition-colors focus:outline-none focus-visible:underline focus-visible:underline-offset-4"
+                    >
+                      <span className="block text-[11px] uppercase tracking-wider text-[#E8DFCF]/60 font-sans">
+                        Phone
+                      </span>
+                      <span className="font-medium text-[#F5F1E8] whitespace-nowrap group-hover:underline underline-offset-4">
+                        {contact.phone.display}
+                      </span>
+                    </a>
+                  </div>
+
+                  <div>
+                    <a
+                      href={whatsappHref(contact.whatsapp.e164)}
+                      className="group block hover:text-[#FAF8F3] transition-colors focus:outline-none focus-visible:underline focus-visible:underline-offset-4"
+                    >
+                      <span className="block text-[11px] uppercase tracking-wider text-[#E8DFCF]/60 font-sans">
+                        WhatsApp
+                      </span>
+                      <span className="font-medium text-[#F5F1E8] whitespace-nowrap group-hover:underline underline-offset-4">
+                        {contact.whatsapp.display}
+                      </span>
+                    </a>
+                  </div>
+
+                  <div>
+                    <a
+                      href="mailto:srimaruthitexthoorathu@gmail.com"
+                      className="group block hover:text-[#FAF8F3] transition-colors focus:outline-none focus-visible:underline focus-visible:underline-offset-4"
+                    >
+                      <span className="block text-[11px] uppercase tracking-wider text-[#E8DFCF]/60 font-sans">
+                        Email
+                      </span>
+                      <span className="font-medium text-[#F5F1E8] group-hover:underline underline-offset-4 break-words">
+                        srimaruthitexthoorathu@gmail.com
+                      </span>
+                    </a>
+                  </div>
+                </div>
+
+                {/* Subcolumn B: Mill Location & Registration */}
+                <div className="space-y-3.5">
+                  <div>
+                    <a
+                      href={site.address.mapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group block hover:text-[#FAF8F3] transition-colors focus:outline-none focus-visible:underline focus-visible:underline-offset-4"
+                      title="Open in Google Maps"
+                    >
+                      <span className="block text-[11px] uppercase tracking-wider text-[#E8DFCF]/60 font-sans">
+                        Mill Address
+                      </span>
+                      <span className="font-medium text-[#F5F1E8] leading-snug group-hover:underline underline-offset-4 block">
+                        1/37, Pallagoundanpalayam,<br />
+                        Uttukuli (Tk), Tiruppur (Dt) - 638056
+                      </span>
+                    </a>
+                  </div>
+
+                  <div>
                     <span className="block text-[11px] uppercase tracking-wider text-[#E8DFCF]/60 font-sans">
-                      Phone
+                      GSTIN
                     </span>
-                    <span className="font-medium text-[#F5F1E8] group-hover:underline underline-offset-4">
-                      {contact.phone.display}
+                    <span className="font-mono text-[13px] sm:text-[13.5px] font-medium text-[#F5F1E8] tracking-wider block">
+                      {site.gstin}
                     </span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={whatsappHref(contact.whatsapp.e164)}
-                    className="group block hover:text-[#FAF8F3] transition-colors focus:outline-none focus-visible:underline focus-visible:underline-offset-4"
-                  >
-                    <span className="block text-[11px] uppercase tracking-wider text-[#E8DFCF]/60 font-sans">
-                      WhatsApp
-                    </span>
-                    <span className="font-medium text-[#F5F1E8] group-hover:underline underline-offset-4">
-                      {contact.whatsapp.display}
-                    </span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="mailto:srimaruthitexthoorathu@gmail.com"
-                    className="group block hover:text-[#FAF8F3] transition-colors focus:outline-none focus-visible:underline focus-visible:underline-offset-4"
-                  >
-                    <span className="block text-[11px] uppercase tracking-wider text-[#E8DFCF]/60 font-sans">
-                      Email
-                    </span>
-                    <span className="font-medium text-[#F5F1E8] break-all group-hover:underline underline-offset-4">
-                      srimaruthitexthoorathu@gmail.com
-                    </span>
-                  </a>
-                </li>
-                <li className="pt-1 text-[12px] text-[#E8DFCF]/65">
-                  Serving wholesale, hospitality &amp; commercial clients across
-                  Kerala &amp; Tamil Nadu.
-                </li>
-              </ul>
+                  </div>
+
+                  <p className="pt-0.5 text-[12px] text-[#E8DFCF]/65 leading-relaxed">
+                    Over 20 years supplying wholesale, hospitality &amp; commercial clients across Kerala &amp; Tamil Nadu.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -284,7 +318,7 @@ export default function SiteFooter() {
             </div>
             <div className="max-w-[340px]">
               <p className="text-[13.5px] sm:text-[14px] leading-[1.65] text-[#E8DFCF]/70 font-normal">
-                Authentic handloom cotton textiles produced with disciplined
+                Authentic handloom cotton blend textiles produced with disciplined
                 craftsmanship for hotels, retailers and commercial partners.
               </p>
             </div>
@@ -302,14 +336,18 @@ export default function SiteFooter() {
           }`}
           style={{ transitionDelay: prefersReduced ? "0ms" : "420ms" }}
         >
-          {/* Copyright */}
-          <p className="text-center sm:text-left">
-            © 2026 Sri Maruthi Textiles. All rights reserved.
-          </p>
+          {/* Copyright & GSTIN */}
+          <div className="flex flex-col sm:flex-row items-center gap-1.5 sm:gap-3 text-center sm:text-left">
+            <p>© 2026 Sri Maruthi Textiles. All rights reserved.</p>
+            <span className="hidden sm:inline text-[#E8DFCF]/35" aria-hidden="true">·</span>
+            <p className="font-mono text-[12px] text-[#E8DFCF]/75">
+              GSTIN: <span className="text-[#F5F1E8] tracking-wide">{site.gstin}</span>
+            </p>
+          </div>
 
           {/* Textile Craft Descriptor */}
           <p className="font-sans text-[12px] tracking-wide text-[#E8DFCF]/60 text-center">
-            Handloom Cotton Textiles
+            Handloom Cotton Blend Textiles
           </p>
 
           {/* Back to top control */}

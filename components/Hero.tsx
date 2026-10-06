@@ -25,7 +25,7 @@ export default function Hero() {
       <div className="absolute inset-0 -z-20 overflow-hidden">
         <Image
           src={images.hero ?? "/images/hero-handloom.jpg"}
-          alt="Authentic handloom cotton towels stacked in weaving mill workshop"
+          alt="Authentic handloom cotton blend towels stacked in weaving mill workshop"
           fill
           priority
           sizes="100vw"
@@ -46,7 +46,7 @@ export default function Hero() {
           {/* Eyebrow with Decorative Line */}
           <div className="hero-anim-eyebrow flex items-center gap-3">
             <span className="text-[11px] sm:text-[12px] font-semibold tracking-[0.22em] uppercase text-[#E8DFCF]">
-              HANDLOOM COTTON TEXTILES
+              20+ YEARS OF HANDLOOM WEAVING
             </span>
             <span
               className="h-px w-10 sm:w-16 bg-[#E8DFCF]/40"
@@ -56,14 +56,14 @@ export default function Hero() {
 
           {/* Main Heading — Line-by-Line Reveal */}
           <h1 className="mt-4 sm:mt-5 text-[#F5F1E8] font-display font-normal text-[2.75rem] sm:text-[3.5rem] lg:text-[4.25rem] xl:text-[4.65rem] leading-[0.98] sm:leading-[1.0] tracking-[-0.015em]">
-            <span className="block hero-anim-line-1">Cotton Towels,</span>
+            <span className="block hero-anim-line-1">Cotton Blend Towels,</span>
             <span className="block hero-anim-line-2">Made for Business</span>
             <span className="block hero-anim-line-3">That Lasts</span>
           </h1>
 
           {/* Description */}
           <p className="hero-anim-desc mt-5 sm:mt-6 max-w-[500px] text-[16px] sm:text-[17px] lg:text-[18px] leading-[1.6] text-[#F5F1E8]/90 font-normal">
-            High-quality handloom cotton towels, crafted with care and consistency for hotels, resorts, retailers and businesses worldwide.
+            Weaving handloom cotton blend towels for over 20 years, crafted with care and consistency for hotels, resorts, retailers and businesses worldwide.
           </p>
 
           {/* Action Buttons */}
@@ -94,11 +94,11 @@ export default function Hero() {
           aria-hidden="true"
           className="hero-anim-bottom-label hidden xl:flex flex-col items-end gap-1.5 self-end pb-2 text-right text-[10.5px] tracking-[0.22em] font-medium uppercase text-[#E8DFCF]/60 pointer-events-none select-none"
         >
-          <span>Pure Cotton</span>
+          <span>20+ Years at the Loom</span>
+          <span className="w-8 h-px bg-[#E8DFCF]/25" />
+          <span>Cotton-Rich Blend</span>
           <span className="w-8 h-px bg-[#E8DFCF]/25" />
           <span>Handloom Craft</span>
-          <span className="w-8 h-px bg-[#E8DFCF]/25" />
-          <span>Made for Business</span>
         </div>
       </div>
 

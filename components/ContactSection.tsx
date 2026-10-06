@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import EnquiryForm from "@/components/EnquiryForm";
-import { contact, telHref, whatsappHref } from "@/lib/site";
+import { contact, site, telHref, whatsappHref } from "@/lib/site";
 
 /**
  * Section 9: "Contact & Enquiry" — Sri Maruthi Textiles
@@ -70,19 +70,19 @@ export default function ContactSection() {
         }}
       />
 
-      <div className="relative mx-auto max-w-[1240px] px-5 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-14 xl:gap-16">
+      <div className="relative mx-auto max-w-[1360px] px-5 sm:px-6 lg:px-8 xl:px-12">
+        <div className="flex flex-col lg:flex-row items-start gap-10 lg:gap-12 xl:gap-14">
           {/* =========================================================================
-              LEFT COLUMN: Editorial Narrative & Contact Details (~45% Desktop)
+              LEFT COLUMN: Editorial Narrative & Contact Details (~35-38% Desktop)
               ========================================================================= */}
           <div
-            className={`w-full lg:w-[45%] xl:w-[44%] shrink-0 transition-all duration-[750ms] ease-out motion-reduce:transition-none motion-reduce:opacity-100 motion-reduce:transform-none ${
+            className={`w-full lg:w-[38%] xl:w-[35%] shrink-0 transition-all duration-[750ms] ease-out motion-reduce:transition-none motion-reduce:opacity-100 motion-reduce:transform-none ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-5"
             }`}
           >
-            <div className="max-w-[480px]">
+            <div className="max-w-[480px] lg:max-w-none">
               {/* Eyebrow */}
               <div className="flex items-center gap-3">
                 <span className="font-sans text-[11px] sm:text-[12px] font-semibold tracking-[0.24em] uppercase text-[#E8DFCF]/80">
@@ -97,7 +97,7 @@ export default function ContactSection() {
               {/* Main Heading */}
               <h2
                 id="contact-heading"
-                className="mt-4 sm:mt-5 font-display font-normal text-[2.5rem] sm:text-[3.15rem] lg:text-[3.55rem] xl:text-[3.75rem] leading-[1.04] tracking-[-0.015em] text-[#F5F1E8]"
+                className="mt-4 sm:mt-5 font-display font-normal text-[2.5rem] sm:text-[3.15rem] lg:text-[3.4rem] xl:text-[3.65rem] leading-[1.04] tracking-[-0.015em] text-[#F5F1E8]"
               >
                 Tell Us What You’re Looking For
               </h2>
@@ -115,9 +115,9 @@ export default function ContactSection() {
               </p>
 
               {/* Direct Contact Channels */}
-              <div className="mt-8 sm:mt-10 pt-7 border-t border-[rgba(245,241,232,0.18)]">
+              <div className="mt-8 sm:mt-10 rounded-[4px] bg-[rgba(245,241,232,0.04)] border border-[rgba(245,241,232,0.12)] p-6 sm:p-7 shadow-[0_4px_20px_rgba(0,0,0,0.12)]">
                 <p className="font-sans text-[11px] font-semibold tracking-[0.2em] uppercase text-[#A95738]">
-                  Direct Inquiries
+                  Direct Inquiries &amp; Orders
                 </p>
 
                 <ul className="mt-4 space-y-3.5 text-[14.5px] sm:text-[15px] text-[#F5F1E8]">
@@ -214,11 +214,76 @@ export default function ContactSection() {
                       </span>
                     </a>
                   </li>
+
+                  {/* Mill / Postal Address */}
+                  <li>
+                    <a
+                      href={site.address.mapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group inline-flex items-start gap-3 text-[#F5F1E8] hover:text-[#FAF8F3] transition-colors"
+                      title="Open location in Google Maps"
+                    >
+                      <span className="size-8 shrink-0 mt-0.5 rounded-[2px] bg-[rgba(245,241,232,0.08)] border border-[rgba(245,241,232,0.16)] flex items-center justify-center text-[#E8DFCF] group-hover:border-[#E8DFCF] transition-colors">
+                        <svg
+                          className="size-4"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.75"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          aria-hidden="true"
+                        >
+                          <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                          <circle cx="12" cy="10" r="3" />
+                        </svg>
+                      </span>
+                      <span>
+                        <span className="block text-[11px] uppercase tracking-wider text-[#E8DFCF]/70 font-sans">
+                          Mill &amp; Office Address
+                        </span>
+                        <span className="font-medium leading-snug group-hover:underline underline-offset-4 block">
+                          1/37, Pallagoundanpalayam,<br />
+                          Uttukuli (Tk), Tiruppur (Dt) - 638056
+                        </span>
+                      </span>
+                    </a>
+                  </li>
+
+                  {/* GSTIN */}
+                  <li>
+                    <div className="inline-flex items-center gap-3 text-[#F5F1E8]">
+                      <span className="size-8 shrink-0 rounded-[2px] bg-[rgba(245,241,232,0.08)] border border-[rgba(245,241,232,0.16)] flex items-center justify-center text-[#E8DFCF]">
+                        <svg
+                          className="size-4"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.75"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          aria-hidden="true"
+                        >
+                          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                          <path d="m9 12 2 2 4-4" />
+                        </svg>
+                      </span>
+                      <span>
+                        <span className="block text-[11px] uppercase tracking-wider text-[#E8DFCF]/70 font-sans">
+                          GST Identification Number
+                        </span>
+                        <span className="font-mono text-[13.5px] sm:text-[14px] font-semibold tracking-wider text-[#FAF8F3]">
+                          {site.gstin}
+                        </span>
+                      </span>
+                    </div>
+                  </li>
                 </ul>
 
                 <p className="mt-5 text-[12.5px] text-[#E8DFCF]/70">
-                  Serving wholesale, hospitality and commercial buyers across
-                  Kerala &amp; Tamil Nadu.
+                  Two decades at the loom. Serving wholesale, hospitality and
+                  commercial buyers across Kerala &amp; Tamil Nadu for over 20 years.
                 </p>
               </div>
             </div>

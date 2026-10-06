@@ -21,9 +21,9 @@ const PRODUCTS: ProductItem[] = [
     num: "01",
     name: "Bath Towels",
     description:
-      "Soft, absorbent cotton towels made for comfort, durability and everyday performance.",
+      "Soft, absorbent cotton blend towels made for comfort, durability and everyday performance.",
     image: "/images/products/bath-towels.jpg",
-    alt: "Folded premium cotton bath towels with woven borders in clean neutral setting",
+    alt: "Folded premium cotton blend bath towels with woven borders in clean neutral setting",
     linkText: "Explore Collection",
     linkHref: "#contact",
   },
@@ -34,7 +34,7 @@ const PRODUCTS: ProductItem[] = [
     description:
       "Premium towel solutions designed for hospitality, resorts and leisure environments.",
     image: "/images/products/pool-resort-towels.jpg",
-    alt: "Premium pool and resort cotton towels by poolside lounge in warm natural light",
+    alt: "Premium pool and resort towels by poolside lounge in warm natural light",
     linkText: "Explore Collection",
     linkHref: "#contact",
   },
@@ -43,9 +43,9 @@ const PRODUCTS: ProductItem[] = [
     num: "03",
     name: "Kitchen & Utility Towels",
     description:
-      "Practical cotton textiles designed for everyday commercial and household use.",
+      "Practical blended cotton textiles designed for everyday commercial and household use.",
     image: "/images/products/kitchen-utility-towels.png",
-    alt: "Handloom cotton kitchen and utility towels hanging on natural wooden rod",
+    alt: "Handloom cotton blend kitchen and utility towels hanging on natural wooden rod",
     linkText: "Explore Collection",
     linkHref: "#contact",
   },
@@ -57,7 +57,7 @@ const PRODUCTS: ProductItem[] = [
     description:
       "Custom sizes, colours, borders and weave specifications for your specific requirements.",
     image: "/images/products/custom-weaves.png",
-    alt: "Close-up of custom woven cotton textile showing tailored weave details and craftsmanship",
+    alt: "Close-up of custom woven handloom textile showing tailored weave details and craftsmanship",
     linkText: "Discuss Your Requirements",
     linkHref: "#commitments",
   },
@@ -175,9 +175,9 @@ export default function ProductRange() {
                 : "opacity-0 translate-y-[15px]"
             }`}
           >
-            From everyday essentials to custom textile requirements, we create
-            cotton products with the quality, finish and specifications your
-            business needs.
+            Backed by over 20 years of handloom weaving, we produce cotton blend
+            towels and textile products with the consistent quality, durability
+            and finish your business needs.
           </p>
         </div>
 

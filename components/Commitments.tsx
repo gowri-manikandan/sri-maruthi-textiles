@@ -20,7 +20,7 @@ const SWATCHES = [
   {
     label: "Colour",
     src: "/images/custom/custom-towels-palette.jpg",
-    alt: "Cotton yarn dye color swatch",
+    alt: "Yarn dye color swatch",
   },
   {
     label: "Weave",
@@ -35,7 +35,7 @@ const SWATCHES = [
   {
     label: "Finish",
     src: "/images/custom/swatch-kit-booklet.jpg",
-    alt: "Plush organic cotton towel finish",
+    alt: "Plush handloom towel finish",
   },
 ];
 
@@ -125,7 +125,7 @@ export default function Commitments() {
               >
                 <Image
                   src="/images/custom/custom-towels-palette.jpg"
-                  alt="Close-up of bespoke cotton towels in terracotta, natural cream, and olive with custom woven borders"
+                  alt="Close-up of bespoke handloom cotton blend towels in terracotta, natural cream, and olive with custom woven borders"
                   fill
                   sizes="(min-width: 1024px) 54vw, 100vw"
                   quality={75}
@@ -258,9 +258,9 @@ export default function Commitments() {
                     : "opacity-0 translate-y-[20px]"
                 }`}
               >
-                Every business has different requirements. We work with you to
-                develop cotton textile products with the right size, colour,
-                weave and finish for your needs.
+                Every business has different requirements. Backed by 20+ years of
+                loom experience, we work with you to develop custom cotton blend textile
+                products with the right size, colour, weave and finish for your needs.
               </p>
 
               {/* Customization List: 2 x 2 Editorial Matrix with Thin Dividers (Requirements 9 & 10) */}

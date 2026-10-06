@@ -11,8 +11,8 @@ interface FaqItem {
 const FAQ_ITEMS: FaqItem[] = [
   {
     num: "01",
-    q: "What types of cotton textiles do you manufacture?",
-    a: "We manufacture cotton towels and other textile products for hospitality, retail and business requirements. We can also discuss custom textile requirements based on your specifications.",
+    q: "What types of textiles do you manufacture?",
+    a: "With over 20 years of handloom weaving experience, we manufacture durable cotton blend towels and textile products for hospitality, retail and wholesale business requirements. We also craft custom textiles tailored to your exact specifications.",
   },
   {
     num: "02",
@@ -27,7 +27,7 @@ const FAQ_ITEMS: FaqItem[] = [
   {
     num: "04",
     q: "Do you supply to hotels and resorts?",
-    a: "Yes. Our cotton textile products can be supplied for hospitality and other business requirements. Share your specifications with us and our team can discuss the appropriate solution.",
+    a: "Yes. For over 20 years, our cotton blend textile products have been supplied to hotels, resorts, wholesalers and commercial businesses. Share your specifications with us and our team will provide a tailored quote and solution.",
   },
   {
     num: "05",

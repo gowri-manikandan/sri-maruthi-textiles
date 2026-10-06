@@ -97,19 +97,19 @@ export const site = {
    *  sentences rather than stuffed: "wholesale cotton towel manufacturer",
    *  "Kerala", "Tamil Nadu" all appear naturally. */
   seo: {
-    title: "Sri Maruthi Textiles — Handloom Cotton Towel Manufacturer",
+    title: "Sri Maruthi Textiles — Handloom Cotton Blend Towel Manufacturer",
     description:
-      "Handloom cotton towels — checked, plain, printed and white — for wholesalers across Kerala and Tamil Nadu. 20+ years at the loom, direct pricing with no middleman, delivered on a committed date.",
+      "Handloom cotton blend towels — checked, plain, printed and white — for wholesalers across Kerala and Tamil Nadu. 20+ years at the loom, direct pricing with no middleman, delivered on a committed date.",
     ogAlt:
-      "Sri Maruthi Textiles — handloom cotton towel manufacturer serving Kerala and Tamil Nadu",
+      "Sri Maruthi Textiles — handloom cotton blend towel manufacturer serving Kerala and Tamil Nadu",
   },
 
   /** Hero copy (DESIGN_BRIEF.md §4.2) — confirm wording in Phase 14. */
   hero: {
-    eyebrow: "Handloom Cotton Textiles",
-    headline: "Cotton Towels, Made for Business That Lasts",
+    eyebrow: "Handloom Cotton Blend Textiles",
+    headline: "Cotton Blend Towels, Made for Business That Lasts",
     subtext:
-      "High-quality handloom cotton towels, crafted with care and consistency for hotels, resorts, retailers and businesses worldwide.",
+      "High-quality handloom cotton blend towels, crafted with care and consistency for hotels, resorts, retailers and businesses worldwide.",
   },
 
   /** Action band copy (DESIGN_BRIEF.md §4.3).
@@ -138,7 +138,7 @@ export const site = {
       {
         id: "quality",
         title: "Consistent quality",
-        body: "GSM, cotton grade and stitching are checked lot by lot, so the tenth order matches the first.",
+        body: "GSM, yarn blend and stitching are checked lot by lot, so the tenth order matches the first.",
       },
       {
         id: "delivery",
@@ -157,7 +157,7 @@ export const site = {
     eyebrow: "Our story",
     heading: "The looms behind the towels",
     paragraphs: [
-      "Most wholesalers tell the same story about suppliers: excellent for two orders, then the cotton changes, a date slips, and the calls stop being answered. Quality that drifts and deliveries that move cost far more over a year than a slightly better unit price ever saves.",
+      "Most wholesalers tell the same story about suppliers: excellent for two orders, then the yarn changes, a date slips, and the calls stop being answered. Quality that drifts and deliveries that move cost far more over a year than a slightly better unit price ever saves.",
       "We sell what we weave. Every lot is made on our own handlooms, checked and dispatched from our own floor — which is why we can quote without a middleman's margin on top, and commit to a date that is ours to control rather than someone else's to miss.",
     ],
     linkLabel: "Talk to us about your requirement",
@@ -207,32 +207,46 @@ export const site = {
       {
         id: "checked",
         name: "Checked towels",
-        spec: "[[GSM]] gsm · [[size]] cm · [[cotton grade]]",
+        spec: "[[GSM]] gsm · [[size]] cm · [[blend / yarn spec]]",
       },
       {
         id: "plain",
         name: "Plain towels",
-        spec: "[[GSM]] gsm · [[size]] cm · [[cotton grade]]",
+        spec: "[[GSM]] gsm · [[size]] cm · [[blend / yarn spec]]",
       },
       {
         id: "printed",
         name: "Printed towels",
-        spec: "[[GSM]] gsm · [[size]] cm · [[cotton grade]]",
+        spec: "[[GSM]] gsm · [[size]] cm · [[blend / yarn spec]]",
       },
       {
         id: "white",
         name: "White towels",
-        spec: "[[GSM]] gsm · [[size]] cm · [[cotton grade]]",
+        spec: "[[GSM]] gsm · [[size]] cm · [[blend / yarn spec]]",
       },
     ],
   },
 
+  /** Address and tax details */
+  address: {
+    street: "1/37, Pallagoundanpalayam",
+    taluk: "Uttukuli (Tk)",
+    district: "Tiruppur (Dt)",
+    state: "Tamil Nadu",
+    pincode: "638056",
+    country: "India",
+    display: "1/37, Pallagoundanpalayam, Uttukuli (Tk), Tiruppur (Dt) - 638056",
+    mapsUrl:
+      "https://maps.google.com/?q=1/37+Pallagoundanpalayam,+Uttukuli,+Tiruppur+-+638056",
+  },
+  gstin: "33BNZPM4235L2ZC",
+
   /** Footer (DESIGN_BRIEF.md §4.13). */
   footer: {
-    line: "Handloom cotton towel manufacturer supplying wholesalers across Kerala and Tamil Nadu for over 20 years.",
+    line: "Handloom cotton blend towel manufacturer supplying wholesalers across Kerala and Tamil Nadu for over 20 years.",
     email: "srimaruthitexthoorathu@gmail.com",
-    /** [[PLACEHOLDER]] — Phase 14. */
-    address: "[[Street address, town, district, PIN]]",
+    address: "1/37, Pallagoundanpalayam, Uttukuli (Tk), Tiruppur (Dt) - 638056",
+    gstin: "33BNZPM4235L2ZC",
   },
 
   /** FAQ (DESIGN_BRIEF.md §4.11).
@@ -328,7 +342,7 @@ export const site = {
       {
         id: "reach",
         title: "20+ years, two states",
-        body: "Two decades weaving cotton towels on our own handlooms, supplying wholesalers across both Kerala and Tamil Nadu.",
+        body: "Two decades weaving cotton blend towels on our own handlooms, supplying wholesalers across both Kerala and Tamil Nadu.",
       },
     ],
   },
@@ -345,6 +359,15 @@ export const site = {
 export const contact = {
   phone: { display: "+91 93446 06026", e164: "+919344606026" },
   whatsapp: { display: "+91 93446 06026", e164: "+919344606026" },
+  email: "srimaruthitexthoorathu@gmail.com",
+  address: {
+    display: "1/37, Pallagoundanpalayam, Uttukuli (Tk), Tiruppur (Dt) - 638056",
+    line1: "1/37, Pallagoundanpalayam",
+    line2: "Uttukuli (Tk), Tiruppur (Dt) - 638056",
+    mapsUrl:
+      "https://maps.google.com/?q=1/37+Pallagoundanpalayam,+Uttukuli,+Tiruppur+-+638056",
+  },
+  gstin: "33BNZPM4235L2ZC",
 } as const;
 
 export const navLinks = [
@@ -380,4 +403,4 @@ export function whatsappHref(e164: string, message?: string): string {
 
 /** Prefilled opener for the floating WhatsApp button. */
 export const WHATSAPP_PREFILL =
-  "Hello Sri Maruthi Textiles, I would like to enquire about your handloom cotton towels.";
+  "Hello Sri Maruthi Textiles, I would like to enquire about your handloom cotton blend towels.";

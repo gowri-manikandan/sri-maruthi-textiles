@@ -33,8 +33,8 @@ function HandloomIcon({ className }: { className?: string }) {
 const QUALITY_CARDS = [
   {
     num: "01",
-    title: "100% Pure Cotton",
-    description: "Soft, absorbent and long-lasting, made from nature's best.",
+    title: "Cotton-Rich Blend",
+    description: "Soft, absorbent and reinforced with durable blended fibers for lasting quality.",
     icon: Leaf,
     isCustom: false,
   },
@@ -54,8 +54,8 @@ const QUALITY_CARDS = [
   },
   {
     num: "04",
-    title: "Global Supply",
-    description: "Reliable delivery for wholesale, retail and export markets.",
+    title: "20+ Years Legacy",
+    description: "Two decades of reliable handloom supply and trusted commercial partnerships.",
     icon: Globe,
     isCustom: false,
   },
@@ -161,9 +161,9 @@ export default function QualitySection() {
                   : "opacity-0 translate-y-5"
               }`}
             >
-              We are a handloom textile manufacturer, supplying premium cotton
-              towels to businesses across India and worldwide. Our focus is on
-              consistent quality, ethical production and long-term partnerships.
+              For over 20 years, we have been a dedicated handloom textile manufacturer,
+              supplying premium cotton blend towels to wholesale, retail and hospitality
+              businesses across Kerala, Tamil Nadu and nationwide.
             </p>
 
             {/* Understated Editorial Learn More Link */}

@@ -17,12 +17,12 @@ const PROCESS_STEPS: StepItem[] = [
   {
     id: "step-1",
     step: "01",
-    title: "Cotton Selection",
+    title: "Cotton Blend Selection",
     stage: "Raw Material",
     description:
-      "We begin with carefully selected cotton chosen for softness, strength and long-lasting performance.",
+      "We begin with carefully selected cotton and blend fibers chosen for softness, strength and long-lasting performance.",
     image: "/images/process/step-01-cotton.jpg",
-    alt: "Carefully selected raw cotton fibers sorted for softness and strength",
+    alt: "Carefully selected cotton blend fibers sorted for softness and strength",
   },
   {
     id: "step-2",
@@ -30,9 +30,9 @@ const PROCESS_STEPS: StepItem[] = [
     title: "Yarn Preparation",
     stage: "Transformation",
     description:
-      "Cotton is prepared and transformed into yarn with attention to consistency, strength and feel.",
+      "Cotton and blend fibers are prepared and transformed into yarn with attention to consistency, strength and feel.",
     image: "/images/process/step-02-yarn.jpg",
-    alt: "Spindles of fine cotton yarn prepared for weaving",
+    alt: "Spindles of fine blended yarn prepared for weaving",
   },
   {
     id: "step-3",
@@ -42,7 +42,7 @@ const PROCESS_STEPS: StepItem[] = [
     description:
       "Our handlooms bring the yarn together through traditional weaving techniques and skilled craftsmanship.",
     image: "/images/process/step-03-weaving.jpg",
-    alt: "Traditional handloom weaving cotton fabric with master artisan",
+    alt: "Traditional handloom weaving cotton blend fabric with master artisan",
   },
   {
     id: "step-4",
@@ -52,7 +52,7 @@ const PROCESS_STEPS: StepItem[] = [
     description:
       "Every finished towel is checked for quality, finish and consistency before it reaches our customers.",
     image: "/images/process/step-04-folded-towels.jpg",
-    alt: "Quality inspection and hand-checking of soft finished cotton towels",
+    alt: "Quality inspection and hand-checking of soft finished cotton blend towels",
   },
 ];
 
@@ -265,7 +265,7 @@ export default function HowItWorks() {
                 : "opacity-0 translate-y-[25px]"
             }`}
           >
-            From Cotton to
+            From Yarn to
             <br />
             Finished Towel
           </h2>
@@ -278,9 +278,9 @@ export default function HowItWorks() {
                 : "opacity-0 translate-y-[20px]"
             }`}
           >
-            Every stage matters. From carefully selected cotton and yarn
-            preparation to weaving, finishing and final inspection, we focus on
-            consistency at every step.
+            Every stage matters. From carefully selected cotton blend yarns to
+            weaving, finishing and final inspection, we focus on consistency at
+            every step.
           </p>
         </div>
 
@@ -514,7 +514,7 @@ export default function HowItWorks() {
           {/* Continuous vertical timeline connector line running down behind markers */}
           <div
             aria-hidden="true"
-            className="absolute top-3 bottom-8 left-[17px] sm:left-[21px] w-[1.5px] bg-[#40572D]/30"
+            className="absolute top-3 bottom-8 left-3 sm:left-4 -translate-x-1/2 w-[1.5px] bg-[#40572D]/30"
           />
 
           <div className="space-y-[55px] sm:space-y-[62px]">
@@ -527,10 +527,10 @@ export default function HowItWorks() {
                   ref={(el) => {
                     mobileItemRefs.current[idx] = el;
                   }}
-                  className="relative flex items-start gap-5 sm:gap-6"
+                  className="relative flex items-start gap-4 sm:gap-5"
                 >
                   {/* Marker Node on vertical line: scales and fades independently */}
-                  <div className="relative z-10 shrink-0 mt-1">
+                  <div className="relative z-10 flex w-6 sm:w-8 items-center justify-center shrink-0 mt-1">
                     <div
                       className={`size-[15px] sm:size-[17px] rounded-full transition-all duration-500 ease-out motion-reduce:transition-none motion-reduce:opacity-100 motion-reduce:scale-100 ${
                         isVisible

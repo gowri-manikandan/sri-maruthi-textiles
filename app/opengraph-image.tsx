@@ -112,7 +112,7 @@ export default async function OpengraphImage() {
               maxWidth: 900,
             }}
           >
-            Handloom cotton towels, made to a committed date.
+            Handloom cotton blend towels, made to a committed date.
           </div>
         </div>
 

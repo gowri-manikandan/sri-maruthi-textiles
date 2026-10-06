@@ -7,20 +7,20 @@ import { ENQUIRY_HREF } from "@/lib/site";
 const HIGHLIGHTS = [
   {
     num: "01",
-    line1: "Traditional",
-    line2: "Handlooms",
+    line1: "20+ Years",
+    line2: "Heritage",
     delay: "delay-[500ms]",
   },
   {
     num: "02",
-    line1: "Skilled",
-    line2: "Artisans",
+    line1: "Traditional",
+    line2: "Handlooms",
     delay: "delay-[620ms]",
   },
   {
     num: "03",
-    line1: "Timeless",
-    line2: "Quality",
+    line1: "Skilled",
+    line2: "Artisans",
     delay: "delay-[740ms]",
   },
 ] as const;
@@ -104,7 +104,7 @@ export default function MillStory() {
               >
                 <Image
                   src="/images/loom-craft-artisan.jpg"
-                  alt="Traditional handloom weaving cotton fabric with master artisan"
+                  alt="Traditional handloom weaving cotton blend fabric with master artisan"
                   fill
                   sizes="(min-width: 1024px) 53vw, 100vw"
                   quality={90}
@@ -133,7 +133,7 @@ export default function MillStory() {
                 <div className="relative aspect-[4/3] w-full overflow-hidden group/swatch">
                   <Image
                     src="/images/loom-shuttle-detail.jpg"
-                    alt="Close-up of handloom shuttle weaving pure cotton towel fabric"
+                    alt="Close-up of handloom shuttle weaving cotton blend towel fabric"
                     fill
                     sizes="185px"
                     quality={85}
@@ -146,7 +146,7 @@ export default function MillStory() {
                     Hand-Guided Weave
                   </span>
                   <span className="block text-[11px] font-medium text-[#29251F]/75 leading-tight mt-0.5">
-                    Pure cotton warp & weft
+                    Cotton blend warp & weft
                   </span>
                 </div>
               </div>
@@ -157,7 +157,7 @@ export default function MillStory() {
               RIGHT COLUMN: Editorial Content & Highlights
               ========================================================================= */}
           <div className="w-full lg:flex-1 flex flex-col justify-center">
-            <div className="max-w-[500px]">
+            <div className="w-full max-w-[540px]">
               {/* Eyebrow with Horizontal Accent Line */}
               <div
                 className={`flex items-center gap-3 transition-all duration-[700ms] delay-[100ms] ease-out motion-reduce:transition-none motion-reduce:opacity-100 motion-reduce:transform-none ${
@@ -198,13 +198,13 @@ export default function MillStory() {
                 }`}
               >
                 <p>
-                  At Sri Maruthi Textiles, every towel begins at the loom. Our
-                  skilled artisans bring generations of weaving expertise to
-                  create fabrics that are soft, durable and full of character.
+                  For over 20 years, Sri Maruthi Textiles has been dedicated to
+                  handloom weaving. Our skilled artisans bring two decades of
+                  weaving expertise to create fabrics that are soft, durable and full of character.
                 </p>
                 <p>
-                  We work closely with our customers to deliver the right weave,
-                  finish and specifications for their business.
+                  We sell what we weave on our own looms, working directly with
+                  wholesalers and businesses across Kerala and Tamil Nadu.
                 </p>
               </div>
 
@@ -216,28 +216,24 @@ export default function MillStory() {
                     : "opacity-0 translate-y-[15px]"
                 }`}
               >
-                <div className="grid grid-cols-3 divide-x divide-[rgba(41,37,31,0.25)]">
+                <div className="grid grid-cols-3 divide-x divide-[rgba(41,37,31,0.22)]">
                   {HIGHLIGHTS.map((item, idx) => {
                     const paddingClass =
                       idx === 0
-                        ? "pr-3 sm:pr-5 lg:pr-6"
+                        ? "pr-2.5 sm:pr-3.5 lg:pr-4"
                         : idx === 1
-                          ? "px-3 sm:px-5 lg:px-6"
-                          : "pl-3 sm:pl-5 lg:pl-6";
+                          ? "px-2.5 sm:px-3.5 lg:px-4"
+                          : "pl-2.5 sm:pl-3.5 lg:pl-4";
 
                     return (
                       <div
                         key={item.num}
-                        className={`${paddingClass} transition-all duration-[600ms] ${item.delay} ease-out motion-reduce:transition-none motion-reduce:opacity-100 motion-reduce:transform-none ${
-                          isVisible
-                            ? "opacity-100 translate-y-0"
-                            : "opacity-0 translate-y-[15px]"
-                        }`}
+                        className={`${paddingClass} transition-all duration-[600ms] ${item.delay} ease-out motion-reduce:transition-none motion-reduce:opacity-100 motion-reduce:transform-none`}
                       >
                         <span className="block font-sans text-[11px] sm:text-[12px] font-semibold tracking-[0.2em] text-[#A95738]">
                           {item.num}
                         </span>
-                        <p className="mt-2 font-display text-[14.5px] sm:text-[16px] lg:text-[17px] leading-[1.25] text-[#29251F]">
+                        <p className="mt-2 font-display text-[13.5px] sm:text-[14.5px] lg:text-[15.5px] leading-[1.25] tracking-tight text-[#29251F]">
                           {item.line1}
                           <br />
                           {item.line2}
