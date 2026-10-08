@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, Phone, MessageCircle, ChevronRight, Layers, Sparkles } from "lucide-react";
 import ProductCatalog from "@/components/ProductCatalog";
+import CustomerReviews from "@/components/CustomerReviews";
 import { contact, site, SITE_URL, whatsappHref } from "@/lib/site";
 import { PRODUCTS_CATALOG } from "@/lib/products-data";
 
@@ -57,7 +58,7 @@ export default function ProductsPage() {
         {/* =========================================================================
             HERO HEADER: Editorial Page Banner with Handloom Photography & Scrim
             ========================================================================= */}
-        <div className="relative bg-[#26351C] text-[#F5F1E8] pt-24 sm:pt-28 pb-12 sm:pb-16 overflow-hidden">
+        <div className="relative bg-[#26351C] text-[#F5F1E8] pt-28 sm:pt-32 lg:pt-36 pb-12 sm:pb-16 overflow-hidden">
           {/* Textile Photograph with Warm Lighting & Left Scrim */}
           <div className="absolute inset-0 -z-0">
             <Image
@@ -165,6 +166,15 @@ export default function ProductsPage() {
             <ProductCatalog />
           </Suspense>
         </div>
+
+        {/* =========================================================================
+            CUSTOMER REVIEWS & WHOLESALE VOICES
+            ========================================================================= */}
+        <CustomerReviews
+          id="product-reviews"
+          variant="light-cream"
+          showCollectionLink={false}
+        />
 
         {/* =========================================================================
             CUSTOM ORDERS BOTTOM HERO: Bespoke Weaves

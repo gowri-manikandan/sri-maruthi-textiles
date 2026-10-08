@@ -69,9 +69,7 @@ export default function ContactSection() {
 
               {/* Description */}
               <p className="mt-5 text-[15.5px] sm:text-[16.5px] leading-[1.65] text-[#E8DFCF]/90 font-normal">
-                Whether you need towels for a hotel, resort, retail business or
-                a custom textile requirement, tell us what you have in mind. Our
-                team will discuss your requirements and the next steps with you.
+                Whether you need regular bulk consignments for wholesale distribution across Kerala and Tamil Nadu or a custom weave specification, tell us what you have in mind. Our team will review your quantities and dispatch timelines promptly.
               </p>
 
               {/* Supporting Line */}
@@ -247,8 +245,8 @@ export default function ContactSection() {
                 </ul>
 
                 <p className="mt-5 text-[12.5px] text-[#E8DFCF]/70">
-                  Two decades at the loom. Serving wholesale, hospitality and
-                  commercial buyers across Kerala &amp; Tamil Nadu for over 20 years.
+                  Two decades at the loom. Supplying wholesale textile merchants and
+                  distribution networks across Kerala &amp; Tamil Nadu for over 20 years.
                 </p>
               </div>
             </div>

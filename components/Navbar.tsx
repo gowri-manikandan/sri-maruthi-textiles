@@ -107,10 +107,15 @@ export default function Navbar() {
     { label: "About", href: isHomePage ? "#story" : "/#story" },
     { label: "Products", href: "/products", isCurrent: pathname === "/products" },
     { label: "Process", href: isHomePage ? "#how-it-works" : "/#how-it-works" },
+    { label: "Reviews", href: isHomePage ? "#reviews" : "/#reviews" },
     { label: "Custom Orders", href: isHomePage ? "#commitments" : "/#commitments" },
     { label: "FAQs", href: isHomePage ? "#faq" : "/#faq" },
     { label: "Contact", href: isHomePage ? "#contact" : "/#contact" },
   ];
+
+  // On desktop, the brand logo "Sri Maruthi Textiles" already links to Home.
+  // Removing redundant "Home" prevents collision with the brand logo on laptop screens.
+  const desktopNavItems = navItems.filter((item) => item.label !== "Home");
 
   const enquiryHref = isHomePage ? "#contact" : "/#contact";
 
@@ -135,14 +140,15 @@ export default function Navbar() {
       }`}
     >
       <nav aria-label="Main" className="container-page">
-        <div className="flex h-16 sm:h-20 items-center justify-between gap-4">
-          {/* Logo emblem + wordmark */}
+        <div className="flex h-16 sm:h-20 items-center justify-between gap-3 lg:gap-4">
+          {/* Logo emblem + wordmark (Primary Home button) */}
           <Link
             href="/"
-            className={`inline-flex items-center gap-2.5 sm:gap-3 leading-none transition-colors duration-400 ${
+            className={`shrink-0 inline-flex items-center gap-2.5 sm:gap-3 leading-none transition-colors duration-400 ${
               solid ? "text-[#29251F]" : "text-[#F5F1E8]"
             }`}
             onClick={() => setOpen(false)}
+            aria-label="Sri Maruthi Textiles - Home"
           >
             {logo.emblem ? (
               <>
@@ -152,78 +158,85 @@ export default function Navbar() {
                   width={logo.emblemSize?.width ?? 512}
                   height={logo.emblemSize?.height ?? 512}
                   priority
-                  className="size-8 sm:size-9 w-auto object-contain drop-shadow-sm"
+                  className="size-8 sm:size-9 w-auto object-contain drop-shadow-sm shrink-0"
                 />
                 <span className="sr-only">{site.name}</span>
                 <span
                   aria-hidden="true"
-                  className="font-display text-[1.15rem] sm:text-[1.28rem] font-normal tracking-tight"
+                  className="font-display text-[1.05rem] xl:text-[1.22rem] font-normal tracking-tight whitespace-nowrap"
                 >
                   {site.name}
                 </span>
               </>
             ) : (
-              <span className="font-display text-[1.15rem] sm:text-[1.28rem] font-normal">
+              <span className="font-display text-[1.05rem] xl:text-[1.22rem] font-normal whitespace-nowrap">
                 {site.name}
               </span>
             )}
           </Link>
 
-          {/* Desktop navigation */}
-          <ul className="hidden items-center gap-3.5 md:gap-4 lg:gap-6 xl:gap-7 lg:flex">
-            {navItems.map((link) => (
-              <li key={link.label}>
-                <Link
-                  href={link.href}
-                  className={`link-underline text-[13px] xl:text-[14px] font-medium tracking-wide transition-colors duration-300 motion-reduce:transition-none ${
-                    link.isCurrent
-                      ? "text-[#40572D] font-semibold"
-                      : solid
-                      ? "text-[#5a534c] hover:text-[#29251F]"
-                      : "text-[#F5F1E8]/85 hover:text-[#F5F1E8]"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          {/* Desktop Navigation + Request Enquiry CTA (Grouped in single flex row to prevent any overlap) */}
+          <div className="hidden lg:flex items-center gap-3 xl:gap-5 2xl:gap-6 shrink-0">
+            <ul className="flex items-center gap-2 xl:gap-3.5 2xl:gap-5 shrink-0">
+              {desktopNavItems.map((link) => (
+                <li key={link.label} className="shrink-0">
+                  <Link
+                    href={link.href}
+                    className={`link-underline text-[12px] xl:text-[13px] 2xl:text-[13.5px] font-medium tracking-wide whitespace-nowrap transition-colors duration-300 motion-reduce:transition-none ${
+                      link.isCurrent
+                        ? "text-[#40572D] font-semibold"
+                        : solid
+                        ? "text-[#5a534c] hover:text-[#29251F]"
+                        : "text-[#F5F1E8]/85 hover:text-[#F5F1E8]"
+                    }`}
+                  >
+                    {link.label === "Custom Orders" ? (
+                      <>
+                        <span className="inline xl:hidden">Custom</span>
+                        <span className="hidden xl:inline">Custom Orders</span>
+                      </>
+                    ) : (
+                      link.label
+                    )}
+                  </Link>
+                </li>
+              ))}
+            </ul>
 
-          <div className="flex items-center gap-3">
             {/* Desktop Request Enquiry button */}
             <Link
               href={enquiryHref}
-              className="group hidden lg:inline-flex items-center gap-2 px-4 py-2.5 rounded-md bg-[#40572D] text-[#F5F1E8] hover:bg-[#4d6936] text-[13.5px] font-medium tracking-wide transition-all duration-250 shadow-sm border border-[#40572D]"
+              className="group inline-flex items-center gap-1.5 xl:gap-2 px-3 xl:px-4 py-1.5 xl:py-2 rounded-md bg-[#40572D] text-[#F5F1E8] hover:bg-[#4d6936] text-[12px] xl:text-[13px] font-medium tracking-wide whitespace-nowrap transition-all duration-250 shadow-sm border border-[#40572D] shrink-0"
             >
               <span>Request Enquiry</span>
               <span
                 aria-hidden="true"
-                className="inline-block transition-transform duration-250 group-hover:translate-x-1.5"
+                className="hidden xl:inline-block transition-transform duration-250 group-hover:translate-x-1"
               >
                 →
               </span>
             </Link>
-
-            {/* Mobile menu toggle */}
-            <button
-              type="button"
-              aria-expanded={open}
-              aria-controls="mobile-menu"
-              aria-label={open ? "Close menu" : "Open menu"}
-              onClick={() => setOpen((v) => !v)}
-              className={`inline-flex size-10 items-center justify-center rounded-md transition-colors lg:hidden ${
-                solid
-                  ? "text-[#29251F] hover:bg-[#E8DFCF]/50"
-                  : "text-[#F5F1E8] hover:bg-white/10"
-              }`}
-            >
-              {open ? (
-                <X aria-hidden="true" className="size-5" />
-              ) : (
-                <Menu aria-hidden="true" className="size-5" />
-              )}
-            </button>
           </div>
+
+          {/* Mobile menu toggle */}
+          <button
+            type="button"
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            aria-label={open ? "Close menu" : "Open menu"}
+            onClick={() => setOpen((v) => !v)}
+            className={`inline-flex size-10 items-center justify-center rounded-md transition-colors lg:hidden ${
+              solid
+                ? "text-[#29251F] hover:bg-[#E8DFCF]/50"
+                : "text-[#F5F1E8] hover:bg-white/10"
+            }`}
+          >
+            {open ? (
+              <X aria-hidden="true" className="size-5" />
+            ) : (
+              <Menu aria-hidden="true" className="size-5" />
+            )}
+          </button>
         </div>
 
         {/* Mobile menu panel */}

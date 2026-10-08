@@ -7,7 +7,6 @@ import { useSearchParams } from "next/navigation";
 import {
   Search,
   X,
-  SlidersHorizontal,
   Check,
   MessageCircle,
   Phone,
@@ -24,18 +23,17 @@ import {
 } from "@/lib/products-data";
 import { contact, whatsappHref } from "@/lib/site";
 
-type GsmFilter = "all" | "light" | "medium" | "heavy";
-
 /**
  * Maps color names from product data into accurate, tactile textile swatches
  */
 function getSwatchColor(colorName: string): string {
   const lower = colorName.toLowerCase().trim();
 
+  // White variants
   if (
     lower.includes("pure optical white") ||
     lower.includes("natural white") ||
-    lower.includes("white")
+    lower === "white"
   ) {
     if (lower.includes("navy")) return "linear-gradient(135deg, #1F2E40 50%, #FFFFFF 50%)";
     if (lower.includes("golden") || lower.includes("ochre"))
@@ -43,49 +41,45 @@ function getSwatchColor(colorName: string): string {
     if (lower.includes("emerald")) return "linear-gradient(135deg, #2D5A3D 50%, #FFFFFF 50%)";
     return "#FFFFFF";
   }
-  if (lower.includes("ivory") && lower.includes("olive")) {
-    return "linear-gradient(135deg, #26351C 50%, #F5F1E8 50%)";
-  }
-  if (lower.includes("terracotta") && (lower.includes("cream") || lower.includes("natural"))) {
-    return "linear-gradient(135deg, #A95738 50%, #F5F1E8 50%)";
-  }
-  if (lower.includes("warm mustard") && lower.includes("khaki")) {
-    return "linear-gradient(135deg, #C49746 50%, #A89B7E 50%)";
-  }
-  if (lower.includes("warm ivory")) return "#F5F1E8";
-  if (
-    lower.includes("natural beige") ||
-    lower.includes("almond beige") ||
-    lower.includes("desert sand") ||
-    lower.includes("natural sand")
-  )
-    return "#E8DFCF";
+
+  // Catalogue specific colors
+  if (lower.includes("maroon")) return "#781D2A";
+  if (lower.includes("red") || lower.includes("brick red")) return "#C53030";
+  if (lower.includes("violet") || lower.includes("purple")) return "#7B1FA2";
+  if (lower.includes("cyan")) return "#00ACC1";
+  if (lower.includes("navy")) return "#1B2A3D";
+  if (lower.includes("azure blue") || lower.includes("sky blue")) return "#5B88B2";
+  if (lower.includes("storm blue")) return "#4E6B82";
+  if (lower === "blue" || lower.includes("blue")) return "#2B6CB0";
+
+  // Greens and Olives
   if (
     lower.includes("deep olive") ||
     lower.includes("forest olive") ||
     lower.includes("deep forest") ||
-    lower.includes("olive green")
-  )
-    return "#26351C";
-  if (lower.includes("sage olive") || lower.includes("sage green")) return "#7A8B6E";
-  if (lower.includes("terracotta") || lower.includes("brick red")) return "#A95738";
-  if (lower.includes("azure blue") || lower.includes("sky blue")) return "#5B88B2";
-  if (lower.includes("storm blue")) return "#4E6B82";
-  if (lower.includes("deep navy") || lower.includes("navy blue")) return "#1B2A3D";
-  if (
-    lower.includes("golden ochre") ||
-    lower.includes("brass ochre") ||
-    lower.includes("warm mustard")
-  )
-    return "#C9963B";
-  if (lower.includes("stone grey") || lower.includes("heather taupe")) return "#8A8379";
-  if (lower.includes("dark charcoal")) return "#3A3835";
-  if (lower.includes("chestnut brown")) return "#5C3A21";
-  if (lower.includes("mint")) return "#A8C3B1";
-  if (lower.includes("kora") || lower.includes("oatmeal")) return "#ECE6D8";
-  if (lower.includes("pantone") || lower.includes("lab-dipped")) {
-    return "linear-gradient(135deg, #A95738 0%, #40572D 50%, #C9963B 100%)";
+    lower.includes("olive green") ||
+    lower.includes("olive")
+  ) {
+    return "#40572D";
   }
+  if (lower.includes("sage olive") || lower.includes("sage green")) return "#7A8B6E";
+
+  // Kora / Natural unbleached cotton
+  if (
+    lower.includes("kora") ||
+    lower.includes("single color") ||
+    lower.includes("natural") ||
+    lower.includes("oatmeal")
+  ) {
+    return "#ECE6D8";
+  }
+
+  // Neutrals & accents
+  if (lower.includes("ivory")) return "#F5F1E8";
+  if (lower.includes("beige") || lower.includes("sand")) return "#E8DFCF";
+  if (lower.includes("terracotta") || lower.includes("rust")) return "#A95738";
+  if (lower.includes("golden") || lower.includes("ochre") || lower.includes("mustard")) return "#C9963B";
+  if (lower.includes("charcoal") || lower.includes("black")) return "#29251F";
 
   return "#D5CDC0";
 }
@@ -102,46 +96,12 @@ function WhatsAppIcon({ className = "size-4" }: { className?: string }) {
   );
 }
 
-function formatBlendForCard(blend: string): string {
-  if (!blend) return "As per need";
-  const lower = blend.toLowerCase();
-  if (lower.includes("custom") || lower.includes("client ratio")) return "Custom Blend";
-  if (blend.includes("80% Cotton") || blend.includes("80% Ring-Spun")) return "80% Cotton\n20% Poly";
-  if (blend.includes("85%")) return "85% Cotton\n15% Poly";
-  if (blend.includes("75%")) return "75% Cotton\n25% Poly";
-  if (blend.includes("90%")) return "90% Cotton\n10% Poly";
-  if (blend.includes("100%")) return "100% Cotton";
-  return blend.replace(" Blend", "").replace("Polyester", "Poly");
-}
-
-function formatWeaveForCard(weave: string): string {
-  if (!weave) return "As per need";
-  const lower = weave.toLowerCase();
-  if (lower.includes("custom jacquard")) return "Jacquard Weave";
-  if (lower.includes("client specification") || lower.includes("custom")) return "Custom Weave";
-  if (lower.includes("velour")) return "Velour Terry";
-  if (lower.includes("twill basket")) return "Twill Basket";
-  if (lower.includes("herringbone")) return "Herringbone";
-  if (lower.includes("plaid")) return "Plaid Check";
-  if (lower.includes("gingham")) return "Gingham Check";
-  if (lower.includes("handloom check")) return "Handloom Check";
-  if (lower.includes("waffle") || lower.includes("honeycomb")) return "Waffle Weave";
-  if (lower.includes("stripe")) return "Stripe Terry";
-  if (lower.includes("ribbed")) return "Terry Weave";
-  if (lower.includes("high pile terry") || lower.includes("dual-sided")) return "Pile Terry";
-  if (lower.includes("ring-spun loop") || lower.includes("open-loop") || lower.includes("looped terry")) return "Loop Terry";
-  if (lower.includes("ring-spun white")) return "Ring-Spun";
-  if (lower.includes("terry")) return "Terry Weave";
-  return weave.split(" ").slice(0, 2).join(" ");
-}
-
 export default function ProductCatalog() {
   const searchParams = useSearchParams();
   const categoryParam = searchParams.get("category");
 
   const [activeCategory, setActiveCategory] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState<string>("");
-  const [gsmFilter, setGsmFilter] = useState<GsmFilter>("all");
 
   // Selected product for modals
   const [enquiryProduct, setEnquiryProduct] = useState<Product | null>(null);
@@ -177,15 +137,6 @@ export default function ProductCatalog() {
         return false;
       }
 
-      // GSM filter
-      if (gsmFilter === "light" && item.gsmValue >= 350) return false;
-      if (
-        gsmFilter === "medium" &&
-        (item.gsmValue < 350 || item.gsmValue > 440)
-      )
-        return false;
-      if (gsmFilter === "heavy" && item.gsmValue <= 440) return false;
-
       // Search query (name, SKU/code, description, blend, weave, colors)
       if (searchQuery.trim()) {
         const q = searchQuery.toLowerCase().trim();
@@ -195,7 +146,7 @@ export default function ProductCatalog() {
 
       return true;
     });
-  }, [activeCategory, gsmFilter, searchQuery]);
+  }, [activeCategory, searchQuery]);
 
   // Category counts
   const categoryCounts = useMemo(() => {
@@ -215,11 +166,10 @@ export default function ProductCatalog() {
   const clearAllFilters = () => {
     setActiveCategory("all");
     setSearchQuery("");
-    setGsmFilter("all");
   };
 
   const hasActiveFilters =
-    activeCategory !== "all" || searchQuery !== "" || gsmFilter !== "all";
+    activeCategory !== "all" || searchQuery !== "";
 
   return (
     <div className="relative">
@@ -257,35 +207,6 @@ export default function ProductCatalog() {
                   <X className="size-3.5" />
                 </button>
               )}
-            </div>
-
-            {/* Quick GSM Weight Toggle */}
-            <div className="flex items-center gap-1 overflow-x-auto pb-0.5 md:pb-0 scrollbar-none shrink-0">
-              <span className="text-[11px] font-semibold uppercase tracking-wider text-[#6B615A] whitespace-nowrap flex items-center gap-1 pl-0.5">
-                <SlidersHorizontal className="size-3 text-[#40572D]" />
-                GSM:
-              </span>
-              {(
-                [
-                  { id: "all", label: "All" },
-                  { id: "light", label: "<350" },
-                  { id: "medium", label: "350–440" },
-                  { id: "heavy", label: "450+" },
-                ] as const
-              ).map((f) => (
-                <button
-                  key={f.id}
-                  type="button"
-                  onClick={() => setGsmFilter(f.id)}
-                  className={`text-[11px] font-medium px-2 py-0.5 rounded-sm whitespace-nowrap transition-colors duration-200 cursor-pointer ${
-                    gsmFilter === f.id
-                      ? "bg-[#26351C] text-[#F5F1E8]"
-                      : "bg-[#E8DFCF]/60 text-[#29251F] hover:bg-[#E8DFCF]"
-                  }`}
-                >
-                  {f.label}
-                </button>
-              ))}
             </div>
           </div>
 
@@ -457,50 +378,19 @@ export default function ProductCatalog() {
                     {product.shortDescription}
                   </p>
 
-                  {/* 5. SPECIFICATION PANEL (Compact 4-column panel, 2-column on mobile) */}
-                  <div className="mt-3 rounded-[3px] border border-[#E8DFCF] bg-[#FAF7F2] overflow-hidden">
-                    <div className="grid grid-cols-2 sm:grid-cols-4 text-left">
-                      <div className="p-1.5 sm:p-2 flex flex-col justify-start border-r border-b sm:border-b-0 border-[#E8DFCF]">
-                        <span className="text-[8.5px] sm:text-[9px] uppercase font-semibold text-[#73685C] tracking-normal leading-tight block">
-                          Fabric GSM
-                        </span>
-                        <span className="mt-1 text-[10.5px] sm:text-[11px] font-semibold text-[#29251F] leading-tight">
-                          {product.gsm || "As per need"}
-                        </span>
-                      </div>
-
-                      <div className="p-1.5 sm:p-2 flex flex-col justify-start sm:border-r border-b sm:border-b-0 border-[#E8DFCF]">
-                        <span className="text-[8.5px] sm:text-[9px] uppercase font-semibold text-[#73685C] tracking-normal leading-tight block">
-                          Dimensions
-                        </span>
-                        <span className="mt-1 text-[10.5px] sm:text-[11px] font-semibold text-[#29251F] leading-tight">
-                          {product.dimensions || "As per need"}
-                        </span>
-                      </div>
-
-                      <div className="p-1.5 sm:p-2 flex flex-col justify-start border-r border-[#E8DFCF]">
-                        <span className="text-[8.5px] sm:text-[9px] uppercase font-semibold text-[#73685C] tracking-normal leading-tight block">
-                          Yarn Blend
-                        </span>
-                        <span className="mt-1 text-[10.5px] sm:text-[11px] font-semibold text-[#29251F] leading-tight whitespace-pre-line">
-                          {formatBlendForCard(product.blend)}
-                        </span>
-                      </div>
-
-                      <div className="p-1.5 sm:p-2 flex flex-col justify-start">
-                        <span className="text-[8.5px] sm:text-[9px] uppercase font-semibold text-[#73685C] tracking-normal leading-tight block">
-                          Weave Type
-                        </span>
-                        <span className="mt-1 text-[10.5px] sm:text-[11px] font-semibold text-[#29251F] leading-tight">
-                          {formatWeaveForCard(product.weaveType)}
-                        </span>
-                      </div>
-                    </div>
+                  {/* 5. SPECIFICATION (Dimensions) */}
+                  <div className="mt-3 rounded-[3px] border border-[#E8DFCF] bg-[#FAF7F2] px-2.5 py-1.5 flex items-center justify-between text-left">
+                    <span className="text-[9px] sm:text-[9.5px] uppercase font-semibold text-[#73685C] tracking-normal leading-tight">
+                      Dimensions
+                    </span>
+                    <span className="text-[11px] sm:text-[11.5px] font-semibold text-[#29251F] leading-tight">
+                      {product.dimensions || "As per need"}
+                    </span>
                   </div>
 
-                  {/* 6. COLOUR SWATCHES (Circular swatches below specification panel) */}
-                  {product.colors && product.colors.length > 0 && (
-                    <div className="mt-2.5 sm:mt-3 flex items-center gap-1.5 flex-wrap" aria-label="Available Colours">
+                  {/* 6. COLOUR SWATCHES (Circular swatches with uniform floating clearance) */}
+                  {product.colors && product.colors.length > 0 ? (
+                    <div className="mt-auto pt-3 pb-3.5 flex items-center gap-1.5 flex-wrap" aria-label="Available Colours">
                       {product.colors.map((color, idx) => (
                         <span
                           key={idx}
@@ -511,10 +401,12 @@ export default function ProductCatalog() {
                         />
                       ))}
                     </div>
+                  ) : (
+                    <div className="mt-auto" />
                   )}
 
-                  {/* 7. BOTTOM ACTION BUTTONS (Aligned to bottom of card via margin-top: auto) */}
-                  <div className="mt-auto pt-3 border-t border-[#E8DFCF] flex flex-col @[400px]:flex-row items-stretch gap-2 @[400px]:gap-1.5">
+                  {/* 7. BOTTOM ACTION BUTTONS (Aligned to bottom of card) */}
+                  <div className="pt-3 border-t border-[#E8DFCF] flex flex-col @[400px]:flex-row items-stretch gap-2 @[400px]:gap-1.5">
                     {/* BUTTON 1: WhatsApp */}
                     <a
                       href={whatsappHref(
@@ -704,32 +596,12 @@ export default function ProductCatalog() {
                 {/* Specification Table */}
                 <div className="mt-5 border border-[#E8DFCF] rounded-md overflow-hidden text-[13.5px]">
                   <div className="grid grid-cols-2 divide-x divide-[#E8DFCF] border-b border-[#E8DFCF] bg-[#FAF7F2]">
-                    <div className="p-2.5 sm:p-3 font-medium text-[#6B615A]">
-                      Fabric Grammage (GSM)
-                    </div>
-                    <div className="p-2.5 sm:p-3 font-semibold text-[#29251F]">
-                      {specProduct.gsm || "As per requirement"}
-                    </div>
-                  </div>
-                  <div className="grid grid-cols-2 divide-x divide-[#E8DFCF] border-b border-[#E8DFCF]">
                     <div className="p-2.5 sm:p-3 font-medium text-[#6B615A]">Dimensions</div>
                     <div className="p-2.5 sm:p-3 font-semibold text-[#29251F]">
                       {specProduct.dimensions || "As per requirement"}
                     </div>
                   </div>
-                  <div className="grid grid-cols-2 divide-x divide-[#E8DFCF] border-b border-[#E8DFCF] bg-[#FAF7F2]">
-                    <div className="p-2.5 sm:p-3 font-medium text-[#6B615A]">Yarn Blend</div>
-                    <div className="p-2.5 sm:p-3 font-semibold text-[#29251F]">
-                      {specProduct.blend || "As per requirement"}
-                    </div>
-                  </div>
                   <div className="grid grid-cols-2 divide-x divide-[#E8DFCF] border-b border-[#E8DFCF]">
-                    <div className="p-2.5 sm:p-3 font-medium text-[#6B615A]">Weave Type</div>
-                    <div className="p-2.5 sm:p-3 font-semibold text-[#29251F]">
-                      {specProduct.weaveType || "As per requirement"}
-                    </div>
-                  </div>
-                  <div className="grid grid-cols-2 divide-x divide-[#E8DFCF] border-b border-[#E8DFCF] bg-[#FAF7F2]">
                     <div className="p-2.5 sm:p-3 font-medium text-[#6B615A]">
                       Minimum Order (MOQ)
                     </div>
@@ -737,7 +609,7 @@ export default function ProductCatalog() {
                       {specProduct.moq || "As per requirement"}
                     </div>
                   </div>
-                  <div className="grid grid-cols-2 divide-x divide-[#E8DFCF]">
+                  <div className="grid grid-cols-2 divide-x divide-[#E8DFCF] bg-[#FAF7F2]">
                     <div className="p-2.5 sm:p-3 font-medium text-[#6B615A]">
                       Standard Dispatch
                     </div>
@@ -846,7 +718,7 @@ function ProductEnquiryModal({
     city: "",
     quantity: "50 pieces",
     requirement: `${product.name} (${product.code})`,
-    message: `Hi, I would like to request wholesale pricing and sample details for ${product.name} (GSM: ${product.gsm}, Size: ${product.dimensions}).`,
+    message: `Hi, I would like to request wholesale pricing and sample details for ${product.name} (Size: ${product.dimensions}).`,
   });
 
   const handleChange = (
@@ -986,7 +858,7 @@ function ProductEnquiryModal({
                   {product.code}
                 </span>
                 <span className="block text-[13.5px] font-medium text-[#29251F] truncate">
-                  {product.gsm} · {product.dimensions}
+                  {product.dimensions}
                 </span>
                 <span className="block text-[12px] text-[#6B615A] truncate">
                   MOQ: {product.moq}

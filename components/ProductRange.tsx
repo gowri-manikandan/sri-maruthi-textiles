@@ -31,94 +31,92 @@ interface ProductItem {
 
 const PRODUCTS: ProductItem[] = [
   {
-    id: "bath-towels",
+    id: "plain-towels",
     num: "01",
-    name: "Bath Towels",
+    name: "Plain Towels",
     description:
-      "Soft, absorbent cotton blend towels made for comfort, durability and everyday performance.",
-    image: "/images/products/bath-towels.jpg",
-    alt: "Folded premium cotton blend bath towels with woven borders in clean neutral setting",
+      "Soft, absorbent solid-dyed and dual-color cotton blend bath towels crafted for everyday durability and high wholesale market turnover.",
+    image: "/images/product-plain.jpg",
+    alt: "Plain dyed cotton blend bath towels by Sri Maruthi Textiles",
     linkText: "View Details",
-    linkHref: "/products?category=bath-towels",
+    linkHref: "/products?category=plain-towels",
     specs: {
-      gsm: "450 GSM",
-      dimensions: "70 x 140 cm",
+      gsm: "360 - 450 GSM",
+      dimensions: "22 x 44 to 31 x 62 in",
       yarnBlend: "80% Cotton\n20% Polyester",
-      weaveType: "Dual-sided\npile terry",
+      weaveType: "Terry Pile\nwith Selvedge",
     },
     colors: [
-      { name: "Warm Ivory", hex: "#EAE2D2" },
-      { name: "Natural Beige", hex: "#D6C7B2" },
-      { name: "Deep Olive", hex: "#3D4F2E" },
+      { name: "Red", hex: "#C53030" },
+      { name: "Maroon", hex: "#781D2A" },
+      { name: "Olive Green", hex: "#40572D" },
+      { name: "Navy Blue", hex: "#1B2A3D" },
+      { name: "Cyan", hex: "#00ACC1" },
     ],
   },
   {
-    id: "pool-resort-towels",
+    id: "checked-towels",
     num: "02",
-    name: "Pool & Resort Towels",
+    name: "Checked Towels",
     description:
-      "Premium towel solutions designed for hospitality, resorts and leisure environments.",
-    image: "/images/products/pool-resort-towels.jpg",
-    alt: "Premium pool and resort towels by poolside lounge in warm natural light",
+      "Authentic South Indian handloom check patterns and contrast border towels woven with heritage yarn techniques.",
+    image: "/images/product-checked.jpg",
+    alt: "Authentic handloom checked cotton bath towels by Sri Maruthi Textiles",
     linkText: "View Details",
-    linkHref: "/products?category=pool-resort-towels",
+    linkHref: "/products?category=checked-towels",
     specs: {
-      gsm: "500 GSM",
-      dimensions: "90 x 180 cm",
+      gsm: "350 - 450 GSM",
+      dimensions: "22 x 44 to 31 x 62 in",
       yarnBlend: "80% Cotton\n20% Polyester",
-      weaveType: "Dobby Border",
+      weaveType: "Checked Weave\nDual-Sided",
     },
     colors: [
-      { name: "Navy Blue", hex: "#1C3154" },
-      { name: "Stripe Royal Blue", hex: "#295894" },
-      { name: "Sky Tint White", hex: "#D2E0EC" },
+      { name: "Red", hex: "#C53030" },
+      { name: "Maroon", hex: "#781D2A" },
+      { name: "Olive Green", hex: "#40572D" },
+      { name: "Navy Blue", hex: "#1B2A3D" },
+      { name: "Cyan", hex: "#00ACC1" },
     ],
   },
   {
-    id: "kitchen-utility-towels",
+    id: "white-towels",
     num: "03",
-    name: "Kitchen & Utility Towels",
+    name: "White Towels",
     description:
-      "Practical cotton blend textiles designed for everyday commercial and household use.",
-    image: "/images/products/kitchen-utility-towels.png",
-    alt: "Handloom cotton blend kitchen and utility towels hanging on natural wooden rod",
+      "Bleach-safe optical white bath towels built for hotels, lodges, hospitals, salons, and institutional linen supplies.",
+    image: "/images/product-white.jpg",
+    alt: "Optical white institutional bath towels by Sri Maruthi Textiles",
     linkText: "View Details",
-    linkHref: "/products?category=kitchen-utility-towels",
+    linkHref: "/products?category=white-towels",
     specs: {
-      gsm: "300 GSM",
-      dimensions: "50 x 70 cm",
+      gsm: "340 - 460 GSM",
+      dimensions: "20 x 40 to 31 x 61 in",
       yarnBlend: "80% Cotton\n20% Polyester",
-      weaveType: "Twill / Stripe",
+      weaveType: "Optical White\nHospitality Terry",
     },
     colors: [
-      { name: "Deep Forest", hex: "#394A2B" },
-      { name: "Moss Green", hex: "#52653E" },
-      { name: "Natural Ivory", hex: "#F3EDE3" },
-      { name: "Warm Sand", hex: "#D6C9B6" },
+      { name: "Optical White", hex: "#FFFFFF" },
     ],
   },
   {
-    id: "custom-weaves",
+    id: "kora-towels",
     num: "04",
-    name: "Custom Weaves",
-    badge: "CUSTOM REQUIREMENTS",
+    name: "Kora Towels",
+    badge: "TRADITIONAL WEAVE",
     description:
-      "Sizes, colours, borders and specifications tailored to your requirements.",
-    image: "/images/products/custom-weaves.png",
-    alt: "Close-up of custom woven handloom textile showing tailored weave details and craftsmanship",
+      "Traditional unbleached kora cotton bath towels with decorative print and solid borders in generous 33 × 66 inch dimensions.",
+    image: "/images/product-printed.jpg",
+    alt: "Traditional unbleached kora bath towels by Sri Maruthi Textiles",
     linkText: "View Details",
-    linkHref: "/products?category=custom-weaves",
+    linkHref: "/products?category=kora-towels",
     specs: {
-      gsm: "As per need",
-      dimensions: "As per need",
-      yarnBlend: "As per need",
-      weaveType: "As per need",
+      gsm: "440 GSM",
+      dimensions: "33 x 66 in",
+      yarnBlend: "85% Unbleached Cotton\n15% Polyester",
+      weaveType: "Traditional Kora\nHandloom Weave",
     },
     colors: [
-      { name: "Sage Green", hex: "#7A8A68" },
-      { name: "Deep Olive", hex: "#435232" },
-      { name: "Terracotta Rust", hex: "#9E4F2D" },
-      { name: "Ochre Tan", hex: "#C6873A" },
+      { name: "Natural Kora", hex: "#ECE6D8" },
     ],
   },
 ];
@@ -320,43 +318,14 @@ export default function ProductRange() {
 
                   {/* 3. Specification Table Box with Vertical Dividers */}
                   <div className="mt-auto rounded-md border border-[#29251F]/15 bg-[#EDE5D8]/50 overflow-hidden shadow-2xs">
-                    {/* Top 4-column spec grid */}
-                    <div className="grid grid-cols-4 divide-x divide-[#29251F]/15 text-left">
-                      <div className="p-2 sm:p-2.5 flex flex-col justify-start">
-                        <span className="text-[9.5px] uppercase font-medium text-[#73685C] tracking-wider leading-none">
-                          Fabric GSM
-                        </span>
-                        <span className="mt-1.5 text-[11px] sm:text-[11.5px] font-semibold text-[#29251F] leading-tight">
-                          {product.specs.gsm}
-                        </span>
-                      </div>
-
-                      <div className="p-2 sm:p-2.5 flex flex-col justify-start">
-                        <span className="text-[9.5px] uppercase font-medium text-[#73685C] tracking-wider leading-none">
-                          Dimensions
-                        </span>
-                        <span className="mt-1.5 text-[11px] sm:text-[11.5px] font-semibold text-[#29251F] leading-tight">
-                          {product.specs.dimensions}
-                        </span>
-                      </div>
-
-                      <div className="p-2 sm:p-2.5 flex flex-col justify-start">
-                        <span className="text-[9.5px] uppercase font-medium text-[#73685C] tracking-wider leading-none">
-                          Yarn Blend
-                        </span>
-                        <span className="mt-1.5 text-[11px] sm:text-[11.5px] font-semibold text-[#29251F] leading-tight whitespace-pre-line">
-                          {product.specs.yarnBlend}
-                        </span>
-                      </div>
-
-                      <div className="p-2 sm:p-2.5 flex flex-col justify-start">
-                        <span className="text-[9.5px] uppercase font-medium text-[#73685C] tracking-wider leading-none">
-                          Weave Type
-                        </span>
-                        <span className="mt-1.5 text-[11px] sm:text-[11.5px] font-semibold text-[#29251F] leading-tight whitespace-pre-line">
-                          {product.specs.weaveType}
-                        </span>
-                      </div>
+                    {/* Dimensions spec bar */}
+                    <div className="px-3 py-2 flex items-center justify-between text-left">
+                      <span className="text-[10px] uppercase font-medium text-[#73685C] tracking-wider leading-none">
+                        Dimensions
+                      </span>
+                      <span className="text-[11.5px] sm:text-[12px] font-semibold text-[#29251F] leading-tight">
+                        {product.specs.dimensions}
+                      </span>
                     </div>
 
                     {/* Bottom row: Color swatches on left, View Details on right */}
@@ -416,10 +385,10 @@ export default function ProductRange() {
             </p>
             <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
               <Link
-                href="/products?category=custom-weaves"
+                href="/products"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-[#40572D] hover:bg-[#344724] text-[#F5F1E8] text-[14px] font-medium transition-colors shadow-xs"
               >
-                <span>View Custom Weaves &amp; Specs</span>
+                <span>View Complete Catalogue</span>
                 <span aria-hidden="true">→</span>
               </Link>
               <a

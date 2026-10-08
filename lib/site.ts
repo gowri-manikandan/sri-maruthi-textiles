@@ -205,24 +205,24 @@ export const site = {
     linkLabel: "Ask for the full catalogue",
     items: [
       {
-        id: "checked",
-        name: "Checked towels",
-        spec: "[[GSM]] gsm · [[size]] cm · [[blend / yarn spec]]",
-      },
-      {
         id: "plain",
         name: "Plain towels",
-        spec: "[[GSM]] gsm · [[size]] cm · [[blend / yarn spec]]",
+        spec: "360 - 450 GSM · 22 × 44 to 31 × 62 in · 80/20 Cotton Blend",
       },
       {
-        id: "printed",
-        name: "Printed towels",
-        spec: "[[GSM]] gsm · [[size]] cm · [[blend / yarn spec]]",
+        id: "checked",
+        name: "Checked towels",
+        spec: "350 - 450 GSM · 22 × 44 to 31 × 62 in · 80/20 Cotton Blend",
       },
       {
         id: "white",
         name: "White towels",
-        spec: "[[GSM]] gsm · [[size]] cm · [[blend / yarn spec]]",
+        spec: "340 - 460 GSM · 20 × 40 to 31 × 61 in · Bleach-Safe White",
+      },
+      {
+        id: "kora",
+        name: "Kora towels",
+        spec: "440 GSM · 33 × 66 in · Unbleached Kora Cotton",
       },
     ],
   },

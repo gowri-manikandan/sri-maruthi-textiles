@@ -6,11 +6,11 @@ import { contact } from "@/lib/site";
 type Status = "idle" | "sending" | "sent" | "error";
 
 const PRODUCT_OPTIONS = [
-  "Bath Towels",
-  "Pool & Resort Towels",
-  "Kitchen & Utility Towels",
-  "Custom Textile Requirement",
-  "Other",
+  "Plain Towels",
+  "Checked Towels",
+  "White Towels",
+  "Kora Towels",
+  "Custom Weave / Bulk Consignment",
 ] as const;
 
 export default function EnquiryForm() {
@@ -24,7 +24,7 @@ export default function EnquiryForm() {
     email: "",
     phone: "",
     city: "",
-    requirement: "Bath Towels",
+    requirement: "Plain Towels",
     quantity: "",
     message: "",
   });
@@ -134,7 +134,7 @@ export default function EnquiryForm() {
               email: "",
               phone: "",
               city: "",
-              requirement: "Bath Towels",
+              requirement: "Plain Towels",
               quantity: "",
               message: "",
             });
@@ -358,7 +358,7 @@ export default function EnquiryForm() {
               type="text"
               value={formData.city}
               onChange={handleChange}
-              placeholder="e.g. Kochi, Coimbatore, Chennai"
+              placeholder="e.g. Calicut, Coimbatore, Palakkad"
               className="mt-1.5 w-full h-[48px] sm:h-[50px] px-3.5 sm:px-4 rounded-[2px] bg-white border border-[rgba(41,37,31,0.18)] text-[14.5px] sm:text-[15px] text-[#29251F] placeholder:text-[#29251F]/45 focus:border-[#40572D] focus:ring-1 focus:ring-[#40572D] outline-none transition-colors"
             />
           </div>
