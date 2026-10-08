@@ -514,7 +514,7 @@ export default function ProductCatalog() {
                   )}
 
                   {/* 7. BOTTOM ACTION BUTTONS (Aligned to bottom of card via margin-top: auto) */}
-                  <div className="mt-auto pt-3 border-t border-[#E8DFCF] flex flex-col min-[340px]:flex-row @[290px]:flex-row items-stretch gap-1.5">
+                  <div className="mt-auto pt-3 border-t border-[#E8DFCF] flex flex-col @[400px]:flex-row items-stretch gap-2 @[400px]:gap-1.5">
                     {/* BUTTON 1: WhatsApp */}
                     <a
                       href={whatsappHref(
@@ -523,10 +523,10 @@ export default function ProductCatalog() {
                       )}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group/wa flex-[1] min-w-0 inline-flex items-center justify-center gap-1 sm:gap-1.5 px-2 py-2.5 rounded-[3px] bg-white hover:bg-[#FAF7F2] border border-[#E8DFCF] hover:border-[#40572D]/60 text-[#29251F] text-[10.5px] sm:text-[11px] font-medium tracking-tight min-h-[42px] sm:min-h-[44px] transition-all duration-200 shadow-2xs text-center"
+                      className="group/wa w-full @[400px]:w-auto @[400px]:flex-1 inline-flex items-center justify-center gap-1.5 px-3 @[400px]:px-2 py-2.5 rounded-[3px] bg-white hover:bg-[#FAF7F2] border border-[#E8DFCF] hover:border-[#40572D]/60 text-[#29251F] text-[11.5px] @[400px]:text-[11px] font-medium tracking-tight min-h-[44px] @[400px]:min-h-[42px] transition-all duration-200 shadow-2xs text-center"
                       aria-label={`Chat on WhatsApp about ${product.name}`}
                     >
-                      <WhatsAppIcon className="size-3.5 sm:size-4 shrink-0 fill-[#40572D] transition-transform duration-200 group-hover/wa:scale-110 motion-reduce:group-hover/wa:scale-100" />
+                      <WhatsAppIcon className="size-4 @[400px]:size-3.5 shrink-0 fill-[#40572D] transition-transform duration-200 group-hover/wa:scale-110 motion-reduce:group-hover/wa:scale-100" />
                       <span className="whitespace-nowrap">Chat on WhatsApp</span>
                     </a>
 
@@ -534,11 +534,11 @@ export default function ProductCatalog() {
                     <button
                       type="button"
                       onClick={() => setEnquiryProduct(product)}
-                      className="group/sample flex-[1.3] min-w-0 inline-flex items-center justify-center gap-1 sm:gap-1.5 px-2 py-2.5 rounded-[3px] bg-[#40572D] hover:bg-[#344724] text-[#F5F1E8] text-[10.5px] sm:text-[11px] font-medium tracking-tight min-h-[42px] sm:min-h-[44px] transition-all duration-200 shadow-xs cursor-pointer text-center"
+                      className="group/sample w-full @[400px]:w-auto @[400px]:flex-[1.25] inline-flex items-center justify-center gap-1.5 px-3 @[400px]:px-2 py-2.5 rounded-[3px] bg-[#40572D] hover:bg-[#344724] text-[#F5F1E8] text-[11.5px] @[400px]:text-[11px] font-medium tracking-tight min-h-[44px] @[400px]:min-h-[42px] transition-all duration-200 shadow-xs cursor-pointer text-center"
                       aria-label={`Request sample and pricing for ${product.name}`}
                     >
                       <span className="whitespace-nowrap">Request Sample &amp; Pricing</span>
-                      <ArrowRight className="size-3 sm:size-3.5 shrink-0 transition-transform duration-200 group-hover/sample:translate-x-[2px] motion-reduce:group-hover/sample:translate-x-0" />
+                      <ArrowRight className="size-3.5 @[400px]:size-3 shrink-0 transition-transform duration-200 group-hover/sample:translate-x-[2px] motion-reduce:group-hover/sample:translate-x-0" />
                     </button>
                   </div>
                 </div>
@@ -767,7 +767,8 @@ export default function ProductCatalog() {
             </div>
 
             {/* Modal Bottom Actions */}
-            <div className="mt-6 pt-5 border-t border-[#E8DFCF] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+            <div className="mt-6 pt-5 border-t border-[#E8DFCF] flex flex-col sm:flex-row sm:items-center gap-2.5 sm:gap-3">
+              {/* WhatsApp CTA (Middle on mobile, Left on desktop) */}
               <a
                 href={whatsappHref(
                   contact.whatsapp.e164,
@@ -775,33 +776,34 @@ export default function ProductCatalog() {
                 )}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-md border border-[#E8DFCF] hover:border-[#40572D] hover:bg-[#FAF7F2] text-[#29251F] text-[13.5px] font-medium transition-colors"
+                className="order-2 sm:order-1 w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-md border border-[#E8DFCF] hover:border-[#40572D] hover:bg-[#FAF7F2] text-[#29251F] text-[13.5px] font-medium transition-colors min-h-[44px] sm:min-h-0 text-center"
               >
-                <MessageCircle className="size-4 text-[#40572D]" />
+                <MessageCircle className="size-4 text-[#40572D] shrink-0" />
                 <span>Chat on WhatsApp</span>
               </a>
 
-              <div className="flex items-center gap-2.5 justify-end">
-                <button
-                  type="button"
-                  onClick={() => setSpecProduct(null)}
-                  className="px-4 py-2.5 rounded-md border border-[#E8DFCF] text-[#29251F] text-[13.5px] font-medium hover:bg-[#FAF7F2] transition-colors cursor-pointer"
-                >
-                  Close
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    const target = specProduct;
-                    setSpecProduct(null);
-                    setEnquiryProduct(target);
-                  }}
-                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-md bg-[#40572D] hover:bg-[#344724] text-white text-[13.5px] font-medium transition-colors cursor-pointer shadow-xs"
-                >
-                  <span>Request Sample &amp; Pricing</span>
-                  <ArrowRight className="size-4" />
-                </button>
-              </div>
+              {/* Close Button (Bottom on mobile, Right before primary CTA on desktop) */}
+              <button
+                type="button"
+                onClick={() => setSpecProduct(null)}
+                className="order-3 sm:order-2 sm:ml-auto w-full sm:w-auto px-4 py-2.5 rounded-md border border-[#E8DFCF] text-[#29251F] text-[13.5px] font-medium hover:bg-[#FAF7F2] transition-colors cursor-pointer text-center min-h-[44px] sm:min-h-0"
+              >
+                Close
+              </button>
+
+              {/* Primary CTA: Request Sample & Pricing (Top on mobile, Rightmost on desktop) */}
+              <button
+                type="button"
+                onClick={() => {
+                  const target = specProduct;
+                  setSpecProduct(null);
+                  setEnquiryProduct(target);
+                }}
+                className="order-1 sm:order-3 w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-md bg-[#40572D] hover:bg-[#344724] text-white text-[13.5px] font-medium transition-colors cursor-pointer shadow-xs min-h-[44px] sm:min-h-0 text-center"
+              >
+                <span>Request Sample &amp; Pricing</span>
+                <ArrowRight className="size-4 shrink-0" />
+              </button>
             </div>
           </div>
         </div>
@@ -1145,18 +1147,18 @@ function ProductEnquiryModal({
                 />
               </div>
 
-              <div className="pt-2 flex items-center justify-end gap-3">
+              <div className="pt-2 flex flex-col-reverse sm:flex-row items-stretch sm:items-center sm:justify-end gap-2.5 sm:gap-3">
                 <button
                   type="button"
                   onClick={onClose}
-                  className="px-4 py-2.5 rounded-md border border-[#E8DFCF] text-[#29251F] text-[14px] font-medium hover:bg-[#FAF7F2] transition-colors cursor-pointer"
+                  className="w-full sm:w-auto px-4 py-2.5 rounded-md border border-[#E8DFCF] text-[#29251F] text-[14px] font-medium hover:bg-[#FAF7F2] transition-colors cursor-pointer text-center min-h-[44px] sm:min-h-0"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={status === "sending"}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-md bg-[#40572D] hover:bg-[#344724] text-white text-[14px] font-medium transition-colors cursor-pointer disabled:opacity-50 shadow-xs"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-md bg-[#40572D] hover:bg-[#344724] text-white text-[14px] font-medium transition-colors cursor-pointer disabled:opacity-50 shadow-xs min-h-[44px] sm:min-h-0 text-center"
                 >
                   {status === "sending" ? (
                     <>
@@ -1166,7 +1168,7 @@ function ProductEnquiryModal({
                   ) : (
                     <>
                       <span>Submit Wholesale Enquiry</span>
-                      <ArrowRight className="size-4" />
+                      <ArrowRight className="size-4 shrink-0" />
                     </>
                   )}
                 </button>
