@@ -86,6 +86,7 @@ export default function RootLayout({
     <html
       lang="en-IN"
       className={`${fraunces.variable} ${inter.variable}`}
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
       <body>
@@ -108,9 +109,7 @@ export default function RootLayout({
           Skip to content
         </a>
 
-        <header>
-          <Navbar />
-        </header>
+        <Navbar />
 
         <main id="main">{children}</main>
 

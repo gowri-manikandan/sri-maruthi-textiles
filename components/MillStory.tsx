@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { useScrollReveal } from "@/lib/useScrollReveal";
 import { ENQUIRY_HREF } from "@/lib/site";
 
 const HIGHLIGHTS = [
@@ -37,36 +37,7 @@ const HIGHLIGHTS = [
  * - Respects prefers-reduced-motion: reduce
  */
 export default function MillStory() {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement | null>(null);
-
-  useEffect(() => {
-    // Respect user's motion preference immediately
-    const prefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-
-    if (prefersReduced || typeof IntersectionObserver === "undefined") {
-      setIsVisible(true);
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      // Trigger when ~15% of section enters viewport
-      { threshold: 0.15 },
-    );
-
-    const el = sectionRef.current;
-    if (el) observer.observe(el);
-
-    return () => observer.disconnect();
-  }, []);
+  const [sectionRef, isVisible] = useScrollReveal();
 
   return (
     <section

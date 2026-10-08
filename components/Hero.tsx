@@ -19,7 +19,7 @@ export default function Hero() {
     <section
       id="top"
       data-hero
-      className="relative isolate flex min-h-[660px] md:min-h-[650px] lg:min-h-[720px] lg:h-[750px] w-full overflow-hidden items-center justify-between"
+      className="relative isolate flex min-h-[660px] md:min-h-[650px] lg:min-h-[720px] lg:h-[750px] w-full overflow-hidden items-center justify-between bg-[#1C1A1E]"
     >
       {/* Background Image Layer with Cinematic Ken Burns Ease */}
       <div className="absolute inset-0 -z-20 overflow-hidden">

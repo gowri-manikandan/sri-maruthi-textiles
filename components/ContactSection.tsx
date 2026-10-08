@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import EnquiryForm from "@/components/EnquiryForm";
+import { useScrollReveal } from "@/lib/useScrollReveal";
 import { contact, site, telHref, whatsappHref } from "@/lib/site";
 
 /**
@@ -15,42 +15,7 @@ import { contact, site, telHref, whatsappHref } from "@/lib/site";
  * Respects prefers-reduced-motion: reduce
  */
 export default function ContactSection() {
-  const sectionRef = useRef<HTMLElement | null>(null);
-  const [isVisible, setIsVisible] = useState(false);
-  const [prefersReduced, setPrefersReduced] = useState(false);
-
-  useEffect(() => {
-    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setPrefersReduced(motionQuery.matches);
-
-    const onMotionChange = (e: MediaQueryListEvent) => {
-      setPrefersReduced(e.matches);
-    };
-    motionQuery.addEventListener("change", onMotionChange);
-
-    if (motionQuery.matches || typeof IntersectionObserver === "undefined") {
-      setIsVisible(true);
-      return () => motionQuery.removeEventListener("change", onMotionChange);
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.12 }
-    );
-
-    const el = sectionRef.current;
-    if (el) observer.observe(el);
-
-    return () => {
-      motionQuery.removeEventListener("change", onMotionChange);
-      observer.disconnect();
-    };
-  }, []);
+  const [sectionRef, isVisible] = useScrollReveal();
 
   return (
     <section

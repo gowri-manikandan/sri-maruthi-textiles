@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { useScrollReveal } from "@/lib/useScrollReveal";
 
 interface StepItem {
   id: string;
@@ -69,8 +70,7 @@ const PROCESS_STEPS: StepItem[] = [
  * Respects prefers-reduced-motion: reduce
  */
 export default function HowItWorks() {
-  const sectionRef = useRef<HTMLElement | null>(null);
-  const [isSectionVisible, setIsSectionVisible] = useState(false);
+  const [sectionRef, isSectionVisible] = useScrollReveal();
   const [activeStep, setActiveStep] = useState(0);
   const [hoveredStep, setHoveredStep] = useState<number | null>(null);
   const [prefersReduced, setPrefersReduced] = useState(false);
@@ -84,7 +84,7 @@ export default function HowItWorks() {
   ]);
   const mobileItemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  // 1. Motion preference check & section entrance observer
+  // 1. Motion preference check
   useEffect(() => {
     const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     setPrefersReduced(motionQuery.matches);
@@ -94,29 +94,7 @@ export default function HowItWorks() {
     };
     motionQuery.addEventListener("change", onMotionChange);
 
-    if (motionQuery.matches || typeof IntersectionObserver === "undefined") {
-      setIsSectionVisible(true);
-      setMobileVisible([true, true, true, true]);
-      return () => motionQuery.removeEventListener("change", onMotionChange);
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsSectionVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.12 }
-    );
-
-    const el = sectionRef.current;
-    if (el) observer.observe(el);
-
-    return () => {
-      motionQuery.removeEventListener("change", onMotionChange);
-      observer.disconnect();
-    };
+    return () => motionQuery.removeEventListener("change", onMotionChange);
   }, []);
 
   // 2. Desktop scroll tracking to activate steps 01 → 02 → 03 → 04 sequentially
@@ -176,7 +154,29 @@ export default function HowItWorks() {
 
   // 3. Mobile independent IntersectionObserver for each process step
   useEffect(() => {
-    if (prefersReduced || typeof IntersectionObserver === "undefined") return;
+    if (prefersReduced || typeof IntersectionObserver === "undefined") {
+      setMobileVisible([true, true, true, true]);
+      return;
+    }
+
+    const checkImmediate = () => {
+      const vh =
+        typeof window !== "undefined"
+          ? window.innerHeight || document.documentElement.clientHeight || 800
+          : 800;
+      mobileItemRefs.current.forEach((itemEl, idx) => {
+        if (!itemEl) return;
+        const rect = itemEl.getBoundingClientRect();
+        if (rect.top <= vh + 150 || rect.bottom <= 0) {
+          setMobileVisible((prev) => {
+            const next = [...prev];
+            next[idx] = true;
+            return next;
+          });
+        }
+      });
+    };
+    checkImmediate();
 
     const observers: IntersectionObserver[] = [];
 
@@ -193,13 +193,18 @@ export default function HowItWorks() {
             obs.disconnect();
           }
         },
-        { threshold: 0.18 }
+        { threshold: 0, rootMargin: "60px 0px" }
       );
       obs.observe(itemEl);
       observers.push(obs);
     });
 
+    const failsafe = setTimeout(() => {
+      setMobileVisible([true, true, true, true]);
+    }, 600);
+
     return () => {
+      clearTimeout(failsafe);
       observers.forEach((obs) => obs.disconnect());
     };
   }, [prefersReduced]);

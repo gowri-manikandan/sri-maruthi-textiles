@@ -3,22 +3,20 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
-import { ENQUIRY_HREF, logo, navLinks, site } from "@/lib/site";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { logo, site } from "@/lib/site";
 
 /**
- * Navbar — DESIGN_BRIEF.md §4.1.
- *
- * Fixed, and transparent while the hero photograph is behind it; solid `bg`
- * with a bottom hairline once scrolled past. That is what lets the hero go
- * genuinely full-bleed rather than starting 64px down the page.
- *
- * The flip is driven by an IntersectionObserver on the hero's `data-hero`
- * attribute rather than a scroll-position listener: no work on the main thread
- * per scroll frame, and it stays correct if the hero's height ever changes.
+ * Navbar — Multi-page & in-page anchor adaptive navigation
  */
 export default function Navbar() {
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
+
   const [open, setOpen] = useState(false);
   const [pastHero, setPastHero] = useState(false);
+  const [hidden, setHidden] = useState(false);
 
   /* Escape closes the mobile menu — keyboard users must never be trapped. */
   useEffect(() => {
@@ -32,37 +30,115 @@ export default function Navbar() {
 
   useEffect(() => {
     const hero = document.querySelector("[data-hero]");
-    /* No hero on the page means nothing to be transparent over — stay solid. */
     if (!hero) {
       setPastHero(true);
       return;
     }
     const observer = new IntersectionObserver(
       ([entry]) => setPastHero(!entry.isIntersecting),
-      /* Shrink the root by the 64px navbar so the flip happens exactly as the
-         hero's bottom edge slides under it, not a screenful early. */
       { rootMargin: "-64px 0px 0px 0px", threshold: 0 },
     );
     observer.observe(hero);
     return () => observer.disconnect();
-  }, []);
+  }, [pathname]);
 
-  /* The open mobile panel needs an opaque ground whatever is behind it. */
-  const solid = pastHero || open;
+  /* Smart Hide on Scroll Down, Reveal on Scroll Up (threshold: 10px) */
+  useEffect(() => {
+    let lastScrollY = typeof window !== "undefined" ? window.scrollY : 0;
+    let ticking = false;
+    const threshold = 10; // 8-12px threshold to ignore micro-scrolls
+
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY;
+
+          // Never hide if mobile menu is open
+          if (open) {
+            setHidden(false);
+            document.documentElement.removeAttribute("data-nav-hidden");
+            lastScrollY = currentScrollY;
+            ticking = false;
+            return;
+          }
+
+          // Top of page: always show
+          if (currentScrollY <= 40) {
+            setHidden(false);
+            document.documentElement.removeAttribute("data-nav-hidden");
+          } else {
+            const diff = currentScrollY - lastScrollY;
+            if (diff > threshold) {
+              // Scrolling DOWN: slide upward smoothly out of the viewport
+              setHidden(true);
+              document.documentElement.setAttribute("data-nav-hidden", "true");
+            } else if (diff < -threshold) {
+              // Scrolling UP: reveal smoothly
+              setHidden(false);
+              document.documentElement.removeAttribute("data-nav-hidden");
+            }
+          }
+
+          lastScrollY = currentScrollY;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      document.documentElement.removeAttribute("data-nav-hidden");
+    };
+  }, [open]);
+
+  // Route change resets navbar to visible
+  useEffect(() => {
+    setHidden(false);
+    setOpen(false);
+    document.documentElement.removeAttribute("data-nav-hidden");
+  }, [pathname]);
+
+  const solid = !isHomePage || pastHero || open;
+
+  const navItems = [
+    { label: "Home", href: isHomePage ? "#top" : "/" },
+    { label: "About", href: isHomePage ? "#story" : "/#story" },
+    { label: "Products", href: "/products", isCurrent: pathname === "/products" },
+    { label: "Process", href: isHomePage ? "#how-it-works" : "/#how-it-works" },
+    { label: "Custom Orders", href: isHomePage ? "#commitments" : "/#commitments" },
+    { label: "FAQs", href: isHomePage ? "#faq" : "/#faq" },
+    { label: "Contact", href: isHomePage ? "#contact" : "/#contact" },
+  ];
+
+  const enquiryHref = isHomePage ? "#contact" : "/#contact";
 
   return (
-    <div
-      className={`fixed inset-x-0 top-0 z-40 border-b transition-all duration-500 ease-out motion-reduce:transition-none ${
+    <header
+      id="brand-navbar"
+      onFocus={() => {
+        setHidden(false);
+        document.documentElement.removeAttribute("data-nav-hidden");
+      }}
+      style={{
+        transform: hidden ? "translateY(-100%)" : "translateY(0)",
+      }}
+      className={`fixed inset-x-0 top-0 z-40 border-b transition-all duration-300 ease-out motion-reduce:transition-none motion-reduce:transform-none ${
+        hidden
+          ? "opacity-90 pointer-events-none"
+          : "opacity-100 pointer-events-auto"
+      } ${
         solid
-          ? "border-[#E8DFCF] bg-[#F5F1E8]/95 backdrop-blur-md"
+          ? "border-[#E8DFCF] bg-[#F5F1E8]/95 backdrop-blur-md shadow-xs"
           : "border-transparent bg-transparent"
       }`}
     >
       <nav aria-label="Main" className="container-page">
         <div className="flex h-16 sm:h-20 items-center justify-between gap-4">
           {/* Logo emblem + wordmark */}
-          <a
-            href="#top"
+          <Link
+            href="/"
             className={`inline-flex items-center gap-2.5 sm:gap-3 leading-none transition-colors duration-400 ${
               solid ? "text-[#29251F]" : "text-[#F5F1E8]"
             }`}
@@ -91,30 +167,32 @@ export default function Navbar() {
                 {site.name}
               </span>
             )}
-          </a>
+          </Link>
 
           {/* Desktop navigation */}
           <ul className="hidden items-center gap-3.5 md:gap-4 lg:gap-6 xl:gap-7 lg:flex">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <a
+            {navItems.map((link) => (
+              <li key={link.label}>
+                <Link
                   href={link.href}
                   className={`link-underline text-[13px] xl:text-[14px] font-medium tracking-wide transition-colors duration-300 motion-reduce:transition-none ${
-                    solid
+                    link.isCurrent
+                      ? "text-[#40572D] font-semibold"
+                      : solid
                       ? "text-[#5a534c] hover:text-[#29251F]"
                       : "text-[#F5F1E8]/85 hover:text-[#F5F1E8]"
                   }`}
                 >
                   {link.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
 
           <div className="flex items-center gap-3">
             {/* Desktop Request Enquiry button */}
-            <a
-              href={ENQUIRY_HREF}
+            <Link
+              href={enquiryHref}
               className="group hidden lg:inline-flex items-center gap-2 px-4 py-2.5 rounded-md bg-[#40572D] text-[#F5F1E8] hover:bg-[#4d6936] text-[13.5px] font-medium tracking-wide transition-all duration-250 shadow-sm border border-[#40572D]"
             >
               <span>Request Enquiry</span>
@@ -124,7 +202,7 @@ export default function Navbar() {
               >
                 →
               </span>
-            </a>
+            </Link>
 
             {/* Mobile menu toggle */}
             <button
@@ -155,20 +233,24 @@ export default function Navbar() {
           className="border-t border-[#E8DFCF] bg-[#F5F1E8] px-4 py-5 shadow-lg lg:hidden"
         >
           <ul className="flex flex-col gap-2">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <a
+            {navItems.map((link) => (
+              <li key={link.label}>
+                <Link
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="flex min-h-[44px] items-center text-[15px] font-medium text-[#29251F] hover:text-[#40572D] transition-colors"
+                  className={`flex min-h-[44px] items-center text-[15px] font-medium transition-colors ${
+                    link.isCurrent
+                      ? "text-[#40572D] font-semibold"
+                      : "text-[#29251F] hover:text-[#40572D]"
+                  }`}
                 >
                   {link.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
-          <a
-            href={ENQUIRY_HREF}
+          <Link
+            href={enquiryHref}
             onClick={() => setOpen(false)}
             className="group mt-4 flex min-h-[48px] w-full items-center justify-center gap-2 rounded-md bg-[#40572D] px-4 py-3 text-center text-[15px] font-medium text-[#F5F1E8] transition-colors hover:bg-[#4d6936]"
           >
@@ -179,9 +261,9 @@ export default function Navbar() {
             >
               →
             </span>
-          </a>
+          </Link>
         </div>
       </nav>
-    </div>
+    </header>
   );
 }

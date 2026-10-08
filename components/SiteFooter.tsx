@@ -1,7 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import { useScrollReveal } from "@/lib/useScrollReveal";
+import Link from "next/link";
 import { contact, logo, site, telHref, whatsappHref } from "@/lib/site";
 
 /**
@@ -16,55 +18,29 @@ import { contact, logo, site, telHref, whatsappHref } from "@/lib/site";
  */
 
 const EXPLORE_LINKS = [
-  { label: "Home", href: "#top" },
-  { label: "About Us", href: "#story" },
-  { label: "Products", href: "#products" },
-  { label: "Our Process", href: "#how-it-works" },
-  { label: "Custom Solutions", href: "#commitments" },
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/#story" },
+  { label: "Products & Catalogue", href: "/products" },
+  { label: "Our Process", href: "/#how-it-works" },
+  { label: "Custom Solutions", href: "/#commitments" },
 ] as const;
 
 const CONNECT_LINKS = [
-  { label: "Contact", href: "#contact" },
-  { label: "Request a Sample", href: "#sample-kit" },
-  { label: "Send an Enquiry", href: "#contact" },
+  { label: "Contact", href: "/#contact" },
+  { label: "Request a Sample", href: "/products" },
+  { label: "Send an Enquiry", href: "/#contact" },
 ] as const;
 
 export default function SiteFooter() {
-  const footerRef = useRef<HTMLElement | null>(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const [footerRef, isVisible] = useScrollReveal({ rootMargin: "100px 0px" });
   const [prefersReduced, setPrefersReduced] = useState(false);
 
   useEffect(() => {
-    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setPrefersReduced(motionQuery.matches);
-
-    const onMotionChange = (e: MediaQueryListEvent) => {
-      setPrefersReduced(e.matches);
-    };
-    motionQuery.addEventListener("change", onMotionChange);
-
-    if (motionQuery.matches || typeof IntersectionObserver === "undefined") {
-      setIsVisible(true);
-      return () => motionQuery.removeEventListener("change", onMotionChange);
+    if (typeof window !== "undefined") {
+      setPrefersReduced(
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      );
     }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.08 }
-    );
-
-    const el = footerRef.current;
-    if (el) observer.observe(el);
-
-    return () => {
-      motionQuery.removeEventListener("change", onMotionChange);
-      observer.disconnect();
-    };
   }, []);
 
   const scrollToTop = () => {
@@ -108,8 +84,8 @@ export default function SiteFooter() {
             }`}
           >
             {/* Sri Maruthi Textiles Logo */}
-            <a
-              href="#top"
+            <Link
+              href="/"
               className="inline-block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E8DFCF] rounded-[2px]"
               aria-label={`${site.name} — Return to top`}
             >
@@ -126,7 +102,7 @@ export default function SiteFooter() {
                   {site.name}
                 </span>
               )}
-            </a>
+            </Link>
 
             {/* Brand Descriptor */}
             <p className="mt-6 font-display font-normal text-[1.25rem] sm:text-[1.4rem] lg:text-[1.5rem] leading-[1.3] text-[#F5F1E8] max-w-[430px]">
@@ -157,14 +133,14 @@ export default function SiteFooter() {
               <ul className="mt-4 sm:mt-5 space-y-2.5">
                 {EXPLORE_LINKS.map((link) => (
                   <li key={link.href}>
-                    <a
+                    <Link
                       href={link.href}
                       className="group inline-flex items-center text-[14px] sm:text-[14.5px] text-[#E8DFCF]/85 hover:text-[#FAF8F3] transition-colors focus:outline-none focus-visible:underline focus-visible:underline-offset-4"
                     >
                       <span className="transition-transform duration-200 ease-out group-hover:translate-x-1">
                         {link.label}
                       </span>
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -186,14 +162,14 @@ export default function SiteFooter() {
               <ul className="mt-4 sm:mt-5 space-y-2.5">
                 {CONNECT_LINKS.map((link) => (
                   <li key={link.label}>
-                    <a
+                    <Link
                       href={link.href}
                       className="group inline-flex items-center text-[14px] sm:text-[14.5px] text-[#E8DFCF]/85 hover:text-[#FAF8F3] transition-colors focus:outline-none focus-visible:underline focus-visible:underline-offset-4"
                     >
                       <span className="transition-transform duration-200 ease-out group-hover:translate-x-1">
                         {link.label}
                       </span>
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

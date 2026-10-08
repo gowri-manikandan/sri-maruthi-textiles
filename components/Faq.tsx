@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import { useScrollReveal } from "@/lib/useScrollReveal";
 
 interface FaqItem {
   num: string;
@@ -55,42 +56,16 @@ const FAQ_ITEMS: FaqItem[] = [
  * Respects prefers-reduced-motion: reduce
  */
 export default function Faq() {
-  const sectionRef = useRef<HTMLElement | null>(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const [sectionRef, isVisible] = useScrollReveal();
   const [openIndex, setOpenIndex] = useState<number | null>(0); // First item open initially
   const [prefersReduced, setPrefersReduced] = useState(false);
 
   useEffect(() => {
-    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setPrefersReduced(motionQuery.matches);
-
-    const onMotionChange = (e: MediaQueryListEvent) => {
-      setPrefersReduced(e.matches);
-    };
-    motionQuery.addEventListener("change", onMotionChange);
-
-    if (motionQuery.matches || typeof IntersectionObserver === "undefined") {
-      setIsVisible(true);
-      return () => motionQuery.removeEventListener("change", onMotionChange);
+    if (typeof window !== "undefined") {
+      setPrefersReduced(
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      );
     }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.15 }
-    );
-
-    const el = sectionRef.current;
-    if (el) observer.observe(el);
-
-    return () => {
-      motionQuery.removeEventListener("change", onMotionChange);
-      observer.disconnect();
-    };
   }, []);
 
   const toggleItem = (idx: number) => {

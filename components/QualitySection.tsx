@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useScrollReveal } from "@/lib/useScrollReveal";
 import { Globe, Leaf, ShieldCheck } from "lucide-react";
 
 /**
@@ -69,36 +69,7 @@ const QUALITY_CARDS = [
  * Calm, subtle scroll reveal triggered via IntersectionObserver at 15–20% visibility.
  */
 export default function QualitySection() {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement | null>(null);
-
-  useEffect(() => {
-    // Respect user's motion preference immediately
-    const prefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-
-    if (prefersReduced || typeof IntersectionObserver === "undefined") {
-      setIsVisible(true);
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      // Trigger when ~18% of the section is visible
-      { threshold: 0.18 },
-    );
-
-    const el = sectionRef.current;
-    if (el) observer.observe(el);
-
-    return () => observer.disconnect();
-  }, []);
+  const [sectionRef, isVisible] = useScrollReveal();
 
   return (
     <section
