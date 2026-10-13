@@ -271,35 +271,6 @@ export default function SiteFooter() {
           </div>
         </div>
 
-        {/* =========================================================================
-            FINAL BRAND STATEMENT: Visual Closing Statement
-            ========================================================================= */}
-        <div
-          className={`mt-16 sm:mt-20 lg:mt-24 pt-10 sm:pt-12 border-t border-[rgba(245,241,232,0.12)] transition-all duration-[750ms] ease-out motion-reduce:transition-none motion-reduce:opacity-100 motion-reduce:transform-none ${
-            isVisible
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-5"
-          }`}
-          style={{ transitionDelay: prefersReduced ? "0ms" : "340ms" }}
-        >
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-            <div>
-              <p className="font-sans text-[11px] font-semibold tracking-[0.24em] uppercase text-[#A95738]">
-                SRI MARUTHI TEXTILES
-              </p>
-              <h2 className="mt-3 font-display font-normal text-[2.25rem] sm:text-[3rem] lg:text-[3.5rem] xl:text-[3.85rem] leading-[1.05] tracking-[-0.015em] text-[#F5F1E8]">
-                Woven with craft.<br />
-                <span className="text-[#E8DFCF]/85">Made for your business.</span>
-              </h2>
-            </div>
-            <div className="max-w-[340px]">
-              <p className="text-[13.5px] sm:text-[14px] leading-[1.65] text-[#E8DFCF]/70 font-normal">
-                Authentic handloom cotton blend textiles produced with disciplined
-                craftsmanship for hotels, retailers and commercial partners.
-              </p>
-            </div>
-          </div>
-        </div>
 
         {/* =========================================================================
             BOTTOM BAR: Copyright, Brand Mark & Back to Top Control

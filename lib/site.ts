@@ -73,20 +73,23 @@ export const logo: {
 
 /**
  * Absolute origin, needed for canonical URLs, Open Graph and the sitemap.
- * Set NEXT_PUBLIC_SITE_URL once the domain exists (§9). The localhost fallback
- * keeps development working but must not reach production — canonical tags
- * pointing at localhost would deindex the site.
+ * Production URL is https://sri-maruthi-textiles.vercel.app.
+ * Can be overridden via NEXT_PUBLIC_SITE_URL if a custom domain is assigned.
+ * Fallback guarantees production builds and crawlers never see localhost URLs.
  */
+export const PRODUCTION_SITE_URL = "https://sri-maruthi-textiles.vercel.app";
+
 const RAW_SITE_URL = process.env.NEXT_PUBLIC_SITE_URL?.trim();
 
 /* `??` is not enough here. An env var declared but left blank — exactly what
    copying .env.example gives you — is an empty STRING, not undefined, so `??`
    passes it straight through and `new URL("")` throws, taking down every page
-   that reads metadataBase. Treat blank as absent. */
+   that reads metadataBase. Treat blank as absent.
+   Prevent localhost URLs in production or when NEXT_PUBLIC_SITE_URL is unset. */
 export const SITE_URL = (
-  RAW_SITE_URL && RAW_SITE_URL.length > 0
+  RAW_SITE_URL && RAW_SITE_URL.length > 0 && !RAW_SITE_URL.includes("localhost")
     ? RAW_SITE_URL
-    : "http://localhost:3000"
+    : PRODUCTION_SITE_URL
 ).replace(/\/$/, "");
 
 export const site = {

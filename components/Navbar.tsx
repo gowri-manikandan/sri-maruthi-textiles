@@ -62,6 +62,15 @@ export default function Navbar() {
             return;
           }
 
+          // Force visible during programmatic navigation/filtering
+          if (document.documentElement.getAttribute("data-nav-force-visible") === "true") {
+            setHidden(false);
+            document.documentElement.removeAttribute("data-nav-hidden");
+            lastScrollY = currentScrollY;
+            ticking = false;
+            return;
+          }
+
           // Top of page: always show
           if (currentScrollY <= 40) {
             setHidden(false);

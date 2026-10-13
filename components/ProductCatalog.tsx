@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useMemo, useState, useEffect } from "react";
+import { useId, useMemo, useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
@@ -163,16 +163,89 @@ export default function ProductCatalog() {
     return counts;
   }, []);
 
+  const catalogContainerRef = useRef<HTMLDivElement>(null);
+  const lastScrollTimeRef = useRef<number>(0);
+  const isInitialMount = useRef<boolean>(true);
+
+  /**
+   * Smoothly scrolls to the start of the product catalogue, ensuring the
+   * first row of products is immediately in view below the filter bar.
+   */
+  const scrollToFirstProductRow = useCallback(() => {
+    if (typeof window === "undefined") return;
+
+    const now = Date.now();
+    // Debounce duplicate scroll triggers within 250ms
+    if (now - lastScrollTimeRef.current < 250) return;
+    lastScrollTimeRef.current = now;
+
+    if (catalogContainerRef.current) {
+      const nav = document.getElementById("brand-navbar");
+      const navHeight = nav
+        ? nav.getBoundingClientRect().height
+        : window.innerWidth >= 640
+        ? 80
+        : 64;
+
+      const catalogTop =
+        catalogContainerRef.current.getBoundingClientRect().top +
+        window.scrollY;
+
+      // Position the top of the catalogue flush below the sticky navbar
+      const targetScrollY = Math.max(0, Math.round(catalogTop - navHeight));
+
+      // Only scroll if not already positioned at the first product row
+      if (Math.abs(window.scrollY - targetScrollY) > 12) {
+        // Prevent navbar from hiding during programmatic smooth scrolling
+        document.documentElement.setAttribute("data-nav-force-visible", "true");
+        document.documentElement.removeAttribute("data-nav-hidden");
+
+        const prefersReducedMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+        window.scrollTo({
+          top: targetScrollY,
+          behavior: prefersReducedMotion ? "auto" : "smooth",
+        });
+
+        // Release forced visibility after scroll completes
+        setTimeout(() => {
+          document.documentElement.removeAttribute("data-nav-force-visible");
+        }, 700);
+      }
+    }
+  }, []);
+
+  const handleCategoryChange = (categoryId: string) => {
+    setActiveCategory(categoryId);
+    scrollToFirstProductRow();
+  };
+
   const clearAllFilters = () => {
     setActiveCategory("all");
     setSearchQuery("");
+    scrollToFirstProductRow();
   };
+
+  // Sync scroll when category changes after initial mount
+  useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
+    scrollToFirstProductRow();
+  }, [activeCategory, scrollToFirstProductRow]);
 
   const hasActiveFilters =
     activeCategory !== "all" || searchQuery !== "";
 
   return (
-    <div className="relative">
+    <div
+      ref={catalogContainerRef}
+      id="catalogue-products-section"
+      className="relative"
+    >
       {/* =========================================================================
           3. COMPACT PRODUCT FILTER AREA
           Sticky bar synced smoothly with main navbar scroll behavior
@@ -194,13 +267,21 @@ export default function ProductCatalog() {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    scrollToFirstProductRow();
+                  }
+                }}
                 placeholder="Search products by name, SKU..."
                 className="w-full h-8.5 sm:h-9 pl-8.5 pr-8 rounded-sm border border-[#E8DFCF] bg-white text-[13px] text-[#29251F] placeholder:text-[#6B615A]/70 focus:outline-none focus:border-[#40572D] focus:ring-1 focus:ring-[#40572D] transition-all"
               />
               {searchQuery && (
                 <button
                   type="button"
-                  onClick={() => setSearchQuery("")}
+                  onClick={() => {
+                    setSearchQuery("");
+                    scrollToFirstProductRow();
+                  }}
                   className="absolute right-2 top-1/2 -translate-y-1/2 p-1 text-[#6B615A] hover:text-[#29251F]"
                   aria-label="Clear search"
                 >
@@ -220,7 +301,7 @@ export default function ProductCatalog() {
                 <button
                   key={cat.id}
                   type="button"
-                  onClick={() => setActiveCategory(cat.id)}
+                  onClick={() => handleCategoryChange(cat.id)}
                   className={`shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-sm text-[12px] sm:text-[12.5px] font-medium tracking-wide transition-all duration-200 cursor-pointer ${
                     isSelected
                       ? "bg-[#26351C] text-[#F5F1E8] shadow-xs"
