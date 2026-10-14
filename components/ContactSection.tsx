@@ -41,11 +41,10 @@ export default function ContactSection() {
               LEFT COLUMN: Editorial Narrative & Contact Details (~35-38% Desktop)
               ========================================================================= */}
           <div
-            className={`w-full lg:w-[38%] xl:w-[35%] shrink-0 transition-all duration-[750ms] ease-out motion-reduce:transition-none motion-reduce:opacity-100 motion-reduce:transform-none ${
-              isVisible
+            className={`w-full lg:w-[38%] xl:w-[35%] shrink-0 transition-all duration-[750ms] ease-out motion-reduce:transition-none motion-reduce:opacity-100 motion-reduce:transform-none ${isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-5"
-            }`}
+              }`}
           >
             <div className="max-w-[480px] lg:max-w-none">
               {/* Eyebrow */}
@@ -204,7 +203,7 @@ export default function ContactSection() {
                       </span>
                       <span>
                         <span className="block text-[11px] uppercase tracking-wider text-[#E8DFCF]/70 font-sans">
-                          Mill &amp; Office Address
+                          Office Address
                         </span>
                         <span className="font-medium leading-snug group-hover:underline underline-offset-4 block">
                           1/37, Pallagoundanpalayam,<br />
@@ -256,11 +255,10 @@ export default function ContactSection() {
               RIGHT COLUMN: Clean Warm-Ivory Form (~55% Desktop)
               ========================================================================= */}
           <div
-            className={`w-full lg:flex-1 transition-all duration-[750ms] delay-[160ms] ease-out motion-reduce:transition-none motion-reduce:opacity-100 motion-reduce:transform-none ${
-              isVisible
+            className={`w-full lg:flex-1 transition-all duration-[750ms] delay-[160ms] ease-out motion-reduce:transition-none motion-reduce:opacity-100 motion-reduce:transform-none ${isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-5"
-            }`}
+              }`}
           >
             <EnquiryForm />
           </div>

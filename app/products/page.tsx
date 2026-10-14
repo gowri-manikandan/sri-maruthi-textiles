@@ -142,7 +142,7 @@ export default function ProductsPage() {
                 </a>
 
                 <span className="text-[13px] text-[#E8DFCF]/75 pl-1 hidden sm:inline">
-                  ⚡ Dispatched from Uttukuli, Tiruppur
+                  ⚡ Dispatched from Tiruppur
                 </span>
               </div>
             </div>

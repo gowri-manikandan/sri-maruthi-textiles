@@ -184,8 +184,8 @@ export default function ProductCatalog() {
       const navHeight = nav
         ? nav.getBoundingClientRect().height
         : window.innerWidth >= 640
-        ? 80
-        : 64;
+          ? 80
+          : 64;
 
       const catalogTop =
         catalogContainerRef.current.getBoundingClientRect().top +
@@ -253,10 +253,10 @@ export default function ProductCatalog() {
       <section className="sticky-catalogue-filter sticky z-30 bg-[#F5F1E8]/95 backdrop-blur-md border-b border-[#E8DFCF] shadow-xs">
         <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3">
           <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-2.5">
-            {/* Search field: "Search products by name, SKU..." */}
+            {/* Search field: "Search products by name, code..." */}
             <div className="relative w-full md:w-[320px] lg:w-[360px] shrink-0">
               <label htmlFor="product-search" className="sr-only">
-                Search products by name, SKU
+                Search products by name, code
               </label>
               <Search
                 aria-hidden="true"
@@ -272,7 +272,7 @@ export default function ProductCatalog() {
                     scrollToFirstProductRow();
                   }
                 }}
-                placeholder="Search products by name, SKU..."
+                placeholder="Search products by name, code..."
                 className="w-full h-8.5 sm:h-9 pl-8.5 pr-8 rounded-sm border border-[#E8DFCF] bg-white text-[13px] text-[#29251F] placeholder:text-[#6B615A]/70 focus:outline-none focus:border-[#40572D] focus:ring-1 focus:ring-[#40572D] transition-all"
               />
               {searchQuery && (
@@ -302,19 +302,17 @@ export default function ProductCatalog() {
                   key={cat.id}
                   type="button"
                   onClick={() => handleCategoryChange(cat.id)}
-                  className={`shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-sm text-[12px] sm:text-[12.5px] font-medium tracking-wide transition-all duration-200 cursor-pointer ${
-                    isSelected
+                  className={`shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-sm text-[12px] sm:text-[12.5px] font-medium tracking-wide transition-all duration-200 cursor-pointer ${isSelected
                       ? "bg-[#26351C] text-[#F5F1E8] shadow-xs"
                       : "bg-[#E8DFCF]/50 text-[#29251F] border border-[#E8DFCF]/70 hover:border-[#40572D]/50 hover:bg-[#E8DFCF]"
-                  }`}
+                    }`}
                 >
                   <span>{cat.label}</span>
                   <span
-                    className={`text-[10px] px-1.5 py-0.2 rounded font-semibold ${
-                      isSelected
+                    className={`text-[10px] px-1.5 py-0.2 rounded font-semibold ${isSelected
                         ? "bg-white/20 text-[#F5F1E8]"
                         : "bg-black/5 text-[#6B615A]"
-                    }`}
+                      }`}
                   >
                     {count}
                   </span>
@@ -841,7 +839,7 @@ function ProductEnquiryModal({
         setStatus("error");
         setErrorMessage(
           result.error ??
-            "Something went wrong. Please connect with us directly via phone or WhatsApp."
+          "Something went wrong. Please connect with us directly via phone or WhatsApp."
         );
         return;
       }

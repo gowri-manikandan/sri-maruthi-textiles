@@ -77,11 +77,10 @@ export default function SiteFooter() {
         <div className="flex flex-col lg:flex-row items-start justify-between gap-10 lg:gap-12 xl:gap-14">
           {/* Top Brand Identity Column (~30% Desktop) */}
           <div
-            className={`w-full lg:w-[32%] xl:w-[30%] shrink-0 transition-all duration-[750ms] ease-out motion-reduce:transition-none motion-reduce:opacity-100 motion-reduce:transform-none ${
-              isVisible
+            className={`w-full lg:w-[32%] xl:w-[30%] shrink-0 transition-all duration-[750ms] ease-out motion-reduce:transition-none motion-reduce:opacity-100 motion-reduce:transform-none ${isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-5"
-            }`}
+              }`}
           >
             {/* Sri Maruthi Textiles Logo */}
             <Link
@@ -120,11 +119,10 @@ export default function SiteFooter() {
             {/* Column 1: EXPLORE */}
             <nav
               aria-label="Explore navigation"
-              className={`lg:col-span-3 transition-all duration-[750ms] ease-out motion-reduce:transition-none motion-reduce:opacity-100 motion-reduce:transform-none ${
-                isVisible
+              className={`lg:col-span-3 transition-all duration-[750ms] ease-out motion-reduce:transition-none motion-reduce:opacity-100 motion-reduce:transform-none ${isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-5"
-              }`}
+                }`}
               style={{ transitionDelay: prefersReduced ? "0ms" : "120ms" }}
             >
               <h3 className="font-sans text-[11px] sm:text-[11.5px] font-semibold tracking-[0.24em] uppercase text-[#E8DFCF]/70">
@@ -149,11 +147,10 @@ export default function SiteFooter() {
             {/* Column 2: CONNECT */}
             <nav
               aria-label="Connect navigation"
-              className={`lg:col-span-3 transition-all duration-[750ms] ease-out motion-reduce:transition-none motion-reduce:opacity-100 motion-reduce:transform-none ${
-                isVisible
+              className={`lg:col-span-3 transition-all duration-[750ms] ease-out motion-reduce:transition-none motion-reduce:opacity-100 motion-reduce:transform-none ${isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-5"
-              }`}
+                }`}
               style={{ transitionDelay: prefersReduced ? "0ms" : "200ms" }}
             >
               <h3 className="font-sans text-[11px] sm:text-[11.5px] font-semibold tracking-[0.24em] uppercase text-[#E8DFCF]/70">
@@ -177,11 +174,10 @@ export default function SiteFooter() {
 
             {/* Column 3: CONTACT & LOCATION (Expanded to 6 columns with 2 subcolumns) */}
             <div
-              className={`sm:col-span-2 lg:col-span-6 transition-all duration-[750ms] ease-out motion-reduce:transition-none motion-reduce:opacity-100 motion-reduce:transform-none ${
-                isVisible
+              className={`sm:col-span-2 lg:col-span-6 transition-all duration-[750ms] ease-out motion-reduce:transition-none motion-reduce:opacity-100 motion-reduce:transform-none ${isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-5"
-              }`}
+                }`}
               style={{ transitionDelay: prefersReduced ? "0ms" : "280ms" }}
             >
               <h3 className="font-sans text-[11px] sm:text-[11.5px] font-semibold tracking-[0.24em] uppercase text-[#E8DFCF]/70">
@@ -244,7 +240,7 @@ export default function SiteFooter() {
                       title="Open in Google Maps"
                     >
                       <span className="block text-[11px] uppercase tracking-wider text-[#E8DFCF]/60 font-sans">
-                        Mill Address
+                        Office Address
                       </span>
                       <span className="font-medium text-[#F5F1E8] leading-snug group-hover:underline underline-offset-4 block">
                         1/37, Pallagoundanpalayam,<br />
@@ -276,11 +272,10 @@ export default function SiteFooter() {
             BOTTOM BAR: Copyright, Brand Mark & Back to Top Control
             ========================================================================= */}
         <div
-          className={`mt-12 sm:mt-14 pt-8 border-t border-[rgba(245,241,232,0.12)] flex flex-col sm:flex-row items-center justify-between gap-4 text-[13px] text-[#E8DFCF]/75 transition-all duration-[750ms] ease-out motion-reduce:transition-none motion-reduce:opacity-100 motion-reduce:transform-none ${
-            isVisible
+          className={`mt-12 sm:mt-14 pt-8 border-t border-[rgba(245,241,232,0.12)] flex flex-col sm:flex-row items-center justify-between gap-4 text-[13px] text-[#E8DFCF]/75 transition-all duration-[750ms] ease-out motion-reduce:transition-none motion-reduce:opacity-100 motion-reduce:transform-none ${isVisible
               ? "opacity-100 translate-y-0"
               : "opacity-0 translate-y-4"
-          }`}
+            }`}
           style={{ transitionDelay: prefersReduced ? "0ms" : "420ms" }}
         >
           {/* Copyright & GSTIN */}
