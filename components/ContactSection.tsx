@@ -206,8 +206,8 @@ export default function ContactSection() {
                           Office Address
                         </span>
                         <span className="font-medium leading-snug group-hover:underline underline-offset-4 block">
-                          1/37, Pallagoundanpalayam,<br />
-                          Uttukuli (Tk), Tiruppur (Dt) - 638056
+                          {contact.address.line1}<br />
+                          {contact.address.line2}
                         </span>
                       </span>
                     </a>

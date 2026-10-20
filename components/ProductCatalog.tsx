@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useMemo, useState, useEffect, useRef, useCallback } from "react";
+import { Suspense, useId, useMemo, useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
@@ -96,26 +96,37 @@ function WhatsAppIcon({ className = "size-4" }: { className?: string }) {
   );
 }
 
-export default function ProductCatalog() {
+/**
+ * Headless search parameter reader isolated in Suspense boundary
+ * to ensure ProductCatalog statically prerenders all products into HTML.
+ */
+function CategoryUrlSync({
+  onCategoryChange,
+}: {
+  onCategoryChange: (category: string) => void;
+}) {
   const searchParams = useSearchParams();
   const categoryParam = searchParams.get("category");
 
+  useEffect(() => {
+    if (categoryParam) {
+      const match = PRODUCT_CATEGORIES.find((c) => c.id === categoryParam);
+      if (match) {
+        onCategoryChange(match.id);
+      }
+    }
+  }, [categoryParam, onCategoryChange]);
+
+  return null;
+}
+
+export default function ProductCatalog() {
   const [activeCategory, setActiveCategory] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState<string>("");
 
   // Selected product for modals
   const [enquiryProduct, setEnquiryProduct] = useState<Product | null>(null);
   const [specProduct, setSpecProduct] = useState<Product | null>(null);
-
-  // Sync category param from URL
-  useEffect(() => {
-    if (categoryParam) {
-      const match = PRODUCT_CATEGORIES.find((c) => c.id === categoryParam);
-      if (match) {
-        setActiveCategory(match.id);
-      }
-    }
-  }, [categoryParam]);
 
   // Handle escape key to close modals
   useEffect(() => {
@@ -246,6 +257,11 @@ export default function ProductCatalog() {
       id="catalogue-products-section"
       className="relative"
     >
+      <Suspense fallback={null}>
+        <CategoryUrlSync onCategoryChange={setActiveCategory} />
+      </Suspense>
+      <h2 className="sr-only">Wholesale Handloom Cotton Towel Catalog</h2>
+
       {/* =========================================================================
           3. COMPACT PRODUCT FILTER AREA
           Sticky bar synced smoothly with main navbar scroll behavior
@@ -522,17 +538,20 @@ export default function ProductCatalog() {
       {/* =========================================================================
           WHOLESALE COMMITMENTS STRIP
           ========================================================================= */}
-      <section className="bg-[#FAF7F2] border-y border-[#E8DFCF] py-12">
+      <section className="bg-[#FAF7F2] border-y border-[#E8DFCF] py-12" aria-labelledby="wholesale-commitments-heading">
         <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 id="wholesale-commitments-heading" className="sr-only">
+            Wholesale Ordering Commitments &amp; Direct Mill Terms
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="flex items-start gap-3.5">
               <div className="p-2.5 rounded-md bg-[#40572D]/10 text-[#40572D] shrink-0">
                 <Truck className="size-5" />
               </div>
               <div>
-                <h4 className="font-sans text-[15px] font-semibold text-[#29251F]">
+                <h3 className="font-sans text-[15px] font-semibold text-[#29251F]">
                   1 to 2 Day Dispatch
-                </h4>
+                </h3>
                 <p className="mt-1 text-[13.5px] text-[#6B615A] leading-relaxed">
                   Committed dispatch date confirmed at the time of order across
                   Kerala &amp; Tamil Nadu.
@@ -545,9 +564,9 @@ export default function ProductCatalog() {
                 <ShieldCheck className="size-5" />
               </div>
               <div>
-                <h4 className="font-sans text-[15px] font-semibold text-[#29251F]">
+                <h3 className="font-sans text-[15px] font-semibold text-[#29251F]">
                   10-Piece MOQ Trial
-                </h4>
+                </h3>
                 <p className="mt-1 text-[13.5px] text-[#6B615A] leading-relaxed">
                   Start with a trial order from just 10 pieces to inspect weight,
                   pile, and finish.
@@ -560,9 +579,9 @@ export default function ProductCatalog() {
                 <Sparkles className="size-5" />
               </div>
               <div>
-                <h4 className="font-sans text-[15px] font-semibold text-[#29251F]">
+                <h3 className="font-sans text-[15px] font-semibold text-[#29251F]">
                   Direct Mill Pricing
-                </h4>
+                </h3>
                 <p className="mt-1 text-[13.5px] text-[#6B615A] leading-relaxed">
                   Buy straight from our Pallagoundanpalayam looms with no
                   middleman agency margin.
@@ -575,9 +594,9 @@ export default function ProductCatalog() {
                 <Layers className="size-5" />
               </div>
               <div>
-                <h4 className="font-sans text-[15px] font-semibold text-[#29251F]">
+                <h3 className="font-sans text-[15px] font-semibold text-[#29251F]">
                   Custom Weaves (1,000+ pcs)
-                </h4>
+                </h3>
                 <p className="mt-1 text-[13.5px] text-[#6B615A] leading-relaxed">
                   Custom GSM, dimensions, logo borders and yarn blends tailored
                   to your requirements.
@@ -616,7 +635,7 @@ export default function ProductCatalog() {
                 <div className="relative aspect-[4/3] md:aspect-square w-full rounded-md overflow-hidden bg-[#E8DFCF] border border-[#E8DFCF]">
                   <Image
                     src={specProduct.image}
-                    alt={specProduct.name}
+                    alt={specProduct.alt || specProduct.name}
                     fill
                     className="object-cover"
                     sizes="(min-width: 768px) 350px, 100vw"

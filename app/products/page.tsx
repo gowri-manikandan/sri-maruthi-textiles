@@ -1,4 +1,3 @@
-import { Suspense } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
@@ -9,40 +8,76 @@ import { contact, site, SITE_URL, whatsappHref } from "@/lib/site";
 import { PRODUCTS_CATALOG } from "@/lib/products-data";
 
 export const metadata: Metadata = {
-  title: "Sri Maruthi Textiles — Handloom Cotton Blend Towel Manufacturer",
+  title: "Handloom Cotton Blend Towels & Linens",
   description:
-    "Explore our complete collection of handloom cotton blend towels: bath towels, pool & resort towels, kitchen utility, checked, plain, and white towels. Direct mill pricing from Pallagoundanpalayam.",
+    "Wholesale handloom cotton blend towels direct from the loom in Tamil Nadu. Explore plain, checked, white, and kora bath towels with direct mill pricing and fast dispatch.",
   alternates: {
     canonical: "/products",
   },
   openGraph: {
-    title: "Handloom Cotton Towel Products — Sri Maruthi Textiles",
+    title: "Handloom Cotton Blend Towels & Linens — Sri Maruthi Textiles",
     description:
-      "Wholesale handloom cotton blend towels direct from the loom in Tamil Nadu. Bath, resort, kitchen and custom weaves for Kerala & Tamil Nadu businesses.",
+      "Wholesale handloom cotton blend towels direct from the loom in Tamil Nadu. Plain, checked, white, and kora bath towels for Kerala & Tamil Nadu businesses.",
     url: "/products",
   },
 };
 
 export default function ProductsPage() {
-  const jsonLd = {
+  const collectionJsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "Handloom Cotton Towel Products — Sri Maruthi Textiles",
+    name: "Handloom Cotton Blend Towels & Linens — Sri Maruthi Textiles",
     description:
-      "Handloom cotton blend towel collections manufactured for wholesalers, hotels and retailers across Kerala and Tamil Nadu.",
+      "Wholesale handloom cotton blend towel collections manufactured for wholesalers, hotels, and retailers across Kerala and Tamil Nadu.",
     url: `${SITE_URL}/products`,
-    hasPart: PRODUCTS_CATALOG.map((p) => ({
-      "@type": "Product",
-      name: p.name,
-      description: p.shortDescription,
-      image: `${SITE_URL}${p.image}`,
-      sku: p.code,
-      offers: {
-        "@type": "AggregateOffer",
-        priceCurrency: "INR",
-        availability: "https://schema.org/InStock",
+    mainEntity: {
+      "@type": "ItemList",
+      name: "Handloom Cotton Blend Towel Products",
+      numberOfItems: PRODUCTS_CATALOG.length,
+      itemListElement: PRODUCTS_CATALOG.map((p, idx) => ({
+        "@type": "ListItem",
+        position: idx + 1,
+        item: {
+          "@type": "Product",
+          name: p.name,
+          description: p.fullDescription || p.shortDescription,
+          image: `${SITE_URL}${p.image}`,
+          sku: p.code,
+          category: p.categoryLabel,
+          material: p.blend,
+          color: p.colors.join(", "),
+          size: p.dimensions,
+          weight: p.gsm,
+          brand: {
+            "@type": "Brand",
+            name: "Sri Maruthi Textiles",
+          },
+          manufacturer: {
+            "@type": "Organization",
+            name: "Sri Maruthi Textiles",
+          },
+        },
+      })),
+    },
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: `${SITE_URL}`,
       },
-    })),
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Products",
+        item: `${SITE_URL}/products`,
+      },
+    ],
   };
 
   return (
@@ -50,7 +85,13 @@ export default function ProductsPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+          __html: JSON.stringify(collectionJsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbJsonLd).replace(/</g, "\\u003c"),
         }}
       />
 
@@ -153,18 +194,7 @@ export default function ProductsPage() {
             CATALOGUE BODY: Interactive Filter, Search & Grid
             ========================================================================= */}
         <div className="relative">
-          <Suspense
-            fallback={
-              <div className="py-24 text-center">
-                <div className="inline-block size-8 animate-spin rounded-full border-2 border-[#40572D] border-t-transparent" />
-                <p className="mt-3 text-[14.5px] text-[#6B615A]">
-                  Loading textile collection...
-                </p>
-              </div>
-            }
-          >
-            <ProductCatalog />
-          </Suspense>
+          <ProductCatalog />
         </div>
 
         {/* =========================================================================

@@ -100,9 +100,9 @@ export const site = {
    *  sentences rather than stuffed: "wholesale cotton towel manufacturer",
    *  "Kerala", "Tamil Nadu" all appear naturally. */
   seo: {
-    title: "Sri Maruthi Textiles — Handloom Cotton Blend Towel Manufacturer",
+    title: "Sri Maruthi Textiles | Handloom Cotton Towel Manufacturer in Tiruppur",
     description:
-      "Handloom cotton blend towels — checked, plain, printed and white — for wholesalers across Kerala and Tamil Nadu. 20+ years at the loom, direct pricing with no middleman, delivered on a committed date.",
+      "Sri Maruthi Textiles is a handloom cotton towel manufacturer in Tiruppur, Tamil Nadu. We supply quality cotton towels to wholesalers, distributors, retailers, and hospitality businesses. Contact us for bulk orders and product enquiries.",
     ogAlt:
       "Sri Maruthi Textiles — handloom cotton blend towel manufacturer serving Kerala and Tamil Nadu",
   },
@@ -232,15 +232,16 @@ export const site = {
 
   /** Address and tax details */
   address: {
-    street: "1/37, Pallagoundanpalayam",
+    street: "1/37, Gandhi Nagar",
+    area: "Pallagoundenpalayam",
     taluk: "Uttukuli (Tk)",
     district: "Tiruppur (Dt)",
     state: "Tamil Nadu",
     pincode: "638056",
     country: "India",
-    display: "1/37, Pallagoundanpalayam, Uttukuli (Tk), Tiruppur (Dt) - 638056",
+    display: "1/37, Gandhi Nagar, Pallagoundenpalayam, Tamil Nadu 638056",
     mapsUrl:
-      "https://maps.google.com/?q=1/37+Pallagoundanpalayam,+Uttukuli,+Tiruppur+-+638056",
+      "https://maps.google.com/?q=1/37+Gandhi+Nagar,+Pallagoundenpalayam,+Tamil+Nadu+-+638056",
   },
   gstin: "33BNZPM4235L2ZC",
 
@@ -248,7 +249,7 @@ export const site = {
   footer: {
     line: "Handloom cotton blend towel manufacturer supplying wholesalers across Kerala and Tamil Nadu for over 20 years.",
     email: "srimaruthitexthoorathu@gmail.com",
-    address: "1/37, Pallagoundanpalayam, Uttukuli (Tk), Tiruppur (Dt) - 638056",
+    address: "1/37, Gandhi Nagar, Pallagoundenpalayam, Tamil Nadu 638056",
     gstin: "33BNZPM4235L2ZC",
   },
 
@@ -364,11 +365,11 @@ export const contact = {
   whatsapp: { display: "+91 93446 06026", e164: "+919344606026" },
   email: "srimaruthitexthoorathu@gmail.com",
   address: {
-    display: "1/37, Pallagoundanpalayam, Uttukuli (Tk), Tiruppur (Dt) - 638056",
-    line1: "1/37, Pallagoundanpalayam",
-    line2: "Uttukuli (Tk), Tiruppur (Dt) - 638056",
+    display: "1/37, Gandhi Nagar, Pallagoundenpalayam, Tamil Nadu 638056",
+    line1: "1/37, Gandhi Nagar,",
+    line2: "Pallagoundenpalayam, Tamil Nadu 638056",
     mapsUrl:
-      "https://maps.google.com/?q=1/37+Pallagoundanpalayam,+Uttukuli,+Tiruppur+-+638056",
+      "https://maps.google.com/?q=1/37+Gandhi+Nagar,+Pallagoundenpalayam,+Tamil+Nadu+-+638056",
   },
   gstin: "33BNZPM4235L2ZC",
 } as const;

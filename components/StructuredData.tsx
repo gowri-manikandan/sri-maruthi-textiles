@@ -5,7 +5,7 @@ import { contact, site, SITE_URL } from "@/lib/site";
  *
  * Verified facts:
  *   - `name`, `url`, `description`, `telephone`, `email`
- *   - `address`: 1/37, Pallagoundanpalayam, Uttukuli (Tk), Tiruppur (Dt) - 638056
+ *   - `address`: 1/37, Gandhi Nagar, Pallagoundenpalayam, Tamil Nadu 638056
  *   - `taxID` / `vatID`: GSTIN 33BNZPM4235L2ZC
  *   - `areaServed`: Kerala and Tamil Nadu
  */
@@ -22,8 +22,8 @@ export default function StructuredData() {
     address: {
       "@type": "PostalAddress",
       streetAddress: site.address.street,
-      addressLocality: "Uttukuli",
-      addressRegion: "Tamil Nadu",
+      addressLocality: site.address.area,
+      addressRegion: site.address.state,
       postalCode: site.address.pincode,
       addressCountry: "IN",
     },

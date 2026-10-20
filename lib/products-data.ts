@@ -62,14 +62,14 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "73x146-plain-color-bath-towel",
     code: "SMT-PL-73146",
-    name: "73 × 146 Plain Color Bath Towel",
+    name: "73146 Reinforced-Selvedge Plain Bath Towel",
     category: "plain-towels",
     categoryLabel: "Plain Towels",
     badge: "POPULAR",
     shortDescription:
-      "Soft, fast-drying plain dyed cotton blend bath towel with reinforced edges and vibrant vat-dyed tones.",
+      "Vat-dyed cotton blend bath towel with reinforced side selvedges, 400 GSM terry loops, and 26 × 52 inch dimensions.",
     fullDescription:
-      "Woven on traditional handlooms in Pallagoundanpalayam using durable cotton-blend yarn. Retains loft and vibrant colour across commercial wash cycles. Ideal for wholesale merchants, general trade, and institutional supply.",
+      "Handloom woven using an 80/20 cotton-polyester blend yarn with reinforced edge selvedges to prevent unraveling during commercial laundry. Features 400 GSM loop density and vat-dyed yarn across six solid colors.",
     gsm: "400 GSM",
     gsmValue: 400,
     dimensions: "26 × 52 inch",
@@ -79,7 +79,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
     image: "/images/product-plain.jpg",
-    alt: "73 x 146 Plain Color Bath Towel by Sri Maruthi Textiles",
+    alt: "Red vat-dyed plain cotton blend bath towel with reinforced selvedge edges, 26 by 52 inches",
     features: [
       "Direct mill wholesale rate",
       "Even selvedges without loose threads",
@@ -90,13 +90,13 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "45x90-plain-color-bath-towel",
     code: "SMT-PL-4590",
-    name: "45 × 90 Plain Color Bath Towel",
+    name: "4590 Compact Quick-Dry Plain Bath Towel",
     category: "plain-towels",
     categoryLabel: "Plain Towels",
     shortDescription:
-      "Compact, practical plain color bath towel designed for daily utility, fast turnover, and quick drying.",
+      "Compact 22 × 44 inch plain bath towel with a tight 360 GSM loop pile engineered for swift drying and high turnover.",
     fullDescription:
-      "A reliable daily-use size crafted for maximum packing density and rapid drying. Firm looped pile resists snagging and maintains shape through regular commercial washings.",
+      "Lightweight and compact daily-utility towel woven with an 80/20 cotton blend. The 360 GSM tight terry loop resists snagging and dries quickly between uses, making it suitable for high-turnover hospitality and retail.",
     gsm: "360 GSM",
     gsmValue: 360,
     dimensions: "22 × 44 inch",
@@ -106,7 +106,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
     image: "/images/products/bath-towels.jpg",
-    alt: "45 x 90 Plain Color Bath Towel by Sri Maruthi Textiles",
+    alt: "Blue compact plain cotton blend bath towel with tight terry loops, 22 by 44 inches",
     features: [
       "High absorption with quick-dry pile",
       "Locked selvedges for extended longevity",
@@ -117,13 +117,13 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "70-plain-color-bath-towel",
     code: "SMT-PL-70",
-    name: "70 Plain Color Bath Towel",
+    name: "70 Flat-Border Plain Bath Towel",
     category: "plain-towels",
     categoryLabel: "Plain Towels",
     shortDescription:
-      "Mid-size everyday plain bath towel available in 7 bright, colorfast shades including violet.",
+      "Mid-size 24 × 48 inch plain bath towel featuring flat woven end borders, 380 GSM weight, and 7 color options.",
     fullDescription:
-      "Engineered for regional retailers and institutional distributors. Provides generous drying surface, balanced fabric weight, and excellent softness against the skin.",
+      "Woven with flat selvedge end borders for structural shape retention across commercial wash cycles. Provides a balanced 380 GSM terry weight in seven vat-dyed shades including violet.",
     gsm: "380 GSM",
     gsmValue: 380,
     dimensions: "24 × 48 inch",
@@ -133,7 +133,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
     image: "/images/custom/waffle-color-stack.jpg",
-    alt: "70 Plain Color Bath Towel by Sri Maruthi Textiles",
+    alt: "Neatly stacked plain cotton blend bath towels showing flat woven end borders in assorted colors",
     features: [
       "Rich 7-color palette including Violet",
       "Tested for commercial colorfastness",
@@ -144,14 +144,14 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "90-plain-color-bath-towel",
     code: "SMT-PL-90",
-    name: "90 Plain Color Bath Towel",
+    name: "90 Dual-Sided Plush Plain Bath Towel",
     category: "plain-towels",
     categoryLabel: "Plain Towels",
     badge: "FAST SELLER",
     shortDescription:
-      "Generous 26 × 52 inch plain dyed bath towel with rich color saturation and soft looped terry.",
+      "Dual-sided terry pile plain bath towel in 26 × 52 inch dimensions with 400 GSM fabric weight across 7 shades.",
     fullDescription:
-      "One of our most popular running items among wholesale merchants in Kerala and Tamil Nadu. Balanced GSM provides substantial body without excessive laundering weight.",
+      "Manufactured with symmetrical terry loops on both faces for balanced water absorbency. The 400 GSM 80/20 cotton-polyester construction provides substantial hand feel and dimensional stability.",
     gsm: "400 GSM",
     gsmValue: 400,
     dimensions: "26 × 52 inch",
@@ -161,7 +161,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
     image: "/images/custom/custom-towels-palette.jpg",
-    alt: "90 Plain Color Bath Towel by Sri Maruthi Textiles",
+    alt: "Vat-dyed plain cotton blend bath towel folded flat showing dual-sided terry loop pile",
     features: [
       "Substantial hand feel and great absorbency",
       "Vat-dyed yarns preserve vibrant tones",
@@ -172,13 +172,13 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "16001-plain-color-bath-towel",
     code: "SMT-PL-16001",
-    name: "16001 Plain Color Bath Towel",
+    name: "16001 High-Density Plain Bath Towel",
     category: "plain-towels",
     categoryLabel: "Plain Towels",
     shortDescription:
-      "Premium large-format plain color bath towel crafted for full body coverage and extra absorbency.",
+      "Full-coverage 27 × 54 inch plain bath towel with high-density 420 GSM looped terry for maximum water retention.",
     fullDescription:
-      "Designed with an expansive 27 × 54 inch profile and higher yarn density. Delivers exceptional drying comfort, enduring durability, and superior dimensional stability.",
+      "Built with higher warp and weft yarn density yielding a thick 420 GSM pile. Ample 27 × 54 inch coverage provides generous drying area with double-stitched perimeter hems.",
     gsm: "420 GSM",
     gsmValue: 420,
     dimensions: "27 × 54 inch",
@@ -188,7 +188,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
     image: "/images/custom/textile-swatches-flatlay.jpg",
-    alt: "16001 Plain Color Bath Towel by Sri Maruthi Textiles",
+    alt: "High-density plain cotton blend bath towel fabric swatches showing fine weave texture",
     features: [
       "Large 27 × 54 inch wrap-around size",
       "High loop density for maximum water absorption",
@@ -199,14 +199,14 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "18001-plain-color-bath-towel",
     code: "SMT-PL-18001",
-    name: "18001 Plain Color Bath Towel",
+    name: "18001 Heavyweight Plain Bath Sheet",
     category: "plain-towels",
     categoryLabel: "Plain Towels",
     badge: "EXTRA LARGE",
     shortDescription:
-      "Extra-large 31 × 62 inch heavyweight plain towel offering maximum wrap, warmth, and plush comfort.",
+      "Extra-large 31 × 62 inch heavyweight bath sheet with 450 GSM plush terry pile and reinforced stout borders.",
     fullDescription:
-      "Our largest plain towel offering, woven for customers seeking luxury coverage and high absorbency. Ample 31 × 62 inch footprint makes it ideal for hotels, guest houses, and home linen collections.",
+      "Our largest plain-weave towel offering an expansive 31 × 62 inch bath sheet footprint. Heavyweight 450 GSM looped terry delivers high moisture capacity and full body wrap for premium bath linen use.",
     gsm: "450 GSM",
     gsmValue: 450,
     dimensions: "31 × 62 inch",
@@ -216,7 +216,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
     image: "/images/product-plain.jpg",
-    alt: "18001 Plain Color Bath Towel by Sri Maruthi Textiles",
+    alt: "Folded heavyweight extra-large plain cotton blend bath sheet in solid red with thick border",
     features: [
       "Expansive 31 × 62 inch extra-large dimensions",
       "Thick pile with superior moisture retention",
@@ -227,14 +227,14 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "190-double-color-bath-towel",
     code: "SMT-PL-190",
-    name: "190 Double Color Bath Towel",
+    name: "190 Dual-Tone Contrast Plain Bath Sheet",
     category: "plain-towels",
     categoryLabel: "Plain Towels",
     badge: "DUAL COLOR",
     shortDescription:
-      "Distinctive double-tone dyed bath towel in an extra-large 31 × 62 inch size with eye-catching contrast.",
+      "Generous 31 × 62 inch bath sheet woven with dual-tone complementary yarns in a 450 GSM heavy terry pile.",
     fullDescription:
-      "Features an eye-catching double-color woven effect that provides premium visual interest on store shelves. Combines two complementary yarn shades with the strength and resilience of our 80/20 cotton blend.",
+      "Woven on traditional looms using two contrasting yarn shades interlocked in a heavy 450 GSM terry structure. Extra-large 31 × 62 inch coverage combines visual contrast with 80/20 cotton blend tensile strength.",
     gsm: "450 GSM",
     gsmValue: 450,
     dimensions: "31 × 62 inch",
@@ -244,7 +244,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
     image: "/images/products/bath-towels.jpg",
-    alt: "190 Double Color Bath Towel by Sri Maruthi Textiles",
+    alt: "Dual-tone plain cotton blend bath sheet folded to show contrasting yarn weave and locked edges",
     features: [
       "Unique dual-tone woven styling",
       "Extra-large 31 × 62 inch coverage",
@@ -259,13 +259,13 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "222-checked-bath-towel",
     code: "SMT-CK-222",
-    name: "222 Checked Bath Towel",
+    name: "222 Compact Handloom Checked Bath Towel",
     category: "checked-towels",
     categoryLabel: "Checked Towels",
     shortDescription:
-      "Classic handloom check pattern bath towel in compact 22 × 44 inch size with fast-drying loops.",
+      "Compact 22 × 44 inch handloom checked bath towel with 350 GSM yarn-dyed checks and fast-drying loops.",
     fullDescription:
-      "Traditional check design woven with heritage yarn techniques in Pallagoundanpalayam. Durable, quick-drying, and priced for rapid commercial retail turnover.",
+      "Woven with authentic yarn-dyed checks in a compact 22 × 44 inch profile. Fast-drying 350 GSM loop weight provides easy laundering and high durability for daily household and retail turnover.",
     gsm: "350 GSM",
     gsmValue: 350,
     dimensions: "22 × 44 inch",
@@ -275,7 +275,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
     image: "/images/product-checked.jpg",
-    alt: "222 Checked Bath Towel by Sri Maruthi Textiles",
+    alt: "Compact handloom checked cotton blend towel in traditional red and white square check pattern",
     features: [
       "Authentic South Indian checked pattern",
       "Clean selvages with minimal yarn distortion",
@@ -286,14 +286,14 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "888-checked-bath-towel",
     code: "SMT-CK-888",
-    name: "888 Checked Bath Towel",
+    name: "888 Classic Checked Terry Bath Towel",
     category: "checked-towels",
     categoryLabel: "Checked Towels",
     badge: "BESTSELLER",
     shortDescription:
-      "Popular 24 × 48 inch checked towel with vibrant contrast yarns and high absorbency.",
+      "Standard 24 × 48 inch checked bath towel with crisp square grid definition, 380 GSM terry, and clean selvedges.",
     fullDescription:
-      "A long-standing favorite across wholesale markets in Ernakulam, Kozhikode, and Coimbatore. Features crisp check definition with uniform yarn tension throughout the fabric.",
+      "Features uniform yarn tension across both warp and weft for crisp square check geometry. Woven from 80/20 cotton blend yarn with 380 GSM looped pile and locked selvedges.",
     gsm: "380 GSM",
     gsmValue: 380,
     dimensions: "24 × 48 inch",
@@ -303,7 +303,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
     image: "/images/products/madras-check-towels.jpg",
-    alt: "888 Checked Bath Towel by Sri Maruthi Textiles",
+    alt: "Madras checked cotton blend bath towel with contrast red and blue check weave",
     features: [
       "Consistent high-selling running item",
       "Crisp square check alignment",
@@ -314,13 +314,13 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "555-checked-bath-towel",
     code: "SMT-CK-555",
-    name: "555 Checked Bath Towel",
+    name: "555 Four-Color Checked Bath Towel",
     category: "checked-towels",
     categoryLabel: "Checked Towels",
     shortDescription:
-      "Heritage 4-color checked bath towel crafted for reliable everyday performance and durability.",
+      "Heritage 24 × 48 inch checked towel in four core colorways with 380 GSM weight and lint-resistant twist.",
     fullDescription:
-      "Woven in core classic colorways: Red, Maroon, Olive Green, and Navy Blue. Balances soft absorption with handloom resilience for institutional hostels and textile retailers.",
+      "Offered in four classic handloom colorways: Red, Maroon, Olive Green, and Navy Blue. Woven with high-twist yarn to minimize surface linting while delivering reliable 380 GSM absorbency.",
     gsm: "380 GSM",
     gsmValue: 380,
     dimensions: "24 × 48 inch",
@@ -330,7 +330,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
     image: "/images/sample-kit/sample-check-weave.png",
-    alt: "555 Checked Bath Towel by Sri Maruthi Textiles",
+    alt: "Close-up view of four-color yarn-dyed check weave pattern on handloom cotton blend towel",
     features: [
       "Timeless heritage South Indian design",
       "Strong yarn twist prevents linting",
@@ -341,13 +341,13 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "10001-checked-bath-towel",
     code: "SMT-CK-10001",
-    name: "10001 Checked Bath Towel",
+    name: "10001 Fine-Grid Checked Bath Towel",
     category: "checked-towels",
     categoryLabel: "Checked Towels",
     shortDescription:
-      "Fine-density checked bath towel in standard 24 × 48 inch dimensions with sharp grid lines.",
+      "Fine-count yarn checked bath towel in 24 × 48 inch size with sharp geometric checks and 390 GSM pile.",
     fullDescription:
-      "Crafted with fine-count warp and weft yarns for a smoother feel and sharper check geometry. Highly absorbent, shrink-resistant, and machine-wash safe.",
+      "Woven with finer count warp and weft yarns to achieve sharper grid lines and a smoother hand feel. Features 390 GSM looped pile and locked side selvedges that resist out-of-square warping.",
     gsm: "390 GSM",
     gsmValue: 390,
     dimensions: "24 × 48 inch",
@@ -357,7 +357,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
     image: "/images/product-checked.jpg",
-    alt: "10001 Checked Bath Towel by Sri Maruthi Textiles",
+    alt: "Fine-grid checked cotton blend bath towel laid flat showing clean geometric checks",
     features: [
       "Refined fine-grid check appearance",
       "Excellent moisture retention capacity",
@@ -368,13 +368,13 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "175-checked-bath-towel",
     code: "SMT-CK-175",
-    name: "175 Checked Bath Towel",
+    name: "175 Reinforced-Border Checked Bath Towel",
     category: "checked-towels",
     categoryLabel: "Checked Towels",
     shortDescription:
-      "Spacious 27 × 54 inch checked towel built for comfortable full body drying and daily retail demand.",
+      "Generous 27 × 54 inch checked towel with reinforced flat borders, 410 GSM terry, and full body drying surface.",
     fullDescription:
-      "A generous bath towel size featuring our signature yarn-dyed checks. Ideal for family retail trade and hospitality linen counters across South India.",
+      "Woven in a spacious 27 × 54 inch profile with reinforced woven end borders. The 410 GSM 80/20 cotton blend pile provides thorough moisture absorption and withstands institutional wash cycles.",
     gsm: "410 GSM",
     gsmValue: 410,
     dimensions: "27 × 54 inch",
@@ -384,7 +384,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
     image: "/images/products/madras-check-towels.jpg",
-    alt: "175 Checked Bath Towel by Sri Maruthi Textiles",
+    alt: "Spacious checked cotton blend bath towel with reinforced end border displayed folded",
     features: [
       "Generous 27 × 54 inch coverage",
       "Vibrant multi-color check options",
@@ -395,14 +395,14 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "15001-checked-bath-towel",
     code: "SMT-CK-15001",
-    name: "15001 Checked Bath Towel",
+    name: "15001 Dense-Terry Checked Bath Towel",
     category: "checked-towels",
     categoryLabel: "Checked Towels",
     badge: "PREMIUM WEAVE",
     shortDescription:
-      "Large 28 × 56 inch checked towel with high yarn count, dense terry loop, and superior bulk.",
+      "Heavy 430 GSM checked bath towel in 28 × 56 inch size with dense loop pile and lockstitched hem.",
     fullDescription:
-      "Premium checked specification towel offering superior bulk and plushness. Built to withstand commercial laundry cycles while maintaining its shape and vibrant check definition.",
+      "Crafted with higher pick counts for a dense, plush 430 GSM terry structure. Measuring 28 × 56 inches, this towel offers substantial heft, fast water pickup, and double-needle perimeter hems.",
     gsm: "430 GSM",
     gsmValue: 430,
     dimensions: "28 × 56 inch",
@@ -412,7 +412,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
     image: "/images/sample-kit/sample-check-weave.png",
-    alt: "15001 Checked Bath Towel by Sri Maruthi Textiles",
+    alt: "Dense terry loop weave texture of handloom checked cotton blend towel fabric",
     features: [
       "Substantial 28 × 56 inch bath sheet size",
       "Dense loop pile for rapid drying action",
@@ -423,13 +423,13 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "120-checked-bath-towel",
     code: "SMT-CK-120",
-    name: "120 Checked Bath Towel",
+    name: "120 Medium-Heavy Checked Bath Towel",
     category: "checked-towels",
     categoryLabel: "Checked Towels",
     shortDescription:
-      "Mid-heavy checked bath towel with crisp square patterning in 27 × 54 inch dimensions.",
+      "Balanced 410 GSM checked bath towel in 27 × 54 inch dimensions with color-fast vat-dyed yarn.",
     fullDescription:
-      "Engineered for durability and ease of maintenance. Features balanced warp and weft counts that minimize bowing or warping after commercial wash.",
+      "Engineered with balanced yarn counts in warp and weft to prevent bowing after laundering. Features 410 GSM looped terry in 27 × 54 inch dimensions with vat-dyed colorfast yarns.",
     gsm: "410 GSM",
     gsmValue: 410,
     dimensions: "27 × 54 inch",
@@ -439,7 +439,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
     image: "/images/product-checked.jpg",
-    alt: "120 Checked Bath Towel by Sri Maruthi Textiles",
+    alt: "Medium-heavy checked cotton blend bath towel with square pattern and neat selvedges",
     features: [
       "Balanced 80/20 cotton blend composition",
       "Vat-dyed yarns with high wash fastness",
@@ -450,13 +450,13 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "150-checked-bath-towel",
     code: "SMT-CK-150",
-    name: "150 Checked Bath Towel",
+    name: "150 Lockstitched Checked Bath Towel",
     category: "checked-towels",
     categoryLabel: "Checked Towels",
     shortDescription:
-      "27 × 54 inch checked towel with classic weave and reliable absorbency for bulk buyers.",
+      "Standard 27 × 54 inch checked bath towel with double-needle lockstitched hems and 410 GSM pile.",
     fullDescription:
-      "A trusted wholesale running item with proven market acceptance. Soft to the touch, quick to absorb moisture, and easy to wash.",
+      "Constructed with double-needle lockstitching on all hems to prevent edge unravelling. Provides consistent 410 GSM weight across 27 × 54 inch dimensions with six vibrant checked options.",
     gsm: "410 GSM",
     gsmValue: 410,
     dimensions: "27 × 54 inch",
@@ -466,7 +466,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
     image: "/images/products/madras-check-towels.jpg",
-    alt: "150 Checked Bath Towel by Sri Maruthi Textiles",
+    alt: "Folded checked cotton blend towel with double-stitched end hems and vibrant check lines",
     features: [
       "Consistent handloom quality assurance",
       "Clean hems with double-needle lockstitch",
@@ -477,13 +477,13 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "12001-checked-bath-towel",
     code: "SMT-CK-12001",
-    name: "12001 Checked Bath Towel",
+    name: "12001 Selvedge Checked Bath Towel",
     category: "checked-towels",
     categoryLabel: "Checked Towels",
     shortDescription:
-      "26 × 52 inch checked bath towel balancing comfort, strength, and quick drying.",
+      "Neat-selvedge 26 × 52 inch checked towel with 400 GSM terry pile and shrink-resistant weave balance.",
     fullDescription:
-      "Woven on robust looms in Pallagoundanpalayam with uniform yarn tension. Offers an ideal combination of softness and institutional longevity.",
+      "Woven on traditional handlooms with uniform tension that resists out-of-square shrinkage. Features 400 GSM absorbency across a standard 26 × 52 inch drying area with clean side selvedges.",
     gsm: "400 GSM",
     gsmValue: 400,
     dimensions: "26 × 52 inch",
@@ -493,7 +493,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
     image: "/images/sample-kit/sample-check-weave.png",
-    alt: "12001 Checked Bath Towel by Sri Maruthi Textiles",
+    alt: "Neat checked cotton blend towel sample showing clean side selvedges without loose threads",
     features: [
       "Even selvedges without loose threads",
       "Color-fast vat dyed check yarns",
@@ -504,13 +504,13 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "30x60-nis-checked-bath-towel",
     code: "SMT-CK-3060NIS",
-    name: "30 × 60 NIS Checked Bath Towel",
+    name: "3060 NIS Banded Checked Bath Towel",
     category: "checked-towels",
     categoryLabel: "Checked Towels",
     shortDescription:
-      "Special weave NIS checked bath towel in 26 × 52 inch size with refined border bands.",
+      "Special NIS check weave bath towel with woven horizontal border bands in 26 × 52 inch size and 400 GSM.",
     fullDescription:
-      "Features an exclusive NIS checked pattern variation with refined border bands. High absorption, low linting, and tested for commercial wash durability.",
+      "Features an exclusive NIS pattern variation combining grid checks with woven horizontal border bands. The 400 GSM 80/20 cotton blend delivers fast water uptake with locked edges.",
     gsm: "400 GSM",
     gsmValue: 400,
     dimensions: "26 × 52 inch",
@@ -520,7 +520,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
     image: "/images/product-checked.jpg",
-    alt: "30 x 60 NIS Checked Bath Towel by Sri Maruthi Textiles",
+    alt: "Checked cotton blend bath towel featuring NIS patterned weave and woven border bands",
     features: [
       "Distinctive NIS check weave styling",
       "High loop density for swift water uptake",
@@ -531,14 +531,14 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "18001-checked-bath-towel",
     code: "SMT-CK-18001",
-    name: "18001 Checked Bath Towel",
+    name: "18001 Heavyweight Checked Bath Sheet",
     category: "checked-towels",
     categoryLabel: "Checked Towels",
     badge: "EXTRA LARGE",
     shortDescription:
-      "Extra-large 31 × 62 inch checked bath towel providing luxurious wrap, warmth, and full coverage.",
+      "Extra-large 31 × 62 inch checked bath sheet with 450 GSM heavyweight pile and full body wrap.",
     fullDescription:
-      "Our largest checked towel, crafted for customers who demand superior size and premium drying comfort. Features our classic checked motif across an expansive 31 × 62 inch canvas.",
+      "The largest checked towel in our catalogue, offering an expansive 31 × 62 inch bath sheet size. Heavyweight 450 GSM terry pile provides high water capacity and full wrap comfort.",
     gsm: "450 GSM",
     gsmValue: 450,
     dimensions: "31 × 62 inch",
@@ -548,7 +548,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
     image: "/images/products/madras-check-towels.jpg",
-    alt: "18001 Checked Bath Towel by Sri Maruthi Textiles",
+    alt: "Extra-large handloom checked cotton blend bath sheet folded showing dense check pattern",
     features: [
       "Expansive 31 × 62 inch full-body coverage",
       "Heavyweight terry pile for high water capacity",
@@ -559,13 +559,13 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "30x60-black-bath-towel",
     code: "SMT-CK-3060BK",
-    name: "30 × 60 Black Border Bath Towel",
+    name: "3060 Black Accent-Border Checked Towel",
     category: "checked-towels",
     categoryLabel: "Checked Towels",
     shortDescription:
-      "Distinctive black accent border checked bath towel in 25 × 52 inch size.",
+      "Checked bath towel with black accent border framing in 25 × 52 inch dimensions and 390 GSM.",
     fullDescription:
-      "Incorporates deep black contrast border yarns with our vibrant checked body weave. Sharp aesthetic that stands out on retail racks and linen shelves.",
+      "Combines colorful checked body terry with deep black contrast yarn borders. Built with 390 GSM 80/20 cotton blend fabric and double-stitched perimeter hems in a 25 × 52 inch size.",
     gsm: "390 GSM",
     gsmValue: 390,
     dimensions: "25 × 52 inch",
@@ -575,7 +575,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
     image: "/images/sample-kit/sample-check-weave.png",
-    alt: "30 x 60 Black Border Bath Towel by Sri Maruthi Textiles",
+    alt: "Handloom checked cotton blend towel featuring contrasting black accent border framing",
     features: [
       "Deep black contrast border styling",
       "Vat-dyed yarns that retain sharp lines",
@@ -586,14 +586,14 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "70x140-black-bath-towel",
     code: "SMT-CK-70140BK",
-    name: "70 × 140 Black Border Bath Towel",
+    name: "70140 Black Selvedge Checked Bath Towel",
     category: "checked-towels",
     categoryLabel: "Checked Towels",
     badge: "MODERN CONTRAST",
     shortDescription:
-      "Large 28 × 56 inch checked bath towel with bold black accent border framing.",
+      "Large 28 × 56 inch checked bath towel framed with black selvedge borders and 430 GSM dense pile.",
     fullDescription:
-      "Combines an expansive 28 × 56 inch towel footprint with striking black border yarns. High absorbent pile delivers both visual elegance and long-lasting commercial utility.",
+      "Spacious 28 × 56 inch towel featuring dense 430 GSM checked terry framed by solid black selvedge edges. Commercial-laundry tested for color retention and dimensional stability.",
     gsm: "430 GSM",
     gsmValue: 430,
     dimensions: "28 × 56 inch",
@@ -603,7 +603,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
     image: "/images/product-checked.jpg",
-    alt: "70 x 140 Black Border Bath Towel by Sri Maruthi Textiles",
+    alt: "Wide checked cotton blend bath towel with prominent black selvedge side borders",
     features: [
       "Large 28 × 56 inch generous size",
       "Bold black accent frame detailing",
@@ -618,13 +618,13 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "20x40-white-bath-towel",
     code: "SMT-WH-2040",
-    name: "20 × 40 White Bath Towel",
+    name: "2040 Bleach-Safe White Utility Towel",
     category: "white-towels",
     categoryLabel: "White Towels",
     shortDescription:
-      "Compact optical white bath towel ideal for hospital wards, spas, salons, and clinics.",
+      "Compact 20 × 40 inch bleach-safe optical white utility towel in 340 GSM for clinics, salons, and spas.",
     fullDescription:
-      "Bleach-safe optical white cotton blend towel manufactured for institutions requiring frequent high-temperature wash sanitization. Low lint and rapid drying.",
+      "Woven from chlorine-bleach-tolerant cotton blend yarns designed for frequent high-temperature sanitization wash cycles. Compact 20 × 40 inch size with 340 GSM low-lint terry loops.",
     gsm: "340 GSM",
     gsmValue: 340,
     dimensions: "20 × 40 inch",
@@ -634,7 +634,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     moq: "15 pieces",
     dispatchTime: "1 to 2 days",
     image: "/images/product-white.jpg",
-    alt: "20 x 40 White Bath Towel by Sri Maruthi Textiles",
+    alt: "Compact bleach-safe optical white cotton blend utility towel neatly folded",
     features: [
       "Bleach-safe optical white finish",
       "High temperature commercial wash ready",
@@ -645,13 +645,13 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "23x24-white-bath-towel",
     code: "SMT-WH-2324",
-    name: "23 × 24 White Bath Towel",
+    name: "2324 Institutional White Bath Towel",
     category: "white-towels",
     categoryLabel: "White Towels",
     shortDescription:
-      "22 × 44 inch pristine white towel tailored for lodge, clinic, spa, and salon usage.",
+      "Practical 22 × 44 inch institutional white towel with 360 GSM uniform pile and quick-dry construction.",
     fullDescription:
-      "A durable 22 × 44 inch white utility towel. Woven with clean cotton blend yarns that maintain brightness and absorbency after repeated commercial laundering.",
+      "Built for lodges, clinics, and hospitality supply where quick drying and frequent laundering are required. The 360 GSM 80/20 blend retains brightness and soft absorption across washings.",
     gsm: "360 GSM",
     gsmValue: 360,
     dimensions: "22 × 44 inch",
@@ -661,7 +661,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     moq: "15 pieces",
     dispatchTime: "1 to 2 days",
     image: "/images/products/hotel-white-luxury.jpg",
-    alt: "23 x 24 White Bath Towel by Sri Maruthi Textiles",
+    alt: "Folded institutional optical white cotton blend towel with uniform looped pile",
     features: [
       "Clean optical white shade",
       "Durable loop structure resists fraying",
@@ -672,13 +672,13 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "25x50-white-bath-towel",
     code: "SMT-WH-2550",
-    name: "25 × 50 White Bath Towel",
+    name: "2550 Hospitality White Bath Towel",
     category: "white-towels",
     categoryLabel: "White Towels",
     shortDescription:
-      "Standard 24 × 48 inch white bath towel widely supplied to hotels, lodges, and guest houses.",
+      "Standard 24 × 48 inch hospitality white bath towel with 380 GSM terry pile and lockstitched hems.",
     fullDescription:
-      "A core institutional running item. Delivers a soft, absorbent guest experience while standing up to rigorous commercial laundry protocols without yellowing.",
+      "Standard hotel and guest house running item. Features 380 GSM looped terry in 24 × 48 inch dimensions with reinforced lockstitched hems that prevent edge fraying during industrial laundering.",
     gsm: "380 GSM",
     gsmValue: 380,
     dimensions: "24 × 48 inch",
@@ -688,7 +688,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     moq: "15 pieces",
     dispatchTime: "1 to 2 days",
     image: "/images/process/step-04-folded-towels.jpg",
-    alt: "25 x 50 White Bath Towel by Sri Maruthi Textiles",
+    alt: "White cotton blend hotel bath towel folded on a clean surface showing neat edges",
     features: [
       "Hotel & institutional grade construction",
       "High water absorbency and plush hand",
@@ -699,14 +699,14 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "27x54-white-bath-towel",
     code: "SMT-WH-2754",
-    name: "27 × 54 White Bath Towel",
+    name: "2754 Flatweave-Hem White Bath Towel",
     category: "white-towels",
     categoryLabel: "White Towels",
     badge: "HOTEL GRADE",
     shortDescription:
-      "Mid-large 26 × 52 inch optical white bath towel offering generous comfort and commercial resilience.",
+      "Mid-large 26 × 52 inch optical white bath towel with 400 GSM plush pile and flatweave end hems.",
     fullDescription:
-      "Preferred by resorts and luxury homestays across Kerala and Tamil Nadu. Balanced 80/20 cotton blend provides luxurious loft while preventing out-of-square shrinkage.",
+      "Woven with flatweave end hems to maintain square shape through repeated commercial washing. The 400 GSM 80/20 cotton blend provides plush drying comfort in a 26 × 52 inch profile.",
     gsm: "400 GSM",
     gsmValue: 400,
     dimensions: "26 × 52 inch",
@@ -716,7 +716,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     moq: "15 pieces",
     dispatchTime: "1 to 2 days",
     image: "/images/product-white.jpg",
-    alt: "27 x 54 White Bath Towel by Sri Maruthi Textiles",
+    alt: "Optical white cotton blend bath towel showing flatweave hem detailing",
     features: [
       "Bright optical white yarn finish",
       "Reinforced double-stitched end hems",
@@ -727,13 +727,13 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "2001-white-bath-towel",
     code: "SMT-WH-2001",
-    name: "2001 White Bath Towel",
+    name: "2001 High-Twist Optical White Bath Towel",
     category: "white-towels",
     categoryLabel: "White Towels",
     shortDescription:
-      "Special 24 × 50 inch white towel built with high-twist yarn for extra-long service life.",
+      "Low-lint 24 × 50 inch optical white towel crafted with high-twist yarns and 390 GSM terry loops.",
     fullDescription:
-      "Constructed with ring-spun yarns to minimize surface linting and yarn wear during industrial tumbling. Delivers consistent white presentation across 100+ wash cycles.",
+      "Constructed using ring-spun, high-twist yarn blends to minimize surface linting and yarn degradation in commercial dryers. Delivers reliable 390 GSM absorbency across 24 × 50 inch dimensions.",
     gsm: "390 GSM",
     gsmValue: 390,
     dimensions: "24 × 50 inch",
@@ -743,7 +743,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     moq: "15 pieces",
     dispatchTime: "1 to 2 days",
     image: "/images/products/hotel-white-luxury.jpg",
-    alt: "2001 White Bath Towel by Sri Maruthi Textiles",
+    alt: "High-twist optical white cotton blend bath towel folded with crisp white presentation",
     features: [
       "Low-lint yarn construction",
       "Withstands repeated bleaching",
@@ -754,14 +754,14 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "4001-white-bath-towel",
     code: "SMT-WH-4001",
-    name: "4001 White Bath Towel",
+    name: "4001 Heavyweight Institutional White Towel",
     category: "white-towels",
     categoryLabel: "White Towels",
     badge: "HEAVYWEIGHT",
     shortDescription:
-      "Substantial 28 × 56 inch white bath towel with heavy yarn pile, cloud softness, and premium drape.",
+      "Heavy 430 GSM institutional white bath towel in 28 × 56 inch dimensions with deep water-absorbing loops.",
     fullDescription:
-      "Heavier weight white towel designed for luxury accommodation, resort suites, and VIP guest rooms. Deep terry pile offers fast drying action and cloud-soft hand feel.",
+      "Heavier institutional towel built for resort suites and premium lodging. Generous 28 × 56 inch footprint with 430 GSM deep loop pile provides cloud-soft absorbency and laundering longevity.",
     gsm: "430 GSM",
     gsmValue: 430,
     dimensions: "28 × 56 inch",
@@ -771,7 +771,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     moq: "15 pieces",
     dispatchTime: "1 to 2 days",
     image: "/images/process/step-04-folded-towels.jpg",
-    alt: "4001 White Bath Towel by Sri Maruthi Textiles",
+    alt: "Stack of heavyweight institutional white cotton blend bath towels folded neatly",
     features: [
       "Substantial 28 × 56 inch luxury size",
       "High density loop for maximum absorbency",
@@ -782,13 +782,13 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "30x60-white-bath-towel",
     code: "SMT-WH-3060",
-    name: "30 × 60 White Bath Towel",
+    name: "3060 Plush Hospitality White Bath Towel",
     category: "white-towels",
     categoryLabel: "White Towels",
     shortDescription:
-      "Spacious 28 × 56 inch crisp white bath sheet for executive hotels, resorts, and premium bath linen.",
+      "Executive 28 × 56 inch white bath towel with 430 GSM plush terry pile and locked perimeter edges.",
     fullDescription:
-      "Engineered to deliver high guest satisfaction with substantial fabric heft and clean aesthetic. Fast water uptake with high dimensional retention.",
+      "Designed for executive hotels and premium bath linen supply. Provides 430 GSM fabric density, rapid water uptake, and high dimensional retention across an expansive 28 × 56 inch drying surface.",
     gsm: "430 GSM",
     gsmValue: 430,
     dimensions: "28 × 56 inch",
@@ -798,7 +798,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     moq: "15 pieces",
     dispatchTime: "1 to 2 days",
     image: "/images/product-white.jpg",
-    alt: "30 x 60 White Bath Towel by Sri Maruthi Textiles",
+    alt: "Plush hospitality white cotton blend bath towel folded flat showing deep absorbent loops",
     features: [
       "Extra wide wrap-around surface",
       "Bleach-safe and sanitization ready",
@@ -809,14 +809,14 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "34x68-white-bath-towel",
     code: "SMT-WH-3468",
-    name: "34 × 68 White Bath Towel",
+    name: "3468 Extra-Large Luxury White Bath Sheet",
     category: "white-towels",
     categoryLabel: "White Towels",
     badge: "EXTRA LARGE",
     shortDescription:
-      "Extra-large 31 × 61 inch luxury white bath sheet for luxury suites, wellness spas, and resorts.",
+      "Extra-large 31 × 61 inch luxury white bath sheet with 460 GSM heavyweight terry and stout borders.",
     fullDescription:
-      "Our largest white bath towel offering, built for high-end hospitality suites, resorts, and premium bath linen retailers. Unmatched coverage, warmth, and plushness.",
+      "Our heaviest white towel offering, tailored for luxury resort suites and wellness spas. Expansive 31 × 61 inch bath sheet size with 460 GSM super-plush looped terry for maximum warmth and wrap.",
     gsm: "460 GSM",
     gsmValue: 460,
     dimensions: "31 × 61 inch",
@@ -826,7 +826,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     moq: "15 pieces",
     dispatchTime: "1 to 2 days",
     image: "/images/products/hotel-white-luxury.jpg",
-    alt: "34 x 68 White Bath Towel by Sri Maruthi Textiles",
+    alt: "Extra-large luxury white cotton blend bath sheet folded to show deep 460 GSM terry pile",
     features: [
       "Expansive 31 × 61 inch luxury bath sheet",
       "Superb water uptake and soft luxury feel",
@@ -841,14 +841,14 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "18001-print-kora-bath-towel",
     code: "SMT-KR-18001P",
-    name: "18001 Print Kora Bath Towel",
+    name: "18001 Printed-Border Kora Cotton Bath Towel",
     category: "kora-towels",
     categoryLabel: "Kora Towels",
     badge: "PRINTED BORDER",
     shortDescription:
-      "Traditional unbleached kora cotton bath towel with decorative print border in 33 × 66 inch size.",
+      "Traditional 33 × 66 inch unbleached kora cotton bath towel with decorative printed border and 440 GSM.",
     fullDescription:
-      "Woven from authentic unbleached kora cotton yarn with a decorative printed border band. Known for its earthy natural color, high absorbency, and traditional appeal across South India.",
+      "Woven from natural unbleached kora cotton yarn with a decorative printed border band. Ample 33 × 66 inch South Indian size with 440 GSM weight, earthy natural tone, and high natural absorbency that softens with each wash.",
     gsm: "440 GSM",
     gsmValue: 440,
     dimensions: "33 × 66 inch",
@@ -858,7 +858,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
     image: "/images/product-printed.jpg",
-    alt: "18001 Print Kora Bath Towel by Sri Maruthi Textiles",
+    alt: "Natural unbleached kora cotton bath towel featuring traditional printed border motif",
     features: [
       "Natural unbleached kora cotton yarn",
       "Distinctive traditional print border motif",
@@ -869,14 +869,14 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "18001-normal-kora-bath-towel",
     code: "SMT-KR-18001N",
-    name: "18001 Normal Kora Bath Towel",
+    name: "18001 Traditional Solid Kora Cotton Bath Towel",
     category: "kora-towels",
     categoryLabel: "Kora Towels",
     badge: "TRADITIONAL",
     shortDescription:
-      "Pure classic unbleached kora cotton bath towel in an authentic 33 × 66 inch South Indian size.",
+      "Classic 33 × 66 inch unbleached kora cotton bath towel in pure solid handloom weave with 440 GSM.",
     fullDescription:
-      "Pure classic South Indian handloom kora towel with natural unbleached yarn finish and solid border. Excellent everyday absorbency, skin-friendly texture, and long-lasting durability.",
+      "Pure traditional South Indian handloom kora towel with natural unbleached yarn finish and solid border. Generous 33 × 66 inch dimensions, 440 GSM fabric weight, and skin-friendly natural cotton texture.",
     gsm: "440 GSM",
     gsmValue: 440,
     dimensions: "33 × 66 inch",
@@ -886,7 +886,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
     image: "/images/sample-kit/sample-kit-towels.jpg",
-    alt: "18001 Normal Kora Bath Towel by Sri Maruthi Textiles",
+    alt: "Traditional solid unbleached kora cotton handloom bath towel with natural earthy yarn finish",
     features: [
       "100% authentic South Indian kora finish",
       "Generous 33 × 66 inch dimensions",
