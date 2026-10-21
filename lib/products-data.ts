@@ -4,6 +4,7 @@ export interface Product {
   name: string;
   category: "plain-towels" | "checked-towels" | "white-towels" | "kora-towels" | string;
   categoryLabel: string;
+  productType: "Bath Towel" | "Bath Sheet" | "Utility Towel" | string;
   badge?: string;
   shortDescription: string;
   fullDescription: string;
@@ -65,11 +66,12 @@ export const PRODUCTS_CATALOG: Product[] = [
     name: "73146 Reinforced-Selvedge Plain Bath Towel",
     category: "plain-towels",
     categoryLabel: "Plain Towels",
+    productType: "Bath Towel",
     badge: "POPULAR",
     shortDescription:
-      "Vat-dyed cotton blend bath towel with reinforced side selvedges, 400 GSM terry loops, and 26 × 52 inch dimensions.",
+      "Vat-dyed plain bath towel in 26 × 52 inch dimensions, handloom woven from an 80/20 cotton-polyester blend with 400 GSM terry loops and reinforced selvedges.",
     fullDescription:
-      "Handloom woven using an 80/20 cotton-polyester blend yarn with reinforced edge selvedges to prevent unraveling during commercial laundry. Features 400 GSM loop density and vat-dyed yarn across six solid colors.",
+      "Handloom woven using durable 80/20 cotton blend yarn with locked selvedge edges to prevent unraveling during commercial laundry. Features a uniform 400 GSM looped pile and color-fast vat dyeing across six solid shades, making it a reliable wholesale bath towel for retail stores and hotels.",
     gsm: "400 GSM",
     gsmValue: 400,
     dimensions: "26 × 52 inch",
@@ -93,10 +95,11 @@ export const PRODUCTS_CATALOG: Product[] = [
     name: "4590 Compact Quick-Dry Plain Bath Towel",
     category: "plain-towels",
     categoryLabel: "Plain Towels",
+    productType: "Bath Towel",
     shortDescription:
-      "Compact 22 × 44 inch plain bath towel with a tight 360 GSM loop pile engineered for swift drying and high turnover.",
+      "Compact 22 × 44 inch plain bath towel woven with 360 GSM tight terry loops in an 80/20 cotton blend for rapid drying.",
     fullDescription:
-      "Lightweight and compact daily-utility towel woven with an 80/20 cotton blend. The 360 GSM tight terry loop resists snagging and dries quickly between uses, making it suitable for high-turnover hospitality and retail.",
+      "A lightweight, fast-drying plain cotton blend towel engineered for high-turnover use. Features snag-resistant 360 GSM tight terry loops and locked selvedges in six vibrant solid colors, ideal for budget hospitality, travel lodges, and daily wholesale distribution.",
     gsm: "360 GSM",
     gsmValue: 360,
     dimensions: "22 × 44 inch",
@@ -120,10 +123,11 @@ export const PRODUCTS_CATALOG: Product[] = [
     name: "70 Flat-Border Plain Bath Towel",
     category: "plain-towels",
     categoryLabel: "Plain Towels",
+    productType: "Bath Towel",
     shortDescription:
-      "Mid-size 24 × 48 inch plain bath towel featuring flat woven end borders, 380 GSM weight, and 7 color options.",
+      "Medium 24 × 48 inch plain bath towel featuring flat woven end borders and 380 GSM cotton blend terry across 7 vat-dyed colors.",
     fullDescription:
-      "Woven with flat selvedge end borders for structural shape retention across commercial wash cycles. Provides a balanced 380 GSM terry weight in seven vat-dyed shades including violet.",
+      "Constructed with structured flat selvedge end borders that maintain square alignment through commercial wash cycles. The 380 GSM 80/20 cotton-polyester pile provides balanced absorbency across seven vat-dyed tones including violet for wholesale buyers.",
     gsm: "380 GSM",
     gsmValue: 380,
     dimensions: "24 × 48 inch",
@@ -147,11 +151,12 @@ export const PRODUCTS_CATALOG: Product[] = [
     name: "90 Dual-Sided Plush Plain Bath Towel",
     category: "plain-towels",
     categoryLabel: "Plain Towels",
+    productType: "Bath Towel",
     badge: "FAST SELLER",
     shortDescription:
-      "Dual-sided terry pile plain bath towel in 26 × 52 inch dimensions with 400 GSM fabric weight across 7 shades.",
+      "Dual-sided terry plain bath towel in standard 26 × 52 inch size with 400 GSM fabric weight and balanced absorbency.",
     fullDescription:
-      "Manufactured with symmetrical terry loops on both faces for balanced water absorbency. The 400 GSM 80/20 cotton-polyester construction provides substantial hand feel and dimensional stability.",
+      "Manufactured with symmetrical cotton blend terry loops on both faces for thorough water absorbency. The 400 GSM 80/20 cotton-polyester construction delivers a substantial hand feel and long-lasting shape retention for bulk towel orders.",
     gsm: "400 GSM",
     gsmValue: 400,
     dimensions: "26 × 52 inch",
@@ -175,10 +180,11 @@ export const PRODUCTS_CATALOG: Product[] = [
     name: "16001 High-Density Plain Bath Towel",
     category: "plain-towels",
     categoryLabel: "Plain Towels",
+    productType: "Bath Towel",
     shortDescription:
-      "Full-coverage 27 × 54 inch plain bath towel with high-density 420 GSM looped terry for maximum water retention.",
+      "Generous 27 × 54 inch plain bath towel woven with high-density 420 GSM looped terry for deep water absorption.",
     fullDescription:
-      "Built with higher warp and weft yarn density yielding a thick 420 GSM pile. Ample 27 × 54 inch coverage provides generous drying area with double-stitched perimeter hems.",
+      "Woven with higher yarn pick density producing a thick 420 GSM looped terry pile in an 80/20 cotton blend. Provides comfortable 27 × 54 inch wrap-around coverage with reinforced perimeter stitching across seven vat-dyed shades.",
     gsm: "420 GSM",
     gsmValue: 420,
     dimensions: "27 × 54 inch",
@@ -202,11 +208,12 @@ export const PRODUCTS_CATALOG: Product[] = [
     name: "18001 Heavyweight Plain Bath Sheet",
     category: "plain-towels",
     categoryLabel: "Plain Towels",
+    productType: "Bath Sheet",
     badge: "EXTRA LARGE",
     shortDescription:
-      "Extra-large 31 × 62 inch heavyweight bath sheet with 450 GSM plush terry pile and reinforced stout borders.",
+      "Extra-large 31 × 62 inch heavyweight plain bath sheet featuring 450 GSM plush cotton blend terry and stout borders.",
     fullDescription:
-      "Our largest plain-weave towel offering an expansive 31 × 62 inch bath sheet footprint. Heavyweight 450 GSM looped terry delivers high moisture capacity and full body wrap for premium bath linen use.",
+      "Our largest solid plain towel, crafted as an expansive 31 × 62 inch bath sheet. Heavyweight 450 GSM 80/20 cotton-polyester looped pile provides maximum water retention and full-body coverage for resorts, luxury spas, and linen wholesalers.",
     gsm: "450 GSM",
     gsmValue: 450,
     dimensions: "31 × 62 inch",
@@ -230,11 +237,12 @@ export const PRODUCTS_CATALOG: Product[] = [
     name: "190 Dual-Tone Contrast Plain Bath Sheet",
     category: "plain-towels",
     categoryLabel: "Plain Towels",
+    productType: "Bath Sheet",
     badge: "DUAL COLOR",
     shortDescription:
-      "Generous 31 × 62 inch bath sheet woven with dual-tone complementary yarns in a 450 GSM heavy terry pile.",
+      "Expansive 31 × 62 inch dual-tone bath sheet woven with contrasting cotton blend yarns in a 450 GSM heavy terry pile.",
     fullDescription:
-      "Woven on traditional looms using two contrasting yarn shades interlocked in a heavy 450 GSM terry structure. Extra-large 31 × 62 inch coverage combines visual contrast with 80/20 cotton blend tensile strength.",
+      "Woven on handlooms using two contrasting yarn shades interlocked in a heavy 450 GSM terry structure. Generous 31 × 62 inch bath sheet dimensions combine distinctive visual appeal with 80/20 cotton blend durability for commercial linen buyers.",
     gsm: "450 GSM",
     gsmValue: 450,
     dimensions: "31 × 62 inch",
@@ -262,10 +270,11 @@ export const PRODUCTS_CATALOG: Product[] = [
     name: "222 Compact Handloom Checked Bath Towel",
     category: "checked-towels",
     categoryLabel: "Checked Towels",
+    productType: "Bath Towel",
     shortDescription:
       "Compact 22 × 44 inch handloom checked bath towel with 350 GSM yarn-dyed checks and fast-drying loops.",
     fullDescription:
-      "Woven with authentic yarn-dyed checks in a compact 22 × 44 inch profile. Fast-drying 350 GSM loop weight provides easy laundering and high durability for daily household and retail turnover.",
+      "Traditional South Indian checked bath towel woven from yarn-dyed 80/20 cotton blend yarn in a compact 22 × 44 inch profile. The 350 GSM fast-drying loop pile is easy to launder and built for high-turnover daily retail and household wholesale.",
     gsm: "350 GSM",
     gsmValue: 350,
     dimensions: "22 × 44 inch",
@@ -289,11 +298,12 @@ export const PRODUCTS_CATALOG: Product[] = [
     name: "888 Classic Checked Terry Bath Towel",
     category: "checked-towels",
     categoryLabel: "Checked Towels",
+    productType: "Bath Towel",
     badge: "BESTSELLER",
     shortDescription:
-      "Standard 24 × 48 inch checked bath towel with crisp square grid definition, 380 GSM terry, and clean selvedges.",
+      "Standard 24 × 48 inch checked bath towel featuring classic square grid checks, 380 GSM cotton blend terry, and locked selvedges.",
     fullDescription:
-      "Features uniform yarn tension across both warp and weft for crisp square check geometry. Woven from 80/20 cotton blend yarn with 380 GSM looped pile and locked selvedges.",
+      "Our top-selling running checked bath towel, woven with balanced yarn tension across warp and weft for crisp check alignment. Features 380 GSM 80/20 cotton blend looped pile with colorfast yarn and locked selvedges for commercial durability.",
     gsm: "380 GSM",
     gsmValue: 380,
     dimensions: "24 × 48 inch",
@@ -317,10 +327,11 @@ export const PRODUCTS_CATALOG: Product[] = [
     name: "555 Four-Color Checked Bath Towel",
     category: "checked-towels",
     categoryLabel: "Checked Towels",
+    productType: "Bath Towel",
     shortDescription:
-      "Heritage 24 × 48 inch checked towel in four core colorways with 380 GSM weight and lint-resistant twist.",
+      "Heritage 24 × 48 inch checked bath towel woven in four classic handloom colorways with 380 GSM lint-resistant yarn.",
     fullDescription:
-      "Offered in four classic handloom colorways: Red, Maroon, Olive Green, and Navy Blue. Woven with high-twist yarn to minimize surface linting while delivering reliable 380 GSM absorbency.",
+      "Woven with high-twist 80/20 cotton blend yarn in four traditional South Indian check colorways. Provides dependable 380 GSM absorbency with locked edges that resist linting and shrinkage across commercial washes.",
     gsm: "380 GSM",
     gsmValue: 380,
     dimensions: "24 × 48 inch",
@@ -344,10 +355,11 @@ export const PRODUCTS_CATALOG: Product[] = [
     name: "10001 Fine-Grid Checked Bath Towel",
     category: "checked-towels",
     categoryLabel: "Checked Towels",
+    productType: "Bath Towel",
     shortDescription:
-      "Fine-count yarn checked bath towel in 24 × 48 inch size with sharp geometric checks and 390 GSM pile.",
+      "Sharp fine-grid checked bath towel in 24 × 48 inch dimensions with 390 GSM looped pile and neat side selvedges.",
     fullDescription:
-      "Woven with finer count warp and weft yarns to achieve sharper grid lines and a smoother hand feel. Features 390 GSM looped pile and locked side selvedges that resist out-of-square warping.",
+      "Crafted with finer yarn counts to deliver sharp geometric check lines and a smooth hand feel. The 390 GSM 80/20 cotton blend terry maintains square shape and high water absorption through repeated laundering.",
     gsm: "390 GSM",
     gsmValue: 390,
     dimensions: "24 × 48 inch",
@@ -371,10 +383,11 @@ export const PRODUCTS_CATALOG: Product[] = [
     name: "175 Reinforced-Border Checked Bath Towel",
     category: "checked-towels",
     categoryLabel: "Checked Towels",
+    productType: "Bath Towel",
     shortDescription:
-      "Generous 27 × 54 inch checked towel with reinforced flat borders, 410 GSM terry, and full body drying surface.",
+      "Spacious 27 × 54 inch checked bath towel with reinforced flat borders, 410 GSM terry pile, and full body drying surface.",
     fullDescription:
-      "Woven in a spacious 27 × 54 inch profile with reinforced woven end borders. The 410 GSM 80/20 cotton blend pile provides thorough moisture absorption and withstands institutional wash cycles.",
+      "Woven in a comfortable 27 × 54 inch profile featuring reinforced flat woven end borders. Woven from 80/20 cotton-polyester yarn with 410 GSM terry loops for thorough water uptake in wholesale hospitality and retail supply.",
     gsm: "410 GSM",
     gsmValue: 410,
     dimensions: "27 × 54 inch",
@@ -398,11 +411,12 @@ export const PRODUCTS_CATALOG: Product[] = [
     name: "15001 Dense-Terry Checked Bath Towel",
     category: "checked-towels",
     categoryLabel: "Checked Towels",
+    productType: "Bath Towel",
     badge: "PREMIUM WEAVE",
     shortDescription:
-      "Heavy 430 GSM checked bath towel in 28 × 56 inch size with dense loop pile and lockstitched hem.",
+      "Heavy 430 GSM checked bath towel in large 28 × 56 inch size with dense loop pile and double-needle lockstitched hems.",
     fullDescription:
-      "Crafted with higher pick counts for a dense, plush 430 GSM terry structure. Measuring 28 × 56 inches, this towel offers substantial heft, fast water pickup, and double-needle perimeter hems.",
+      "Engineered with higher pick counts for a dense, plush 430 GSM checked terry pile. Sized at 28 × 56 inches for ample wrap, combining fast water uptake with high-tensile poly-cotton perimeter stitching for premium linen retailers.",
     gsm: "430 GSM",
     gsmValue: 430,
     dimensions: "28 × 56 inch",
@@ -426,10 +440,11 @@ export const PRODUCTS_CATALOG: Product[] = [
     name: "120 Medium-Heavy Checked Bath Towel",
     category: "checked-towels",
     categoryLabel: "Checked Towels",
+    productType: "Bath Towel",
     shortDescription:
-      "Balanced 410 GSM checked bath towel in 27 × 54 inch dimensions with color-fast vat-dyed yarn.",
+      "Balanced 410 GSM checked bath towel in 27 × 54 inch dimensions with colorfast vat-dyed yarn and clean selvedges.",
     fullDescription:
-      "Engineered with balanced yarn counts in warp and weft to prevent bowing after laundering. Features 410 GSM looped terry in 27 × 54 inch dimensions with vat-dyed colorfast yarns.",
+      "Woven with balanced warp and weft counts that resist bowing and skewing after industrial washing. The 410 GSM 80/20 cotton blend provides durable daily absorbency in six checked colorways for bulk distributors.",
     gsm: "410 GSM",
     gsmValue: 410,
     dimensions: "27 × 54 inch",
@@ -453,10 +468,11 @@ export const PRODUCTS_CATALOG: Product[] = [
     name: "150 Lockstitched Checked Bath Towel",
     category: "checked-towels",
     categoryLabel: "Checked Towels",
+    productType: "Bath Towel",
     shortDescription:
-      "Standard 27 × 54 inch checked bath towel with double-needle lockstitched hems and 410 GSM pile.",
+      "Standard 27 × 54 inch checked bath towel featuring double-needle lockstitched hems and 410 GSM looped terry.",
     fullDescription:
-      "Constructed with double-needle lockstitching on all hems to prevent edge unravelling. Provides consistent 410 GSM weight across 27 × 54 inch dimensions with six vibrant checked options.",
+      "Manufactured with double-needle lockstitching on all perimeter hems to prevent unraveling during heavy institutional washing. Provides uniform 410 GSM weight across 27 × 54 inch dimensions in six checked patterns.",
     gsm: "410 GSM",
     gsmValue: 410,
     dimensions: "27 × 54 inch",
@@ -480,10 +496,11 @@ export const PRODUCTS_CATALOG: Product[] = [
     name: "12001 Selvedge Checked Bath Towel",
     category: "checked-towels",
     categoryLabel: "Checked Towels",
+    productType: "Bath Towel",
     shortDescription:
-      "Neat-selvedge 26 × 52 inch checked towel with 400 GSM terry pile and shrink-resistant weave balance.",
+      "Neat-selvedge 26 × 52 inch checked bath towel with 400 GSM terry pile and shrink-resistant weave balance.",
     fullDescription:
-      "Woven on traditional handlooms with uniform tension that resists out-of-square shrinkage. Features 400 GSM absorbency across a standard 26 × 52 inch drying area with clean side selvedges.",
+      "Handloom woven with uniform tension to resist out-of-square shrinkage and edge curling. Features 400 GSM absorbency across a standard 26 × 52 inch drying area with clean side selvedges and color-fast vat-dyed check yarns.",
     gsm: "400 GSM",
     gsmValue: 400,
     dimensions: "26 × 52 inch",
@@ -507,10 +524,11 @@ export const PRODUCTS_CATALOG: Product[] = [
     name: "3060 NIS Banded Checked Bath Towel",
     category: "checked-towels",
     categoryLabel: "Checked Towels",
+    productType: "Bath Towel",
     shortDescription:
-      "Special NIS check weave bath towel with woven horizontal border bands in 26 × 52 inch size and 400 GSM.",
+      "Special NIS checked bath towel with woven horizontal border bands in 26 × 52 inch size and 400 GSM terry.",
     fullDescription:
-      "Features an exclusive NIS pattern variation combining grid checks with woven horizontal border bands. The 400 GSM 80/20 cotton blend delivers fast water uptake with locked edges.",
+      "Combines traditional square grid checks with distinctive horizontal border bands. The 400 GSM 80/20 cotton blend delivers swift water uptake, locked side edges, and sturdy handloom durability for wholesale buyers.",
     gsm: "400 GSM",
     gsmValue: 400,
     dimensions: "26 × 52 inch",
@@ -534,11 +552,12 @@ export const PRODUCTS_CATALOG: Product[] = [
     name: "18001 Heavyweight Checked Bath Sheet",
     category: "checked-towels",
     categoryLabel: "Checked Towels",
+    productType: "Bath Sheet",
     badge: "EXTRA LARGE",
     shortDescription:
-      "Extra-large 31 × 62 inch checked bath sheet with 450 GSM heavyweight pile and full body wrap.",
+      "Extra-large 31 × 62 inch checked bath sheet with 450 GSM heavyweight cotton blend pile for full-body wrap.",
     fullDescription:
-      "The largest checked towel in our catalogue, offering an expansive 31 × 62 inch bath sheet size. Heavyweight 450 GSM terry pile provides high water capacity and full wrap comfort.",
+      "The largest checked towel in our collection, offering an expansive 31 × 62 inch bath sheet footprint. Heavyweight 450 GSM 80/20 cotton-polyester terry delivers superior moisture capacity and full wrap comfort for resorts and linen wholesalers.",
     gsm: "450 GSM",
     gsmValue: 450,
     dimensions: "31 × 62 inch",
@@ -562,10 +581,11 @@ export const PRODUCTS_CATALOG: Product[] = [
     name: "3060 Black Accent-Border Checked Towel",
     category: "checked-towels",
     categoryLabel: "Checked Towels",
+    productType: "Bath Towel",
     shortDescription:
-      "Checked bath towel with black accent border framing in 25 × 52 inch dimensions and 390 GSM.",
+      "Checked bath towel with black accent border framing in 25 × 52 inch dimensions and 390 GSM cotton blend terry.",
     fullDescription:
-      "Combines colorful checked body terry with deep black contrast yarn borders. Built with 390 GSM 80/20 cotton blend fabric and double-stitched perimeter hems in a 25 × 52 inch size.",
+      "Combines colorful checked body terry with deep black contrast accent borders. Woven from 390 GSM 80/20 cotton blend yarn with double-stitched perimeter hems in a practical 25 × 52 inch bath towel size.",
     gsm: "390 GSM",
     gsmValue: 390,
     dimensions: "25 × 52 inch",
@@ -589,11 +609,12 @@ export const PRODUCTS_CATALOG: Product[] = [
     name: "70140 Black Selvedge Checked Bath Towel",
     category: "checked-towels",
     categoryLabel: "Checked Towels",
+    productType: "Bath Towel",
     badge: "MODERN CONTRAST",
     shortDescription:
-      "Large 28 × 56 inch checked bath towel framed with black selvedge borders and 430 GSM dense pile.",
+      "Large 28 × 56 inch checked bath towel framed with solid black selvedge borders and 430 GSM dense terry pile.",
     fullDescription:
-      "Spacious 28 × 56 inch towel featuring dense 430 GSM checked terry framed by solid black selvedge edges. Commercial-laundry tested for color retention and dimensional stability.",
+      "Generous 28 × 56 inch bath towel featuring dense 430 GSM checked cotton blend terry framed by solid black selvedge edges. Commercial-laundry tested for colorfastness and dimensional stability across bulk orders.",
     gsm: "430 GSM",
     gsmValue: 430,
     dimensions: "28 × 56 inch",
@@ -621,10 +642,11 @@ export const PRODUCTS_CATALOG: Product[] = [
     name: "2040 Bleach-Safe White Utility Towel",
     category: "white-towels",
     categoryLabel: "White Towels",
+    productType: "Utility Towel",
     shortDescription:
-      "Compact 20 × 40 inch bleach-safe optical white utility towel in 340 GSM for clinics, salons, and spas.",
+      "Compact 20 × 40 inch bleach-safe white utility and hand towel in 340 GSM cotton blend terry for salons, clinics, and spas.",
     fullDescription:
-      "Woven from chlorine-bleach-tolerant cotton blend yarns designed for frequent high-temperature sanitization wash cycles. Compact 20 × 40 inch size with 340 GSM low-lint terry loops.",
+      "Woven from chlorine-bleach-tolerant 80/20 cotton blend yarns designed for frequent high-temperature sanitization wash cycles. Compact 20 × 40 inch utility towel size with 340 GSM low-lint loops, ideal as a wholesale hand towel or clinic utility towel.",
     gsm: "340 GSM",
     gsmValue: 340,
     dimensions: "20 × 40 inch",
@@ -648,10 +670,11 @@ export const PRODUCTS_CATALOG: Product[] = [
     name: "2324 Institutional White Bath Towel",
     category: "white-towels",
     categoryLabel: "White Towels",
+    productType: "Bath Towel",
     shortDescription:
-      "Practical 22 × 44 inch institutional white towel with 360 GSM uniform pile and quick-dry construction.",
+      "Practical 22 × 44 inch institutional white bath towel with 360 GSM uniform pile and quick-dry construction.",
     fullDescription:
-      "Built for lodges, clinics, and hospitality supply where quick drying and frequent laundering are required. The 360 GSM 80/20 blend retains brightness and soft absorption across washings.",
+      "Engineered for lodges, clinics, and budget hospitality supply where rapid drying and frequent laundering are required. The 360 GSM 80/20 cotton blend retains optical brightness and soft absorbency across high-turnover wash cycles.",
     gsm: "360 GSM",
     gsmValue: 360,
     dimensions: "22 × 44 inch",
@@ -675,10 +698,11 @@ export const PRODUCTS_CATALOG: Product[] = [
     name: "2550 Hospitality White Bath Towel",
     category: "white-towels",
     categoryLabel: "White Towels",
+    productType: "Bath Towel",
     shortDescription:
-      "Standard 24 × 48 inch hospitality white bath towel with 380 GSM terry pile and lockstitched hems.",
+      "Standard 24 × 48 inch hospitality white bath towel with 380 GSM terry pile and reinforced lockstitched hems.",
     fullDescription:
-      "Standard hotel and guest house running item. Features 380 GSM looped terry in 24 × 48 inch dimensions with reinforced lockstitched hems that prevent edge fraying during industrial laundering.",
+      "Standard hotel and guest house running item. Features 380 GSM looped terry in 24 × 48 inch dimensions woven with an 80/20 cotton blend and reinforced lockstitched hems that prevent fraying during industrial commercial laundry.",
     gsm: "380 GSM",
     gsmValue: 380,
     dimensions: "24 × 48 inch",
@@ -702,11 +726,12 @@ export const PRODUCTS_CATALOG: Product[] = [
     name: "2754 Flatweave-Hem White Bath Towel",
     category: "white-towels",
     categoryLabel: "White Towels",
+    productType: "Bath Towel",
     badge: "HOTEL GRADE",
     shortDescription:
-      "Mid-large 26 × 52 inch optical white bath towel with 400 GSM plush pile and flatweave end hems.",
+      "Mid-large 26 × 52 inch optical white bath towel with 400 GSM plush cotton blend pile and flatweave end hems.",
     fullDescription:
-      "Woven with flatweave end hems to maintain square shape through repeated commercial washing. The 400 GSM 80/20 cotton blend provides plush drying comfort in a 26 × 52 inch profile.",
+      "Woven with flatweave end hems to maintain square alignment through repeated commercial washing. The 400 GSM 80/20 cotton-polyester blend provides plush drying comfort and brightness in a standard 26 × 52 inch profile for hotels.",
     gsm: "400 GSM",
     gsmValue: 400,
     dimensions: "26 × 52 inch",
@@ -730,10 +755,11 @@ export const PRODUCTS_CATALOG: Product[] = [
     name: "2001 High-Twist Optical White Bath Towel",
     category: "white-towels",
     categoryLabel: "White Towels",
+    productType: "Bath Towel",
     shortDescription:
-      "Low-lint 24 × 50 inch optical white towel crafted with high-twist yarns and 390 GSM terry loops.",
+      "Low-lint 24 × 50 inch optical white bath towel crafted with high-twist cotton blend yarns and 390 GSM terry loops.",
     fullDescription:
-      "Constructed using ring-spun, high-twist yarn blends to minimize surface linting and yarn degradation in commercial dryers. Delivers reliable 390 GSM absorbency across 24 × 50 inch dimensions.",
+      "Constructed using ring-spun, high-twist 80/20 cotton blend yarn to minimize surface linting and yarn shedding in commercial tumble dryers. Delivers reliable 390 GSM absorbency across 24 × 50 inch dimensions for institutional buyers.",
     gsm: "390 GSM",
     gsmValue: 390,
     dimensions: "24 × 50 inch",
@@ -757,11 +783,12 @@ export const PRODUCTS_CATALOG: Product[] = [
     name: "4001 Heavyweight Institutional White Towel",
     category: "white-towels",
     categoryLabel: "White Towels",
+    productType: "Bath Towel",
     badge: "HEAVYWEIGHT",
     shortDescription:
-      "Heavy 430 GSM institutional white bath towel in 28 × 56 inch dimensions with deep water-absorbing loops.",
+      "Heavy 430 GSM institutional white bath towel in 28 × 56 inch dimensions with deep water-absorbing cotton blend loops.",
     fullDescription:
-      "Heavier institutional towel built for resort suites and premium lodging. Generous 28 × 56 inch footprint with 430 GSM deep loop pile provides cloud-soft absorbency and laundering longevity.",
+      "Heavier institutional towel manufactured for resort suites and premium lodging. Generous 28 × 56 inch footprint with 430 GSM deep loop pile in an 80/20 cotton blend delivers soft absorbency and proven durability over 100+ commercial wash cycles.",
     gsm: "430 GSM",
     gsmValue: 430,
     dimensions: "28 × 56 inch",
@@ -785,10 +812,11 @@ export const PRODUCTS_CATALOG: Product[] = [
     name: "3060 Plush Hospitality White Bath Towel",
     category: "white-towels",
     categoryLabel: "White Towels",
+    productType: "Bath Towel",
     shortDescription:
       "Executive 28 × 56 inch white bath towel with 430 GSM plush terry pile and locked perimeter edges.",
     fullDescription:
-      "Designed for executive hotels and premium bath linen supply. Provides 430 GSM fabric density, rapid water uptake, and high dimensional retention across an expansive 28 × 56 inch drying surface.",
+      "Designed for executive hotels and premium bath linen supply. Provides 430 GSM fabric density, rapid water uptake, and high dimensional retention across an expansive 28 × 56 inch drying surface in bleach-safe 80/20 cotton blend yarn.",
     gsm: "430 GSM",
     gsmValue: 430,
     dimensions: "28 × 56 inch",
@@ -812,11 +840,12 @@ export const PRODUCTS_CATALOG: Product[] = [
     name: "3468 Extra-Large Luxury White Bath Sheet",
     category: "white-towels",
     categoryLabel: "White Towels",
+    productType: "Bath Sheet",
     badge: "EXTRA LARGE",
     shortDescription:
-      "Extra-large 31 × 61 inch luxury white bath sheet with 460 GSM heavyweight terry and stout borders.",
+      "Extra-large 31 × 61 inch luxury white bath sheet with 460 GSM heavyweight terry and stout borders for resorts.",
     fullDescription:
-      "Our heaviest white towel offering, tailored for luxury resort suites and wellness spas. Expansive 31 × 61 inch bath sheet size with 460 GSM super-plush looped terry for maximum warmth and wrap.",
+      "Our heaviest white bath linen, tailored for luxury resort suites and wellness spas. Expansive 31 × 61 inch bath sheet size with 460 GSM plush 80/20 cotton blend looped terry for maximum warmth, comfort, and wrap.",
     gsm: "460 GSM",
     gsmValue: 460,
     dimensions: "31 × 61 inch",
@@ -844,11 +873,12 @@ export const PRODUCTS_CATALOG: Product[] = [
     name: "18001 Printed-Border Kora Cotton Bath Towel",
     category: "kora-towels",
     categoryLabel: "Kora Towels",
+    productType: "Bath Sheet",
     badge: "PRINTED BORDER",
     shortDescription:
-      "Traditional 33 × 66 inch unbleached kora cotton bath towel with decorative printed border and 440 GSM.",
+      "Traditional 33 × 66 inch unbleached kora cotton bath towel and bath sheet with decorative printed border and 440 GSM.",
     fullDescription:
-      "Woven from natural unbleached kora cotton yarn with a decorative printed border band. Ample 33 × 66 inch South Indian size with 440 GSM weight, earthy natural tone, and high natural absorbency that softens with each wash.",
+      "Handloom woven from natural unbleached kora cotton blend yarn (85% unbleached cotton / 15% polyester) featuring a decorative printed border band. Ample 33 × 66 inch South Indian bath sheet dimensions provide earthy natural tone and high natural absorbency that softens with each wash.",
     gsm: "440 GSM",
     gsmValue: 440,
     dimensions: "33 × 66 inch",
@@ -872,11 +902,12 @@ export const PRODUCTS_CATALOG: Product[] = [
     name: "18001 Traditional Solid Kora Cotton Bath Towel",
     category: "kora-towels",
     categoryLabel: "Kora Towels",
+    productType: "Bath Sheet",
     badge: "TRADITIONAL",
     shortDescription:
-      "Classic 33 × 66 inch unbleached kora cotton bath towel in pure solid handloom weave with 440 GSM.",
+      "Classic 33 × 66 inch unbleached kora cotton bath towel and bath sheet in pure solid handloom weave with 440 GSM.",
     fullDescription:
-      "Pure traditional South Indian handloom kora towel with natural unbleached yarn finish and solid border. Generous 33 × 66 inch dimensions, 440 GSM fabric weight, and skin-friendly natural cotton texture.",
+      "Pure traditional South Indian handloom kora towel with natural unbleached yarn finish (85% unbleached cotton / 15% polyester) and solid borders. Generous 33 × 66 inch bath sheet size with 440 GSM weight delivers durable skin-friendly absorbency for wholesale buyers.",
     gsm: "440 GSM",
     gsmValue: 440,
     dimensions: "33 × 66 inch",
@@ -895,3 +926,243 @@ export const PRODUCTS_CATALOG: Product[] = [
     ],
   },
 ];
+
+/**
+ * Normalizes a word for stem matching (stripping common suffixes, plurals, and variations)
+ */
+export function normalizeSearchTerm(term: string): string {
+  let w = term.toLowerCase().trim();
+  w = w.replace(/^[^\w]+|[^\w]+$/g, "");
+  if (!w) return "";
+
+  // Plurals and suffixes
+  if (w.endsWith("ies")) w = w.slice(0, -3) + "y";
+  else if (w.endsWith("es") && !w.endsWith("ches") && !w.endsWith("shes")) w = w.slice(0, -2);
+  else if (w.endsWith("s") && !w.endsWith("ss")) w = w.slice(0, -1);
+
+  // Common synonyms and variations
+  if (w === "checked" || w === "checks" || w === "check") return "check";
+  if (w === "colours" || w === "colour") return "color";
+  if (w === "sheets") return "sheet";
+  if (w === "towels") return "towel";
+  if (w === "cottons") return "cotton";
+
+  return w;
+}
+
+/**
+ * Checks whether a product matches a user search query across all product fields,
+ * types, categories, specifications, and common customer search variations.
+ */
+export function matchProductSearch(product: Product, rawQuery: string): boolean {
+  const query = rawQuery.trim().toLowerCase();
+  if (!query) return true;
+
+  // 1. Direct SKU / Product Code exact/prefix match (e.g. "888", "SMT-CK-888", "SMTCK888", "73146")
+  const cleanQueryCode = query.replace(/[^a-zA-Z0-9]/g, "");
+  const cleanProductCode = product.code.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+  if (cleanQueryCode.length >= 3 && cleanProductCode.includes(cleanQueryCode)) {
+    return true;
+  }
+
+  // 2. High-intent generic customer search phrases
+  const normQuery = query
+    .split(/\s+/)
+    .map((w) => normalizeSearchTerm(w))
+    .join(" ");
+
+  // "checked towel" / "check towel" / "checked towels"
+  if (
+    query === "checked towel" ||
+    query === "checked towels" ||
+    query === "check towel" ||
+    query === "check towels" ||
+    normQuery === "check towel"
+  ) {
+    return product.category === "checked-towels";
+  }
+
+  // "plain towel" / "plain towels"
+  if (
+    query === "plain towel" ||
+    query === "plain towels" ||
+    normQuery === "plain towel"
+  ) {
+    return product.category === "plain-towels";
+  }
+
+  // "white towel" / "white towels"
+  if (
+    query === "white towel" ||
+    query === "white towels" ||
+    normQuery === "white towel"
+  ) {
+    return product.category === "white-towels";
+  }
+
+  // "kora towel" / "kora towels"
+  if (
+    query === "kora towel" ||
+    query === "kora towels" ||
+    normQuery === "kora towel"
+  ) {
+    return product.category === "kora-towels";
+  }
+
+  // "bath sheet" / "bath sheets" / "large bath towel" / "large bath towels" / "extra large bath towel"
+  if (
+    query === "bath sheet" ||
+    query === "bath sheets" ||
+    query === "large bath towel" ||
+    query === "large bath towels" ||
+    query === "extra large bath towel" ||
+    query === "extra large bath towels" ||
+    normQuery === "bath sheet" ||
+    normQuery === "large bath towel" ||
+    normQuery === "extra large bath towel"
+  ) {
+    return (
+      product.productType === "Bath Sheet" ||
+      product.dimensions.includes("31 ×") ||
+      product.dimensions.includes("33 ×")
+    );
+  }
+
+  // "hand towel" / "hand towels" / "utility towel" / "utility towels"
+  if (
+    query === "hand towel" ||
+    query === "hand towels" ||
+    query === "utility towel" ||
+    query === "utility towels" ||
+    normQuery === "hand towel" ||
+    normQuery === "utility towel"
+  ) {
+    return (
+      product.productType === "Utility Towel" ||
+      product.dimensions.includes("20 × 40")
+    );
+  }
+
+  // "bath towel" / "bath towels"
+  if (
+    query === "bath towel" ||
+    query === "bath towels" ||
+    normQuery === "bath towel"
+  ) {
+    return product.productType === "Bath Towel" || product.productType === "Bath Sheet";
+  }
+
+  // "cotton towel" / "cotton towels" / "cotton blend towel"
+  if (
+    query === "cotton towel" ||
+    query === "cotton towels" ||
+    query === "cotton blend towel" ||
+    query === "cotton blend towels" ||
+    normQuery === "cotton towel" ||
+    normQuery === "cotton blend towel"
+  ) {
+    return true; // All products in catalog are handloom cotton blend towels
+  }
+
+  // "wholesale towel" / "wholesale towels" / "wholesale"
+  if (
+    query === "wholesale towel" ||
+    query === "wholesale towels" ||
+    query === "wholesale" ||
+    normQuery === "wholesale towel"
+  ) {
+    return true; // All products in catalog are manufactured for wholesale
+  }
+
+  // 3. Multi-token general search (colors, GSM, dimensions, specific names, etc.)
+  const queryTokens = query
+    .split(/[\s,+/]+/)
+    .map((w) => w.trim())
+    .filter(Boolean);
+
+  if (queryTokens.length === 0) return true;
+
+  const normDim = product.dimensions.toLowerCase().replace(/\s*×\s*/g, "x").replace(/\s*inch/g, "");
+
+  // Build searchable word list for this product
+  const productWords: string[] = [
+    product.name,
+    product.code,
+    cleanProductCode,
+    product.categoryLabel,
+    product.productType,
+    product.gsm,
+    product.dimensions,
+    normDim,
+    ...product.colors,
+    product.shortDescription,
+    product.fullDescription,
+  ];
+
+  // Specific category keywords
+  if (product.category === "checked-towels") {
+    productWords.push("checked", "check", "checks", "madras");
+  } else if (product.category === "plain-towels") {
+    productWords.push("plain", "solid");
+  } else if (product.category === "white-towels") {
+    productWords.push("white", "optical", "hotel", "institutional", "bleach-safe");
+  } else if (product.category === "kora-towels") {
+    productWords.push("kora", "unbleached", "thorthu");
+  }
+
+  // Specific type keywords
+  if (product.productType === "Bath Sheet") {
+    productWords.push("sheet", "sheets", "large", "extra-large", "wrap");
+  } else if (product.productType === "Bath Towel") {
+    productWords.push("bath", "body");
+  } else if (product.productType === "Utility Towel") {
+    productWords.push("utility", "hand", "salon", "clinic", "spa");
+  }
+
+  // Global words for all products
+  productWords.push("cotton", "towel", "wholesale", "handloom");
+
+  const combinedText = productWords.join(" ").toLowerCase();
+
+  // Create set of normalized words from product
+  const tokens = combinedText
+    .split(/[\s,./\(\)×-]+/)
+    .map((w) => w.trim())
+    .filter(Boolean);
+
+  const normalizedProductWords = new Set<string>();
+  for (const t of tokens) {
+    normalizedProductWords.add(t);
+    const n = normalizeSearchTerm(t);
+    if (n) normalizedProductWords.add(n);
+  }
+
+  // Check that every query token matches
+  return queryTokens.every((qt) => {
+    const rawQt = qt.toLowerCase();
+    const normQt = normalizeSearchTerm(rawQt);
+
+    // Exact word or normalized word match
+    if (normalizedProductWords.has(rawQt) || (normQt && normalizedProductWords.has(normQt))) {
+      return true;
+    }
+
+    // Substring in combined text (e.g. "24x48" or specific code)
+    if (combinedText.includes(rawQt)) {
+      return true;
+    }
+
+    // Prefix match on words (min length 3)
+    if (rawQt.length >= 3) {
+      for (const pw of normalizedProductWords) {
+        if (pw.startsWith(rawQt) || (normQt && pw.startsWith(normQt))) {
+          // Avoid matching "hand" into "handloom"
+          if (rawQt === "hand" && pw.startsWith("handloom")) continue;
+          return true;
+        }
+      }
+    }
+
+    return false;
+  });
+}

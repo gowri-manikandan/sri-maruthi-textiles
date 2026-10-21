@@ -37,26 +37,10 @@ export default function ProductsPage() {
       itemListElement: PRODUCTS_CATALOG.map((p, idx) => ({
         "@type": "ListItem",
         position: idx + 1,
-        item: {
-          "@type": "Product",
-          name: p.name,
-          description: p.fullDescription || p.shortDescription,
-          image: `${SITE_URL}${p.image}`,
-          sku: p.code,
-          category: p.categoryLabel,
-          material: p.blend,
-          color: p.colors.join(", "),
-          size: p.dimensions,
-          weight: p.gsm,
-          brand: {
-            "@type": "Brand",
-            name: "Sri Maruthi Textiles",
-          },
-          manufacturer: {
-            "@type": "Organization",
-            name: "Sri Maruthi Textiles",
-          },
-        },
+        name: p.name,
+        description: p.fullDescription || p.shortDescription,
+        image: `${SITE_URL}${p.image}`,
+        url: `${SITE_URL}/products#${p.id}`,
       })),
     },
   };
@@ -156,7 +140,7 @@ export default function ProductsPage() {
 
               {/* Supporting text */}
               <p className="mt-3.5 sm:mt-4 text-[15.5px] sm:text-[17px] leading-[1.6] text-[#E8DFCF]/90 font-normal max-w-[660px]">
-                Premium quality cotton blend textiles designed for comfort, durability and long-lasting performance. Perfect for hospitality, retail and business use.
+                Sri Maruthi Textiles manufactures and supplies handloom cotton blend towels direct from our looms in Tamil Nadu for wholesale and bulk buyers. Explore our mill collection of plain bath towels, checked towels, bleach-safe white towels, and generous bath sheets crafted for hotels, retailers, and distributors across Kerala and Tamil Nadu.
               </p>
 
               {/* Quick Wholesaler Contact Buttons */}

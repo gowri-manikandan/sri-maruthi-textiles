@@ -1,7 +1,7 @@
 import { contact, site, SITE_URL } from "@/lib/site";
 
 /**
- * LocalBusiness JSON-LD — DESIGN_BRIEF.md §6.
+ * Organization and LocalBusiness JSON-LD — DESIGN_BRIEF.md §6.
  *
  * Verified facts:
  *   - `name`, `url`, `description`, `telephone`, `email`
@@ -12,10 +12,12 @@ import { contact, site, SITE_URL } from "@/lib/site";
 export default function StructuredData() {
   const data = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": ["Organization", "LocalBusiness"],
     "@id": `${SITE_URL}/#business`,
     name: site.name,
     url: SITE_URL,
+    logo: `${SITE_URL}/images/logo-full.png`,
+    image: `${SITE_URL}/images/hero.jpg`,
     description: site.seo.description,
     telephone: contact.phone.e164,
     email: contact.email,

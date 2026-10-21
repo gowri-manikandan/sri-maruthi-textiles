@@ -20,6 +20,7 @@ import {
   Product,
   PRODUCT_CATEGORIES,
   PRODUCTS_CATALOG,
+  matchProductSearch,
 } from "@/lib/products-data";
 import { contact, whatsappHref } from "@/lib/site";
 
@@ -148,11 +149,9 @@ export default function ProductCatalog() {
         return false;
       }
 
-      // Search query (name, SKU/code, description, blend, weave, colors)
+      // Search query
       if (searchQuery.trim()) {
-        const q = searchQuery.toLowerCase().trim();
-        const searchableText = `${item.name} ${item.code} ${item.shortDescription} ${item.fullDescription} ${item.blend} ${item.weaveType} ${item.colors.join(" ")}`.toLowerCase();
-        return searchableText.includes(q);
+        return matchProductSearch(item, searchQuery);
       }
 
       return true;
@@ -288,7 +287,7 @@ export default function ProductCatalog() {
                     scrollToFirstProductRow();
                   }
                 }}
-                placeholder="Search products by name, code..."
+                placeholder="Search products by name, type, code..."
                 className="w-full h-8.5 sm:h-9 pl-8.5 pr-8 rounded-sm border border-[#E8DFCF] bg-white text-[13px] text-[#29251F] placeholder:text-[#6B615A]/70 focus:outline-none focus:border-[#40572D] focus:ring-1 focus:ring-[#40572D] transition-all"
               />
               {searchQuery && (
@@ -452,9 +451,13 @@ export default function ProductCatalog() {
 
                 {/* 2-7. PRODUCT INFORMATION, SPECIFICATIONS, SWATCHES & ACTIONS */}
                 <div className="p-3 sm:p-3.5 flex flex-col flex-1">
-                  {/* 2. CATEGORY / SKU (Small uppercase typography with letter spacing) */}
-                  <div className="text-[10.5px] font-semibold uppercase tracking-[0.14em] text-[#40572D]">
-                    {product.categoryLabel.toUpperCase()} · SKU: {product.code}
+                  {/* 2. CATEGORY / PRODUCT TYPE / SKU (Small uppercase typography with letter spacing) */}
+                  <div className="text-[10.5px] font-semibold uppercase tracking-[0.14em] text-[#40572D] flex flex-wrap items-center gap-x-1.5">
+                    <span>{product.categoryLabel.toUpperCase()}</span>
+                    <span className="text-[#6B615A]/40" aria-hidden="true">·</span>
+                    <span className="text-[#73685C]">{product.productType.toUpperCase()}</span>
+                    <span className="text-[#6B615A]/40" aria-hidden="true">·</span>
+                    <span className="text-[#6B615A]">SKU: {product.code}</span>
                   </div>
 
                   {/* 3. PRODUCT NAME (Elegant serif typography) */}
@@ -674,9 +677,11 @@ export default function ProductCatalog() {
               {/* Product Information & Technical Specs */}
               <div className="md:col-span-7 flex flex-col">
                 {/* Header */}
-                <div className="flex items-center gap-2 text-[11.5px] font-semibold uppercase tracking-wider text-[#40572D]">
+                <div className="flex flex-wrap items-center gap-2 text-[11.5px] font-semibold uppercase tracking-wider text-[#40572D]">
                   <span>{specProduct.categoryLabel}</span>
-                  <span>•</span>
+                  <span className="text-[#6B615A]/40" aria-hidden="true">•</span>
+                  <span className="text-[#73685C]">{specProduct.productType}</span>
+                  <span className="text-[#6B615A]/40" aria-hidden="true">•</span>
                   <span>SKU: {specProduct.code}</span>
                 </div>
 
@@ -694,12 +699,18 @@ export default function ProductCatalog() {
                 {/* Specification Table */}
                 <div className="mt-5 border border-[#E8DFCF] rounded-md overflow-hidden text-[13.5px]">
                   <div className="grid grid-cols-2 divide-x divide-[#E8DFCF] border-b border-[#E8DFCF] bg-[#FAF7F2]">
+                    <div className="p-2.5 sm:p-3 font-medium text-[#6B615A]">Product Type</div>
+                    <div className="p-2.5 sm:p-3 font-semibold text-[#29251F]">
+                      {specProduct.productType}
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 divide-x divide-[#E8DFCF] border-b border-[#E8DFCF]">
                     <div className="p-2.5 sm:p-3 font-medium text-[#6B615A]">Dimensions</div>
                     <div className="p-2.5 sm:p-3 font-semibold text-[#29251F]">
                       {specProduct.dimensions || "As per requirement"}
                     </div>
                   </div>
-                  <div className="grid grid-cols-2 divide-x divide-[#E8DFCF] border-b border-[#E8DFCF]">
+                  <div className="grid grid-cols-2 divide-x divide-[#E8DFCF] border-b border-[#E8DFCF] bg-[#FAF7F2]">
                     <div className="p-2.5 sm:p-3 font-medium text-[#6B615A]">
                       Minimum Order (MOQ)
                     </div>
@@ -707,7 +718,7 @@ export default function ProductCatalog() {
                       {specProduct.moq || "As per requirement"}
                     </div>
                   </div>
-                  <div className="grid grid-cols-2 divide-x divide-[#E8DFCF] bg-[#FAF7F2]">
+                  <div className="grid grid-cols-2 divide-x divide-[#E8DFCF]">
                     <div className="p-2.5 sm:p-3 font-medium text-[#6B615A]">
                       Standard Dispatch
                     </div>
@@ -953,7 +964,7 @@ function ProductEnquiryModal({
               </div>
               <div className="flex-1 min-w-0">
                 <span className="block font-mono text-[11px] text-[#40572D]">
-                  {product.code}
+                  {product.code} · {product.productType}
                 </span>
                 <span className="block text-[13.5px] font-medium text-[#29251F] truncate">
                   {product.dimensions}
