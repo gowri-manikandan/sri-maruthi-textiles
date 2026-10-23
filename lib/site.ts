@@ -210,22 +210,22 @@ export const site = {
       {
         id: "plain",
         name: "Plain towels",
-        spec: "360 - 450 GSM · 22 × 44 to 31 × 62 in · 80/20 Cotton Blend",
+        spec: "22 × 44 to 31 × 62 in · 80/20 Cotton Blend",
       },
       {
         id: "checked",
         name: "Checked towels",
-        spec: "350 - 450 GSM · 22 × 44 to 31 × 62 in · 80/20 Cotton Blend",
+        spec: "22 × 44 to 31 × 62 in · 80/20 Cotton Blend",
       },
       {
         id: "white",
         name: "White towels",
-        spec: "340 - 460 GSM · 20 × 40 to 31 × 61 in · Bleach-Safe White",
+        spec: "20 × 40 to 31 × 61 in · Bleach-Safe White",
       },
       {
         id: "kora",
         name: "Kora towels",
-        spec: "440 GSM · 33 × 66 in · Unbleached Kora Cotton",
+        spec: "33 × 66 in · Unbleached Kora Cotton",
       },
     ],
   },

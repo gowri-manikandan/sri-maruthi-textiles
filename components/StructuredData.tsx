@@ -6,7 +6,7 @@ import { contact, site, SITE_URL } from "@/lib/site";
  * Verified facts:
  *   - `name`, `url`, `description`, `telephone`, `email`
  *   - `address`: 1/37, Gandhi Nagar, Pallagoundenpalayam, Tamil Nadu 638056
- *   - `taxID` / `vatID`: GSTIN 33BNZPM4235L2ZC
+ *   - `taxID`: GSTIN 33BNZPM4235L2ZC
  *   - `areaServed`: Kerala and Tamil Nadu
  */
 export default function StructuredData() {
@@ -30,7 +30,6 @@ export default function StructuredData() {
       addressCountry: "IN",
     },
     taxID: site.gstin,
-    vatID: site.gstin,
     areaServed: [
       { "@type": "State", name: "Kerala" },
       { "@type": "State", name: "Tamil Nadu" },

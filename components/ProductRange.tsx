@@ -21,7 +21,6 @@ interface ProductItem {
   linkText: string;
   linkHref: string;
   specs: {
-    gsm: string;
     dimensions: string;
     yarnBlend: string;
     weaveType: string;
@@ -41,7 +40,6 @@ const PRODUCTS: ProductItem[] = [
     linkText: "View Details",
     linkHref: "/products?category=plain-towels",
     specs: {
-      gsm: "360 - 450 GSM",
       dimensions: "22 x 44 to 31 x 62 in",
       yarnBlend: "80% Cotton\n20% Polyester",
       weaveType: "Terry Pile\nwith Selvedge",
@@ -65,7 +63,6 @@ const PRODUCTS: ProductItem[] = [
     linkText: "View Details",
     linkHref: "/products?category=checked-towels",
     specs: {
-      gsm: "350 - 450 GSM",
       dimensions: "22 x 44 to 31 x 62 in",
       yarnBlend: "80% Cotton\n20% Polyester",
       weaveType: "Checked Weave\nDual-Sided",
@@ -89,7 +86,6 @@ const PRODUCTS: ProductItem[] = [
     linkText: "View Details",
     linkHref: "/products?category=white-towels",
     specs: {
-      gsm: "340 - 460 GSM",
       dimensions: "20 x 40 to 31 x 61 in",
       yarnBlend: "80% Cotton\n20% Polyester",
       weaveType: "Optical White\nHospitality Terry",
@@ -110,7 +106,6 @@ const PRODUCTS: ProductItem[] = [
     linkText: "View Details",
     linkHref: "/products?category=kora-towels",
     specs: {
-      gsm: "440 GSM",
       dimensions: "33 x 66 in",
       yarnBlend: "85% Unbleached Cotton\n15% Polyester",
       weaveType: "Traditional Kora\nHandloom Weave",
