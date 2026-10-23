@@ -28,10 +28,10 @@ export const images: {
   storyLandscape: "/images/story-b.jpg",
   foilCta: "/images/dispatch.jpg",
   products: {
-    checked: "/images/product-checked.jpg",
-    plain: "/images/product-plain.jpg",
-    printed: "/images/product-printed.jpg",
-    white: "/images/product-white.jpg",
+    checked: "/images/products/smt-ck-888.webp",
+    plain: "/images/products/smt-pl-73146.webp",
+    printed: "/images/products/smt-kr-18001p.webp",
+    white: "/images/products/smt-wh-2754.webp",
   },
 };
 /**

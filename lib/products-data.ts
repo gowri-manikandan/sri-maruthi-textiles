@@ -61,7 +61,7 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "73x146-plain-color-bath-towel",
     code: "SMT-PL-73146",
-    name: "73146 Reinforced-Selvedge Plain Bath Towel",
+    name: "73 X 146 Plain Bath Towel",
     category: "plain-towels",
     categoryLabel: "Plain Towels",
     productType: "Bath Towel",
@@ -76,7 +76,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     colors: ["Red", "Maroon", "Olive Green", "Navy Blue", "Cyan", "Blue"],
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
-    image: "/images/product-plain.jpg",
+    image: "/images/products/smt-pl-73146.webp",
     alt: "Red vat-dyed plain cotton blend bath towel with reinforced selvedge edges, 26 by 52 inches",
     features: [
       "Direct mill wholesale rate",
@@ -88,7 +88,7 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "45x90-plain-color-bath-towel",
     code: "SMT-PL-4590",
-    name: "4590 Compact Quick-Dry Plain Bath Towel",
+    name: "45 X 90 Plain Utility Towel",
     category: "plain-towels",
     categoryLabel: "Plain Towels",
     productType: "Bath Towel",
@@ -102,7 +102,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     colors: ["Red", "Maroon", "Olive Green", "Navy Blue", "Cyan", "Blue"],
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
-    image: "/images/products/bath-towels.jpg",
+    image: "/images/products/smt-pl-4590.webp",
     alt: "Blue compact plain cotton blend bath towel with tight terry loops, 22 by 44 inches",
     features: [
       "High absorption with quick-dry pile",
@@ -114,7 +114,7 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "70-plain-color-bath-towel",
     code: "SMT-PL-70",
-    name: "70 Flat-Border Plain Bath Towel",
+    name: "70 Plain Bath Towel",
     category: "plain-towels",
     categoryLabel: "Plain Towels",
     productType: "Bath Towel",
@@ -128,7 +128,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     colors: ["Red", "Maroon", "Olive Green", "Navy Blue", "Cyan", "Blue", "Violet"],
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
-    image: "/images/custom/waffle-color-stack.jpg",
+    image: "/images/products/smt-pl-70.webp",
     alt: "Neatly stacked plain cotton blend bath towels showing flat woven end borders in assorted colors",
     features: [
       "Rich 7-color palette including Violet",
@@ -140,7 +140,7 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "90-plain-color-bath-towel",
     code: "SMT-PL-90",
-    name: "90 Dual-Sided Plush Plain Bath Towel",
+    name: "90 Plain Bath Towel",
     category: "plain-towels",
     categoryLabel: "Plain Towels",
     productType: "Bath Towel",
@@ -155,7 +155,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     colors: ["Red", "Maroon", "Olive Green", "Navy Blue", "Cyan", "Blue", "Violet"],
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
-    image: "/images/custom/custom-towels-palette.jpg",
+    image: "/images/products/smt-pl-90.webp",
     alt: "Vat-dyed plain cotton blend bath towel folded flat showing dual-sided terry loop pile",
     features: [
       "Substantial hand feel and great absorbency",
@@ -181,7 +181,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     colors: ["Red", "Maroon", "Olive Green", "Navy Blue", "Cyan", "Blue", "Violet"],
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
-    image: "/images/custom/textile-swatches-flatlay.jpg",
+    image: "/images/products/smt-pl-16001.webp",
     alt: "High-density plain cotton blend bath towel fabric swatches showing fine weave texture",
     features: [
       "Large 27 × 54 inch wrap-around size",
@@ -208,7 +208,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     colors: ["Red", "Maroon", "Olive Green", "Navy Blue", "Cyan"],
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
-    image: "/images/product-plain.jpg",
+    image: "/images/products/smt-pl-18001.webp",
     alt: "Folded heavyweight extra-large plain cotton blend bath sheet in solid red with thick border",
     features: [
       "Expansive 31 × 62 inch extra-large dimensions",
@@ -220,23 +220,23 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "190-double-color-bath-towel",
     code: "SMT-PL-190",
-    name: "190 Dual-Tone Contrast Plain Bath Sheet",
+    name: "190 Dual-Tone Contrast Plain Bath Towel",
     category: "plain-towels",
     categoryLabel: "Plain Towels",
-    productType: "Bath Sheet",
+    productType: "Bath Towel",
     badge: "DUAL COLOR",
     shortDescription:
-      "Expansive 31 × 62 inch dual-tone bath sheet woven with contrasting cotton blend yarns in a heavy terry pile.",
+      "Expansive 31 × 62 inch dual-tone bath towel woven with contrasting cotton blend yarns in a heavy terry pile.",
     fullDescription:
-      "Woven on handlooms using two contrasting yarn shades interlocked in a heavy terry structure. Generous 31 × 62 inch bath sheet dimensions combine distinctive visual appeal with 80/20 cotton blend durability for commercial linen buyers.",
+      "Woven on handlooms using two contrasting yarn shades interlocked in a heavy terry structure. Generous 31 × 62 inch bath towel dimensions combine distinctive visual appeal with 80/20 cotton blend durability for commercial linen buyers.",
     dimensions: "31 × 62 inch",
     blend: "80% Cotton / 20% Polyester Blend",
     weaveType: "Dual-tone terry weave",
     colors: ["Red", "Maroon", "Olive Green", "Navy Blue", "Cyan"],
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
-    image: "/images/products/bath-towels.jpg",
-    alt: "Dual-tone plain cotton blend bath sheet folded to show contrasting yarn weave and locked edges",
+    image: "/images/products/smt-pl-190.webp",
+    alt: "Dual-tone plain cotton blend bath towel folded to show contrasting yarn weave and locked edges",
     features: [
       "Unique dual-tone woven styling",
       "Extra-large 31 × 62 inch coverage",
@@ -246,12 +246,12 @@ export const PRODUCTS_CATALOG: Product[] = [
   },
 
   // =========================================================================
-  // 2. CHECKED TOWELS (13 Products)
+  // 2. CHECKED TOWELS (16 Products)
   // =========================================================================
   {
-    id: "222-checked-bath-towel",
+    id: "222-white-checked-bath-towel",
     code: "SMT-CK-222",
-    name: "222 Compact Handloom Checked Bath Towel",
+    name: "222 White Checked Bath Towel",
     category: "checked-towels",
     categoryLabel: "Checked Towels",
     productType: "Bath Towel",
@@ -265,7 +265,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     colors: ["Red", "Maroon", "Olive Green", "Navy Blue", "Cyan", "Blue"],
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
-    image: "/images/product-checked.jpg",
+    image: "/images/products/smt-ck-222.webp",
     alt: "Compact handloom checked cotton blend towel in traditional red and white square check pattern",
     features: [
       "Authentic South Indian checked pattern",
@@ -275,9 +275,35 @@ export const PRODUCTS_CATALOG: Product[] = [
     ],
   },
   {
-    id: "888-checked-bath-towel",
+    id: "222-black-checked-bath-towel",
+    code: "SMT-CK-222BK",
+    name: "222 Black Checked Bath Towel",
+    category: "checked-towels",
+    categoryLabel: "Checked Towels",
+    productType: "Bath Towel",
+    shortDescription:
+      "Compact 22 × 44 inch handloom checked bath towel with bold black contrast checks and fast-drying loops.",
+    fullDescription:
+      "Traditional South Indian checked bath towel woven from yarn-dyed 80/20 cotton blend yarn with distinct black accent checks in a compact 22 × 44 inch profile. The fast-drying loop pile is easy to launder and built for high-turnover daily retail and household wholesale.",
+    dimensions: "22 × 44 inch",
+    blend: "80% Cotton / 20% Polyester Blend",
+    weaveType: "Traditional black checked handloom weave",
+    colors: ["Black", "Red", "Maroon", "Olive Green", "Navy Blue"],
+    moq: "10 pieces",
+    dispatchTime: "1 to 2 days",
+    image: "/images/products/smt-ck-222-black.webp",
+    alt: "Compact handloom checked cotton blend bath towel in bold black square check pattern",
+    features: [
+      "Authentic South Indian checked pattern",
+      "Bold black contrast check styling",
+      "Fast drying lightweight construction",
+      "Competitive wholesale pricing per dozen",
+    ],
+  },
+  {
+    id: "888-black-checked-bath-towel",
     code: "SMT-CK-888",
-    name: "888 Classic Checked Terry Bath Towel",
+    name: "888 Black Checked Bath Towel",
     category: "checked-towels",
     categoryLabel: "Checked Towels",
     productType: "Bath Towel",
@@ -292,11 +318,38 @@ export const PRODUCTS_CATALOG: Product[] = [
     colors: ["Red", "Maroon", "Olive Green", "Navy Blue", "Cyan", "Blue"],
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
-    image: "/images/products/madras-check-towels.jpg",
+    image: "/images/products/smt-ck-888.webp",
     alt: "Madras checked cotton blend bath towel with contrast red and blue check weave",
     features: [
       "Consistent high-selling running item",
       "Crisp square check alignment",
+      "Pre-tested against yarn bleeding",
+      "Ready stock for bulk wholesale dispatch",
+    ],
+  },
+  {
+    id: "888-white-checked-bath-towel",
+    code: "SMT-CK-888WH",
+    name: "888 White Checked Bath Towel",
+    category: "checked-towels",
+    categoryLabel: "Checked Towels",
+    productType: "Bath Towel",
+    badge: "POPULAR",
+    shortDescription:
+      "Standard 24 × 48 inch white checked bath towel featuring classic square grid checks, cotton blend terry, and locked selvedges.",
+    fullDescription:
+      "Our top-selling running white checked bath towel, woven with balanced yarn tension across warp and weft for crisp check alignment on an optical white base. Features 80/20 cotton blend looped pile with colorfast yarn and locked selvedges for commercial durability.",
+    dimensions: "24 × 48 inch",
+    blend: "80% Cotton / 20% Polyester Blend",
+    weaveType: "White checked terry weave with selvedges",
+    colors: ["Red", "Maroon", "Olive Green", "Navy Blue", "Cyan", "Blue"],
+    moq: "10 pieces",
+    dispatchTime: "1 to 2 days",
+    image: "/images/products/smt-ck-888-white.webp",
+    alt: "Standard 24 by 48 inch white checked cotton blend bath towel with square check grid",
+    features: [
+      "Consistent high-selling running item",
+      "Crisp square grid check pattern on white base",
       "Pre-tested against yarn bleeding",
       "Ready stock for bulk wholesale dispatch",
     ],
@@ -318,7 +371,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     colors: ["Red", "Maroon", "Olive Green", "Navy Blue"],
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
-    image: "/images/sample-kit/sample-check-weave.png",
+    image: "/images/products/smt-ck-555.webp",
     alt: "Close-up view of four-color yarn-dyed check weave pattern on handloom cotton blend towel",
     features: [
       "Timeless heritage South Indian design",
@@ -330,12 +383,12 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "10001-checked-bath-towel",
     code: "SMT-CK-10001",
-    name: "10001 Fine-Grid Checked Bath Towel",
+    name: "10001 Checked Bath Towel (Design 1)",
     category: "checked-towels",
     categoryLabel: "Checked Towels",
     productType: "Bath Towel",
     shortDescription:
-      "Sharp fine-grid checked bath towel in 24 × 48 inch dimensions with dense looped pile and neat side selvedges.",
+      "Sharp fine-grid checked bath towel in 24 × 48 inch dimensions with dense looped pile and neat side selvedges (Design 1).",
     fullDescription:
       "Crafted with finer yarn counts to deliver sharp geometric check lines and a smooth hand feel. The 80/20 cotton blend terry maintains square shape and high water absorption through repeated laundering.",
     dimensions: "24 × 48 inch",
@@ -344,19 +397,45 @@ export const PRODUCTS_CATALOG: Product[] = [
     colors: ["Red", "Maroon", "Olive Green", "Navy Blue", "Cyan", "Blue"],
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
-    image: "/images/product-checked.jpg",
-    alt: "Fine-grid checked cotton blend bath towel laid flat showing clean geometric checks",
+    image: "/images/products/smt-ck-10001.webp",
+    alt: "10001 fine-grid checked cotton blend bath towel - Design 1",
     features: [
-      "Refined fine-grid check appearance",
+      "Refined fine-grid check appearance (Design 1)",
       "Excellent moisture retention capacity",
       "Tight side selvedges prevent unraveling",
       "Direct mill supply from Tiruppur district",
     ],
   },
   {
+    id: "10001-checked-bath-towel-design-2",
+    code: "SMT-CK-10001-D2",
+    name: "10001 Checked Bath Towel (Design 2)",
+    category: "checked-towels",
+    categoryLabel: "Checked Towels",
+    productType: "Bath Towel",
+    shortDescription:
+      "Alternative geometric checked bath towel in 24 × 48 inch dimensions with soft absorbent cotton blend pile (Design 2).",
+    fullDescription:
+      "Design 2 variation of our popular 10001 handloom checked towel, featuring an alternative crisp check weave pattern with colorfast cotton blend yarn. Durable looped terry built for everyday family and hospitality retail.",
+    dimensions: "24 × 48 inch",
+    blend: "80% Cotton / 20% Polyester Blend",
+    weaveType: "Fine checked terry weave",
+    colors: ["Red", "Maroon", "Olive Green", "Navy Blue", "Cyan", "Blue"],
+    moq: "10 pieces",
+    dispatchTime: "1 to 2 days",
+    image: "/images/products/smt-ck-10001-d2.webp",
+    alt: "10001 fine-grid checked cotton blend bath towel - Design 2",
+    features: [
+      "Distinctive check layout (Design 2)",
+      "High-absorbency looped terry fabric",
+      "Colorfast yarn-dyed checks resist fading",
+      "Direct mill wholesale supply",
+    ],
+  },
+  {
     id: "175-checked-bath-towel",
     code: "SMT-CK-175",
-    name: "175 Reinforced-Border Checked Bath Towel",
+    name: "175 Checked Bath Towel",
     category: "checked-towels",
     categoryLabel: "Checked Towels",
     productType: "Bath Towel",
@@ -370,7 +449,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     colors: ["Red", "Maroon", "Olive Green", "Navy Blue", "Cyan", "Blue"],
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
-    image: "/images/products/madras-check-towels.jpg",
+    image: "/images/products/smt-ck-175.webp",
     alt: "Spacious checked cotton blend bath towel with reinforced end border displayed folded",
     features: [
       "Generous 27 × 54 inch coverage",
@@ -382,7 +461,7 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "15001-checked-bath-towel",
     code: "SMT-CK-15001",
-    name: "15001 Dense-Terry Checked Bath Towel",
+    name: "15001 Dense Checked Bath Towel",
     category: "checked-towels",
     categoryLabel: "Checked Towels",
     productType: "Bath Towel",
@@ -397,7 +476,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     colors: ["Red", "Maroon", "Olive Green", "Navy Blue", "Cyan", "Blue"],
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
-    image: "/images/sample-kit/sample-check-weave.png",
+    image: "/images/products/smt-ck-15001.webp",
     alt: "Dense terry loop weave texture of handloom checked cotton blend towel fabric",
     features: [
       "Substantial 28 × 56 inch bath sheet size",
@@ -409,7 +488,7 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "120-checked-bath-towel",
     code: "SMT-CK-120",
-    name: "120 Medium-Heavy Checked Bath Towel",
+    name: "120 Checked Bath Towel",
     category: "checked-towels",
     categoryLabel: "Checked Towels",
     productType: "Bath Towel",
@@ -423,7 +502,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     colors: ["Red", "Maroon", "Olive Green", "Navy Blue", "Cyan", "Blue"],
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
-    image: "/images/product-checked.jpg",
+    image: "/images/products/smt-ck-120.webp",
     alt: "Medium-heavy checked cotton blend bath towel with square pattern and neat selvedges",
     features: [
       "Balanced 80/20 cotton blend composition",
@@ -435,7 +514,7 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "150-checked-bath-towel",
     code: "SMT-CK-150",
-    name: "150 Lockstitched Checked Bath Towel",
+    name: "150 Checked Bath Towel",
     category: "checked-towels",
     categoryLabel: "Checked Towels",
     productType: "Bath Towel",
@@ -449,7 +528,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     colors: ["Red", "Maroon", "Olive Green", "Navy Blue", "Cyan", "Blue"],
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
-    image: "/images/products/madras-check-towels.jpg",
+    image: "/images/products/smt-ck-150.webp",
     alt: "Folded checked cotton blend towel with double-stitched end hems and vibrant check lines",
     features: [
       "Consistent handloom quality assurance",
@@ -461,12 +540,12 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "12001-checked-bath-towel",
     code: "SMT-CK-12001",
-    name: "12001 Selvedge Checked Bath Towel",
+    name: "12001 Checked Bath Towel",
     category: "checked-towels",
     categoryLabel: "Checked Towels",
     productType: "Bath Towel",
     shortDescription:
-      "Neat-selvedge 26 × 52 inch checked bath towel with durable terry pile and shrink-resistant weave balance.",
+      "26 × 52 inch checked bath towel with durable terry pile and shrink-resistant weave balance.",
     fullDescription:
       "Handloom woven with uniform tension to resist out-of-square shrinkage and edge curling. Features thorough absorbency across a standard 26 × 52 inch drying area with clean side selvedges and color-fast vat-dyed check yarns.",
     dimensions: "26 × 52 inch",
@@ -475,7 +554,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     colors: ["Red", "Maroon", "Olive Green", "Navy Blue", "Cyan", "Blue"],
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
-    image: "/images/sample-kit/sample-check-weave.png",
+    image: "/images/products/smt-ck-12001.webp",
     alt: "Neat checked cotton blend towel sample showing clean side selvedges without loose threads",
     features: [
       "Even selvedges without loose threads",
@@ -487,12 +566,12 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "30x60-nis-checked-bath-towel",
     code: "SMT-CK-3060NIS",
-    name: "3060 NIS Banded Checked Bath Towel",
+    name: "3060 NIS Checked Bath Towel",
     category: "checked-towels",
     categoryLabel: "Checked Towels",
     productType: "Bath Towel",
     shortDescription:
-      "Special NIS checked bath towel with woven horizontal border bands in 26 × 52 inch size and absorbent terry.",
+      "26 × 52 inch checked bath towel with woven horizontal border bands in 26 × 52 inch size and absorbent terry.",
     fullDescription:
       "Combines traditional square grid checks with distinctive horizontal border bands. The 80/20 cotton blend delivers swift water uptake, locked side edges, and sturdy handloom durability for wholesale buyers.",
     dimensions: "26 × 52 inch",
@@ -501,7 +580,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     colors: ["Red", "Maroon", "Olive Green", "Navy Blue", "Cyan", "Blue"],
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
-    image: "/images/product-checked.jpg",
+    image: "/images/products/smt-ck-3060nis.webp",
     alt: "Checked cotton blend bath towel featuring NIS patterned weave and woven border bands",
     features: [
       "Distinctive NIS check weave styling",
@@ -513,22 +592,22 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "18001-checked-bath-towel",
     code: "SMT-CK-18001",
-    name: "18001 Heavyweight Checked Bath Sheet",
+    name: "18001 Checked Bath Towel",
     category: "checked-towels",
     categoryLabel: "Checked Towels",
-    productType: "Bath Sheet",
+    productType: "Bath Towel",
     badge: "EXTRA LARGE",
     shortDescription:
-      "Extra-large 31 × 62 inch checked bath sheet with heavyweight cotton blend pile for full-body wrap.",
+      "Extra-large 31 × 62 inch checked bath towel with heavyweight cotton blend pile for full-body wrap.",
     fullDescription:
-      "The largest checked towel in our collection, offering an expansive 31 × 62 inch bath sheet footprint. Heavyweight 80/20 cotton-polyester terry delivers superior moisture capacity and full wrap comfort for resorts and linen wholesalers.",
+      "The largest checked towel in our collection, offering an expansive 31 × 62 inch bath towel footprint. Heavyweight 80/20 cotton-polyester terry delivers superior moisture capacity and full wrap comfort for resorts and linen wholesalers.",
     dimensions: "31 × 62 inch",
     blend: "80% Cotton / 20% Polyester Blend",
     weaveType: "Heavyweight checked terry weave",
     colors: ["Red", "Maroon", "Olive Green", "Navy Blue", "Cyan", "Blue"],
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
-    image: "/images/products/madras-check-towels.jpg",
+    image: "/images/products/smt-ck-18001.webp",
     alt: "Extra-large handloom checked cotton blend bath sheet folded showing dense check pattern",
     features: [
       "Expansive 31 × 62 inch full-body coverage",
@@ -540,21 +619,21 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "30x60-black-bath-towel",
     code: "SMT-CK-3060BK",
-    name: "3060 Black Accent-Border Checked Towel",
+    name: "30 X 60 Black Checked Bath Towel",
     category: "checked-towels",
     categoryLabel: "Checked Towels",
     productType: "Bath Towel",
     shortDescription:
-      "Checked bath towel with black accent border framing in 25 × 52 inch dimensions and cotton blend terry.",
+      "Checked bath towel with black accent border framing in 26 × 52 inch dimensions and cotton blend terry.",
     fullDescription:
-      "Combines colorful checked body terry with deep black contrast accent borders. Woven from 80/20 cotton blend yarn with double-stitched perimeter hems in a practical 25 × 52 inch bath towel size.",
-    dimensions: "25 × 52 inch",
+      "Combines colorful checked body terry with deep black contrast accent borders. Woven from 80/20 cotton blend yarn with double-stitched perimeter hems in a practical 26 × 52 inch bath towel size.",
+    dimensions: "26 × 52 inch",
     blend: "80% Cotton / 20% Polyester Blend",
     weaveType: "Checked weave with black accent border",
     colors: ["Red", "Maroon", "Olive Green", "Navy Blue", "Cyan", "Blue"],
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
-    image: "/images/sample-kit/sample-check-weave.png",
+    image: "/images/products/smt-ck-3060bk.webp",
     alt: "Handloom checked cotton blend towel featuring contrasting black accent border framing",
     features: [
       "Deep black contrast border styling",
@@ -566,7 +645,7 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "70x140-black-bath-towel",
     code: "SMT-CK-70140BK",
-    name: "70140 Black Selvedge Checked Bath Towel",
+    name: "70 X 140 Black Checked Bath Towel",
     category: "checked-towels",
     categoryLabel: "Checked Towels",
     productType: "Bath Towel",
@@ -581,7 +660,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     colors: ["Red", "Maroon", "Olive Green", "Navy Blue", "Cyan", "Blue"],
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
-    image: "/images/product-checked.jpg",
+    image: "/images/products/smt-ck-70140bk.webp",
     alt: "Wide checked cotton blend bath towel with prominent black selvedge side borders",
     features: [
       "Large 28 × 56 inch generous size",
@@ -597,7 +676,7 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "20x40-white-bath-towel",
     code: "SMT-WH-2040",
-    name: "2040 Bleach-Safe White Utility Towel",
+    name: "20 X 40 White Utility Towel",
     category: "white-towels",
     categoryLabel: "White Towels",
     productType: "Utility Towel",
@@ -611,7 +690,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     colors: ["White"],
     moq: "15 pieces",
     dispatchTime: "1 to 2 days",
-    image: "/images/product-white.jpg",
+    image: "/images/products/smt-wh-2040.webp",
     alt: "Compact bleach-safe optical white cotton blend utility towel neatly folded",
     features: [
       "Bleach-safe optical white finish",
@@ -623,12 +702,12 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "23x24-white-bath-towel",
     code: "SMT-WH-2324",
-    name: "2324 Institutional White Bath Towel",
+    name: "23 X 46 White Bath Towel",
     category: "white-towels",
     categoryLabel: "White Towels",
     productType: "Bath Towel",
     shortDescription:
-      "Practical 22 × 44 inch institutional white bath towel with uniform pile and quick-dry construction.",
+      "22 × 44 inch institutional white bath towel with uniform pile and quick-dry construction.",
     fullDescription:
       "Engineered for lodges, clinics, and budget hospitality supply where rapid drying and frequent laundering are required. The 80/20 cotton blend retains optical brightness and soft absorbency across high-turnover wash cycles.",
     dimensions: "22 × 44 inch",
@@ -637,7 +716,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     colors: ["White"],
     moq: "15 pieces",
     dispatchTime: "1 to 2 days",
-    image: "/images/products/hotel-white-luxury.jpg",
+    image: "/images/products/smt-wh-2346.webp",
     alt: "Folded institutional optical white cotton blend towel with uniform looped pile",
     features: [
       "Clean optical white shade",
@@ -649,7 +728,7 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "25x50-white-bath-towel",
     code: "SMT-WH-2550",
-    name: "2550 Hospitality White Bath Towel",
+    name: "25 X 50 Hospitality White Towel",
     category: "white-towels",
     categoryLabel: "White Towels",
     productType: "Bath Towel",
@@ -663,7 +742,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     colors: ["White"],
     moq: "15 pieces",
     dispatchTime: "1 to 2 days",
-    image: "/images/process/step-04-folded-towels.jpg",
+    image: "/images/products/smt-wh-2550.webp",
     alt: "White cotton blend hotel bath towel folded on a clean surface showing neat edges",
     features: [
       "Hotel & institutional grade construction",
@@ -675,11 +754,10 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "27x54-white-bath-towel",
     code: "SMT-WH-2754",
-    name: "2754 Flatweave-Hem White Bath Towel",
+    name: "27 X 54 White Bath Towel",
     category: "white-towels",
     categoryLabel: "White Towels",
     productType: "Bath Towel",
-    badge: "HOTEL GRADE",
     shortDescription:
       "Mid-large 26 × 52 inch optical white bath towel with plush cotton blend pile and flatweave end hems.",
     fullDescription:
@@ -690,7 +768,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     colors: ["White"],
     moq: "15 pieces",
     dispatchTime: "1 to 2 days",
-    image: "/images/product-white.jpg",
+    image: "/images/products/smt-wh-2754.webp",
     alt: "Optical white cotton blend bath towel showing flatweave hem detailing",
     features: [
       "Bright optical white yarn finish",
@@ -702,7 +780,7 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "2001-white-bath-towel",
     code: "SMT-WH-2001",
-    name: "2001 High-Twist Optical White Bath Towel",
+    name: "2001 White Bath Towel",
     category: "white-towels",
     categoryLabel: "White Towels",
     productType: "Bath Towel",
@@ -716,7 +794,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     colors: ["White"],
     moq: "15 pieces",
     dispatchTime: "1 to 2 days",
-    image: "/images/products/hotel-white-luxury.jpg",
+    image: "/images/products/smt-wh-2001.webp",
     alt: "High-twist optical white cotton blend bath towel folded with crisp white presentation",
     features: [
       "Low-lint yarn construction",
@@ -728,13 +806,12 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "4001-white-bath-towel",
     code: "SMT-WH-4001",
-    name: "4001 Heavyweight Institutional White Towel",
+    name: "4001 White Towel",
     category: "white-towels",
     categoryLabel: "White Towels",
     productType: "Bath Towel",
-    badge: "HEAVYWEIGHT",
     shortDescription:
-      "Heavy institutional white bath towel in 28 × 56 inch dimensions with deep water-absorbing cotton blend loops.",
+      "28 × 56 inch white bath towel with deep water-absorbing cotton blend loops.",
     fullDescription:
       "Heavier institutional towel manufactured for resort suites and premium lodging. Generous 28 × 56 inch footprint with deep loop pile in an 80/20 cotton blend delivers soft absorbency and proven durability over 100+ commercial wash cycles.",
     dimensions: "28 × 56 inch",
@@ -743,7 +820,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     colors: ["White"],
     moq: "15 pieces",
     dispatchTime: "1 to 2 days",
-    image: "/images/process/step-04-folded-towels.jpg",
+    image: "/images/products/smt-wh-4001.webp",
     alt: "Stack of heavyweight institutional white cotton blend bath towels folded neatly",
     features: [
       "Substantial 28 × 56 inch luxury size",
@@ -755,12 +832,12 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "30x60-white-bath-towel",
     code: "SMT-WH-3060",
-    name: "3060 Plush Hospitality White Bath Towel",
+    name: "30 X 60 White Bath Towel",
     category: "white-towels",
     categoryLabel: "White Towels",
     productType: "Bath Towel",
     shortDescription:
-      "Executive 28 × 56 inch white bath towel with plush terry pile and locked perimeter edges.",
+      "28 × 56 inch white bath towel with plush terry pile and locked perimeter edges.",
     fullDescription:
       "Designed for executive hotels and premium bath linen supply. Provides dense fabric weave, rapid water uptake, and high dimensional retention across an expansive 28 × 56 inch drying surface in bleach-safe 80/20 cotton blend yarn.",
     dimensions: "28 × 56 inch",
@@ -769,7 +846,7 @@ export const PRODUCTS_CATALOG: Product[] = [
     colors: ["White"],
     moq: "15 pieces",
     dispatchTime: "1 to 2 days",
-    image: "/images/product-white.jpg",
+    image: "/images/products/smt-wh-3060.webp",
     alt: "Plush hospitality white cotton blend bath towel folded flat showing deep absorbent loops",
     features: [
       "Extra wide wrap-around surface",
@@ -781,22 +858,21 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "34x68-white-bath-towel",
     code: "SMT-WH-3468",
-    name: "3468 Extra-Large Luxury White Bath Sheet",
+    name: "34 X 68 White Bath Sheet",
     category: "white-towels",
     categoryLabel: "White Towels",
     productType: "Bath Sheet",
-    badge: "EXTRA LARGE",
     shortDescription:
-      "Extra-large 31 × 61 inch luxury white bath sheet with heavyweight terry and stout borders for resorts.",
+      "31 × 62 inch luxury white bath sheet with heavyweight terry and stout borders for resorts.",
     fullDescription:
       "Our heaviest white bath linen, tailored for luxury resort suites and wellness spas. Expansive 31 × 61 inch bath sheet size with plush 80/20 cotton blend looped terry for maximum warmth, comfort, and wrap.",
-    dimensions: "31 × 61 inch",
+    dimensions: "31 × 62 inch",
     blend: "80% Cotton / 20% Polyester Blend",
     weaveType: "Super plush white bath sheet terry",
     colors: ["White"],
     moq: "15 pieces",
     dispatchTime: "1 to 2 days",
-    image: "/images/products/hotel-white-luxury.jpg",
+    image: "/images/products/smt-wh-3468.webp",
     alt: "Extra-large luxury white cotton blend bath sheet folded to show deep plush terry pile",
     features: [
       "Expansive 31 × 61 inch luxury bath sheet",
@@ -812,22 +888,21 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "18001-print-kora-bath-towel",
     code: "SMT-KR-18001P",
-    name: "18001 Printed-Border Kora Cotton Bath Towel",
+    name: "18001 Printed Kora Cotton Bath Towel",
     category: "kora-towels",
     categoryLabel: "Kora Towels",
     productType: "Bath Sheet",
-    badge: "PRINTED BORDER",
     shortDescription:
       "Traditional 33 × 66 inch unbleached kora cotton bath towel and bath sheet with decorative printed border.",
     fullDescription:
-      "Handloom woven from natural unbleached kora cotton blend yarn (85% unbleached cotton / 15% polyester) featuring a decorative printed border band. Ample 33 × 66 inch South Indian bath sheet dimensions provide earthy natural tone and high natural absorbency that softens with each wash.",
+      "Handloom woven from natural unbleached kora cotton blend yarn (85% unbleached cotton / 15% polyester) featuring a decorative printed border band. Ample 33 × 66 inch bath sheet dimensions provide earthy natural tone and high natural absorbency that softens with each wash.",
     dimensions: "33 × 66 inch",
     blend: "85% Unbleached Cotton / 15% Polyester",
     weaveType: "Traditional unbleached kora weave with printed border",
     colors: ["Natural Kora"],
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
-    image: "/images/product-printed.jpg",
+    image: "/images/products/smt-kr-18001p.webp",
     alt: "Natural unbleached kora cotton bath towel featuring traditional printed border motif",
     features: [
       "Natural unbleached kora cotton yarn",
@@ -839,22 +914,21 @@ export const PRODUCTS_CATALOG: Product[] = [
   {
     id: "18001-normal-kora-bath-towel",
     code: "SMT-KR-18001N",
-    name: "18001 Traditional Solid Kora Cotton Bath Towel",
+    name: "18001 Kora Cotton Bath Towel",
     category: "kora-towels",
     categoryLabel: "Kora Towels",
     productType: "Bath Sheet",
-    badge: "TRADITIONAL",
     shortDescription:
       "Classic 33 × 66 inch unbleached kora cotton bath towel and bath sheet in pure solid handloom weave.",
     fullDescription:
-      "Pure traditional South Indian handloom kora towel with natural unbleached yarn finish (85% unbleached cotton / 15% polyester) and solid borders. Generous 33 × 66 inch bath sheet size delivers durable skin-friendly absorbency for wholesale buyers.",
+      "Pure traditional handloom kora towel with natural unbleached yarn finish (85% unbleached cotton / 15% polyester) and solid borders. Generous 33 × 66 inch bath sheet size delivers durable skin-friendly absorbency for wholesale buyers.",
     dimensions: "33 × 66 inch",
     blend: "85% Unbleached Cotton / 15% Polyester",
     weaveType: "Pure traditional kora handloom weave",
     colors: ["Natural Kora"],
     moq: "10 pieces",
     dispatchTime: "1 to 2 days",
-    image: "/images/sample-kit/sample-kit-towels.jpg",
+    image: "/images/products/smt-kr-18001n.webp",
     alt: "Traditional solid unbleached kora cotton handloom bath towel with natural earthy yarn finish",
     features: [
       "100% authentic South Indian kora finish",

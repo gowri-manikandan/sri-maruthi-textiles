@@ -35,7 +35,7 @@ const PRODUCTS: ProductItem[] = [
     name: "Plain Towels",
     description:
       "Soft, absorbent solid-dyed and dual-color cotton blend bath towels crafted for everyday durability and high wholesale market turnover.",
-    image: "/images/product-plain.jpg",
+    image: "/images/products/smt-pl-73146.webp",
     alt: "Plain dyed cotton blend bath towels by Sri Maruthi Textiles",
     linkText: "View Details",
     linkHref: "/products?category=plain-towels",
@@ -58,7 +58,7 @@ const PRODUCTS: ProductItem[] = [
     name: "Checked Towels",
     description:
       "Authentic South Indian handloom check patterns and contrast border towels woven with heritage yarn techniques.",
-    image: "/images/product-checked.jpg",
+    image: "/images/products/smt-ck-888.webp",
     alt: "Authentic handloom checked cotton bath towels by Sri Maruthi Textiles",
     linkText: "View Details",
     linkHref: "/products?category=checked-towels",
@@ -81,7 +81,7 @@ const PRODUCTS: ProductItem[] = [
     name: "White Towels",
     description:
       "Bleach-safe optical white bath towels built for hotels, lodges, hospitals, salons, and institutional linen supplies.",
-    image: "/images/product-white.jpg",
+    image: "/images/products/smt-wh-2754.webp",
     alt: "Optical white institutional bath towels by Sri Maruthi Textiles",
     linkText: "View Details",
     linkHref: "/products?category=white-towels",
@@ -101,7 +101,7 @@ const PRODUCTS: ProductItem[] = [
     badge: "TRADITIONAL WEAVE",
     description:
       "Traditional unbleached kora cotton bath towels with decorative print and solid borders in generous 33 × 66 inch dimensions.",
-    image: "/images/product-printed.jpg",
+    image: "/images/products/smt-kr-18001p.webp",
     alt: "Traditional unbleached kora bath towels by Sri Maruthi Textiles",
     linkText: "View Details",
     linkHref: "/products?category=kora-towels",
@@ -245,7 +245,7 @@ export default function ProductRange() {
                 {/* 1. Large Product Photograph: rounded-lg with subtle border */}
                 <Link
                   href={product.linkHref}
-                  className="relative w-full aspect-[4/3] overflow-hidden rounded-lg border border-[rgba(41,37,31,0.12)] bg-[#DDD3C2] block shadow-2xs"
+                  className="relative w-full aspect-[4/3] overflow-hidden rounded-lg border border-[rgba(41,37,31,0.12)] bg-white block shadow-2xs p-1.5"
                   aria-label={`View details for ${product.name}`}
                 >
                   <Image
@@ -253,8 +253,8 @@ export default function ProductRange() {
                     alt={product.alt}
                     fill
                     sizes="(min-width: 1280px) 330px, (min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-                    quality={82}
-                    className={`object-cover transition-all ease-out motion-reduce:transition-none motion-reduce:scale-100 motion-reduce:opacity-100 ${
+                    quality={88}
+                    className={`object-contain transition-all ease-out motion-reduce:transition-none motion-reduce:scale-100 motion-reduce:opacity-100 ${
                       isSectionVisible
                         ? "opacity-100 scale-100 duration-[800ms] group-hover:scale-[1.035] group-hover:duration-700"
                         : "opacity-70 scale-[1.03] duration-[800ms]"

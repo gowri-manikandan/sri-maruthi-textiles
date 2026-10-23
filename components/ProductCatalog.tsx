@@ -427,7 +427,7 @@ export default function ProductCatalog() {
                       setSpecProduct(product);
                     }
                   }}
-                  className="relative aspect-[4/3] w-full overflow-hidden bg-[#E8DFCF] border-b border-[#E8DFCF] cursor-pointer"
+                  className="relative aspect-[4/3] w-full overflow-hidden bg-white border-b border-[#E8DFCF] cursor-pointer p-1.5 sm:p-2"
                   aria-label={`View full details for ${product.name}`}
                 >
                   <Image
@@ -435,8 +435,8 @@ export default function ProductCatalog() {
                     alt={product.alt}
                     fill
                     sizes="(min-width: 1536px) 33vw, (min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                    quality={85}
-                    className="object-cover transition-transform duration-300 ease-out group-hover:scale-[1.02] motion-reduce:group-hover:scale-100"
+                    quality={88}
+                    className="object-contain p-1 transition-transform duration-300 ease-out group-hover:scale-[1.03] motion-reduce:group-hover:scale-100"
                   />
 
                   {/* Top Badge (Only displayed when supported by product data) */}
@@ -635,12 +635,12 @@ export default function ProductCatalog() {
             <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-start">
               {/* Product Image & Badge */}
               <div className="md:col-span-5 flex flex-col gap-3">
-                <div className="relative aspect-[4/3] md:aspect-square w-full rounded-md overflow-hidden bg-[#E8DFCF] border border-[#E8DFCF]">
+                <div className="relative aspect-[4/3] md:aspect-square w-full rounded-md overflow-hidden bg-white border border-[#E8DFCF] p-2">
                   <Image
                     src={specProduct.image}
                     alt={specProduct.alt || specProduct.name}
                     fill
-                    className="object-cover"
+                    className="object-contain"
                     sizes="(min-width: 768px) 350px, 100vw"
                   />
                   {specProduct.badge && (
@@ -954,12 +954,12 @@ function ProductEnquiryModal({
 
             {/* Selected Product Summary Box */}
             <div className="mt-3.5 p-3 rounded-md bg-[#FAF7F2] border border-[#E8DFCF] flex items-center gap-3">
-              <div className="relative size-12 rounded overflow-hidden shrink-0 border border-[#E8DFCF]">
+              <div className="relative size-12 rounded overflow-hidden shrink-0 border border-[#E8DFCF] bg-white p-0.5">
                 <Image
                   src={product.image}
                   alt={product.name}
                   fill
-                  className="object-cover"
+                  className="object-contain"
                 />
               </div>
               <div className="flex-1 min-w-0">
