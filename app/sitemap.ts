@@ -8,6 +8,7 @@ import { SITE_URL } from "@/lib/site";
 const LAST_MODIFIED_HOMEPAGE = new Date("2026-10-13");
 const LAST_MODIFIED_PRODUCTS = new Date("2026-10-13");
 const LAST_MODIFIED_WHOLESALE = new Date("2026-10-26");
+const LAST_MODIFIED_CHECKED_TOWELS = new Date("2026-10-26");
 
 /**
  * DESIGN_BRIEF.md §6. Served at /sitemap.xml by Next convention.
@@ -16,6 +17,7 @@ const LAST_MODIFIED_WHOLESALE = new Date("2026-10-26");
  * 1. Homepage ("/")
  * 2. Products catalogue ("/products")
  * 3. Wholesale landing page ("/wholesale-cotton-towels")
+ * 4. Checked towels landing page ("/checked-cotton-towels")
  *
  * In-page anchors (e.g. #contact, #faq) are not listed because fragments
  * are not separate URLs and search engines ignore them in a sitemap.
@@ -37,6 +39,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${SITE_URL}/wholesale-cotton-towels`,
       lastModified: LAST_MODIFIED_WHOLESALE,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/checked-cotton-towels`,
+      lastModified: LAST_MODIFIED_CHECKED_TOWELS,
       changeFrequency: "weekly",
       priority: 0.9,
     },

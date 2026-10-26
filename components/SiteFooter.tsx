@@ -22,6 +22,7 @@ const EXPLORE_LINKS = [
   { label: "About Us", href: "/#story" },
   { label: "Products & Catalogue", href: "/products" },
   { label: "Wholesale Cotton Towels", href: "/wholesale-cotton-towels" },
+  { label: "Checked Cotton Towels", href: "/checked-cotton-towels" },
   { label: "Our Process", href: "/#how-it-works" },
   { label: "Custom Solutions", href: "/#commitments" },
 ] as const;
