@@ -13,8 +13,25 @@ const PRODUCT_OPTIONS = [
   "Custom Weave / Bulk Consignment",
 ] as const;
 
-export default function EnquiryForm() {
-  const formId = useId();
+interface EnquiryFormProps {
+  heading?: string;
+  subheading?: string;
+  badge?: string;
+  submitLabel?: string;
+  defaultRequirement?: string;
+  idPrefix?: string;
+}
+
+export default function EnquiryForm({
+  heading = "Send an Enquiry",
+  subheading = "Share your requirement details below. Our weaving and production team will review your specifications and respond with commercial pricing and delivery timelines within 24 hours.",
+  badge = "Direct Mill Pricing • Fast Response",
+  submitLabel = "Submit Commercial Enquiry",
+  defaultRequirement = "Plain Towels",
+  idPrefix,
+}: EnquiryFormProps = {}) {
+  const generatedId = useId();
+  const formId = idPrefix ?? generatedId;
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -24,7 +41,7 @@ export default function EnquiryForm() {
     email: "",
     phone: "",
     city: "",
-    requirement: "Plain Towels",
+    requirement: defaultRequirement,
     quantity: "",
     message: "",
   });
@@ -156,17 +173,21 @@ export default function EnquiryForm() {
           <span className="font-sans text-[11px] font-semibold tracking-[0.22em] uppercase text-[#A95738]">
             DIRECT COMMERCIAL ENQUIRY
           </span>
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-[2px] bg-[#40572D]/10 text-[#40572D] text-[11.5px] font-medium tracking-wide">
-            <span className="size-1.5 rounded-full bg-[#40572D] animate-pulse" />
-            Direct Mill Pricing • Fast Response
-          </span>
+          {badge && (
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-[2px] bg-[#40572D]/10 text-[#40572D] text-[11.5px] font-medium tracking-wide">
+              <span className="size-1.5 rounded-full bg-[#40572D] animate-pulse" />
+              {badge}
+            </span>
+          )}
         </div>
         <h3 className="mt-2.5 font-display text-[26px] sm:text-[29px] lg:text-[32px] font-normal text-[#29251F] tracking-[-0.015em] leading-tight">
-          Send an Enquiry
+          {heading}
         </h3>
-        <p className="mt-2 text-[14.5px] sm:text-[15px] leading-[1.6] text-[#29251F]/75">
-          Share your requirement details below. Our weaving and production team will review your specifications and respond with commercial pricing and delivery timelines within 24 hours.
-        </p>
+        {subheading && (
+          <p className="mt-2 text-[14.5px] sm:text-[15px] leading-[1.6] text-[#29251F]/75">
+            {subheading}
+          </p>
+        )}
       </div>
 
       <form onSubmit={handleSubmit} noValidate className="space-y-5">
@@ -431,7 +452,7 @@ export default function EnquiryForm() {
             <span>
               {status === "sending"
                 ? "Submitting Commercial Enquiry…"
-                : "Submit Commercial Enquiry"}
+                : submitLabel}
             </span>
             <span
               aria-hidden="true"
