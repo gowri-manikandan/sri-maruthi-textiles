@@ -115,10 +115,9 @@ export default function Navbar() {
     { label: "Home", href: isHomePage ? "#top" : "/" },
     { label: "About", href: "/about-us", isCurrent: pathname === "/about-us" },
     { label: "Products", href: "/products", isCurrent: pathname === "/products" },
+    { label: "Wholesale", href: "/wholesale-cotton-towels", isCurrent: pathname === "/wholesale-cotton-towels" },
+    { label: "Checked Towels", href: "/checked-cotton-towels", isCurrent: pathname === "/checked-cotton-towels" },
     { label: "Process", href: isHomePage ? "#how-it-works" : "/#how-it-works" },
-    { label: "Reviews", href: isHomePage ? "#reviews" : "/#reviews" },
-    { label: "Custom Orders", href: isHomePage ? "#commitments" : "/#commitments" },
-    { label: "FAQs", href: isHomePage ? "#faq" : "/#faq" },
     { label: "Contact", href: isHomePage ? "#contact" : "/#contact" },
   ];
 

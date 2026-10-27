@@ -94,7 +94,7 @@ const PRODUCT_SUMMARIES = [
     alt: "Genuine handloom checked cotton blend bath towel by Sri Maruthi Textiles",
     desc: "Authentic South Indian checked bath towels across 16 running models (888, 555, 222, 10001, etc.) in sizes 22×44 in to 31×62 in with colorfast checks and locked selvedges.",
     link: "/checked-cotton-towels",
-    linkText: "Explore Checked Towels",
+    linkText: "Explore Checked Cotton Towels",
   },
   {
     title: "Institutional White Towels",
@@ -385,7 +385,7 @@ export default function AboutUsPage() {
                     href="/wholesale-cotton-towels"
                     className="inline-flex items-center gap-1.5 font-semibold text-[#40572D] hover:underline"
                   >
-                    <span>Read our Wholesale Supply Guide</span>
+                    <span>Wholesale Cotton Towels Supply</span>
                     <span aria-hidden="true">→</span>
                   </Link>
                   <span className="text-[#29251F]/30 hidden sm:inline">·</span>
@@ -393,7 +393,7 @@ export default function AboutUsPage() {
                     href="/checked-cotton-towels"
                     className="inline-flex items-center gap-1.5 font-semibold text-[#40572D] hover:underline"
                   >
-                    <span>Explore Checked Towels</span>
+                    <span>Checked Cotton Towels Collection</span>
                     <span aria-hidden="true">→</span>
                   </Link>
                   <span className="text-[#29251F]/30 hidden sm:inline">·</span>
@@ -401,7 +401,7 @@ export default function AboutUsPage() {
                     href="/products"
                     className="font-medium text-[#29251F]/75 hover:text-[#29251F]"
                   >
-                    Full Catalogue
+                    Products Catalogue
                   </Link>
                 </div>
               </div>
@@ -912,26 +912,28 @@ export default function AboutUsPage() {
                 href="/products"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded bg-[#40572D] hover:bg-[#344724] text-[#F5F1E8] text-[14px] font-semibold transition-colors shadow-xs"
               >
-                <span>Full Catalogue</span>
+                <span>Products Catalogue</span>
                 <span aria-hidden="true">→</span>
               </Link>
               <Link
                 href="/wholesale-cotton-towels"
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded border border-[#29251F]/30 hover:border-[#29251F] text-[#29251F] text-[14px] font-medium transition-colors"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded border border-[#40572D]/40 text-[#40572D] hover:bg-[#40572D]/10 text-[14px] font-medium transition-colors"
               >
-                <span>Wholesale Hub</span>
+                <span>Wholesale Cotton Towels</span>
+                <span aria-hidden="true">→</span>
               </Link>
               <Link
                 href="/checked-cotton-towels"
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded border border-[#29251F]/30 hover:border-[#29251F] text-[#29251F] text-[14px] font-medium transition-colors"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded border border-[#40572D]/40 text-[#40572D] hover:bg-[#40572D]/10 text-[14px] font-medium transition-colors"
               >
-                <span>Checked Towels</span>
+                <span>Checked Cotton Towels</span>
+                <span aria-hidden="true">→</span>
               </Link>
               <a
                 href="#about-hero-title"
                 className="inline-flex items-center px-4 py-2.5 rounded border border-[#29251F]/30 hover:border-[#29251F] text-[#29251F] text-[14px] font-medium transition-colors"
               >
-                Top ↑
+                Back to Top ↑
               </a>
             </div>
           </div>

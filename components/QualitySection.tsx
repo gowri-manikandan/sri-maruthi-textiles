@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useScrollReveal } from "@/lib/useScrollReveal";
 import { Globe, Leaf, ShieldCheck } from "lucide-react";
 
@@ -137,26 +138,39 @@ export default function QualitySection() {
               businesses across Kerala, Tamil Nadu and nationwide.
             </p>
 
-            {/* Understated Editorial Learn More Link */}
+            {/* Contextual Links with Natural, Descriptive Anchor Text */}
             <div
-              className={`mt-6 sm:mt-8 transition-all duration-[500ms] delay-[300ms] ease-out motion-reduce:transition-none motion-reduce:opacity-100 motion-reduce:transform-none ${
+              className={`mt-6 sm:mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-5 text-[14.5px] sm:text-[15px] transition-all duration-[500ms] delay-[300ms] ease-out motion-reduce:transition-none motion-reduce:opacity-100 motion-reduce:transform-none ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-4"
               }`}
             >
-              <a
-                href="#story"
-                className="group inline-flex items-center gap-2 text-[14.5px] sm:text-[15px] font-medium tracking-wide text-[#40572D] hover:text-[#26351C] transition-colors duration-250 link-underline"
+              <Link
+                href="/about-us"
+                className="group inline-flex items-center gap-2 font-medium tracking-wide text-[#40572D] hover:text-[#26351C] transition-colors duration-250 link-underline"
               >
-                <span>Learn More</span>
+                <span>About Our Mill</span>
                 <span
                   aria-hidden="true"
                   className="inline-block transition-transform duration-250 group-hover:translate-x-1.5"
                 >
                   →
                 </span>
-              </a>
+              </Link>
+              <span className="hidden sm:inline text-[#29251F]/30" aria-hidden="true">·</span>
+              <Link
+                href="/wholesale-cotton-towels"
+                className="group inline-flex items-center gap-2 font-medium tracking-wide text-[#40572D] hover:text-[#26351C] transition-colors duration-250 link-underline"
+              >
+                <span>Wholesale Cotton Towels</span>
+                <span
+                  aria-hidden="true"
+                  className="inline-block transition-transform duration-250 group-hover:translate-x-1.5"
+                >
+                  →
+                </span>
+              </Link>
             </div>
           </div>
 

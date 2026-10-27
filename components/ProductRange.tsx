@@ -60,8 +60,8 @@ const PRODUCTS: ProductItem[] = [
       "Authentic South Indian handloom check patterns and contrast border towels woven with heritage yarn techniques.",
     image: "/images/products/smt-ck-888.webp",
     alt: "Authentic handloom checked cotton bath towels by Sri Maruthi Textiles",
-    linkText: "View Details",
-    linkHref: "/products?category=checked-towels",
+    linkText: "Explore Checked Cotton Towels",
+    linkHref: "/checked-cotton-towels",
     specs: {
       dimensions: "22 x 44 to 31 x 62 in",
       yarnBlend: "80% Cotton\n20% Polyester",
@@ -383,21 +383,23 @@ export default function ProductRange() {
                 href="/products"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-[#40572D] hover:bg-[#344724] text-[#F5F1E8] text-[14px] font-medium transition-colors shadow-xs"
               >
-                <span>View Complete Catalogue</span>
+                <span>Products Catalogue</span>
                 <span aria-hidden="true">→</span>
               </Link>
-              <a
-                href="#commitments"
-                className="group inline-flex items-center gap-1.5 px-4 py-2.5 rounded-md border border-[#40572D]/35 text-[#40572D] hover:bg-[#40572D]/10 text-[14px] font-medium transition-colors"
+              <Link
+                href="/wholesale-cotton-towels"
+                className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-md border border-[#40572D]/40 text-[#40572D] hover:bg-[#40572D]/10 text-[14px] font-medium transition-colors"
               >
-                <span>Discuss Your Requirements</span>
-                <span
-                  aria-hidden="true"
-                  className="inline-block transition-transform duration-250 ease-out group-hover:translate-x-1"
-                >
-                  →
-                </span>
-              </a>
+                <span>Wholesale Cotton Towels</span>
+                <span aria-hidden="true">→</span>
+              </Link>
+              <Link
+                href="/checked-cotton-towels"
+                className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-md border border-[#40572D]/40 text-[#40572D] hover:bg-[#40572D]/10 text-[14px] font-medium transition-colors"
+              >
+                <span>Checked Cotton Towels</span>
+                <span aria-hidden="true">→</span>
+              </Link>
             </div>
           </div>
         </div>

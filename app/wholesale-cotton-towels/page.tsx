@@ -67,6 +67,7 @@ const WHOLESALE_CATEGORIES = [
     dispatch: "1 to 2 days",
     bestFor: "General trade wholesalers, retail stores, budget hospitality",
     link: "/products#plain-towels",
+    linkText: "View Plain Towels in Catalogue",
   },
   {
     id: "checked-towels",
@@ -81,7 +82,8 @@ const WHOLESALE_CATEGORIES = [
     moq: "10 pieces",
     dispatch: "1 to 2 days",
     bestFor: "Wholesale textile merchants, retail showrooms, regional distributors",
-    link: "/products#checked-towels",
+    link: "/checked-cotton-towels",
+    linkText: "Explore Checked Cotton Towels",
   },
   {
     id: "white-towels",
@@ -97,6 +99,7 @@ const WHOLESALE_CATEGORIES = [
     dispatch: "1 to 2 days",
     bestFor: "Hotels, resorts, hospitals, salons, wellness spas, corporate guest houses",
     link: "/products#white-towels",
+    linkText: "View White Towels in Catalogue",
   },
   {
     id: "kora-towels",
@@ -112,6 +115,7 @@ const WHOLESALE_CATEGORIES = [
     dispatch: "1 to 2 days",
     bestFor: "Traditional textile retailers, Kerala & Tamil Nadu regional trade, ayurvedic centers",
     link: "/products#kora-towels",
+    linkText: "View Kora Towels in Catalogue",
   },
 ];
 
@@ -418,6 +422,31 @@ export default function WholesaleLandingPage() {
                 </a>
               </div>
 
+              {/* Crawlable Quick Links to Related Pages */}
+              <div className="mt-5 flex flex-wrap items-center gap-x-3.5 gap-y-1.5 text-[13px] text-[#E8DFCF]/85">
+                <span className="text-[#E8DFCF]/50 font-medium">Explore Collections:</span>
+                <Link
+                  href="/checked-cotton-towels"
+                  className="hover:text-[#F5F1E8] underline underline-offset-4 decoration-[#E8DFCF]/40 hover:decoration-[#F5F1E8] transition-colors"
+                >
+                  Checked Cotton Towels
+                </Link>
+                <span className="text-[#E8DFCF]/30" aria-hidden="true">·</span>
+                <Link
+                  href="/products"
+                  className="hover:text-[#F5F1E8] underline underline-offset-4 decoration-[#E8DFCF]/40 hover:decoration-[#F5F1E8] transition-colors"
+                >
+                  Products Catalogue
+                </Link>
+                <span className="text-[#E8DFCF]/30" aria-hidden="true">·</span>
+                <Link
+                  href="/about-us"
+                  className="hover:text-[#F5F1E8] underline underline-offset-4 decoration-[#E8DFCF]/40 hover:decoration-[#F5F1E8] transition-colors"
+                >
+                  About Us &amp; Mill Heritage
+                </Link>
+              </div>
+
               {/* Verified Capabilities Ribbon */}
               <div className="mt-10 pt-6 border-t border-[rgba(245,241,232,0.15)] grid grid-cols-2 sm:grid-cols-4 gap-4 text-[#E8DFCF]/90 text-[13.5px]">
                 <div className="flex items-center gap-2">
@@ -498,22 +527,22 @@ export default function WholesaleLandingPage() {
                   </div>
                 </div>
 
-                <div className="mt-6 flex flex-wrap items-center gap-4">
-                  <a
-                    href="#wholesale-pricing"
-                    className="inline-flex items-center gap-2 text-[14.5px] font-semibold text-[#40572D] hover:text-[#26351C] transition-colors"
+                <div className="mt-6 flex flex-wrap items-center gap-4 text-[14.5px]">
+                  <Link
+                    href="/about-us"
+                    className="inline-flex items-center gap-2 font-semibold text-[#40572D] hover:text-[#26351C] transition-colors"
                   >
-                    <span>Request our wholesale rate card</span>
+                    <span>About our mill &amp; handloom manufacturing</span>
                     <span aria-hidden="true">→</span>
-                  </a>
+                  </Link>
                   <span className="text-[#29251F]/30 hidden sm:inline">·</span>
-                  <a
-                    href={telHref(contact.phone.e164)}
-                    className="inline-flex items-center gap-1.5 text-[14px] font-medium text-[#29251F]/75 hover:text-[#29251F]"
+                  <Link
+                    href="/checked-cotton-towels"
+                    className="inline-flex items-center gap-2 font-semibold text-[#40572D] hover:text-[#26351C] transition-colors"
                   >
-                    <Phone className="size-3.5 text-[#40572D]" />
-                    <span>Call mill directly: {contact.phone.display}</span>
-                  </a>
+                    <span>Explore Checked Cotton Towels</span>
+                    <span aria-hidden="true">→</span>
+                  </Link>
                 </div>
               </div>
 
@@ -642,7 +671,7 @@ export default function WholesaleLandingPage() {
                       href={cat.link}
                       className="w-full inline-flex items-center justify-center gap-1.5 py-2.5 px-3 rounded bg-[#ECEFE4] hover:bg-[#40572D] text-[#40572D] hover:text-[#F5F1E8] text-[13px] font-semibold transition-colors"
                     >
-                      <span>View in Catalogue</span>
+                      <span>{cat.linkText}</span>
                       <ChevronRight className="size-3.5" />
                     </Link>
                   </div>
@@ -1117,12 +1146,26 @@ export default function WholesaleLandingPage() {
               </p>
             </div>
 
-            <div className="flex items-center gap-3 shrink-0">
+            <div className="flex flex-wrap items-center gap-3 shrink-0">
               <Link
                 href="/products"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded bg-[#40572D] hover:bg-[#344724] text-[#F5F1E8] text-[14px] font-semibold transition-colors shadow-xs"
               >
                 <span>Browse Products Page</span>
+                <span aria-hidden="true">→</span>
+              </Link>
+              <Link
+                href="/checked-cotton-towels"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded border border-[#40572D]/40 text-[#40572D] hover:bg-[#40572D]/10 text-[14px] font-medium transition-colors"
+              >
+                <span>Checked Cotton Towels</span>
+                <span aria-hidden="true">→</span>
+              </Link>
+              <Link
+                href="/about-us"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded border border-[#29251F]/30 hover:border-[#29251F] text-[#29251F] text-[14px] font-medium transition-colors"
+              >
+                <span>About Us &amp; Mill Heritage</span>
                 <span aria-hidden="true">→</span>
               </Link>
               <a

@@ -324,8 +324,33 @@ export default function CheckedCottonTowelsPage() {
                   href="/wholesale-cotton-towels"
                   className="inline-flex items-center gap-1.5 px-4 py-3.5 rounded-md bg-white/10 hover:bg-white/15 text-[#F5F1E8] text-[14px] font-medium transition-colors"
                 >
-                  <span>Wholesale Overview</span>
+                  <span>Wholesale Cotton Towels</span>
                   <ChevronRight className="size-4" />
+                </Link>
+              </div>
+
+              {/* Crawlable Quick Links to Related Pages */}
+              <div className="mt-5 flex flex-wrap items-center gap-x-3.5 gap-y-1.5 text-[13px] text-[#E8DFCF]/85">
+                <span className="text-[#E8DFCF]/50 font-medium">Explore Collections:</span>
+                <Link
+                  href="/wholesale-cotton-towels"
+                  className="hover:text-[#F5F1E8] underline underline-offset-4 decoration-[#E8DFCF]/40 hover:decoration-[#F5F1E8] transition-colors"
+                >
+                  Wholesale Cotton Towels
+                </Link>
+                <span className="text-[#E8DFCF]/30" aria-hidden="true">·</span>
+                <Link
+                  href="/products"
+                  className="hover:text-[#F5F1E8] underline underline-offset-4 decoration-[#E8DFCF]/40 hover:decoration-[#F5F1E8] transition-colors"
+                >
+                  Products Catalogue
+                </Link>
+                <span className="text-[#E8DFCF]/30" aria-hidden="true">·</span>
+                <Link
+                  href="/about-us"
+                  className="hover:text-[#F5F1E8] underline underline-offset-4 decoration-[#E8DFCF]/40 hover:decoration-[#F5F1E8] transition-colors"
+                >
+                  About Us &amp; Mill Heritage
                 </Link>
               </div>
 
@@ -420,7 +445,14 @@ export default function CheckedCottonTowelsPage() {
                     href="/wholesale-cotton-towels"
                     className="font-medium text-[#29251F]/75 hover:text-[#29251F]"
                   >
-                    Explore our wholesale manufacturing process
+                    Wholesale Cotton Towels manufacturing
+                  </Link>
+                  <span className="text-[#29251F]/30 hidden sm:inline">·</span>
+                  <Link
+                    href="/about-us"
+                    className="font-medium text-[#29251F]/75 hover:text-[#29251F]"
+                  >
+                    About Sri Maruthi Textiles
                   </Link>
                 </div>
               </div>
@@ -881,14 +913,22 @@ export default function CheckedCottonTowelsPage() {
                 href="/products"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded bg-[#40572D] hover:bg-[#344724] text-[#F5F1E8] text-[14px] font-semibold transition-colors shadow-xs"
               >
-                <span>Full Catalogue</span>
+                <span>Products Catalogue</span>
                 <span aria-hidden="true">→</span>
               </Link>
               <Link
                 href="/wholesale-cotton-towels"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded border border-[#40572D]/40 text-[#40572D] hover:bg-[#40572D]/10 text-[14px] font-medium transition-colors"
+              >
+                <span>Wholesale Cotton Towels</span>
+                <span aria-hidden="true">→</span>
+              </Link>
+              <Link
+                href="/about-us"
                 className="inline-flex items-center gap-2 px-4 py-2.5 rounded border border-[#29251F]/30 hover:border-[#29251F] text-[#29251F] text-[14px] font-medium transition-colors"
               >
-                <span>Wholesale Hub</span>
+                <span>About Us</span>
+                <span aria-hidden="true">→</span>
               </Link>
               <a
                 href="#hero-heading"

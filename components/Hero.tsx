@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ENQUIRY_HREF, images } from "@/lib/site";
 
 /**
@@ -80,12 +81,37 @@ export default function Hero() {
                 →
               </span>
             </a>
-            <a
-              href="#products"
+            <Link
+              href="/products"
               className="inline-flex items-center justify-center h-[48px] sm:h-[50px] px-6 min-w-[145px] rounded-md border border-[#F5F1E8]/50 hover:border-[#F5F1E8] hover:bg-[#F5F1E8]/15 text-[#F5F1E8] text-[15px] font-medium tracking-wide transition-all duration-300"
             >
-              View Products
-            </a>
+              Explore Towel Products
+            </Link>
+          </div>
+
+          {/* Crawlable Quick Links to Core Pages */}
+          <div className="mt-5 flex flex-wrap items-center gap-x-3.5 gap-y-1.5 text-[13px] text-[#E8DFCF]/85">
+            <span className="text-[#E8DFCF]/50 font-medium">Explore Pages:</span>
+            <Link
+              href="/wholesale-cotton-towels"
+              className="hover:text-[#F5F1E8] underline underline-offset-4 decoration-[#E8DFCF]/40 hover:decoration-[#F5F1E8] transition-colors"
+            >
+              Wholesale Cotton Towels
+            </Link>
+            <span className="text-[#E8DFCF]/30" aria-hidden="true">·</span>
+            <Link
+              href="/checked-cotton-towels"
+              className="hover:text-[#F5F1E8] underline underline-offset-4 decoration-[#E8DFCF]/40 hover:decoration-[#F5F1E8] transition-colors"
+            >
+              Checked Cotton Towels
+            </Link>
+            <span className="text-[#E8DFCF]/30" aria-hidden="true">·</span>
+            <Link
+              href="/about-us"
+              className="hover:text-[#F5F1E8] underline underline-offset-4 decoration-[#E8DFCF]/40 hover:decoration-[#F5F1E8] transition-colors"
+            >
+              About Us
+            </Link>
           </div>
         </div>
 

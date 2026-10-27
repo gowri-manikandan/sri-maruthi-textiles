@@ -20,7 +20,7 @@ import { contact, logo, site, telHref, whatsappHref } from "@/lib/site";
 const EXPLORE_LINKS = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about-us" },
-  { label: "Products & Catalogue", href: "/products" },
+  { label: "Products Catalogue", href: "/products" },
   { label: "Wholesale Cotton Towels", href: "/wholesale-cotton-towels" },
   { label: "Checked Cotton Towels", href: "/checked-cotton-towels" },
   { label: "Our Process", href: "/#how-it-works" },

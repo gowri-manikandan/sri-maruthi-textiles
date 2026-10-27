@@ -170,9 +170,78 @@ export default function ProductsPage() {
                   ⚡ Dispatched from Tiruppur
                 </span>
               </div>
+
+              {/* Crawlable Quick Links to Specialized Pages */}
+              <div className="mt-5 flex flex-wrap items-center gap-x-3.5 gap-y-1.5 text-[13px] text-[#E8DFCF]/85">
+                <span className="text-[#E8DFCF]/50 font-medium">Explore Specialized Pages:</span>
+                <Link
+                  href="/checked-cotton-towels"
+                  className="hover:text-[#F5F1E8] underline underline-offset-4 decoration-[#E8DFCF]/40 hover:decoration-[#F5F1E8] transition-colors"
+                >
+                  Checked Cotton Towels
+                </Link>
+                <span className="text-[#E8DFCF]/30" aria-hidden="true">·</span>
+                <Link
+                  href="/wholesale-cotton-towels"
+                  className="hover:text-[#F5F1E8] underline underline-offset-4 decoration-[#E8DFCF]/40 hover:decoration-[#F5F1E8] transition-colors"
+                >
+                  Wholesale Cotton Towels
+                </Link>
+                <span className="text-[#E8DFCF]/30" aria-hidden="true">·</span>
+                <Link
+                  href="/about-us"
+                  className="hover:text-[#F5F1E8] underline underline-offset-4 decoration-[#E8DFCF]/40 hover:decoration-[#F5F1E8] transition-colors"
+                >
+                  About Us &amp; Mill Heritage
+                </Link>
+              </div>
             </div>
           </div>
         </div>
+
+        {/* =========================================================================
+            SPECIALIZED CATEGORY HUBS & WHOLESALE LANDING PAGES
+            ========================================================================= */}
+        <nav
+          aria-label="Category hubs and wholesale pages"
+          className="bg-[#ECEFE4] border-b border-[#E8DFCF] py-4"
+        >
+          <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row md:items-center justify-between gap-3">
+            <div className="flex items-center gap-2 text-[13px] text-[#29251F]/80">
+              <span className="font-semibold text-[#40572D] uppercase tracking-wider text-[11.5px]">
+                Specialized Wholesale Hubs:
+              </span>
+              <span className="hidden sm:inline text-[#29251F]/40">•</span>
+              <span className="hidden sm:inline">
+                Detailed buyer guides, specifications, and low MOQ trial packs
+              </span>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 text-[13.5px]">
+              <Link
+                href="/checked-cotton-towels"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded bg-[#FBF9F6] border border-[#40572D]/30 hover:border-[#40572D] hover:bg-[#F5F1E8] text-[#26351C] font-semibold transition-colors shadow-2xs"
+              >
+                <span>Checked Cotton Towels</span>
+                <span aria-hidden="true" className="text-[#40572D]">→</span>
+              </Link>
+              <Link
+                href="/wholesale-cotton-towels"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded bg-[#FBF9F6] border border-[#40572D]/30 hover:border-[#40572D] hover:bg-[#F5F1E8] text-[#26351C] font-semibold transition-colors shadow-2xs"
+              >
+                <span>Wholesale Cotton Towels</span>
+                <span aria-hidden="true" className="text-[#40572D]">→</span>
+              </Link>
+              <Link
+                href="/about-us"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded bg-[#FBF9F6] border border-[#29251F]/20 hover:border-[#29251F] hover:bg-[#F5F1E8] text-[#29251F] font-medium transition-colors shadow-2xs"
+              >
+                <span>About Us</span>
+                <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </div>
+        </nav>
 
         {/* =========================================================================
             CATALOGUE BODY: Interactive Filter, Search & Grid
@@ -215,6 +284,22 @@ export default function ProductsPage() {
                 >
                   <span>Discuss Custom Order</span>
                   <span>→</span>
+                </Link>
+
+                <Link
+                  href="/wholesale-cotton-towels"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-md border border-[#29251F]/30 hover:border-[#29251F] hover:bg-black/5 text-[#29251F] text-[14.5px] font-medium transition-colors"
+                >
+                  <span>Wholesale Cotton Towels</span>
+                  <span aria-hidden="true">→</span>
+                </Link>
+
+                <Link
+                  href="/checked-cotton-towels"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-md border border-[#29251F]/30 hover:border-[#29251F] hover:bg-black/5 text-[#29251F] text-[14.5px] font-medium transition-colors"
+                >
+                  <span>Checked Cotton Towels</span>
+                  <span aria-hidden="true">→</span>
                 </Link>
 
                 <a
