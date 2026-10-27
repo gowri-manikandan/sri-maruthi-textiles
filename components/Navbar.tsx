@@ -113,7 +113,7 @@ export default function Navbar() {
 
   const navItems = [
     { label: "Home", href: isHomePage ? "#top" : "/" },
-    { label: "About", href: isHomePage ? "#story" : "/#story" },
+    { label: "About", href: "/about-us", isCurrent: pathname === "/about-us" },
     { label: "Products", href: "/products", isCurrent: pathname === "/products" },
     { label: "Process", href: isHomePage ? "#how-it-works" : "/#how-it-works" },
     { label: "Reviews", href: isHomePage ? "#reviews" : "/#reviews" },
