@@ -245,18 +245,26 @@ export default function WholesaleLandingPage() {
       { "@type": "State", name: "Tamil Nadu" },
       { "@type": "State", name: "Kerala" },
     ],
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "Wholesale Handloom Cotton Blend Towels",
+  };
+
+  const collectionJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Wholesale Cotton Towels Manufacturer in Tiruppur, India — Sri Maruthi Textiles",
+    description:
+      "Direct handloom towel manufacturer in Tiruppur supplying wholesale plain, checked, white, and kora cotton blend towels to distributors, retailers, and hospitality businesses across India.",
+    url: `${SITE_URL}/wholesale-cotton-towels`,
+    mainEntity: {
+      "@type": "ItemList",
+      name: "Wholesale Handloom Cotton Blend Towel Varieties",
+      numberOfItems: WHOLESALE_CATEGORIES.length,
       itemListElement: WHOLESALE_CATEGORIES.map((cat, idx) => ({
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Product",
-          name: cat.name,
-          description: `${cat.name} handloom woven in Tiruppur. Material: ${cat.blend}. Dimensions: ${cat.dimensions}.`,
-          image: `${SITE_URL}${cat.image}`,
-          url: `${SITE_URL}${cat.link}`,
-        },
+        "@type": "ListItem",
+        position: idx + 1,
+        name: cat.name,
+        description: `${cat.name} handloom woven in Tiruppur. Material: ${cat.blend}. Dimensions: ${cat.dimensions}.`,
+        image: `${SITE_URL}${cat.image}`,
+        url: `${SITE_URL}${cat.link}`,
       })),
     },
   };
@@ -286,6 +294,12 @@ export default function WholesaleLandingPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(localBusinessJsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(collectionJsonLd).replace(/</g, "\\u003c"),
         }}
       />
       <script
